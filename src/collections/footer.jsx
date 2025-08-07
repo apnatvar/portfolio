@@ -1,0 +1,24 @@
+import React from "react";
+import Link from "next/link";
+
+export default function Footer(){
+    return(
+        <footer className="footer">
+            <div className="some-info">
+                <title>This website is also written completely by me!</title>
+                <p>Tools: Next.js, JavaScript, GitHub Actions</p>
+                <p>I am looking for fully remote roles and/or freelancing opportunities.</p>
+                <p>If you are hiring please get in touch with me using the links on the right.</p>
+            </div>
+            <div className="contact-me">
+                <p>Get in touch</p>
+                <ul>
+                    <li><Link href="/">arawat@tcd.ie</Link></li>
+                    <li><Link href="/">+918791414856</Link></li>
+                    <li><Link href="/">Instagram</Link></li>
+                    <li><Link href="/">LinkedIn</Link></li>
+                </ul>
+            </div>
+        </footer>
+    );
+}
