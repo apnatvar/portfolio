@@ -82,21 +82,21 @@ a {
 
 .glass-slab {
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 95vw;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  align-self: center;
 }
 
 /* Spark element */
 .spark {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 1px;
+  height: 1px;
   background: white;
   border-radius: 50%;
   box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.5);

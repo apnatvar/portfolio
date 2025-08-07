@@ -10,7 +10,7 @@ export default function BackgroundVideo() {
             loop
             playsInline
             className="background-video"
-            rate
+            // rate
             >
             <source src="/bg-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
