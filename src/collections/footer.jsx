@@ -5,7 +5,7 @@ export default function Footer(){
     return(
         <footer className="footer">
             <div className="some-info">
-                <title>This website is also written completely by me!</title>
+                <p>This website is also written completely by me!</p>
                 <p>Tools: Next.js, JavaScript, GitHub Actions</p>
                 <p>I am looking for fully remote roles and freelancing opportunities.</p>
                 <p>If you are hiring, get in touch with me using the links on the right.</p>

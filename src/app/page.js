@@ -10,7 +10,6 @@ export default function Home() {
     <main>
       <BackgroundVideo />
       <Hero />
-      <ToolsCarousel />
       <Education />
       <Download />
       <Footer />

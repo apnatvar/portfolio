@@ -115,7 +115,7 @@ a {
 
 .tools-carousel {
   display: flex;
-  gap: 2rem;
+  padding: 1rem;
   overflow: hidden;
   position: relative;
 }
@@ -123,15 +123,19 @@ a {
 .tools-carousel-track {
   display: flex;
   gap: 2rem;
-  animation: scroll-left-right 100s linear infinite;
+  animation: scroll-left-right 30s linear infinite ;
+}
+
+.tools-carousel-track:hover {
+  animation-play-state: paused;
 }
 
 @keyframes scroll-left-right {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 }
 

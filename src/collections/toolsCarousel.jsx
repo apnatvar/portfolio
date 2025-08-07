@@ -52,6 +52,51 @@ export default function ToolsCarousel(){
                     <SiEslint />
                     <SiVercel />
                     <SiPrometheus />
+                    <SiPython />
+                    <SiDocker />
+                    <SiNextdotjs />
+                    <SiReact />
+                    <SiPostgresql />
+                    <SiKubernetes />
+                    <SiHtml5 />
+                    <SiCss3 />
+                    <SiApachekafka />
+                    <SiSqlite />
+                    <SiPostman />
+                    <SiAnaconda />
+                    <SiPandas />
+                    <SiNumpy />
+                    <SiPytorch />
+                    <SiGrafana />
+                    <SiJenkins />
+                    <SiBitbucket />
+                    <SiGithub />
+                    <SiJira />
+                    <SiGo />
+                    <SiJavascript />
+                    <SiApachemaven />
+                    <SiHelm />
+                    <SiNatsdotio />
+                    <SiCplusplus />
+                    <SiTensorflow />
+                    <SiPayloadcms />
+                    <SiLinux />
+                    <SiTypescript />
+                    <SiSpringboot />
+                    <SiSupabase />
+                    <SiArm />
+                    <SiC />
+                    <SiJson />
+                    <SiFreecodecamp />
+                    <SiTableau />
+                    <SiR />
+                    <SiGit />
+                    <SiJupyter />
+                    <SiKeras />
+                    <SiConfluence />
+                    <SiEslint />
+                    <SiVercel />
+                    <SiPrometheus />
                 </div>
             </div>
         </div>
