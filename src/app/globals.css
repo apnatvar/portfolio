@@ -1,6 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;600&family=Space+Grotesk:wght@700&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* PRIMARY COLORS */
+  --color-charcoal-black: #0B0B0F;
+  --color-graphite-grey: #1A1A1E;
+  --color-ash-grey: #D1D1D1;
+
+  /* ACCENT COLORS */
+  --color-soft-silver: #F5F5F5;
+  --color-mist-grey: #AAAAAA;
+  --color-glint-white-25: rgba(255, 255, 255, 0.25);
+  --color-glint-white-50: rgba(255, 255, 255, 0.50);
+  --color-glint-white-80: rgba(255, 255, 255, 0.80);
+
+  /* FONT STACKS */
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Mono', monospace;
+  --font-ui: 'Inter', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,7 +59,79 @@ a {
   }
 }
 
-.bg-video {
+/* styles/globals.css or a module */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* Ensures it's behind everything else */
+  pointer-events: none; /* Allows clicks to pass through */
 }
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.glass-slab {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Spark element */
+.spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.5);
+  animation: moveSpark 116s linear infinite;
+  z-index: 10;
+}
+
+/* Keyframes for clockwise edge movement */
+@keyframes moveSpark {
+  0%   { top: 0;   left: 0;   }
+  25%  { top: 0;   left: 100%; transform: translate(-100%, 0); }
+  50%  { top: 100%; left: 100%; transform: translate(-100%, -100%); }
+  75%  { top: 100%; left: 0;   transform: translate(0, -100%); }
+  100% { top: 0;   left: 0;   }
+}
+
+.tools-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.tools-carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-left-right 100s linear infinite;
+}
+
+@keyframes scroll-left-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+

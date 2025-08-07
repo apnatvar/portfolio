@@ -7,8 +7,8 @@ export default function Footer(){
             <div className="some-info">
                 <title>This website is also written completely by me!</title>
                 <p>Tools: Next.js, JavaScript, GitHub Actions</p>
-                <p>I am looking for fully remote roles and/or freelancing opportunities.</p>
-                <p>If you are hiring please get in touch with me using the links on the right.</p>
+                <p>I am looking for fully remote roles and freelancing opportunities.</p>
+                <p>If you are hiring, get in touch with me using the links on the right.</p>
             </div>
             <div className="contact-me">
                 <p>Get in touch</p>
