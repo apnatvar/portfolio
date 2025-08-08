@@ -184,14 +184,6 @@ a {
   padding: 0;
   color: var(--color-mist-grey);
 }
-.horizontal-list {
-  display: flex;
-  justify-content: space-around;
-}
-.horizontal-list-element {
-  text-align: center;
-  width: 6rem;
-}
 .PDF {
   text-align: center;
 }
@@ -205,11 +197,19 @@ a {
   color: var(--color-soft-silver);
 }
 .bottom-slab {
-  height: 10vh;
+  height: fit-content;
+  max-height: 10vh;
   align-content: center;
-  justify-content: space-around;
+}
+.horizontal-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+.horizontal-list-element {
+  text-align: center;
+  width: 5rem;
 }
 .education {
   height: 80vh;
