@@ -3,7 +3,7 @@ import Education from "@/collections/education";
 import Hero from "@/collections/hero";
 import BackgroundVideo from "@/collections/backgroundVideo";
 import Footer from "@/collections/footer";
-import ToolsCarousel from "@/collections/toolsCarousel";
+import BottomSlab from "@/collections/bottomSlab";
 
 export default function Home() {
   return (
@@ -13,6 +13,7 @@ export default function Home() {
       <Education />
       <Download />
       <Footer />
+      <BottomSlab />
     </main>
   );
 }

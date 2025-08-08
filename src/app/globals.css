@@ -139,3 +139,32 @@ a {
   }
 }
 
+/***********************************************************************************************************/
+
+.hero {
+  text-align: center;
+  align-content: center;
+  justify-self: center;
+  color: var(--color-ash-grey);
+  height: 80vh;
+  scroll-behavior: smooth;
+  margin-top: 1rem;
+}
+
+.tools-text {
+  color: var(--color-mist-grey);
+}
+
+.bottom-slab {
+  justify-self: center;
+}
+
+.horizontal-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.horizontal-list-element {
+  text-align: center;
+  width: 6rem;
+}
