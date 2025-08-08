@@ -153,7 +153,6 @@ a {
   scroll-behavior: smooth;
   margin-top: 1rem;
 }
-
 .hello{
   font-size: 4ch;
   padding-bottom: 2rem;
@@ -163,7 +162,7 @@ a {
   padding-bottom: 0.2rem;
 }
 .short-hook{
-  font-size: 1.5ch;
+  font-size: 1ch;
   padding-bottom: 1rem;
   color: var(--color-mist-grey);
 }
@@ -177,21 +176,30 @@ a {
   padding: 0;
   color: var(--color-mist-grey);
 }
-
 .horizontal-list {
   display: flex;
   justify-content: space-around;
 }
-
 .horizontal-list-element {
   text-align: center;
   width: 6rem;
 }
-
 .PDF {
   text-align: center;
 }
-
 .footer {
   display: flex;
+}
+.download-link {
+  text-decoration: underline;
+}
+.download-link:hover {
+  color: var(--color-soft-silver);
+}
+.bottom-slab {
+  height: 10vh;
+  align-content: center;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
 }

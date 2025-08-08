@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
 
 const WORDS = [
-  'Projects',
-  'Skills',
-  'Hobbies',
+  'Projects   ',
+  'Skills       ',
+  'Hobbies  ',
   'Creativity',
-  'Portfolio',
+  'Portfolio  ',
 ];
 
 export default function GlitchTitle({ interval = 3000 }) {
@@ -18,7 +18,7 @@ export default function GlitchTitle({ interval = 3000 }) {
     playMode: 'manual',
     glitchTimeSpan: {
       start: 0,
-      end: 0.5,
+      end: 1,
     },
   });
 
