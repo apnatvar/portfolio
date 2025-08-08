@@ -46,7 +46,15 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+    /* outline: 2px solid blue;    */
+  }
+::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+    width: 0px;
+    background: transparent; 
+  }
 
 a {
   color: inherit;
@@ -202,4 +210,34 @@ a {
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
+}
+.education {
+  height: 80vh;
+}
+.ed-card {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+.ed-title {
+  font-size: 3ch;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.institute {
+  font-size: 2.1ch;
+  margin-bottom: 0.3rem;
+}
+.grad-date {
+  font-size: 1.1ch;
+  margin-bottom: 0.5rem;
+}
+.degree {
+  font-size: 1.5ch;
+  margin-bottom: 0.5rem;
+}
+.ed-description {
+  font-size: 1.2ch;
+  text-align: justify;
+  margin-bottom: 0.5rem;
 }
