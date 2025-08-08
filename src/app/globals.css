@@ -90,6 +90,10 @@ a {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   align-self: center;
+  justify-self: center;
+  margin: 3rem;
+  color: var(--color-mist-grey);
+  text-align: justify;
 }
 
 /* Spark element */
@@ -144,7 +148,6 @@ a {
 .hero {
   text-align: center;
   align-content: center;
-  justify-self: center;
   color: var(--color-ash-grey);
   height: 80vh;
   scroll-behavior: smooth;
@@ -155,10 +158,6 @@ a {
   color: var(--color-mist-grey);
 }
 
-.bottom-slab {
-  justify-self: center;
-}
-
 .horizontal-list {
   display: flex;
   justify-content: space-around;
@@ -167,4 +166,8 @@ a {
 .horizontal-list-element {
   text-align: center;
   width: 6rem;
+}
+
+.footer {
+  display: flex;
 }

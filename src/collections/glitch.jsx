@@ -30,7 +30,7 @@ export default function GlitchTitle({ interval = 3000 }) {
       // Wait briefly before switching the word
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % WORDS.length);
-      }, 400); // Adjust to match glitch duration
+      }, 300); // Adjust to match glitch duration
     }, interval);
 
     return () => clearInterval(cycle);

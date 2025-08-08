@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer(){
     return(
-        <footer className="footer">
+        <footer className="footer glass-slab">
             <div className="some-info">
                 <p>This website is also written completely by me!</p>
                 <p>Tools: Next.js, JavaScript, GitHub Actions</p>

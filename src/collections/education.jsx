@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Education(){
     return(
-        <section className="education">
+        <section className="education glass-slab">
             <div className="college">
                 <title><Link href="/">Trinity College Dublin</Link></title>
                 <p>Graduated October 2023</p>
