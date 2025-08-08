@@ -186,9 +186,31 @@ a {
 }
 .PDF {
   text-align: center;
+  height: 10vh;
+  align-content: center;
 }
 .footer {
   display: flex;
+  height: 40vh;
+  align-items: center;
+}
+.web-desc{
+  padding-left: 1rem;
+  margin-bottom: 0.2rem;
+}
+.website-info {
+  text-align: justify;
+  padding-left: 1rem;
+  margin-bottom: 0.2rem;
+}
+.contact-me {
+  text-align: center;
+}
+.footer > .left {
+  flex: 0 0 70%;
+}
+.footer > .right {
+  flex: 0 0 30%;
 }
 .download-link {
   text-decoration: underline;

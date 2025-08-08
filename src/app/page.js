@@ -10,10 +10,10 @@ export default function Home() {
     <main>
       <BackgroundVideo />
       <Hero />
+      <BottomSlab />
       <Education />
       <Download />
       <Footer />
-      <BottomSlab />
     </main>
   );
 }
