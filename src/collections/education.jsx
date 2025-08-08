@@ -7,7 +7,7 @@ export default function Education(){
         <section className="education glass-slab" id="education">
             <p className="ed-title">Education</p>
             <div className="ed-card">
-                <p className="institute"><Link href="/">Trinity College Dublin</Link></p>
+                <p className="institute"><Link href="/" target="_blank">Trinity College Dublin</Link></p>
                 <p className="grad-date">Graduated October 2023</p>
                 <p className="degree">Bachelors in Computer Engineering</p>
                 <p className="ed-description">Short description</p>
@@ -15,7 +15,7 @@ export default function Education(){
                 <p className="ed-description">Short description</p>
             </div>
             <div className="ed-card">
-                <p className="institute"><Link href="/">St. George's College</Link></p>
+                <p className="institute"><Link href="/" target="_blank">St. George's College</Link></p>
                 <p className="grad-date">Graduated March 2018</p>
                 <p className="degree">Indian School Ceritificate (ISC)</p>
                 <p className="ed-description">Short Description</p>
