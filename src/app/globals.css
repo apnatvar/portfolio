@@ -102,6 +102,8 @@ a {
   margin: 1.6rem;
   color: var(--color-mist-grey);
   text-align: justify;
+  align-content: center;
+  height: fit-content;
 }
 
 /* Spark element */
@@ -157,9 +159,10 @@ a {
   text-align: center;
   align-content: center;
   color: var(--color-ash-grey);
-  height: 80vh;
   scroll-behavior: smooth;
   margin-top: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .hello {
   font-size: 4ch;
@@ -234,11 +237,14 @@ a {
   width: 5rem;
 }
 .education {
-  height: 80vh;
+  /* height: 80vh; */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .ed-card {
   margin-bottom: 1.5rem;
   padding-left: 2rem;
+  padding-right: 2rem;
 }
 .ed-title {
   font-size: 3ch;
@@ -264,8 +270,24 @@ a {
   margin-bottom: 0.5rem;
 }
 .exp {
-  height: 80vh;
+  /* height: 80vh; */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-.exp-cards {
-  padding-left: 2rem;
+.exp .ed-card {
+  margin-bottom: 2rem;
+}
+.nav-button {
+  position: absolute;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  bottom: -10px;  
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
 }

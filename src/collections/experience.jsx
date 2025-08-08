@@ -4,7 +4,7 @@ import { SlArrowLeft, SlArrowRight, SlBubble } from 'react-icons/sl';
 
 export default function Experience(){
     const cards=[
-        <div className="exp-card" key="0">
+        <div className="ed-card" key="0">
             <p className="institute">Title 1</p>
             <p className="grad-date">Date-Date</p>
             <p className="degree">Company</p>
@@ -15,7 +15,7 @@ export default function Experience(){
             <p className="ed-description">Short ed Description</p>
             <p className="ed-description">Short ed Description</p>
         </div>,
-        <div className="exp-card" key="1">
+        <div className="ed-card" key="1">
             <p className="institute">Title 2</p>
             <p className="grad-date">Date-Date</p>
             <p className="degree">Company</p>
@@ -26,7 +26,7 @@ export default function Experience(){
             <p className="ed-description">Short ed Description</p>
             <p className="ed-description">Short ed Description</p>
         </div>,
-        <div className="exp-card" key="2">
+        <div className="ed-card" key="2">
             <p className="institute">Title 3</p>
             <p className="grad-date">Date-Date</p>
             <p className="degree">Company</p>
@@ -54,10 +54,10 @@ export default function Experience(){
             <div className="exp-cards">
                 {cards[current]}
             </div>
-            <button className="nav-button left" onClick={handlePrev}>
+            <button className="nav-button left glass-slab" onClick={handlePrev}>
             <SlArrowLeft />
             </button>
-            <button className="nav-button right" onClick={handleNext}>
+            <button className="nav-button right glass-slab" onClick={handleNext}>
             <SlArrowRight />
             </button>
         </section>
