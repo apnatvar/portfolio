@@ -154,7 +154,27 @@ a {
   margin-top: 1rem;
 }
 
+.hello{
+  font-size: 4ch;
+  padding-bottom: 2rem;
+}
+.name {
+  font-size: 2ch;
+  padding-bottom: 0.2rem;
+}
+.short-hook{
+  font-size: 1.5ch;
+  padding-bottom: 1rem;
+  color: var(--color-mist-grey);
+}
+.showcase {
+  font-size: 2ch;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
 .tools-text {
+  font-size: 1.2ch;
+  padding: 0;
   color: var(--color-mist-grey);
 }
 
@@ -166,6 +186,10 @@ a {
 .horizontal-list-element {
   text-align: center;
   width: 6rem;
+}
+
+.PDF {
+  text-align: center;
 }
 
 .footer {
