@@ -84,14 +84,14 @@ a {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.4); */
   z-index: 0;
 }
 
 .glass-slab {
   position: relative;
   width: 95vw;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
@@ -99,7 +99,7 @@ a {
   overflow: hidden;
   align-self: center;
   justify-self: center;
-  margin: 3rem;
+  margin: 1.6rem;
   color: var(--color-mist-grey);
   text-align: justify;
 }
