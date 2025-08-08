@@ -94,7 +94,7 @@ a {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   align-self: center;
@@ -135,7 +135,7 @@ a {
 .tools-carousel-track {
   display: flex;
   gap: 2rem;
-  animation: scroll-left-right 30s linear infinite ;
+  animation: scroll-left-right 60s linear infinite ;
 }
 
 .tools-carousel-track:hover {
@@ -161,7 +161,7 @@ a {
   scroll-behavior: smooth;
   margin-top: 1rem;
 }
-.hello{
+.hello {
   font-size: 4ch;
   padding-bottom: 2rem;
 }
@@ -169,7 +169,7 @@ a {
   font-size: 2ch;
   padding-bottom: 0.2rem;
 }
-.short-hook{
+.short-hook {
   font-size: 1ch;
   padding-bottom: 1rem;
   color: var(--color-mist-grey);
@@ -262,4 +262,10 @@ a {
   font-size: 1.2ch;
   text-align: justify;
   margin-bottom: 0.5rem;
+}
+.exp {
+  height: 80vh;
+}
+.exp-cards {
+  padding-left: 2rem;
 }

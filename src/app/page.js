@@ -4,6 +4,7 @@ import Hero from "@/collections/hero";
 import BackgroundVideo from "@/collections/backgroundVideo";
 import Footer from "@/collections/footer";
 import BottomSlab from "@/collections/bottomSlab";
+import Experience from "@/collections/experience";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <BackgroundVideo />
       <Hero />
       <BottomSlab />
+      <Experience />
       <Education />
       <Download />
       <Footer />
