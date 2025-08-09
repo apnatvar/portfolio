@@ -6,34 +6,34 @@ import Link from 'next/link';
 export default function Projects(){
     const cards=[
         <div className="ed-card" key="0">
-            <p className="institute">Title 1</p>
-            <p className="grad-date"><Link href="/" target="_blank">Project Link</Link></p>
-            <p className="grad-date">Tools1, Tools2</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
+            <p className="medium-title">Title 1</p>
+            <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
+            <p className="small-subtitle">Tools1, Tools2</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
         </div>,
         <div className="ed-card" key="1">
-            <p className="institute">Title 2</p>
-            <p className="grad-date"><Link href="/" target="_blank">Project Link</Link></p>
-            <p className="grad-date">Tools1, Tools2</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
+            <p className="medium-title">Title 2</p>
+            <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
+            <p className="small-subtitle">Tools1, Tools2</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
         </div>,
         <div className="ed-card" key="2">
-            <p className="institute">Title 3</p>
-            <p className="grad-date"><Link href="/" target="_blank">Project Link</Link></p>
-            <p className="grad-date">Tools1, Tools2</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
+            <p className="medium-title">Title 3</p>
+            <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
+            <p className="small-subtitle">Tools1, Tools2</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
         </div>    
     ];
 

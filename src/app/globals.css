@@ -114,7 +114,8 @@ a {
   background: white;
   border-radius: 50%;
   box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.5);
-  animation: moveSpark 116s linear infinite;
+  animation: moveSpark 116s linear infinite,
+  flicker 0.8s ease-in-out infinite;
   z-index: 10;
 }
 
@@ -125,6 +126,14 @@ a {
   50%  { top: 100%; left: 100%; transform: translate(-100%, -100%); }
   75%  { top: 100%; left: 0;   transform: translate(0, -100%); }
   100% { top: 0;   left: 0;   }
+}
+
+@keyframes flicker {
+  0%   { opacity: 0.5; transform: scale(0.9); }
+  25%  { opacity: 1; transform: scale(1.1); }
+  50%  { opacity: 0.6; transform: scale(1); }
+  75%  { opacity: 0.9; transform: scale(1.05); }
+  100% { opacity: 0.5; transform: scale(0.9); }
 }
 
 .tools-carousel {
@@ -200,10 +209,6 @@ a {
   justify-self: center;
   justify-content: space-between;
 }
-.web-desc{
-  padding-left: 1rem;
-  margin-bottom: 0.2rem;
-}
 .website-info {
   text-align: justify;
   padding-left: 1rem;
@@ -252,19 +257,19 @@ a {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
-.institute {
+.medium-title {
   font-size: 2.1ch;
   margin-bottom: 0.3rem;
 }
-.grad-date {
+.small-subtitle {
   font-size: 1.1ch;
   margin-bottom: 0.5rem;
 }
-.degree {
+.medium-subtitle {
   font-size: 1.5ch;
   margin-bottom: 0.5rem;
 }
-.ed-description {
+.small-long-text {
   font-size: 1.2ch;
   text-align: justify;
   margin-bottom: 0.5rem;
@@ -300,6 +305,6 @@ a {
 .right {
   right: 0;
 }
-.centre {
+.center {
   text-align: center;
 }

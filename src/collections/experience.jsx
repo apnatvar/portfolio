@@ -5,37 +5,37 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 export default function Experience(){
     const cards=[
         <div className="ed-card" key="0">
-            <p className="institute">Title 1</p>
-            <p className="grad-date">Date-Date</p>
-            <p className="degree">Company</p>
-            <p className="grad-date">Tools1, Tools2</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
+            <p className="medium-title">Title 1</p>
+            <p className="small-subtitle">Date-Date</p>
+            <p className="medium-subtitle">Company</p>
+            <p className="small-subtitle">Tools1, Tools2</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
         </div>,
         <div className="ed-card" key="1">
-            <p className="institute">Title 2</p>
-            <p className="grad-date">Date-Date</p>
-            <p className="degree">Company</p>
-            <p className="grad-date">Tools1, Tools2</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
+            <p className="medium-title">Title 2</p>
+            <p className="small-subtitle">Date-Date</p>
+            <p className="medium-subtitle">Company</p>
+            <p className="small-subtitle">Tools1, Tools2</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
         </div>,
         <div className="ed-card" key="2">
-            <p className="institute">Title 3</p>
-            <p className="grad-date">Date-Date</p>
-            <p className="degree">Company</p>
-            <p className="grad-date">Tools1, Tools2</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
-            <p className="ed-description">Short ed Description</p>
+            <p className="medium-title">Title 3</p>
+            <p className="small-subtitle">Date-Date</p>
+            <p className="medium-subtitle">Company</p>
+            <p className="small-subtitle">Tools1, Tools2</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Short ed Description</p>
         </div>    
     ];
 

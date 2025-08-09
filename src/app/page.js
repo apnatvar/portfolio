@@ -13,7 +13,6 @@ export default function Home() {
       <BackgroundVideo />
       <TopSlab />
       <Hero />
-
       <Experience />
       <Download />
       <Education />
