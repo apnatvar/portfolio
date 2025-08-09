@@ -50,7 +50,7 @@ export default function Experience(){
 
     return (
         <section className="exp glass-slab" id="experience">
-            <p className="ed-title">Previous Work</p>
+            <p className="section-title">Previous Work</p>
             <div className="exp-cards">
                 {cards[current]}
             </div>

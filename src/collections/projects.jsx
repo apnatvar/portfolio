@@ -48,7 +48,7 @@ export default function Projects(){
 
     return (
         <section className="exp glass-slab" id="projects">
-            <p className="ed-title">Projects</p>
+            <p className="section-title">Projects</p>
             <div className="exp-cards">
                 {cards[current]}
             </div>

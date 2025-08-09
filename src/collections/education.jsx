@@ -5,7 +5,7 @@ import ParallaxText from "./parallax";
 export default function Education(){
     return(
         <section className="education glass-slab" id="education">
-            <p className="ed-title">Education</p>
+            <p className="section-title">Education</p>
             <div className="ed-card">
                 <p className="medium-title"><Link href="/" target="_blank">Trinity College Dublin</Link></p>
                 <p className="small-subtitle">Graduated October 2023</p>

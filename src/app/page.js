@@ -6,6 +6,7 @@ import Footer from "@/collections/footer";
 import TopSlab from "@/collections/topSlab";
 import Experience from "@/collections/experience";
 import Projects from "@/collections/projects";
+import ParallaxSpark from "@/collections/parallax";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <BackgroundVideo />
       <TopSlab />
       <Hero />
+      <ParallaxSpark />
       <Experience />
       <Download />
       <Education />
