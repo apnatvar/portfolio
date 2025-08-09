@@ -194,6 +194,7 @@ a {
   width: 95vw;
   justify-self: center;
   justify-content: space-between;
+  margin-bottom: 3rem;
 }
 .website-info {
   text-align: justify;
@@ -292,11 +293,18 @@ a {
 .center {
   text-align: center;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+  .horizontal-list{
+    align-content: center;
+  }
+  .horizontal-list-element {
+      width: 6rem;
+  }
   .footer {
     flex-direction: column;
     margin-bottom: 3rem;
     height: fit-content;
+    gap: 1rem;
   }
   .left-div {
     padding: 1rem;

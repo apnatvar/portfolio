@@ -6,11 +6,11 @@ export default function Footer(){
     return(
         <footer className="footer">
             <div className="website-info left-div glass-slab">
-                <p className="medium-title">A Final Message</p>
-                <p className="small-long-text">This website is also written completely by me!</p>
-                <p className="small-long-text">Tools: Next.js, JavaScript, GitHub Actions</p>
-                <p className="small-long-text">I am looking for fully remote roles and freelancing opportunities.</p>
-                <p className="small-long-text">If you are hiring, get in touch with me using the links on the right.</p>
+                <p className="medium-title center">A Final Message</p>
+                <p className="small-long-text center">This website is also written completely by me!</p>
+                <p className="small-long-text center">Tools: Next.js, JavaScript, GitHub Actions</p>
+                <p className="small-long-text center">I am looking for fully remote roles and freelancing opportunities.</p>
+                <p className="small-long-text center">If you are hiring, get in touch with me using the links on the right.</p>
             </div>
             <div className="contact-me right-div glass-slab">
                 <p className="medium-title center">Get in touch</p>
