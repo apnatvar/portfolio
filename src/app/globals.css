@@ -196,6 +196,9 @@ a {
   display: flex;
   height: 40vh;
   align-items: center;
+  width: 95vw;
+  justify-self: center;
+  justify-content: space-between;
 }
 .web-desc{
   padding-left: 1rem;
@@ -206,14 +209,11 @@ a {
   padding-left: 1rem;
   margin-bottom: 0.2rem;
 }
-.contact-me {
-  text-align: center;
+.footer > .left-div {
+  flex: 0 0 58%;
 }
-.footer > .left {
-  flex: 0 0 70%;
-}
-.footer > .right {
-  flex: 0 0 30%;
+.footer > .right-div {
+  flex: 0 0 38%;
 }
 .download-link {
   text-decoration: underline;
@@ -285,9 +285,21 @@ a {
   padding: 0.5rem;
   bottom: -10px;  
 }
+.left-div {
+  margin: 0;
+  height: 100%;
+}
+.right-div {
+  margin: 0;
+  right: 0;
+  height: 100%;
+}
 .left {
   left: 0;
 }
 .right {
   right: 0;
+}
+.centre {
+  text-align: center;
 }
