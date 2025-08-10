@@ -10,8 +10,8 @@ export default function Footer(){
                 <p className="medium-title center">A Final Message</p>
                 <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae temporibus et nobis minima aliquid inventore a facilis amet animi, corrupti, voluptates doloremque numquam ut veritatis aspernatur! Recusandae consectetur fugit accusamus.</p>
                 <p className="small-long-text center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, reprehenderit. Similique sint ex laudantium est, eum eaque libero odio a vitae? Quia voluptas ratione natus et est similique tempore quos?</p>
-                <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio tempore a quos impedit libero voluptate, recusandae voluptatem consequatur et. Labore nostrum porro aliquid totam odit eos nihil similique quos quae!</p>
-                <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+                <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             </div>
             <div className="contact-me right-div glass-slab">
                 <p className="medium-title center">Get in touch</p>
