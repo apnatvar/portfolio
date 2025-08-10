@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
 
 const WORDS = [
-  'Projects',
-  'Skills',
-  'Hobbies',
-  'Creativity',
-  'Portfolio',
+  'Random 1',
+  'Random 2',
+  'Random 3',
+  'Random 4',
+  'Random 5',
 ];
 
 export default function GlitchTitle({ interval = 3000 }) {

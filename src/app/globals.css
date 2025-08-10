@@ -196,7 +196,6 @@ a {
 }
 .footer {
   display: flex;
-  /* height: 40vh; */
   height: fit-content;
   align-items: center;
   width: 95vw;
@@ -210,9 +209,11 @@ a {
 }
 .footer > .left-div {
   flex: 0 0 58%;
+  padding: 1rem;
 }
 .footer > .right-div {
   flex: 0 0 38%;
+  padding: 1rem;
 }
 .download-link {
   text-decoration: underline;

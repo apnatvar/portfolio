@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Apnatva Singh Rawat",
   description: "A portfolio website for a Full-Stack Software Developer",
+  icons: {
+    icon: '/ap-icon.svg',
+  },
 };
 
 export default function RootLayout({ children }) {

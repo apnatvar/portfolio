@@ -9,31 +9,31 @@ export default function Projects(){
             <p className="medium-title">Title 1</p>
             <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
             <p className="small-subtitle">Tools1, Tools2</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
         <div className="ed-card" key="1">
             <p className="medium-title">Title 2</p>
             <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
             <p className="small-subtitle">Tools1, Tools2</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
         <div className="ed-card" key="2">
             <p className="medium-title">Title 3</p>
             <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
             <p className="small-subtitle">Tools1, Tools2</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
-            <p className="small-long-text">Short ed Description</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
+            <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>    
     ];
 
