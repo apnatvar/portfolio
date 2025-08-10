@@ -7,7 +7,6 @@ export default function TopSlab(){
     const handleScrollTo = useSmoothScroll();
     return(
         <section className="bottom-slab glass-slab" id="home">
-            <div className="spark"></div>
             <div className="horizontal-list">
                 <p className="horizontal-list-element"><Link target="_blank" href="https://www.linkedin.com/in/apnatva-singh-rawat/">LinkedIn</Link></p>
                 <p className="horizontal-list-element"><Link target="_blank" href="https://github.com/apnatvar/">GitHub</Link></p>

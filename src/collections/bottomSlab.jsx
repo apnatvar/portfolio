@@ -7,7 +7,6 @@ export default function BottomSlab(){
     const handleScrollTo = useSmoothScroll();
     return(
         <section className="bottom-slab glass-slab">
-            <div className="spark"></div>
             <div className="horizontal-list">
                 <p className="horizontal-list-element" onClick={() => handleScrollTo('home', 4000)}>Home</p>
                 <p className="horizontal-list-element" onClick={() => handleScrollTo('experience', 3000)}>Experience</p>

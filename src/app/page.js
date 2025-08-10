@@ -14,13 +14,15 @@ export default function Home() {
     <main>
       <BackgroundVideo />
       <TopSlab />
+      <ParallaxSpark speed={-20} moveDuration={50} />
       <Hero />
-      <ParallaxSpark />
       <Experience />
       <Download />
+      <ParallaxSpark speed={-50} moveDuration={100} />
       <Education />
       <Projects />
       <Footer />
+      <ParallaxSpark speed={-10} moveDuration={60} />
       <BottomSlab />
     </main>
   );
