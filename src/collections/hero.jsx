@@ -1,7 +1,6 @@
 import React from "react";
 import ToolsCarousel from "./toolsCarousel";
 import GlitchText from "./glitch";
-import ParallaxSpark from "./parallax";
 
 export default function Hero(){
     return (

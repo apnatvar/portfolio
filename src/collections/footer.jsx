@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
+import BottomSlab from "./bottomSlab";
 
 export default function Footer(){
     return(

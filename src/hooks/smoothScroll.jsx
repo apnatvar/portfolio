@@ -1,12 +1,13 @@
-import { React, useCallback } from "react";
+// hooks/useSmoothScroll.js
+import { useCallback } from "react";
 
 export default function useSmoothScroll() {
-  const smoothScrollTo = useCallback((id, duration = 1000) => {
+  const smoothScrollTo = useCallback((id, duration = 2000, offset = 20) => {
     const target = document.getElementById(id);
     if (!target) return;
 
     const start = window.pageYOffset;
-    const end = target.getBoundingClientRect().top + start;
+    const end = target.getBoundingClientRect().top + start - offset;
     const distance = end - start;
     const startTime = performance.now();
 

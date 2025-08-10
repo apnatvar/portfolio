@@ -193,12 +193,12 @@ a {
 }
 .footer {
   display: flex;
-  height: 40vh;
+  /* height: 40vh; */
+  height: fit-content;
   align-items: center;
   width: 95vw;
   justify-self: center;
   justify-content: space-between;
-  margin-bottom: 3rem;
 }
 .website-info {
   text-align: justify;
@@ -306,7 +306,6 @@ a {
   }
   .footer {
     flex-direction: column;
-    margin-bottom: 3rem;
     height: fit-content;
     gap: 1rem;
   }

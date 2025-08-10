@@ -7,6 +7,7 @@ import TopSlab from "@/collections/topSlab";
 import Experience from "@/collections/experience";
 import Projects from "@/collections/projects";
 import ParallaxSpark from "@/collections/parallax";
+import BottomSlab from "@/collections/bottomSlab";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Education />
       <Projects />
       <Footer />
+      <BottomSlab />
     </main>
   );
 }
