@@ -5,7 +5,7 @@ export default function ParallaxSpark({ speed = -40, moveDuration = 10 }) {
   return (
     <ParallaxProvider>
         <Parallax speed={speed}>
-        <div className="spark" style={{ animationDuration: `${moveDuration/8}s, ${moveDuration}s;`}}></div>
+        <div className="spark" style={{ animationDuration: `${moveDuration/8}s, ${moveDuration}s`}}></div>
         </Parallax>
     </ParallaxProvider>
   );
