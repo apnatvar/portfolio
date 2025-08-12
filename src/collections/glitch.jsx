@@ -4,11 +4,15 @@ import React, { useEffect, useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
 
 const WORDS = [
-  'Random 1',
-  'Random 2',
-  'Random 3',
-  'Random 4',
-  'Random 5',
+  'coding adventures',
+  'technical skills',
+  'experience',
+  'previous projects',
+  'mild chaos',
+  'code obsession',
+  'professional side',
+  'fun side',
+  'experiments',
 ];
 
 export default function GlitchTitle({ interval = 3000 }) {
@@ -37,6 +41,6 @@ export default function GlitchTitle({ interval = 3000 }) {
   }, [glitch, interval]);
 
   return (
-    <span ref={glitch.ref} className='glitch-span'>{WORDS[index]}</span>
+    <span ref={glitch.ref} >{WORDS[index]}.</span>
   );
 }
