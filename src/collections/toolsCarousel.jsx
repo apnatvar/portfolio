@@ -4,7 +4,7 @@ import { SiPython, SiDocker, SiNextdotjs, SiReact, SiPostgresql, SiKubernetes, S
 export default function ToolsCarousel(){
     return (
         <div>
-            <p className="tools-text">Programming Languages and Tools I have worked with.</p>
+            <h4 className="tools-text">Programming Languages and Tools I have worked with.</h4>
             <div className="tools-carousel">
                 <div className="tools-carousel-track">
                     <SiPython />

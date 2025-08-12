@@ -6,9 +6,9 @@ import Link from 'next/link';
 export default function Projects(){
     const cards=[
         <div className="ed-card" key="0">
-            <p className="medium-title">Title 1</p>
-            <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
-            <p className="small-subtitle">Tools1, Tools2</p>
+            <h2 className="medium-title">Title 1</h2>
+            <h4 className="small-subtitle">Summary - <Link href="/" target="_blank">Project Link</Link></h4>
+            <h4 className="small-subtitle">Tools1, Tools2</h4>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
@@ -16,9 +16,9 @@ export default function Projects(){
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
         <div className="ed-card" key="1">
-            <p className="medium-title">Title 2</p>
-            <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
-            <p className="small-subtitle">Tools1, Tools2</p>
+            <h2 className="medium-title">Title 2</h2>
+            <h4 className="small-subtitle">Summary - <Link href="/" target="_blank">Project Link</Link></h4>
+            <h4 className="small-subtitle">Tools1, Tools2</h4>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
@@ -26,9 +26,9 @@ export default function Projects(){
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
         <div className="ed-card" key="2">
-            <p className="medium-title">Title 3</p>
-            <p className="small-subtitle"><Link href="/" target="_blank">Project Link</Link></p>
-            <p className="small-subtitle">Tools1, Tools2</p>
+            <h2 className="medium-title">Title 3</h2>
+            <h4 className="small-subtitle">Summary - <Link href="/" target="_blank">Project Link</Link></h4>
+            <h4 className="small-subtitle">Tools1, Tools2</h4>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
@@ -48,7 +48,7 @@ export default function Projects(){
 
     return (
         <section className="exp glass-slab" id="projects">
-            <p className="section-title">Projects</p>
+            <h1 className="section-title">Projects</h1>
             <div className="exp-cards">
                 {cards[current]}
             </div>

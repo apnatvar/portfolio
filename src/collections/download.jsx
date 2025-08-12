@@ -3,6 +3,6 @@ import Link from "next/link";
 
 export default function Download(){
     return (
-        <p className="glass-slab PDF">A PDF version of my CV is available <Link href="/ApnatvaSinghRawatCV.pdf" className="download-link">here</Link></p>
+        <h1 className="glass-slab PDF">A PDF version of my CV is available <Link href="/ApnatvaSinghRawatCV.pdf" className="download-link">here</Link></h1>
     );
 }

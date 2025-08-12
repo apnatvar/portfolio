@@ -30,7 +30,7 @@ export default function LoadingScreenWithBackgroundVideo() {
             </div>
         </div>
       )}
-        <div className="overlay"/>
+        <div className="overlay" />
         <video
           ref={videoRef}
           preload="auto"

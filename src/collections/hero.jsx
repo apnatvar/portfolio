@@ -5,10 +5,10 @@ import GlitchText from "./glitch";
 export default function Hero(){
     return (
         <section className="glass-slab hero">
-            <p className="hello">Greeting Text!</p>
-            <p className="name">Name/Intro</p>
-            <p className="short-hook">funny hook/If you are reading this, I am happy to have your attention</p>
-            <p className="showcase">Showcasing/or something <GlitchText /></p>
+            <h1 className="hello">Greeting Text!</h1>
+            <h2 className="name">Name/Intro</h2>
+            <h4 className="short-hook">funny hook/If you are reading this, I am happy to have your attention</h4>
+            <h3 className="showcase">Showcasing/or something <GlitchText /></h3>
             <ToolsCarousel />
         </section>
     );

@@ -5,19 +5,19 @@ import ParallaxText from "./parallax";
 export default function Education(){
     return(
         <section className="education glass-slab" id="education">
-            <p className="section-title">Education</p>
+            <h1 className="section-title">Education</h1>
             <div className="ed-card">
-                <p className="medium-title"><Link href="/" target="_blank">Trinity College Dublin</Link></p>
-                <p className="small-subtitle">Graduated October 2023</p>
-                <p className="medium-subtitle">Bachelors in Computer Engineering</p>
+                <h2 className="medium-title"><Link href="/" target="_blank">Trinity College Dublin</Link></h2>
+                <h4 className="small-subtitle">Graduated October 2023</h4>
+                <h3 className="medium-subtitle">Bachelors in Computer Engineering</h3>
                 <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
                 <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
                 <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             </div>
             <div className="ed-card">
-                <p className="medium-title"><Link href="/" target="_blank">St. George's College</Link></p>
-                <p className="small-subtitle">Graduated March 2018</p>
-                <p className="medium-subtitle">Indian School Ceritificate (ISC)</p>
+                <h2 className="medium-title"><Link href="/" target="_blank">Trinity College Dublin</Link></h2>
+                <h4 className="small-subtitle">Graduated October 2023</h4>
+                <h3 className="medium-subtitle">Bachelors in Computer Engineering</h3>
                 <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
                 <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
                 <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
