@@ -20,25 +20,20 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata = {
-  title: "Apnatva's Website - Portfolio for a Software Developer",
-  description: "A portfolio website meant to replace a traditional CV. Includes information about previous work experience, projects completed, and education of Apnatva Singh Rawat. Crisp detailing and animations showcase Next.js skills and familiarity with JavaScript. Website additionally contains links to LinkedIn, GitHub, and a downloadable CV to make available the website content in more conventional formats. A 'Get in Touch' section is included to make it easier for users to contact Apnatva Singh Rawat via e-mail, phone, or social media like Instagram and LinkedIn." ,
-  icons: {
-    icon: '/ap-icon.svg',
-  },
+  title: "Apnatva's Portfolio Website - Tech Consulting & Development",
+  description: "A portfolio website meant to replace a traditional CV. Includes information about previous work experience, projects completed, and education of Apnatva Singh Rawat. Crisp detailing and animations showcase Next.js skills and familiarity with JavaScript. Website additionally contains links to LinkedIn, GitHub, and a downloadable CV to make available the website content in more conventional formats. A 'Get in Touch' section is included to make it easier for users to contact Apnatva Singh Rawat via e-mail, phone, or social media like Instagram and LinkedIn.",
   keywords: [
-    "Tech Consultant",
-    "Full-Stack Developer",
-    "Python",
-    "JavaScript",
-    "AI",
-    "Machine Learning",
-    "Next.js",
-    "AWS",
-    "Docker",
-    "Cloud Solutions",
-    "FinTech",
-    "Portfolio",
-    "Software Development"
+    "Tech Consultant", "Freelancer", "Apnatva", "AP",
+    "Full-Stack Developer", "Software Development", "Backend Developer",
+    "Python", "JavaScript", "SQL", 
+    "AI", "Artificial Intelligence", "Machine Learning", "ML", "Deep Learning", "Reinforcement Learning", "Gen AI", "AI Thesis",
+    "Next.js", "React",
+    "AWS", "Azure", "Excel", "PowerPoint", "Tableau", 
+    "Docker", "Kubernetes", "Helm", "Kafka", "POSTMAN",
+    "Cloud Solutions", "FinTech", "Blockchain", "Standalone Applications",
+    "Portfolio", "CV", "Resume", "Remote", "Europe", "India", "US", "Projects", "Experience", "Education", 
+    "Trinity College Dublin", "St. George's College Mussoorie",
+    "Linkedin", "Instagram", "Github", "LinkedIn", "Contact"
   ],
   authors: [
     { name: "Apnatva 'AP' Singh Rawat", url: "https://apnatva.vercel.app" }
@@ -49,43 +44,40 @@ export const metadata = {
   applicationName: "AP's Next.js Portfolio Website",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  themeColor: "#000000",
+  themeColor: "#1A1A1E",
   colorScheme: "dark light",
   category: "technology",
   openGraph: {
-    title: "Your Website Name – Tech Consulting & Development",
+    title: "Apnatva's Portfolio Website - Tech Consulting & Development",
     description:
-      "Portfolio of [Your Name], a tech consultant specializing in modern, scalable, and efficient technology solutions.",
-    url: "https://yourwebsite.com",
-    siteName: "Your Website Name",
+      "Portfolio of Apnatva Singh Rawat, a Software Developer specializing in modern, scalable, and efficient AI-based technology solutions.",
+    url: "https://apnatva.vercel.app",
+    siteName: "Apnatva's Website Portfolio",
     images: [
       {
-        url: "https://yourwebsite.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Your Website Open Graph Image"
+        url: "https://apnatva.vercel.app/ap-icon.png",
+        alt: "AP Icon"
       }
     ],
-    locale: "en_US",
+    locale: "en-IN",
     type: "website"
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Your Website Name – Tech Consulting & Development",
+    card: "https://apnatva.vercel.app/ap-icon.png",
+    title: "AP's Portfolio Webstie – Tech Consulting & Development",
     description:
-      "Portfolio of [Your Name], delivering technology solutions that bridge the gap between ideas and execution.",
-    creator: "@your_twitter_handle",
-    images: ["https://yourwebsite.com/twitter-image.jpg"]
+      "Portfolio of Apnatva, building technology solutions to help you see your ideas come to life.",
+    creator: "nattupi0",
+    images: ["https://apnatva.vercel.app/ap-icon.png"]
   },
   icons: {
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png"
+    icon: '/ap-icon.svg',
+    shortcut: "/ap-icon.svg",
   },
-  manifest: "/site.webmanifest",
   alternates: {
     canonical: "https://apnatva.vercel.app",
     languages: {
-      "en-US": "https://apnatva.vercel.app",
+      "en-IN": "https://apnatva.vercel.app",
     }
   }
 };
