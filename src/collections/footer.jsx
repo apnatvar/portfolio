@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
-import BottomSlab from "./bottomSlab";
 
 export default function Footer(){
     return(
@@ -13,7 +12,7 @@ export default function Footer(){
                 <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                 <p className="small-long-text center">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             </div>
-            <div className="contact-me right-div glass-slab">
+            <div className="contact-me right-div glass-slab" id="social">
                 <h2 className="medium-title center">Get in touch</h2>
                 <p className="small-long-text center"><Link href="mailto:arawat@tcd.ie">arawat@tcd.ie</Link></p>
                 <p className="small-long-text center"><Link href="tel:+918791414856">+918791414856</Link></p>

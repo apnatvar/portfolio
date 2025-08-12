@@ -157,6 +157,7 @@ h1, h2, h3, h4 {
   margin-top: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  height: 83vh;
 }
 .hello {
   font-size: 4ch;
@@ -196,6 +197,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5rem;
 }
 .website-info {
   text-align: justify;
@@ -216,10 +218,16 @@ h1, h2, h3, h4 {
 .download-link:hover {
   color: var(--color-soft-silver);
 }
-.bottom-slab {
+.nav-slab {
+  position: fixed;
   height: fit-content;
   max-height: 10vh;
   align-content: center;
+  margin: auto;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 10;
 }
 .horizontal-list {
   display: flex;
@@ -295,26 +303,6 @@ h1, h2, h3, h4 {
 .center {
   text-align: center;
 }
-@media screen and (max-width: 700px) {
-  .horizontal-list{
-    align-content: center;
-  }
-  .horizontal-list-element {
-      width: 6rem;
-  }
-  .footer {
-    flex-direction: column;
-    height: fit-content;
-    gap: 1rem;
-  }
-  .left-div {
-    padding: 1rem;
-  }
-  .right-div {
-    padding: 1rem;
-    height: fit-content;
-  }
-}
 .loading-screen {
   position: fixed;
   inset: 0;
@@ -350,4 +338,26 @@ h1, h2, h3, h4 {
     opacity: 0.6;
   }
 }
-
+@media screen and (max-width: 700px) {
+  .hero {
+    height: 90vh;
+  }
+  .horizontal-list{
+    align-content: center;
+  }
+  .horizontal-list-element {
+      width: 6rem;
+  }
+  .footer {
+    flex-direction: column;
+    height: fit-content;
+    gap: 1rem;
+  }
+  .left-div {
+    padding: 1rem;
+  }
+  .right-div {
+    padding: 1rem;
+    height: fit-content;
+  }
+}
