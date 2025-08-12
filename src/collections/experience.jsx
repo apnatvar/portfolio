@@ -55,10 +55,10 @@ export default function Experience(){
                 {cards[current]}
             </div>
             <button className="nav-button left glass-slab" onClick={handlePrev}>
-            <SlArrowLeft />
+            <SlArrowLeft aria-label="previous experience"/>
             </button>
             <button className="nav-button right glass-slab" onClick={handleNext}>
-            <SlArrowRight />
+            <SlArrowRight aria-label="next experience"/>
             </button>
         </section>
     );

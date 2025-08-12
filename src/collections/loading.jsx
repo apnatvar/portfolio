@@ -40,7 +40,7 @@ export default function LoadingScreenWithBackgroundVideo() {
           playsInline
           className="background-video"
         >
-          <source src="/bg-video.mp4" type="video/mp4" />
+          <source src="/bg-video.mp4" type="video/mp4" alt="a dark background looped video"/>
         </video>
     </>
   );

@@ -53,10 +53,10 @@ export default function Projects(){
                 {cards[current]}
             </div>
             <button className="nav-button left glass-slab" onClick={handlePrev}>
-            <SlArrowLeft />
+            <SlArrowLeft aria-label="previous project"/>
             </button>
             <button className="nav-button right glass-slab" onClick={handleNext}>
-            <SlArrowRight />
+            <SlArrowRight aria-label="next project"/>
             </button>
         </section>
     );
