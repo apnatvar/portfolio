@@ -56,7 +56,7 @@ export default function Projects(){
 
     return (
         <section className="exp glass-slab" id="projects">
-            <h1 className="section-title"><SlideInText text="Projects" /></h1>
+            <h1 className="section-title"><SlideInText text="Side Projects" /></h1>
             <div className="exp-cards">
                 {cards[current]}
             </div>
