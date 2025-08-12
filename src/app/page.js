@@ -7,7 +7,7 @@ import Experience from "@/collections/experience";
 import Projects from "@/collections/projects";
 import ParallaxSpark from "@/collections/parallax";
 import BottomSlab from "@/collections/bottomSlab";
-import LoadingScreenWithBackgroundVideo from "@/collections/loading";
+import LoadingScreenWithBackgroundVideo from "@/collections/bgVideoWithLoading";
 
 export default function Home() {
   return (

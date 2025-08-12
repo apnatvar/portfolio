@@ -1,14 +1,22 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, JetBrains_Mono, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-montserrat",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains-mono",
+});
+
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-roboto-slab",
 });
 
 export const metadata = {
@@ -17,12 +25,77 @@ export const metadata = {
   icons: {
     icon: '/ap-icon.svg',
   },
+  keywords: [
+    "Tech Consultant",
+    "Full-Stack Developer",
+    "Python",
+    "JavaScript",
+    "AI",
+    "Machine Learning",
+    "Next.js",
+    "AWS",
+    "Docker",
+    "Cloud Solutions",
+    "FinTech",
+    "Portfolio",
+    "Software Development"
+  ],
+  authors: [
+    { name: "Apnatva 'AP' Singh Rawat", url: "https://apnatva.vercel.app" }
+  ],
+  creator: "Apnatva 'AP' Singh Rawat",
+  publisher: "AP Technology Consultant",
+  robots: "index, follow",
+  applicationName: "AP's Next.js Portfolio Website",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  themeColor: "#000000",
+  colorScheme: "dark light",
+  category: "technology",
+  openGraph: {
+    title: "Your Website Name – Tech Consulting & Development",
+    description:
+      "Portfolio of [Your Name], a tech consultant specializing in modern, scalable, and efficient technology solutions.",
+    url: "https://yourwebsite.com",
+    siteName: "Your Website Name",
+    images: [
+      {
+        url: "https://yourwebsite.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Your Website Open Graph Image"
+      }
+    ],
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your Website Name – Tech Consulting & Development",
+    description:
+      "Portfolio of [Your Name], delivering technology solutions that bridge the gap between ideas and execution.",
+    creator: "@your_twitter_handle",
+    images: ["https://yourwebsite.com/twitter-image.jpg"]
+  },
+  icons: {
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png"
+  },
+  manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "https://apnatva.vercel.app",
+    languages: {
+      "en-US": "https://apnatva.vercel.app",
+    }
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body 
+      className={`${montserrat.variable} ${jetbrainsMono.variable} ${robotoSlab.variable}`}
+      >
         {children}
       </body>
     </html>
