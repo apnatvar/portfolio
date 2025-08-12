@@ -44,8 +44,6 @@ export const metadata = {
   applicationName: "AP's Next.js Portfolio Website",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  themeColor: "#1A1A1E",
-  colorScheme: "dark light",
   category: "technology",
   openGraph: {
     title: "Apnatva's Portfolio Website - Tech Consulting & Development",

@@ -16,9 +16,9 @@
   --color-glint-white-80: rgba(255, 255, 255, 0.80);
 
   /* FONT STACKS */
-  --font-title: 'Space Grotesk', sans-serif;
+  /* --font-title: 'Space Grotesk', sans-serif;
   --font-body: 'IBM Plex Mono', monospace;
-  --font-ui: 'Inter', sans-serif;
+  --font-ui: 'Inter', sans-serif; */
 }
 
 html,
@@ -34,7 +34,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,7 +58,11 @@ a {
   text-decoration: none;
 }
 
-/* styles/globals.css or a module */
+h1, h2, h3, h4 {
+  font-weight: normal;
+  margin: 0;
+}
+
 .background-video {
   position: fixed;
   top: 0;
@@ -66,8 +70,8 @@ a {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1; /* Ensures it's behind everything else */
-  pointer-events: none; /* Allows clicks to pass through */
+  z-index: -1; 
+  pointer-events: none;
 }
 
 .overlay {
@@ -181,6 +185,7 @@ a {
   text-align: center;
   height: 10vh;
   align-content: center;
+  font-size: medium;
 }
 .footer {
   display: flex;
@@ -224,7 +229,7 @@ a {
 }
 .horizontal-list-element {
   text-align: center;
-  width: 5rem;
+  width: 4rem;
 }
 .education {
   padding-top: 2rem;
