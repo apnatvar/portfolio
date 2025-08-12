@@ -4,7 +4,7 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 export default function Experience(){
     const cards=[
-        <div className="ed-card" key="0">
+        <div className="general-card" key="0">
             <h2 className="medium-title">Title 1</h2>
             <h4 className="small-subtitle">Date-Date</h4>
             <h3 className="medium-subtitle">Company</h3>
@@ -15,7 +15,7 @@ export default function Experience(){
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
-        <div className="ed-card" key="1">
+        <div className="general-card" key="1">
             <h2 className="medium-title">Title 2</h2>
             <h4 className="small-subtitle">Date-Date</h4>
             <h3 className="medium-subtitle">Company</h3>
@@ -26,7 +26,7 @@ export default function Experience(){
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
-        <div className="ed-card" key="2">
+        <div className="general-card" key="2">
             <h2 className="medium-title">Title 3</h2>
             <h4 className="small-subtitle">Date-Date</h4>
             <h3 className="medium-subtitle">Company</h3>

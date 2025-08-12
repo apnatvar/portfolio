@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Projects(){
     const cards=[
-        <div className="ed-card" key="0">
+        <div className="general-card" key="0">
             <h2 className="medium-title">Title 1</h2>
             <h4 className="small-subtitle">Summary - <Link href="/" target="_blank">Project Link</Link></h4>
             <h4 className="small-subtitle">Tools1, Tools2</h4>
@@ -15,7 +15,7 @@ export default function Projects(){
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
-        <div className="ed-card" key="1">
+        <div className="general-card" key="1">
             <h2 className="medium-title">Title 2</h2>
             <h4 className="small-subtitle">Summary - <Link href="/" target="_blank">Project Link</Link></h4>
             <h4 className="small-subtitle">Tools1, Tools2</h4>
@@ -25,7 +25,7 @@ export default function Projects(){
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
             <p className="small-long-text">Doloremque iure consequatur doloribus autem vel aperiam fugit eaque, id libero cumque omnis sequi obcaecati ducimus corporis pariatur consectetur ex deserunt maxime!</p>
         </div>,
-        <div className="ed-card" key="2">
+        <div className="general-card" key="2">
             <h2 className="medium-title">Title 3</h2>
             <h4 className="small-subtitle">Summary - <Link href="/" target="_blank">Project Link</Link></h4>
             <h4 className="small-subtitle">Tools1, Tools2</h4>
