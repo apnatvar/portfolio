@@ -15,10 +15,15 @@
   --color-glint-white-50: rgba(255, 255, 255, 0.50);
   --color-glint-white-80: rgba(255, 255, 255, 0.80);
 
-  /* FONT STACKS */
-  /* --font-title: 'Space Grotesk', sans-serif;
-  --font-body: 'IBM Plex Mono', monospace;
-  --font-ui: 'Inter', sans-serif; */
+  /* Desktop font sizes */
+  --font-extra-large-heading: 3rem;
+  --font-large-heading: 2.7rem;   /* ~51px */
+  --font-medium-heading: 2.2rem;  /* ~38px */
+  --font-small-heading: 1.8rem;   /* ~29px */
+  --font-medium-subtitle: 1.4rem; /* ~22px */
+  --font-small-subtitle: 1rem;    /* 16px */
+  --font-long-text: 1rem;           /* 16px */
+  --font-buttons: 1.1rem;           /* ~18px */
 }
 
 html,
@@ -34,7 +39,6 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  /* font-family: Arial, Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -160,25 +164,25 @@ h1, h2, h3, h4 {
   height: 83vh;
 }
 .hello {
-  font-size: 4ch;
+  font-size: var(--font-extra-large-heading);
   padding-bottom: 2rem;
 }
 .name {
-  font-size: 2ch;
+  font-size: var(--font-medium-heading);
   padding-bottom: 0.2rem;
 }
 .short-hook {
-  font-size: 1ch;
+  font-size: var(--font-small-subtitle);
   padding-bottom: 1rem;
   color: var(--color-mist-grey);
 }
 .showcase {
-  font-size: 2ch;
+  font-size: var(--font-medium-subtitle);
   padding-top: 2rem;
   padding-bottom: 3rem;
 }
 .tools-text {
-  font-size: 1.2ch;
+  font-size: var(--font-small-subtitle);
   padding: 0;
   color: var(--color-mist-grey);
 }
@@ -238,6 +242,7 @@ h1, h2, h3, h4 {
 .horizontal-list-element {
   text-align: center;
   width: 4rem;
+  font-size: var(--font-buttons);
 }
 .education {
   padding-top: 2rem;
@@ -249,24 +254,24 @@ h1, h2, h3, h4 {
   padding-right: 2rem;
 }
 .section-title {
-  font-size: 3ch;
+  font-size: var(--font-large-heading);
   text-align: center;
   margin-bottom: 1rem;
 }
 .medium-title {
-  font-size: 2.1ch;
+  font-size: var(--font-medium-heading);
   margin-bottom: 0.3rem;
 }
 .small-subtitle {
-  font-size: 1.1ch;
+  font-size: var(--font-small-subtitle);
   margin-bottom: 0.5rem;
 }
 .medium-subtitle {
-  font-size: 1.5ch;
+  font-size: var(--font-medium-subtitle);
   margin-bottom: 0.5rem;
 }
 .small-long-text {
-  font-size: 1.2ch;
+  font-size: var(--font-long-text);
   text-align: justify;
   margin-bottom: 0.5rem;
 }
@@ -338,7 +343,17 @@ h1, h2, h3, h4 {
     opacity: 0.6;
   }
 }
-@media screen and (max-width: 700px) {
+@media (max-width: 600px) {
+  :root {
+    --font-extra-large-heading: 2.3rem;   /* ~38px */
+    --font-large-heading: 2.1rem;
+    --font-medium-heading: 1.6rem;  /* ~29px */
+    --font-small-heading: 1.3rem;   /* ~22px */
+    --font-medium-subtitle: 1.15rem; /* ~19px */
+    --font-small-subtitle: 0.9rem;  /* ~14px */
+    --font-long-text: 0.9rem;         /* ~14px */
+    --font-buttons: 1rem;             /* 16px */
+  }
   .hero {
     height: 90vh;
   }
