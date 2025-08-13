@@ -24,7 +24,6 @@ export default function SmartNavBar() {
   const heroRef = useRef(null);
   const [heroInView, setHeroInView] = useState(true);
 
-  // Watch the hero section from this component
   useEffect(() => {
     const heroElement = document.getElementById("home");
     if (heroElement) {
@@ -34,7 +33,7 @@ export default function SmartNavBar() {
         ([entry]) => {
           setHeroInView(entry.isIntersecting);
         },
-        { threshold: 0.3 } // adjust as needed
+        { threshold: 0.7 } 
       );
 
       observer.observe(heroElement);

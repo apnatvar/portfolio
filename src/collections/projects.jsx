@@ -14,7 +14,7 @@ export default function Projects(){
                 <p className="small-long-text">Built a Deep Reinforcement Learning agent to automate traffic lights across multiple scenarios.</p>
                 <p className="small-long-text">Developed the agent using PyTorch Neural Layers to record inputs like possible direction, traffic congestion in current and next lane.</p>
                 <p className="small-long-text">Used SUMO simulator with a Python connector to run train the agent and run simulations.</p>
-                <p className="small-long-text">Utilised MatPlotLib to record metrics like avg wait times, reward function, congestions to track success of the agent.</p>
+                <p className="small-long-text">Utilised MatPlotLib to record metrics like average wait times, reward function, congestions to track success of the agent.</p>
             </SequentialFadeIn>
         </div>,
         <div className="general-card" key="1">
