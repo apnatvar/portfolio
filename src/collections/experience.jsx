@@ -10,7 +10,7 @@ export default function Experience(){
             <h2 className="medium-title">Full-Stack Developer</h2>
             <h4 className="small-subtitle">March 2025 - Current</h4>
             <h3 className="medium-subtitle">Photography Studio</h3>
-            <h4 className="small-subtitle">Next.js, JavaScript, TypeScript, PayloadCMS, PostgreSQL, Supabase, Vercel</h4>
+            <h4 className="small-subtitle">Next.js, JavaScript, TypeScript, PayloadCMS, PostgreSQL, Supabase, Vercel, Git</h4>
             <SequentialFadeIn>
                 <p className="small-long-text">Architected a full-stack Next.js(React) app using JavaScript(JSX) and TypeScript to build dynamic webpages with PayloadCMS to enable quick SEO changes enabled via an ORM(PostgreSQL) storing data in an S3 Bucket.</p>
                 <p className="small-long-text">Managed versions via Git(Hub) and deployed on Vercel enabling SSR, Static Pages, and Dynamic Page Creation. Optimised media storage and ORM via Supabase to minimise loading times and improve SEO.</p>
@@ -20,7 +20,7 @@ export default function Experience(){
             <h2 className="medium-title">Python Developer</h2>
             <h4 className="small-subtitle">November 2024 - April 2025</h4>
             <h3 className="medium-subtitle">Finance Company</h3>
-            <h4 className="small-subtitle">Python, Pandas, Excel</h4>
+            <h4 className="small-subtitle">Python, Pandas, Excel, Git</h4>
             <SequentialFadeIn>
                 <p className="small-long-text">Developed a Python-based Windows standalone application to automate consolidation of financial data with over $10M in yearly transactions, utilising Pandas for data manipulation and Tkinter for generating a GUI.</p>
                 <p className="small-long-text">Reduced processing time from 5 days to ~17 minutes in consolidating Excel data from 34 sites, and generating 11 reports to aid auditors in analysing and providing valuable insights.</p>
@@ -31,7 +31,7 @@ export default function Experience(){
             <h2 className="medium-title">Junior Cloud Engineer</h2>
             <h4 className="small-subtitle">May 2023 - July 2024</h4>
             <h3 className="medium-subtitle">Avaya International</h3>
-            <h4 className="small-subtitle">GO, Java, Docker, Kubernetes, Kafka, Loki, Prometheus, Grafana, Jenkins</h4>
+            <h4 className="small-subtitle">GO, Java, Docker, Kubernetes, Azure, Kafka, Loki, Prometheus, Grafana, Jenkins, Git</h4>
             <SequentialFadeIn>
                 <p className="small-long-text">Maintained a multi-tenanted Kubernetes-based web application with Docker and Spring Boot, containerised micro-services deployed on Azure Cloud, requiring 99.9% uptime across multiple regions.</p>
                 <p className="small-long-text">Developed and maintained 16 real-time Go and Java(Maven) based micro-services integrated with Apache Kafka and NATS while utilising Git(Bitbucket) and Helm for version management and deployment.</p>
@@ -41,7 +41,7 @@ export default function Experience(){
             </SequentialFadeIn>
         </div>,
         <div className="general-card" key="3">
-            <h2 className="medium-title">Python Developer</h2>
+            <h2 className="medium-title">Python Developer Intern</h2>
             <h4 className="small-subtitle">May 2022 - August 2022</h4>
             <h3 className="medium-subtitle">Mount Technics Consultancy</h3>
             <h4 className="small-subtitle">Python, (MS)SQL, Selenium, REST APIs</h4>
@@ -57,10 +57,10 @@ export default function Experience(){
             <h3 className="medium-subtitle">Come back later for more</h3>
             <h4 className="small-subtitle">Placeholder</h4>
             <SequentialFadeIn>
-                <p className="small-long-text">Sorry</p>
-                <p className="small-long-text">to</p>
-                <p className="small-long-text">disappoint</p>
-                <p className="small-long-text">you</p>
+                <p className="small-long-text">Placeholder</p>
+                <p className="small-long-text">Placeholder</p>
+                <p className="small-long-text">Placeholder</p>
+                <p className="small-long-text">Placeholder</p>
             </SequentialFadeIn>
         </div>    
     ];

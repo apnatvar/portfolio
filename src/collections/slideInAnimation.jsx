@@ -5,7 +5,7 @@ import { React, useRef } from "react";
 
 export default function SlideInText({ text, initialX = -50 }) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.2 }); // Trigger once when 20% is visible
+    const isInView = useInView(ref, { once: true, amount: 0.3 }); 
 
     return (
         <motion.div

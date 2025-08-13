@@ -10,10 +10,10 @@ export default function Footer(){
             <div className="website-info left-div glass-slab">
                 <h2 className="medium-title center"><SlideInText text="The Last Word" /></h2>
                 <SequentialFadeIn>
-                    <p className="small-long-text center">I made this website using Next.js, JavaScript, and Motion.dev. I went for a minamalistic glass-morphism "spark in the dark" theme, hope you liked it.</p>
-                    <p className="small-long-text center">If you are a recruiter and want to get in touch, the links should be visible if you are reading this. I prefer to be fully remote, but I am not completely against hybrid work.</p>
-                    <p className="small-long-text center">If you need helping building and deploying any interesting idea or have a technical requirement or just want to connect on Social Media, I would be happy to recieve a message.</p>
-                    <p className="small-long-text center">Thank you for your time spent reading this. Writing code is a big part of my life and hopefully you were able to recognise that. Have a good day. </p>
+                    <p className="small-long-text">I made this website using Next.js, JavaScript, and Motion.dev. I went for a minamalistic glass-morphism "spark in the dark" theme. There some eye-candy animations and some subtle background ones.</p>
+                    <p className="small-long-text">If you are a recruiter and want to get in touch, I am avaialble on various Socials and directly.</p>
+                    <p className="small-long-text">If you need helping building and deploying interesting ideas or need some contract work done, I would love to have a chat.</p>
+                    <p className="small-subtitle center">Thank you for your time spent reading this. Have a wonderful day.</p>
                 </SequentialFadeIn>
             </div>
             <div className="contact-me right-div glass-slab" id="social">

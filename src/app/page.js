@@ -2,7 +2,7 @@ import Download from "@/collections/download";
 import Education from "@/collections/education";
 import Hero from "@/collections/hero";
 import Footer from "@/collections/footer";
-import NavSlab from "@/collections/navSlab";
+import SmartNavSlab from "@/collections/navSlab";
 import Experience from "@/collections/experience";
 import Projects from "@/collections/projects";
 import ParallaxSpark from "@/collections/parallax";
@@ -12,8 +12,7 @@ export default function Home() {
   return (
     <main>
       <LoadingScreenWithBackgroundVideo />
-      <ParallaxSpark />
-      <NavSlab />
+      <SmartNavSlab />
       <Hero />
       <ParallaxSpark />
       <Experience />

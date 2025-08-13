@@ -1,15 +1,14 @@
-'use client'
-import React from "react";
+"use client";
+
+import * as motion from "motion/react-client";
+import React, { useEffect, useRef, useState } from "react";
 import useSmoothScroll from "@/hooks/smoothScroll";
 
-export default function NavSlab(){
+function NavSlab(){
     const handleScrollTo = useSmoothScroll();
-
     return(
-        <section className="nav-slab glass-slab" id="home">
+        <section className="nav-slab glass-slab">
             <div className="horizontal-list">
-                {/* <p className="horizontal-list-element"><Link target="_blank" href="https://www.linkedin.com/in/apnatva-singh-rawat/">LinkedIn</Link></p> */}
-                {/* <p className="horizontal-list-element"><Link target="_blank" href="https://github.com/apnatvar/">GitHub</Link></p> */}
                 <p className="glass-button" onClick={() => handleScrollTo('home', 2000)}>Home</p>
                 <p className="glass-button" onClick={() => handleScrollTo('social', 2000)}>Connect</p>
                 <p className="glass-button" onClick={() => handleScrollTo('experience', 2000)}>Experience</p>
@@ -18,4 +17,38 @@ export default function NavSlab(){
             </div>
         </section>
     );
+}
+
+
+export default function SmartNavBar() {
+  const heroRef = useRef(null);
+  const [heroInView, setHeroInView] = useState(true);
+
+  // Watch the hero section from this component
+  useEffect(() => {
+    const heroElement = document.getElementById("home");
+    if (heroElement) {
+      heroRef.current = heroElement;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setHeroInView(entry.isIntersecting);
+        },
+        { threshold: 0.3 } // adjust as needed
+      );
+
+      observer.observe(heroElement);
+      return () => observer.disconnect();
+    }
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: heroInView ? 0 : 1 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
+      <NavSlab />
+    </motion.div>
+  );
 }
