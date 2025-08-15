@@ -79,13 +79,12 @@ export default function Projects(){
     };
 
     return (
-        <ScrollReveal className="exp" id="projects">
-            <h1 className="section-title glass-slab"><SlideInText text="Side Projects" /></h1>
+        <ScrollReveal className="exp">
+            <h1 className="section-title glass-slab" id="projects"><SlideInText text="Side Projects" /></h1>
             <HorizontalScrollOnVertical className="exp-cards">
-                {cards[current]}
-                {cards[current+1]}
-                {cards[current+2]}
-                {cards[current+3]}
+                {cards.map((card, _blank) => (
+                    card
+                ))}
             </HorizontalScrollOnVertical>
         </ScrollReveal>
     );

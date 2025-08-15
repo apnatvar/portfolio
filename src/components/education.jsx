@@ -6,8 +6,8 @@ import ScrollReveal from "./verticalScrollReveal";
 
 export default function Education(){
     return(
-        <ScrollReveal className="education" id="education">
-            <h1 className="section-title glass-slab"><SlideInText text="Education" initialX={50} /></h1>
+        <ScrollReveal className="education" >
+            <h1 className="section-title glass-slab" id="education"><SlideInText text="Education" initialX={50} /></h1>
             <div className="general-card glass-slab">
                 <h2 className="medium-title"><Link href="/" target="_blank">Trinity College Dublin</Link></h2>
                 <h4 className="small-subtitle">Graduated October 2023</h4>

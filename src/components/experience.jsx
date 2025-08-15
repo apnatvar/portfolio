@@ -77,12 +77,12 @@ export default function Experience(){
     };
 
     return (
-        <ScrollReveal className="exp" id="experience">
-            <h1 className="section-title glass-slab"><SlideInText text="Previous Work" /></h1>
+        <ScrollReveal className="exp">
+            <h1 className="section-title glass-slab" id="experience"><SlideInText text="Previous Work" /></h1>
             <HorizontalScrollOnVertical className="exp-cards">
-                {cards[current]}
-                {cards[current+1]}
-                {cards[current]}
+                {cards.map((card, _blank) => (
+                    card
+                ))}
             </HorizontalScrollOnVertical>
             <Download />
         </ScrollReveal>
