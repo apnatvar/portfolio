@@ -56,17 +56,17 @@ export default function Projects(){
                 <p className="small-long-text">Built a peer application to help new clients retrieve latest blocks and add new blocks to the decentralised blockchain. </p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card glass-slab" key="4">
-            <h2 className="medium-title">Hi, working on adding more</h2>
-            <h4 className="small-subtitle">Placeholder<Link href="/" target="_blank">Project Link</Link></h4>
-            <SequentialFadeIn>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-            </SequentialFadeIn>
-        </div>        
+        // <div className="general-card glass-slab" key="4">
+        //     <h2 className="medium-title">Hi, working on adding more</h2>
+        //     <h4 className="small-subtitle">Placeholder<Link href="/" target="_blank">Project Link</Link></h4>
+        //     <SequentialFadeIn>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //     </SequentialFadeIn>
+        // </div>        
     ];
 
     const [current, setCurrent] = useState(0);

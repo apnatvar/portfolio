@@ -53,18 +53,18 @@ export default function Experience(){
                 <p className="small-long-text">Collaborated 1:1 with a senior manager to meet weekly targets, ensuring high-quality deliverables and fulfilling 100% of the project requirements earlier than expected.</p>
             </SequentialFadeIn>
         </div>,  
-        <div className="general-card glass-slab" key="4">
-            <h2 className="medium-title">Woops</h2>
-            <h4 className="small-subtitle">If you are reading this, I am still adding more projects</h4>
-            <h3 className="medium-subtitle">Come back later for more</h3>
-            <h4 className="small-subtitle">Placeholder</h4>
-            <SequentialFadeIn>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-                <p className="small-long-text">Placeholder</p>
-            </SequentialFadeIn>
-        </div>    
+        // <div className="general-card glass-slab" key="4">
+        //     <h2 className="medium-title">Woops</h2>
+        //     <h4 className="small-subtitle">If you are reading this, I am still adding more projects</h4>
+        //     <h3 className="medium-subtitle">Come back later for more</h3>
+        //     <h4 className="small-subtitle">Placeholder</h4>
+        //     <SequentialFadeIn>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //         <p className="small-long-text">Placeholder</p>
+        //     </SequentialFadeIn>
+        // </div>    
     ];
 
     const [current, setCurrent] = useState(0);

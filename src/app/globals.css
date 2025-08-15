@@ -160,8 +160,7 @@ h1, h2, h3, h4 {
   margin-top: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  min-height: 83vh;
-  height: fit-content;
+  height: 100vh;
 }
 .hello {
   font-size: var(--font-extra-large-heading);
@@ -353,9 +352,6 @@ h1, h2, h3, h4 {
   }
   .body {
     overflow-wrap: break-word;
-  }
-  .hero {
-    height: 90vh;
   }
   .horizontal-list{
     align-content: center;

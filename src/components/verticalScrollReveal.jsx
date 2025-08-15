@@ -20,7 +20,7 @@ export default function ScrollReveal({
       offset: ["start end", "end start"]
     });
 
-    const rawOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.4]);
+    const rawOpacity = useTransform(scrollYProgress, [0, 0.5, 0.8, 1], [0, 1, 1, 0]);
     const opacity = useSpring(rawOpacity, { stiffness: 100, damping: 20 });
 
     const rawScale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
