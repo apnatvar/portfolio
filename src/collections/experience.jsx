@@ -1,12 +1,14 @@
 'use client';
 import { React, useState } from 'react';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import SlideInText from './slideInAnimation';
 import SequentialFadeIn from './sequentialFadeIn';
+import Download from './download';
+import ScrollReveal from './verticalScrollReveal';
+import HorizontalScrollOnVertical from './horizontalScroll';
 
 export default function Experience(){
     const cards=[
-        <div className="general-card" key="0">
+        <div className="general-card glass-slab" key="0"> 
             <h2 className="medium-title">Full-Stack Developer</h2>
             <h4 className="small-subtitle">March 2025 - Current</h4>
             <h3 className="medium-subtitle">Photography Studio</h3>
@@ -16,7 +18,7 @@ export default function Experience(){
                 <p className="small-long-text">Managed versions via Git(Hub) and deployed on Vercel enabling SSR, Static Pages, and Dynamic Page Creation. Optimised media storage and ORM via Supabase to minimise loading times and improve SEO.</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="1">
+        <div className="general-card glass-slab" key="1">
             <h2 className="medium-title">Python Developer</h2>
             <h4 className="small-subtitle">November 2024 - April 2025</h4>
             <h3 className="medium-subtitle">Finance Company</h3>
@@ -27,7 +29,7 @@ export default function Experience(){
                 <p className="small-long-text"></p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="2">
+        <div className="general-card glass-slab" key="2">
             <h2 className="medium-title">Junior Cloud Engineer</h2>
             <h4 className="small-subtitle">May 2023 - July 2024</h4>
             <h3 className="medium-subtitle">Avaya International</h3>
@@ -40,7 +42,7 @@ export default function Experience(){
                 <p className="small-long-text">Monitored and debugged performance tests on Azure Private Cloud for 72 hours via Prometheus and Loki(Grafana).</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="3">
+        <div className="general-card glass-slab" key="3">
             <h2 className="medium-title">Python Developer Intern</h2>
             <h4 className="small-subtitle">May 2022 - August 2022</h4>
             <h3 className="medium-subtitle">Mount Technics Consultancy</h3>
@@ -51,7 +53,7 @@ export default function Experience(){
                 <p className="small-long-text">Collaborated 1:1 with a senior manager to meet weekly targets, ensuring high-quality deliverables and fulfilling 100% of the project requirements earlier than expected.</p>
             </SequentialFadeIn>
         </div>,  
-        <div className="general-card" key="4">
+        <div className="general-card glass-slab" key="4">
             <h2 className="medium-title">Woops</h2>
             <h4 className="small-subtitle">If you are reading this, I am still adding more projects</h4>
             <h3 className="medium-subtitle">Come back later for more</h3>
@@ -75,17 +77,14 @@ export default function Experience(){
     };
 
     return (
-        <section className="exp glass-slab" id="experience">
-            <h1 className="section-title"><SlideInText text="Previous Work" /></h1>
-            <div className="exp-cards">
+        <ScrollReveal className="exp" id="experience">
+            <h1 className="section-title glass-slab"><SlideInText text="Previous Work" /></h1>
+            <HorizontalScrollOnVertical className="exp-cards">
                 {cards[current]}
-            </div>
-            <button className="nav-button left glass-slab" onClick={handlePrev}>
-            <SlArrowLeft aria-label="previous experience"/>
-            </button>
-            <button className="nav-button right glass-slab" onClick={handleNext}>
-            <SlArrowRight aria-label="next experience"/>
-            </button>
-        </section>
+                {cards[current+1]}
+                {cards[current]}
+            </HorizontalScrollOnVertical>
+            <Download />
+        </ScrollReveal>
     );
 }

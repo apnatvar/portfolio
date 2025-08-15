@@ -1,4 +1,3 @@
-import Download from "@/collections/download";
 import Education from "@/collections/education";
 import Hero from "@/collections/hero";
 import Footer from "@/collections/footer";
@@ -16,9 +15,9 @@ export default function Home() {
       <Hero />
       <ParallaxSpark />
       <Experience />
-      <Download />
       <ParallaxSpark />
       <Education />
+      <ParallaxSpark />
       <Projects />
       <ParallaxSpark />
       <Footer />

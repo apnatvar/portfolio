@@ -82,6 +82,10 @@ h1, h2, h3, h4 {
   z-index: 0;
 }
 
+.big-margin {
+  margin-top: 80vh ;
+  margin-bottom: 50vh;
+}
 .glass-slab {
   position: relative;
   width: 95vw;
@@ -95,7 +99,7 @@ h1, h2, h3, h4 {
   color: var(--color-mist-grey);
   text-align: justify;
   align-content: center;
-  height: fit-content;
+  padding: 3rem 1rem;
 }
 
 .spark {
@@ -188,30 +192,22 @@ h1, h2, h3, h4 {
   align-content: center;
   font-size: medium;
   color: var(--color-glint-white-65);
+  padding: 0;
 }
 .footer {
   display: flex;
   height: fit-content;
   align-items: center;
   width: 95vw;
-  /* justify-self: center; */
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 4rem;
 }
 .website-info {
   text-align: justify;
   padding-left: 1rem;
+  margin-left: auto;
   margin-bottom: 0.2rem;
-}
-.footer > .left-div {
-  flex: 0 0 58%;
-  padding: 1rem;
-}
-.footer > .right-div {
-  flex: 0 0 38%;
-  padding: 1rem;
 }
 .download-link {
   text-decoration: underline;
@@ -220,6 +216,7 @@ h1, h2, h3, h4 {
   color: var(--color-soft-silver);
 }
 .nav-slab {
+  padding: 0;
   position: fixed;
   height: fit-content;
   max-height: 10vh;
@@ -251,6 +248,7 @@ h1, h2, h3, h4 {
 .section-title {
   font-size: var(--font-large-heading);
   text-align: center;
+  padding: 1rem;
   margin-bottom: 1rem;
 }
 .medium-title {
@@ -276,6 +274,7 @@ h1, h2, h3, h4 {
 .exp {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  height: 80vh;
 }
 .exp .general-card {
   margin-bottom: 2rem;
@@ -366,7 +365,7 @@ h1, h2, h3, h4 {
   }
   .footer {
     flex-direction: column;
-    height: fit-content;
+    height: 80vh;
     gap: 1rem;
   }
   .left-div {

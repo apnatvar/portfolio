@@ -1,13 +1,14 @@
 'use client';
 import { React, useState } from 'react';
-import { SlArrowLeft, SlArrowRight} from 'react-icons/sl';
 import Link from 'next/link';
 import SlideInText from './slideInAnimation';
 import SequentialFadeIn from './sequentialFadeIn';
+import ScrollReveal from './verticalScrollReveal';
+import HorizontalScrollOnVertical from './horizontalScroll';
 
 export default function Projects(){
     const cards=[
-        <div className="general-card" key="0">
+        <div className="general-card glass-slab" key="0">
             <h2 className="medium-title">AI Model for Adaptive Traffic Control</h2>
             <h4 className="small-subtitle">Python, PyTorch, SUMO, MatPlotLib <Link href="/" target="_blank">- Project Link</Link></h4>
             <SequentialFadeIn>
@@ -17,7 +18,7 @@ export default function Projects(){
                 <p className="small-long-text">Utilised MatPlotLib to record metrics like average wait times, reward function, congestions to track success of the agent.</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="1">
+        <div className="general-card glass-slab" key="1">
             <h2 className="medium-title">Cyclistic Data Analysis</h2>
             <h4 className="small-subtitle">Python, SQL, Excel, PowerPoint, Tableau <Link href="https://github.com/apnatvar/analytics/tree/main/Cyclistic" target="_blank">- Project Link</Link></h4>
             <SequentialFadeIn>
@@ -27,7 +28,7 @@ export default function Projects(){
                 <p className="small-long-text">Prepared a final PowerPoint to aggregate generated insights and convey findings on customer use and suggest improvements to the business model.</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="2">
+        <div className="general-card glass-slab" key="2">
             <h2 className="medium-title">S&P500 Dashboard</h2>
             <h4 className="small-subtitle">R, RShiny, DPLYR, RStudio, Plotly <Link href="https://github.com/apnatvar/analytics/tree/main/Shiny_Stock" target="_blank">Project Link</Link></h4>
             <SequentialFadeIn>
@@ -36,7 +37,7 @@ export default function Projects(){
                 <p className="small-long-text">Developed in RStudio and written completely in R with some add-on libraries to make scraping data easier.</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="3">
+        <div className="general-card glass-slab" key="3">
             <h2 className="medium-title">Morse Code Game</h2>
             <h4 className="small-subtitle">ARM, C, RaspberryPi, CMake, Doxygen <Link href="https://github.com/apnatvar/Microprocessor-Raspberry-Pi-Pico/tree/main/Pi%20Pico%20Coding/assign02" target="_blank">Project Link</Link></h4>
             <SequentialFadeIn>
@@ -46,7 +47,7 @@ export default function Projects(){
                 <p className="small-long-text">Produced clear and useful documentation and functional flow charts using Doxygen and managed versions using Git</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="4">
+        <div className="general-card glass-slab" key="4">
             <h2 className="medium-title">Blockchain based Emission Logger</h2>
             <h4 className="small-subtitle">Python, SQLite, Socket Programming <Link href="https://github.com/apnatvar/Computer-Networking/tree/main/Project%202" target="_blank">Project Link</Link></h4>
             <SequentialFadeIn>
@@ -55,7 +56,7 @@ export default function Projects(){
                 <p className="small-long-text">Built a peer application to help new clients retrieve latest blocks and add new blocks to the decentralised blockchain. </p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card" key="4">
+        <div className="general-card glass-slab" key="4">
             <h2 className="medium-title">Hi, working on adding more</h2>
             <h4 className="small-subtitle">Placeholder<Link href="/" target="_blank">Project Link</Link></h4>
             <SequentialFadeIn>
@@ -78,17 +79,14 @@ export default function Projects(){
     };
 
     return (
-        <section className="exp glass-slab" id="projects">
-            <h1 className="section-title"><SlideInText text="Side Projects" /></h1>
-            <div className="exp-cards">
+        <ScrollReveal className="exp" id="projects">
+            <h1 className="section-title glass-slab"><SlideInText text="Side Projects" /></h1>
+            <HorizontalScrollOnVertical className="exp-cards">
                 {cards[current]}
-            </div>
-            <button className="nav-button left glass-slab" onClick={handlePrev}>
-            <SlArrowLeft aria-label="previous project"/>
-            </button>
-            <button className="nav-button right glass-slab" onClick={handleNext}>
-            <SlArrowRight aria-label="next project"/>
-            </button>
-        </section>
+                {cards[current+1]}
+                {cards[current+2]}
+                {cards[current+3]}
+            </HorizontalScrollOnVertical>
+        </ScrollReveal>
     );
 }

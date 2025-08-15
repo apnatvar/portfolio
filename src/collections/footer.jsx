@@ -3,11 +3,12 @@ import Link from "next/link";
 import { SiGithub, SiInstagram, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import SlideInText from "./slideInAnimation";
 import SequentialFadeIn from "./sequentialFadeIn";
+import ScrollReveal from "./verticalScrollReveal";
 
 export default function Footer(){
     return(
-        <footer className="footer">
-            <div className="website-info left-div glass-slab">
+        <ScrollReveal >
+            <div className="website-info glass-slab">
                 <h2 className="medium-title center"><SlideInText text="The Last Word" /></h2>
                 <SequentialFadeIn>
                     <p className="small-long-text">I made this website using Next.js, JavaScript, and Motion.dev. I went for a minamalistic glass-morphism "spark in the dark" theme. There some eye-candy animations and some subtle background ones.</p>
@@ -16,7 +17,7 @@ export default function Footer(){
                     <p className="small-subtitle center">Thank you for your time spent reading this. Have a wonderful day.</p>
                 </SequentialFadeIn>
             </div>
-            <div className="contact-me right-div glass-slab" id="social">
+            <div className="contact-me glass-slab" id="social">
                 <h2 className="medium-title center"><SlideInText text="Get in Touch" initialX={50} /></h2>
                 <p className="small-long-text center"><Link href="mailto:arawat@tcd.ie">arawat@tcd.ie</Link></p>
                 <p className="small-long-text center"><Link href="tel:+918791414856"><SiWhatsapp /> +918791414856</Link></p>
@@ -25,6 +26,6 @@ export default function Footer(){
                 <p className="small-long-text center"><Link href="https://www.instagram.com/nattupi/" target="_blank"><SiInstagram /> Instagram</Link></p>
                 <p className="small-long-text center"><Link href="/ApnatvaSinghRawatCV.pdf">Download CV</Link></p>                        
             </div>
-        </footer>
+        </ScrollReveal>
     );
 }
