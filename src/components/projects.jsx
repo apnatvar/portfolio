@@ -90,10 +90,6 @@ export default function Projects(){
                     card
                 ))}
             </HorizontalScrollOnVertical>
-
-            {/* <ScrollReveal>
-                <Download />
-            </ScrollReveal> */}
         </>
     );
 }

@@ -222,7 +222,7 @@ h1, h2, h3, h4 {
   z-index: 10;
   left: 0;
   right: 0;
-  bottom: 10;
+  bottom: 10px;
 }
 .horizontal-list {
   display: flex;
@@ -276,14 +276,6 @@ h1, h2, h3, h4 {
 }
 .exp .general-card {
   margin-bottom: 2rem;
-}
-.nav-button {
-  position: absolute;
-  color: white;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5rem;
-  bottom: -10px;  
 }
 .left-div {
   margin: 0;
@@ -345,14 +337,13 @@ h1, h2, h3, h4 {
   overflow: hidden;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  width: 6rem;}
-
+  width: 6rem;
+}
 .glass-button:hover {
   box-shadow:
     0 0 15px 3px rgba(255, 255, 255, 0.3),
     0 0 30px 10px rgba(255, 255, 255, 0.15);
 }
-
 .glass-button::before {
   content: "";
   position: absolute;
@@ -371,12 +362,10 @@ h1, h2, h3, h4 {
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
-
 .glass-button:hover::before {
   opacity: 1;
   animation: shimmer 1.5s linear infinite;
 }
-
 @keyframes shimmer {
   0% {
     transform: translateX(-100%) rotate(25deg);
@@ -410,17 +399,16 @@ h1, h2, h3, h4 {
     height: 80vh;
     gap: 1rem;
   }
-  .left-div {
-    padding: 1rem;
-  }
-  .right-div {
-    padding: 1rem;
-    height: fit-content;
-  }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    padding: 2rem;
-    font-size: 16px;
+  :root {
+    --font-extra-large-heading: 4.6rem;   
+    --font-large-heading: 4.2rem;
+    --font-medium-heading: 3.2rem;  
+    --font-small-heading: 2.6rem;   
+    --font-medium-subtitle: 2.3rem; 
+    --font-small-subtitle: 1.8rem;  
+    --font-long-text: 1.8rem;         
+    --font-buttons: 2rem;             
   }
 }

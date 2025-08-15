@@ -29,7 +29,7 @@ export default function HorizontalScrollOnVertical({ length=5, children }) {
           pin: true,
           scrub: 0.5, // smoothness factor — increase for slower feel
           start: "top top",
-          end: () => `+=${totalScrollWidth}`, // matches horizontal distance
+          end: () => `+=${totalScrollWidth * 1.1}`, // matches horizontal distance
           anticipatePin: 1,
         },
       });

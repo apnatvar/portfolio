@@ -10,6 +10,7 @@ export default function Hero(){
             <h4 className="short-hook">I help bring your ideas to life without leaving my room.</h4>
             <h3 className="showcase">This portfolio showcases my <p className="glitch-span"><GlitchText /></p></h3>
             <ToolsCarousel />
+            <h4 className="short-hook">Learning is a big part of my life. I am constantly </h4>
         </section>
     );
 }
