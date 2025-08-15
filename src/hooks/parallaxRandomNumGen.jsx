@@ -16,7 +16,7 @@ export function getParallaxSettings() {
     const generatedSettings = {
       flicker: getRandomInt(10, 20),
       acrossSpeed: getRandomInt(50, 100),
-      parallaxSpeed: pickFromArray([-10, -20, -30, -40, -50])
+      parallaxSpeed: getRandomInt(-20, -80),
     };
 
     setSettings(generatedSettings);

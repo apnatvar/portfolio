@@ -21,6 +21,7 @@ export default function Home() {
       <Projects />
       <ParallaxSpark />
       <Footer />
+      <ParallaxSpark />
     </main>
   );
 }

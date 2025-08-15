@@ -5,6 +5,7 @@ import SlideInText from './slideInAnimation';
 import SequentialFadeIn from './sequentialFadeIn';
 import ScrollReveal from './verticalScrollReveal';
 import HorizontalScrollOnVertical from './horizontalScroll';
+import Download from './download';
 
 export default function Projects(){
     const cards=[
@@ -79,13 +80,20 @@ export default function Projects(){
     };
 
     return (
-        <ScrollReveal className="exp">
-            <h1 className="section-title glass-slab" id="projects"><SlideInText text="Side Projects" /></h1>
-            <HorizontalScrollOnVertical className="exp-cards">
+        <>
+            <ScrollReveal className="exp">
+                <h1 className="section-title glass-slab" id="experience"><SlideInText text="Side Projects" /></h1>
+            </ScrollReveal>
+
+            <HorizontalScrollOnVertical className="general-cards" length={cards.length}>
                 {cards.map((card, _blank) => (
                     card
                 ))}
             </HorizontalScrollOnVertical>
-        </ScrollReveal>
+
+            {/* <ScrollReveal>
+                <Download />
+            </ScrollReveal> */}
+        </>
     );
 }

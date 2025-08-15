@@ -67,24 +67,21 @@ export default function Experience(){
         // </div>    
     ];
 
-    const [current, setCurrent] = useState(0);
-    const handlePrev = () => {
-        setCurrent(prev => (prev - 1 + cards.length) % cards.length);
-    };
-
-    const handleNext = () => {
-        setCurrent(prev => (prev + 1) % cards.length);
-    };
-
     return (
-        <ScrollReveal className="exp">
-            <h1 className="section-title glass-slab" id="experience"><SlideInText text="Previous Work" /></h1>
-            <HorizontalScrollOnVertical className="exp-cards">
+        <>
+            <ScrollReveal className="exp">
+                <h1 className="section-title glass-slab" id="experience"><SlideInText text="Previous Work" /></h1>
+            </ScrollReveal>
+
+            <HorizontalScrollOnVertical className="general-cards" length={cards.length}>
                 {cards.map((card, _blank) => (
                     card
                 ))}
             </HorizontalScrollOnVertical>
-            <Download />
-        </ScrollReveal>
+
+            <ScrollReveal>
+                <Download />
+            </ScrollReveal>
+        </>
     );
 }
