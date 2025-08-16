@@ -133,6 +133,7 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 2rem;
   animation: scroll-left-right 60s linear infinite ;
+  scale: 1.4;
 }
 
 .tools-carousel-track:hover {
@@ -374,6 +375,27 @@ h1, h2, h3, h4 {
     transform: translateX(100%) rotate(25deg);
   }
 }
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  text-align: center;
+  gap: 1rem;
+}
+.work-grid .short-hook {
+  padding: 1rem;
+}
+.work-grid-title {
+  margin-bottom: 2rem;
+}
+.mini {
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  height: fit-content;
+}
 @media (max-width: 767px) {
   :root {
     --font-extra-large-heading: 2.3rem;   
@@ -400,7 +422,7 @@ h1, h2, h3, h4 {
     gap: 1rem;
   }
 }
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1025px) {
   :root {
     --font-extra-large-heading: 4.6rem;   
     --font-large-heading: 4.2rem;

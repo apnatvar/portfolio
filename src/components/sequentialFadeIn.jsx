@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-export default function SequentialFadeIn({ children }) {
+export default function SequentialFadeIn({ children, classnames="" }) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { margin: "-50px" });
 
@@ -28,6 +28,7 @@ export default function SequentialFadeIn({ children }) {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       exit="hidden"
+      className={classnames}
     >
       {React.Children.map(children, (child) => (
         <motion.div variants={itemVariants}>

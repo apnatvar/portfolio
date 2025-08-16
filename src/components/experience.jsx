@@ -39,7 +39,6 @@ export default function Experience(){
                 <p className="small-long-text">Developed and maintained 16 real-time Go and Java(Maven) based micro-services integrated with Apache Kafka and NATS while utilising Git(Bitbucket) and Helm for version management and deployment.</p>
                 <p className="small-long-text">Led development of 2 new full-stack features utilising JIRA to track progress and assign work.</p>
                 <p className="small-long-text">Upgraded Jenkins CI/CD pipelines for automated QA testing and deployment of services to test environments.</p>
-                <p className="small-long-text">Monitored and debugged performance tests on Azure Private Cloud for 72 hours via Prometheus and Loki(Grafana).</p>
             </SequentialFadeIn>
         </div>,
         <div className="general-card glass-slab" key="3">
@@ -78,10 +77,6 @@ export default function Experience(){
                     card
                 ))}
             </HorizontalScrollOnVertical>
-
-            <ScrollReveal>
-                <Download />
-            </ScrollReveal>
         </>
     );
 }

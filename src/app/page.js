@@ -6,6 +6,7 @@ import Experience from "@/components/experience";
 import Projects from "@/components/projects";
 import ParallaxSpark from "@/components/parallax";
 import LoadingScreenWithBackgroundVideo from "@/components/bgVideoWithLoading";
+import Download from "@/components/download";
 
 export default function Home() {
   return (
@@ -15,6 +16,8 @@ export default function Home() {
       <Hero />
       <ParallaxSpark />
       <Experience />
+      <ParallaxSpark />
+      <Download />
       <ParallaxSpark />
       <Education />
       <ParallaxSpark />
