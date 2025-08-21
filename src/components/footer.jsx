@@ -24,7 +24,7 @@ export default function Footer(){
                 <p className="small-long-text center"><Link href="https://www.linkedin.com/in/apnatva-singh-rawat/" target="_blank"><SiLinkedin /> LinkedIn</Link></p>
                 <p className="small-long-text center"><Link href="https://github.com/apnatvar/" target="_blank"><SiGithub /> GitHub</Link></p>
                 <p className="small-long-text center"><Link href="https://www.instagram.com/nattupi/" target="_blank"><SiInstagram /> Instagram</Link></p>
-                <p className="small-long-text center"><Link href="/ApnatvaSinghRawatCV.pdf">Download CV</Link></p>                        
+                <p className="small-long-text center"><Link href="/ApnatvaSinghRawatCV.pdf" download="ApnatvaSinghRawatCV.pdf">Download CV</Link></p>                        
             </div>
         </ScrollReveal>
     );
