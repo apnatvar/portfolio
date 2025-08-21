@@ -9,6 +9,16 @@ import HorizontalScrollOnVertical from './horizontalScroll';
 export default function Experience(){
     const cards=[
         <div className="general-card glass-slab" key="0"> 
+            <h2 className="medium-title">Content and Branding Intern</h2>
+            <h4 className="small-subtitle">June 2025 - August 2025</h4>
+            <h3 className="medium-subtitle">Motilal Oswal Financial Services</h3>
+            <h4 className="small-subtitle">Data Analysis, Excel, PowerPoint, Social Media Management</h4>
+            <SequentialFadeIn>
+                <p className="small-long-text">Managed production and publishment of Long and Short form videos and infographics across Instagram, Facebook, YouTube, Twitter, and LinkedIn.</p>
+                <p className="small-long-text">Procured engagement statistics for weekly meetings to track and visualise findings and convey insights about current practices to drive future decisions.</p>
+            </SequentialFadeIn>
+        </div>,
+        <div className="general-card glass-slab" key="1"> 
             <h2 className="medium-title">Full-Stack Developer</h2>
             <h4 className="small-subtitle">March 2025 - Current</h4>
             <h3 className="medium-subtitle">Photography Studio</h3>
@@ -18,7 +28,7 @@ export default function Experience(){
                 <p className="small-long-text">Managed versions via Git(Hub) and deployed on Vercel enabling SSR, Static Pages, and Dynamic Page Creation. Optimised media storage and ORM via Supabase to minimise loading times and improve SEO.</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card glass-slab" key="1">
+        <div className="general-card glass-slab" key="2">
             <h2 className="medium-title">Python Developer</h2>
             <h4 className="small-subtitle">November 2024 - April 2025</h4>
             <h3 className="medium-subtitle">Finance Company</h3>
@@ -29,7 +39,7 @@ export default function Experience(){
                 <p className="small-long-text"></p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card glass-slab" key="2">
+        <div className="general-card glass-slab" key="3">
             <h2 className="medium-title">Junior Cloud Engineer</h2>
             <h4 className="small-subtitle">May 2023 - July 2024</h4>
             <h3 className="medium-subtitle">Avaya International</h3>
@@ -41,7 +51,7 @@ export default function Experience(){
                 <p className="small-long-text">Upgraded Jenkins CI/CD pipelines for automated QA testing and deployment of services to test environments.</p>
             </SequentialFadeIn>
         </div>,
-        <div className="general-card glass-slab" key="3">
+        <div className="general-card glass-slab" key="4">
             <h2 className="medium-title">Python Developer Intern</h2>
             <h4 className="small-subtitle">May 2022 - August 2022</h4>
             <h3 className="medium-subtitle">Mount Technics Consultancy</h3>
