@@ -4,7 +4,7 @@ import SlideInText from "./slideInAnimation";
 import ScrollReveal from "./verticalScrollReveal";
 import ScrollGrid from "./scrollGrid";
 
-export default function Download(){
+export default function Download() {
     return (
         <>
         <ScrollReveal>

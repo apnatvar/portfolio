@@ -86,7 +86,6 @@ h1, h2, h3, h4 {
 }
 .glass-slab {
   position: relative;
-  width: 95vw;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -212,6 +211,34 @@ h1, h2, h3, h4 {
 }
 .download-link:hover {
   color: var(--color-soft-silver);
+}
+.smaller-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;  
+  padding: 1rem;
+}
+.minimal-card {
+  text-align: center;
+  margin: auto;
+  height: 100%;
+}
+.minimal-card:hover {
+  transform: scale(1.1);
+}.minimal-card .name {
+  padding: 0;
+  font-size: var(--font-medium-subtitle);
+  padding-bottom: 1rem;
+}
+.minimal-card .short-hook {
+  padding: 0;
+  font-size: var(--font-small-subtitle);
+  color: var(--color-glint-white-50);
+  padding-bottom: 1rem;
+}
+.minimal-card .showcase {
+  font-size: var(--font-small-subtitle);
+  padding: 0;
 }
 .nav-slab {
   padding: 0;
