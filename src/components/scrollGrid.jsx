@@ -26,9 +26,9 @@ export default function ScrollGrid() {
       {items.sort(() => Math.random() - 0.5).map((text, idx) => (
         <motion.p
           key={idx}
-          initial={{ opacity: 0, y: -40, x: 100 }}
+          initial={{ opacity: 0, y: -100, x: 100 }}
           whileInView={{ opacity: 1, y: 0, x: 0}}
-          exit={{ opacity: 0, y: 60, x: -100 }}
+          exit={{ opacity: 0, y: 100, x: 100 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.7 }}
           className="short-hook glass-slab mini"
