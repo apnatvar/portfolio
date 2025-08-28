@@ -3,6 +3,7 @@ import ScrollReveal from "./verticalScrollReveal";
 import SlideInText from "./slideInAnimation";
 import TiltCard from "./gridAnimation";
 import SequentialFadeIn from "./sequentialFadeIn";
+import Link from "next/link";
 
 export default function MinExperience() {
     return (
@@ -47,6 +48,11 @@ export default function MinExperience() {
                     </SequentialFadeIn>
                 </TiltCard>
             </div>
+            <ScrollReveal>
+                <div className="glass-slab">
+                    <h3 className="PDF">A PDF version of my CV is available <Link href="/ApnatvaSinghRawatCV.pdf" className="download-link" download="ApnatvaSinghRawatCV.pdf">here</Link></h3>
+                </div>
+            </ScrollReveal>
         </>
     )
 }

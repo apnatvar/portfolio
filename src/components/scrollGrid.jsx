@@ -17,7 +17,8 @@ const items = [
   "Excel Automations",
   "API Development",
   "Search Engine Optimisation",
-  "Social Media Automation"
+  "Social Media Automations",
+  "Generative Engine Optimisation"
 ];
 
 export default function ScrollGrid() {
@@ -29,8 +30,8 @@ export default function ScrollGrid() {
           initial={{ opacity: 0, y: -100, x: 100 }}
           whileInView={{ opacity: 1, y: 0, x: 0}}
           exit={{ opacity: 0, y: 100, x: 100 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.7 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.8 }}
           className="short-hook glass-slab mini"
         >
           {text}

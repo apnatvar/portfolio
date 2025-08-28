@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import SlideInText from "./slideInAnimation";
 import ScrollReveal from "./verticalScrollReveal";
 import ScrollGrid from "./scrollGrid";
@@ -15,20 +14,15 @@ export default function Download() {
                     Tech is constantly evolving and it is hard for even developers to keep track of the best tools currently available.
                     I keep tabs on the tech world so you can focus on what matters most, your ideas. 
                 </h4>
-                <h4 className="short-hook center">
+                <h4 className="small-long-text center">
                     I can help you formulate technical requirements and offer tailored solutions to minimise costs and maximise output.
                 </h4>
-                <h4 className="short-hook center">
+                <h4 className="small-long-text center">
                     Below is a list of various ways I can help you out.
                 </h4>
             </div>
         </ScrollReveal>
-            <ScrollGrid />
-            <ScrollReveal>
-            <div className="glass-slab">
-                <h3 className="PDF">A PDF version of my CV is available <Link href="/ApnatvaSinghRawatCV.pdf" className="download-link" download="ApnatvaSinghRawatCV.pdf">here</Link></h3>
-            </div>
-            </ScrollReveal>
+        <ScrollGrid />
         </>
     );
 }

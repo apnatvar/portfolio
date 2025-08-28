@@ -82,16 +82,16 @@ h1, h2, h3, h4 {
 }
 
 .big-margin {
-  margin-top: 80vh ;
+  margin-top: 70vh;
   margin-bottom: 50vh;
 }
 .glass-slab {
   position: relative;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.275);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   margin: 1.6rem auto;
   color: var(--color-mist-grey);
@@ -189,7 +189,7 @@ h1, h2, h3, h4 {
   height: 10vh;
   align-content: center;
   font-size: medium;
-  color: var(--color-glint-white-65);
+  color: var(--color-glint-white-80);
   padding: 0;
 }
 .footer {
@@ -271,13 +271,14 @@ h1, h2, h3, h4 {
   margin-bottom: 1.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  height: 80vh;
+  height: fit-content;
 }
 .section-title {
   font-size: var(--font-large-heading);
   text-align: center;
   padding: 1rem;
   margin-bottom: 1rem;
+  color: var(--color-glint-white-80);
 }
 .medium-title {
   font-size: var(--font-medium-heading);
@@ -297,7 +298,7 @@ h1, h2, h3, h4 {
   font-size: var(--font-long-text);
   text-align: justify;
   margin-bottom: 0.5rem;
-  color: var(--color-glint-white-65);
+  color: var(--color-glint-white-80);
 }
 .exp {
   padding-top: 2rem;

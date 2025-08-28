@@ -9,14 +9,10 @@ export function getParallaxSettings() {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
-    const pickFromArray = (arr) => {
-      return arr[Math.floor(Math.random() * arr.length)];
-    };
-
     const generatedSettings = {
-      flicker: getRandomInt(10, 20),
-      acrossSpeed: getRandomInt(50, 100),
-      parallaxSpeed: getRandomInt(-20, -80),
+      flicker: getRandomInt(8, 20),
+      acrossSpeed: getRandomInt(70, 120),
+      parallaxSpeed: getRandomInt(-10, -100),
     };
 
     setSettings(generatedSettings);
