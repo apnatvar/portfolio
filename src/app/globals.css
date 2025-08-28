@@ -420,10 +420,10 @@ h1, h2, h3, h4 {
   margin-bottom: 2rem;
 }
 .mini {
-  width: 200px;
+  height: 100%;
+  width: 100%;
   text-align: center;
   margin: auto;
-  height: fit-content;
 }
 @media (max-width: 767px) {
   :root {
