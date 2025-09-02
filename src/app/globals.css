@@ -100,6 +100,14 @@ h1, h2, h3, h4 {
   padding: 3rem 1rem;
 }
 
+.prismatic-burst-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .spark {
   position: absolute;
   width: 0px;
@@ -407,12 +415,12 @@ h1, h2, h3, h4 {
 }
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   padding-left: 3rem;
   padding-right: 3rem;
   text-align: center;
   gap: 1rem;
+  margin: auto;
 }
 .work-grid .short-hook {
   padding: 1rem;
@@ -424,7 +432,6 @@ h1, h2, h3, h4 {
   height: 100%;
   width: 100%;
   text-align: center;
-  margin: auto;
 }
 @media (max-width: 767px) {
   :root {
