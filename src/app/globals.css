@@ -5,11 +5,9 @@
   --foreground: #171717;
   --color-charcoal-black: #0B0B0F;
   --color-graphite-grey: #1A1A1E;
-  --color-ash-grey: #D1D1D1;
+  --color-ash-grey: rgba(255, 255, 255, 0.65);
   --color-soft-silver: #F5F5F5;
-  --color-mist-grey: #AAAAAA;
-  --color-glint-white-25: rgba(255, 255, 255, 0.25);
-  --color-glint-white-50: rgba(255, 255, 255, 0.50);
+  --color-mist-grey: rgba(255, 255, 255, 0.70);
   --color-glint-white-65: rgba(255, 255, 255, 0.65);
   --color-glint-white-80: rgba(255, 255, 255, 0.80);
   --font-extra-large-heading: 2.7rem;
@@ -81,9 +79,8 @@ h1, h2, h3, h4 {
   position: relative;
   background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
-  backdrop-filter: blur(7px);
   /* border: 1px solid rgba(255, 255, 255, 0.275); */
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   margin: 1.6rem auto;
   color: var(--color-mist-grey);
@@ -94,10 +91,10 @@ h1, h2, h3, h4 {
 
 .prismatic-burst-container {
   position: fixed;
-  top: -10; 
-  left: -10;
-  width: 105%;
-  height: 105%;
+  top: -10rem; 
+  left: -10rem;
+  width: 150%;
+  height: 150%;
   overflow: hidden;
   filter: blur(5px);
 }
@@ -237,7 +234,7 @@ h1, h2, h3, h4 {
 .minimal-card .short-hook {
   padding: 0;
   font-size: var(--font-small-subtitle);
-  color: var(--color-glint-white-50);
+  color: var(--color-glint-white-80);
   padding-bottom: 1rem;
 }
 .minimal-card .showcase {
@@ -452,9 +449,6 @@ h1, h2, h3, h4 {
     flex-direction: column;
     height: 80vh;
     gap: 1rem;
-  }
-  .prismatic-burst-container {
-    width: 150vw;
   }
 }
 @media (min-width: 768px) and (max-width: 1025px) {
