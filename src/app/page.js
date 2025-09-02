@@ -18,13 +18,13 @@ export default function Home() {
     animationType="rotate3d"
     intensity={2}
     speed={0.3}
-    distort={15.0}
+    distort={20.0}
     paused={false}
-    offset={{ x: 0, y: 0 }}
-    hoverDampness={0.25}
-    rayCount={40}
-    mixBlendMode="lighten"
-    colors={['#ff0101ff', '#000', '#000']}
+    offset={{ x: 200, y: 100 }}
+    hoverDampness={0}
+    rayCount={60}
+    mixBlendMode="darken"
+    colors={['#ff0101ff', '#000', '#0dff00ff']}
   />
   <Hero />
   </div>
