@@ -12,26 +12,15 @@ export default function Home() {
   return (
     <main>
       {/* <LoadingScreenWithBackgroundVideo /> */}
-
-<div style={{ width: '100%', height: '600px', position: 'relative' }}>
-  <PrismaticBurst
-    animationType="rotate3d"
-    intensity={2}
-    speed={0.3}
-    distort={20.0}
-    paused={false}
-    offset={{ x: 200, y: 100 }}
-    hoverDampness={0}
-    rayCount={60}
-    mixBlendMode="darken"
-    colors={['#ff0101ff', '#000', '#0dff00ff']}
-  />
-  <Hero />
-  </div>
-
-<SmartNavSlab />
-      
-
+      <PrismaticBurst
+        animationType="hover"
+        intensity={4.5}
+        speed={1}
+        hoverDampness={10}
+        rayCount={15}
+      />
+      <Hero />
+      <SmartNavSlab />
       <ParallaxSpark />
       <MinExperience />
       {/* <Experience /> */}

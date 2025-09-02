@@ -72,25 +72,17 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 
-.overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 0;
-}
-
 .big-margin {
   margin-top: 70vh;
   margin-bottom: 50vh;
 }
+
 .glass-slab {
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.275);
-  backdrop-filter: blur(2px);
+  backdrop-filter: hue-rotate(45deg);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   margin: 1.6rem auto;
@@ -102,10 +94,22 @@ h1, h2, h3, h4 {
 
 .prismatic-burst-container {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; 
+  left: 0;
+  width: 105vw;
+  height: 105vh;
   overflow: hidden;
+
+}
+
+.overlay-blur {
+  position: fixed;
+  top: -10; 
+  left: -10;
+  width: 105vw;
+  height: 105vh;
+  overflow: hidden;
+  filter: blur(5px);
 }
 
 .spark {

@@ -469,7 +469,7 @@ const PrismaticBurst = ({
     program.uniforms.uColorCount.value = count;
   }, [intensity, speed, animationType, colors, distort, offset, rayCount]);
 
-  return <div className="prismatic-burst-container" ref={containerRef} />;
+  return <div className='overlay-blur'><div className="prismatic-burst-container" ref={containerRef} /></div>;
 };
 
 export default PrismaticBurst;
