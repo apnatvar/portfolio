@@ -8,7 +8,7 @@ import ScrollReveal from "./verticalScrollReveal";
 export default function Footer(){
     return(
         <ScrollReveal >
-            <div className="website-info glass-slab">
+            <div className="glass-slab website-info">
                 <h2 className="medium-title center"><SlideInText text="The Last Word" /></h2>
                 <SequentialFadeIn>
                     <p className="short-hook">I made this website using Next.js, JavaScript, and Motion.dev. I went for a minamalistic glass-morphism "spark in the dark" theme. There some eye-candy animations and some subtle background ones.</p>
@@ -17,7 +17,7 @@ export default function Footer(){
                     <p className="small-long-text center">Thank you for your time spent reading this. Have a wonderful day.</p>
                 </SequentialFadeIn>
             </div>
-            <div className="contact-me glass-slab" id="social">
+            <div className="glass-slab contact-me" id="social">
                 <h2 className="medium-title center"><SlideInText text="Get in Touch" initialX={50} /></h2>
                 <p className="small-long-text center"><Link href="mailto:arawat@tcd.ie">arawat@tcd.ie</Link></p>
                 <p className="small-long-text center"><Link href="tel:+918791414856"><SiWhatsapp /> +918791414856</Link></p>

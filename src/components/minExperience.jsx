@@ -9,7 +9,7 @@ export default function MinExperience() {
     return (
         <>
             <ScrollReveal className="exp">
-                <h1 className="section-title glass-slab" id="experience"><SlideInText text="Professional Work" /></h1>
+                <h1 className="glass-slab section-title" id="experience"><SlideInText text="Professional Work" /></h1>
             </ScrollReveal>
             <div className="smaller-cards">
                 <TiltCard>

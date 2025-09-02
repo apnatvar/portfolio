@@ -14,10 +14,10 @@ export default function Home() {
       {/* <LoadingScreenWithBackgroundVideo /> */}
       <PrismaticBurst
         animationType="hover"
-        intensity={4.5}
-        speed={1}
+        intensity={2.5}
+        speed={2}
         hoverDampness={10}
-        rayCount={15}
+        // rayCount={20}
       />
       <Hero />
       <SmartNavSlab />
