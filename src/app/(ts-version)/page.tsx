@@ -24,28 +24,19 @@ export default function Page() {
 
         <Separator className="my-6" />
 
-        <SectionBlock
-          title="Work"
-          subtitle="I’ve contributed across startups and boutique teams, focusing on shipping reliable features, performance tuning, and meaningful UX improvements. Below is a concise snapshot with dates."
-        >
+        <SectionBlock title="Work">
           <WorkList />
         </SectionBlock>
 
         <Separator className="my-6" />
 
-        <SectionBlock
-          title="Education"
-          subtitle="Formal education and certifications that shaped my fundamentals in computer engineering and practical problem-solving."
-        >
+        <SectionBlock title="Education">
           <EducationList />
         </SectionBlock>
 
         <Separator className="my-6" />
 
-        <SectionBlock
-          title="Skills"
-          subtitle="Primary tools and technologies I use repeatedly. Icons indicate the ecosystem or tool family."
-        >
+        <SectionBlock title="Skills">
           <SkillsList />
         </SectionBlock>
 
@@ -53,18 +44,14 @@ export default function Page() {
 
         <SectionBlock
           title="About Me"
-          subtitle="A quick timeline-style summary of notable milestones and personal highlights relevant to my work."
-          lead
+          subtitle="Good at spotting bugs and better at fixing them. Supercharged with Americanos, AI, and Açaí. Writing code since 2015. Trying to make marketing easier with tech."
         >
           <AboutList />
         </SectionBlock>
 
         <Separator className="my-6" />
 
-        <SectionBlock
-          title="Social Links"
-          subtitle="Find me around the web. These links point to my public profiles for work, community, and learning."
-        >
+        <SectionBlock title="Find Me">
           <SocialList />
         </SectionBlock>
 

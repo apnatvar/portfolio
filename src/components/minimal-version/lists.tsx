@@ -3,27 +3,70 @@
 import * as React from "react";
 import Link from "next/link";
 import {
-  Code2,
-  Database,
-  Globe,
-  Github,
-  Linkedin,
-  Twitter,
-  Waypoints,
-} from "lucide-react";
-
+  FaDatabase,
+  FaDocker,
+  FaFile,
+  FaGitAlt,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaPython,
+} from "react-icons/fa6";
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import {
+  SiTypescript,
+  SiPayloadcms,
+  SiApplemusic,
+  SiKubernetes,
+  SiSupabase,
+  SiVercel,
+  SiShadcnui,
+} from "react-icons/si";
 // --------------------
 // Work (name + date)
 // --------------------
 type WorkItem = { role: string; org: string; date: string };
 const WORK_DATA: WorkItem[] = [
   {
-    role: "Junior Software Developer",
-    org: "FinTech Co.",
-    date: "2024 — Present",
+    role: "Full Stack Developer",
+    org: "Fiora",
+    date: "Sep 2025 — Present",
   },
-  { role: "Software Intern", org: "DataOps Studio", date: "2023 — 2024" },
-  { role: "Contract Developer", org: "Boutique Agency", date: "2023" },
+  {
+    role: "Web Developer",
+    org: "Unisafe Secure Solutions",
+    date: "Sep 2025 — Present",
+  },
+  {
+    role: "Full Stack Developer",
+    org: "Ariyana Creations",
+    date: "Aug 2025 — Present",
+  },
+  {
+    role: "Content and Brand Intern",
+    org: "Motilal Oswal Financial Services",
+    date: "Jun 2025 — Present",
+  },
+  {
+    role: "Full Stack Developer",
+    org: "Bala-G Studios",
+    date: "Feb 2025 — Sep 2025",
+  },
+  {
+    role: "Software Developer",
+    org: "Anand Rawat and Co. Chartered Accountants",
+    date: "Sep 2024 — Mar 2025",
+  },
+  {
+    role: "Junior Software Developer",
+    org: "Avaya International",
+    date: "May 2023 — July 2024",
+  },
+  {
+    role: "Software Developer Intern",
+    org: "Mount Technics Consultancy",
+    date: "May 2022 — Aug 2022",
+  },
 ];
 
 export function WorkList() {
@@ -36,7 +79,7 @@ export function WorkList() {
         >
           <span className="font-medium">{w.role}</span>
           <span className="text-muted-foreground">{w.org}</span>
-          <span className="text-sm text-muted-foreground">{w.date}</span>
+          <span className="text-sm text-muted-foreground mb-5">{w.date}</span>
         </li>
       ))}
     </ul>
@@ -50,13 +93,13 @@ type EducationItem = { program: string; school: string; date: string };
 const EDUCATION_DATA: EducationItem[] = [
   {
     program: "B.E. Computer Engineering",
-    school: "State University",
+    school: "Trinity College Dublin",
     date: "2019 — 2023",
   },
   {
-    program: "Cert. — Data Analytics",
-    school: "Online Institute",
-    date: "2022",
+    program: "ISC Examinations",
+    school: "St. George's College",
+    date: "2018",
   },
 ];
 
@@ -70,7 +113,7 @@ export function EducationList() {
         >
           <span className="font-medium">{e.program}</span>
           <span className="text-muted-foreground">{e.school}</span>
-          <span className="text-sm text-muted-foreground">{e.date}</span>
+          <span className="text-sm text-muted-foreground mb-5">{e.date}</span>
         </li>
       ))}
     </ul>
@@ -85,12 +128,18 @@ type SkillItem = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 const SKILLS_DATA: SkillItem[] = [
-  { name: "Next.js", icon: Globe },
-  { name: "TypeScript", icon: Code2 },
-  { name: "Tailwind", icon: Waypoints },
-  { name: "PayloadCMS", icon: Database },
-  { name: "Python", icon: Code2 },
-  { name: "SQL", icon: Database },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Python", icon: FaPython },
+  { name: "SQL", icon: FaDatabase },
+  { name: "PayloadCMS", icon: SiPayloadcms },
+  { name: "Tailwind", icon: RiTailwindCssFill },
+  { name: "Next.js", icon: RiNextjsFill },
+  { name: "Shadcn", icon: SiShadcnui },
+  { name: "Git", icon: FaGitAlt },
+  { name: "Docker", icon: FaDocker },
+  { name: "Kubernetes", icon: SiKubernetes },
+  { name: "Supabase", icon: SiSupabase },
+  { name: "Vercel", icon: SiVercel },
 ];
 
 export function SkillsList() {
@@ -99,7 +148,10 @@ export function SkillsList() {
       {SKILLS_DATA.map((s) => {
         const Icon = s.icon;
         return (
-          <li key={s.name} className="flex items-center gap-2 justify-center">
+          <li
+            key={s.name}
+            className="flex items-center gap-2 justify-center  mb-5"
+          >
             <Icon className="h-4 w-4 text-muted-foreground" aria-hidden />
             <span className="text-sm">{s.name}</span>
           </li>
@@ -114,9 +166,9 @@ export function SkillsList() {
 // -----------------------------------
 type AboutItem = { label: string; date: string };
 const ABOUT_DATA: AboutItem[] = [
-  { label: "Built a financial data tool processing ~₹10M/yr", date: "2024" },
-  { label: "Launched boutique studio website (perf-focused)", date: "2024" },
-  { label: "Exploring quantum software engineering", date: "2025" },
+  // { label: "Built a financial data tool processing ~₹10M/yr", date: "2024" },
+  // { label: "Launched boutique studio website (perf-focused)", date: "2024" },
+  // { label: "Exploring quantum software engineering", date: "2025" },
 ];
 
 export function AboutList() {
@@ -147,16 +199,21 @@ type SocialItem = {
 };
 
 const SOCIAL_DATA: SocialItem[] = [
-  { label: "GitHub", href: "https://github.com/your-handle", icon: Github },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/your-handle",
-    icon: Linkedin,
+    href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
+    icon: FaLinkedin,
+  },
+  { label: "GitHub", href: "https://github.com/apnatvar/", icon: FaGithub },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/nattupi/",
+    icon: FaInstagram,
   },
   {
-    label: "Twitter/X",
-    href: "https://twitter.com/your-handle",
-    icon: Twitter,
+    label: "Apple Music",
+    href: "https://music.apple.com/profile/nattupi",
+    icon: SiApplemusic,
   },
 ];
 
@@ -166,7 +223,10 @@ export function SocialList() {
       {SOCIAL_DATA.map((s) => {
         const Icon = s.icon;
         return (
-          <li key={s.label} className="flex items-center gap-2 justify-center">
+          <li
+            key={s.label}
+            className="flex items-center gap-2 justify-center mb-5"
+          >
             <Icon className="h-4 w-4 text-muted-foreground" aria-hidden />
             <Link
               href={s.href}
@@ -179,6 +239,18 @@ export function SocialList() {
           </li>
         );
       })}
+      <li key="CV" className="flex items-center gap-2 justify-center mb-5">
+        <FaFile className="h-4 w-4 text-muted-foreground" aria-hidden />
+        <Link
+          href="./ApnatvaSinghRawatCV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 hover:opacity-90"
+          download="./ApnatvaSinghRawatCV.pdf"
+        >
+          CV
+        </Link>
+      </li>
     </ul>
   );
 }

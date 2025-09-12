@@ -6,13 +6,13 @@ import { Badge } from "../ui/badge";
 export default function TagRow() {
   // Mock data
   const tags: string[] = [
-    "Next.js",
-    "TypeScript",
-    "Tailwind",
-    "shadcn/ui",
-    "PayloadCMS (incoming)",
-    "Python",
-    "SQL",
+    "Automations",
+    "AI",
+    "Web Apps",
+    "Social Media Marketing",
+    "n8n",
+    "DevOps",
+    "SEO/GEO",
     "UI/UX",
   ];
 
