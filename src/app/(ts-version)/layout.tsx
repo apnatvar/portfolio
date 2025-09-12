@@ -1,5 +1,6 @@
 import { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import "@/app/globals.css";
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#060010" },
@@ -123,7 +124,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mx-auto px-4 py-5">{children}</main>
+          <main className="mx-auto px-2 py-3">{children}</main>
         </ThemeProvider>
       </body>
     </html>

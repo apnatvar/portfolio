@@ -22,7 +22,7 @@ export default function Page() {
 
         <TagRow />
 
-        <Separator className="m-5" />
+        <Separator className="my-6" />
 
         <SectionBlock
           title="Work"

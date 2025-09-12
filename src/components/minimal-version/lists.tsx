@@ -32,7 +32,7 @@ export function WorkList() {
       {WORK_DATA.map((w) => (
         <li
           key={`${w.org}-${w.date}`}
-          className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4 text-center"
         >
           <span className="font-medium">{w.role}</span>
           <span className="text-muted-foreground">{w.org}</span>
@@ -66,7 +66,7 @@ export function EducationList() {
       {EDUCATION_DATA.map((e) => (
         <li
           key={`${e.school}-${e.date}`}
-          className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4 text-center"
         >
           <span className="font-medium">{e.program}</span>
           <span className="text-muted-foreground">{e.school}</span>
@@ -99,7 +99,7 @@ export function SkillsList() {
       {SKILLS_DATA.map((s) => {
         const Icon = s.icon;
         return (
-          <li key={s.name} className="flex items-center gap-2">
+          <li key={s.name} className="flex items-center gap-2 justify-center">
             <Icon className="h-4 w-4 text-muted-foreground" aria-hidden />
             <span className="text-sm">{s.name}</span>
           </li>
@@ -125,10 +125,12 @@ export function AboutList() {
       {ABOUT_DATA.map((a) => (
         <li
           key={`${a.label}-${a.date}`}
-          className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2"
         >
-          <span className="font-medium">{a.label}</span>
-          <span className="text-muted-foreground md:col-span-2">{a.date}</span>
+          <span className="font-medium md:col-span-2 text-center">
+            {a.label}
+          </span>
+          <span className="text-muted-foreground text-center">{a.date}</span>
         </li>
       ))}
     </ul>
@@ -164,7 +166,7 @@ export function SocialList() {
       {SOCIAL_DATA.map((s) => {
         const Icon = s.icon;
         return (
-          <li key={s.label} className="flex items-center gap-2">
+          <li key={s.label} className="flex items-center gap-2 justify-center">
             <Icon className="h-4 w-4 text-muted-foreground" aria-hidden />
             <Link
               href={s.href}
