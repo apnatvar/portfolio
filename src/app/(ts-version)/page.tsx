@@ -36,7 +36,7 @@ export default function Page() {
 
         <Separator className="my-6" />
 
-        <SectionBlock title="Skills">
+        <SectionBlock title="Toolbox">
           <SkillsList />
         </SectionBlock>
 

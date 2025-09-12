@@ -1,5 +1,5 @@
 'use client'
-import InfiniteMenu from '@/components/menu'
+import InfiniteMenu from '@/components/ui/menu'
 
 export default function Test(){
 const items = [
