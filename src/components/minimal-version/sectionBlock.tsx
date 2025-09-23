@@ -4,14 +4,16 @@ import * as React from "react";
 
 type SectionBlockProps = {
   title: string;
-  subtitle?: string;
-  children: React.ReactNode;
+  subtitle1?: string;
+  subtitle2?: string;
+  children?: React.ReactNode;
   lead?: boolean; // uses slightly larger/leading text for About section
 };
 
 export default function SectionBlock({
   title,
-  subtitle,
+  subtitle1,
+  subtitle2,
   children,
   lead,
 }: SectionBlockProps) {
@@ -31,7 +33,19 @@ export default function SectionBlock({
             "max-w-2xl",
           ].join(" ")}
         >
-          {subtitle}
+          {subtitle1}
+        </p>
+        <p
+          className={[
+            "mx-auto mt-2 text-center",
+            lead
+              ? "text-base md:text-lg leading-7 md:leading-8"
+              : "text-sm md:text-base",
+            "text-muted-foreground",
+            "max-w-2xl",
+          ].join(" ")}
+        >
+          {subtitle2}
         </p>
       </header>
       <div>{children}</div>

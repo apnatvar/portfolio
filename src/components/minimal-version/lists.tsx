@@ -27,21 +27,21 @@ import {
 // --------------------
 type WorkItem = { role: string; org: string; date: string };
 const WORK_DATA: WorkItem[] = [
-  {
-    role: "Full Stack Developer",
-    org: "Fiora",
-    date: "Sep 2025 — Present",
-  },
-  {
-    role: "Web Developer",
-    org: "Unisafe Secure Solutions",
-    date: "Sep 2025 — Present",
-  },
-  {
-    role: "Full Stack Developer",
-    org: "Ariyana Creations",
-    date: "Aug 2025 — Present",
-  },
+  // {
+  //   role: "Full Stack Developer",
+  //   org: "Fiora",
+  //   date: "Sep 2025 — Present",
+  // },
+  // {
+  //   role: "Web Developer",
+  //   org: "Unisafe Secure Solutions",
+  //   date: "Sep 2025 — Present",
+  // },
+  // {
+  //   role: "Full Stack Developer",
+  //   org: "Ariyana Creations",
+  //   date: "Aug 2025 — Present",
+  // },
   {
     role: "Content and Brand Intern",
     org: "Motilal Oswal Financial Services",
@@ -225,14 +225,14 @@ export function SocialList() {
         return (
           <li
             key={s.label}
-            className="flex items-center gap-2 justify-center mb-5"
+            className="flex items-center gap-1 justify-center mb-5"
           >
-            <Icon className="h-4 w-4 text-muted-foreground" aria-hidden />
+            <Icon className="h-5 w-4 text-muted-foreground" aria-hidden />
             <Link
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:opacity-90"
+              className="hover:underline hover:underline-offset-4 hover:opacity-90"
             >
               {s.label}
             </Link>
@@ -245,7 +245,7 @@ export function SocialList() {
           href="./ApnatvaSinghRawatCV.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline underline-offset-4 hover:opacity-90"
+          className="hover:underline hover:underline-offset-4 hover:opacity-90"
           download="./ApnatvaSinghRawatCV.pdf"
         >
           CV

@@ -3,7 +3,6 @@
 import FooterNote from "@/components/minimal-version/footerNote";
 import Header from "@/components/minimal-version/header";
 import {
-  AboutList,
   EducationList,
   SkillsList,
   SocialList,
@@ -44,9 +43,10 @@ export default function Page() {
 
         <SectionBlock
           title="About Me"
-          subtitle="Good at spotting bugs and better at fixing them. Supercharged with Americanos, AI, and Açaí. Writing code since 2015. Trying to make marketing easier with tech."
+          subtitle1="The three As in my name stand for Americanos, AI, and Açaí. Good at spotting bugs, excellent at fixing them. I make playlists, travel content, content for others, websites, web-apps, and whatever project that interests me."
+          subtitle2="Currently building a personal backtesting app, social-media marketing automations, and providing freelance website consulting and development services."
         >
-          <AboutList />
+          {/* <AboutList /> */}
         </SectionBlock>
 
         <Separator className="my-6" />
