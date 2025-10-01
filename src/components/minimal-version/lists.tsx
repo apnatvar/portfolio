@@ -43,6 +43,11 @@ const WORK_DATA: WorkItem[] = [
   //   date: "Aug 2025 — Present",
   // },
   {
+    role: "Backend Developer",
+    org: "PasTicks",
+    date: "Sep 2025 — Present",
+  },
+  {
     role: "Content and Brand Intern",
     org: "Motilal Oswal Financial Services",
     date: "Jun 2025 — Present",
@@ -50,7 +55,7 @@ const WORK_DATA: WorkItem[] = [
   {
     role: "Full Stack Developer",
     org: "Bala-G Studios",
-    date: "Feb 2025 — Sep 2025",
+    date: "Feb 2025 — Aug 2025",
   },
   {
     role: "Software Developer",
@@ -141,7 +146,6 @@ const SKILLS_DATA: SkillItem[] = [
   { name: "Supabase", icon: SiSupabase },
   { name: "Vercel", icon: SiVercel },
 ];
-
 export function SkillsList() {
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full mx-auto p-4">
