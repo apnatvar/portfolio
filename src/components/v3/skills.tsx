@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { Card, CardContent } from "@/components/ui/card";
 // icons
 import {
   SiTypescript,
@@ -17,6 +15,7 @@ import {
 } from "react-icons/si";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { FaPython, FaDatabase, FaGitAlt, FaDocker } from "react-icons/fa6";
+import CodeDrivenAnimation from "./coolBG";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -175,21 +174,8 @@ export default function SkillPage() {
           </div>
 
           {/* CENTER PHOTO (simple fade-in from bottom) */}
-          <div ref={centerRef} className="hidden md:grid order-2 md:order-2">
-            <Card className="overflow-hidden bg-muted/30 backdrop-blur supports-[backdrop-filter]:bg-muted/40">
-              <CardContent className="p-0">
-                <div className="relative aspect-[3/4] w-full">
-                  <Image
-                    src="/1.jpg"
-                    alt="Profile"
-                    fill
-                    priority
-                    sizes="(min-width: 768px) 400px, 80vw"
-                    className="object-cover"
-                  />
-                </div>
-              </CardContent>
-            </Card>
+          <div ref={centerRef} className="hidden md:grid md:order-2 max-h-full">
+            <CodeDrivenAnimation />
           </div>
 
           {/* RIGHT COLUMN (scrolls naturally, animated by dial calc) */}

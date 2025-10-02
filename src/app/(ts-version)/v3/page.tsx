@@ -7,6 +7,7 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { Button } from "@/components/ui/button";
 import SplitText from "gsap/SplitText";
 import SkillPage from "@/components/v3/skills";
+import SocialShowcase from "@/components/v3/socials";
 
 gsap.registerPlugin(ScrollToPlugin, ScrambleTextPlugin, SplitText);
 
@@ -210,6 +211,7 @@ export default function Page() {
         </div>
       </section>
       <SkillPage />
+      <SocialShowcase />
     </>
   );
 }

@@ -21,6 +21,7 @@ import {
   SiSupabase,
   SiVercel,
   SiShadcnui,
+  SiChessdotcom,
 } from "react-icons/si";
 // --------------------
 // Work (name + date)
@@ -218,6 +219,11 @@ const SOCIAL_DATA: SocialItem[] = [
     label: "Apple Music",
     href: "https://music.apple.com/profile/nattupi",
     icon: SiApplemusic,
+  },
+  {
+    label: "Chess.com",
+    href: "https://www.chess.com/member/nattupi",
+    icon: SiChessdotcom,
   },
 ];
 
