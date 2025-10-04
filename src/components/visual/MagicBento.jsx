@@ -19,14 +19,14 @@ const cardData = [
   {
     color: '#000801',
     title: 'Current Job',
-    description: 'Content and Branding Intern at Motilal Oswal Financial Services',
+    description: 'Content & Branding Intern\nMotilal Oswal',
     label: 'LinkedIn',
     link: "https://www.google.com"
   },
   {
     color: '#000801',
     title: 'Summary',
-    description: 'Add as much content as fits in bento , will expaind on mobile I started my career working as a Python Developer, and then moved on to developing Go and Java Cloud Applications. Then I switched to managing digital content while teaching myself React and started developing websites as a freelancer.',
+    description: "I began my career creating graphics and Instagram content for Hult Prize.\n\nMy first professional positions were as a backend software developer which honed my technical skills, but ultimately was not something I completely enjoyed.\n\nI am currently working as an intern and a freelance web-developer. I manage the brand’s social media and develop fully dynamic websites.\n\nI plan to establish my own agency to combine stories, products,and vision in truly personalised, unique, and memorable digital designs.",
     label: 'Curriculum Vitae',
     link: "https://www.google.com"
   },
@@ -514,13 +514,13 @@ const MagicBento = ({
           @media (min-width: 1024px) {
             .card-responsive {
               grid-template-columns: repeat(4, 1fr);
-              grid-template-rows: repeat(4, 1fr);
+              grid-template-rows: repeat(2, 1fr);
               grid-auto-flow: dense;
             }
             
             .card-responsive .card:nth-child(3) {
               grid-column: span 2;
-              grid-row: 1 / span 2;
+              grid-row: span 2;
             }
             
             .card-responsive .card:nth-child(4) {
@@ -613,10 +613,10 @@ const MagicBento = ({
           spotlightRadius={spotlightRadius}
           glowColor={glowColor} />
       )}
-      <BentoCardGrid gridRef={gridRef}>
-        <div className="card-responsive grid gap-2">
+      <BentoCardGrid gridRef={gridRef} >
+        <div className="card-responsive grid gap-2" id="summary" >
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative h-fit md:min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `card flex flex-col justify-between relative h-fit md:min-h-[200px] md:h-full w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? 'card--border-glow' : ''
             }`;
 

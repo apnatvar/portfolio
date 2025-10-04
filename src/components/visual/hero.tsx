@@ -42,7 +42,7 @@ export default function HeroPage() {
       // Timeline to orchestrate hero text
       const tl = gsap.timeline({ defaults: { ease: "power4.in" } });
 
-      tl.to(".fade-me", {
+      tl.to(fadeRef, {
         opacity: 0,
         ease: "none",
         scrollTrigger: {
@@ -129,7 +129,10 @@ export default function HeroPage() {
   return (
     <>
       <section className="w-full h-[300dvh]">
-        <div ref={fadeRef} className="w-full h-full fixed z-0">
+        <div
+          ref={fadeRef}
+          className="w-full h-full fixed z-0 pointer-events-none"
+        >
           <Lightning
             hue={100}
             xOffset={isMobile ? -0.8 : -1.8}
@@ -178,8 +181,8 @@ export default function HeroPage() {
             </div>
           </div>
         </div>
-        <div ref={ctaRef} className="md:top-1/3 md:left-1/15 md:absolute">
-          <VerticalNavButtons className="z-10 w-fit  mx-auto justify-self-center md:justify-start relative" />
+        <div ref={ctaRef} className="md:top-1/3 md:left-1/15 md:absolute z-10">
+          <VerticalNavButtons className="w-fit mx-auto justify-self-center md:justify-start relative" />
         </div>
         <div className="justify-items-center mt-40 md:mt-10">
           <MagicBento />

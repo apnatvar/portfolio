@@ -24,12 +24,12 @@ export interface VerticalNavButtonsProps {
 
 export default function VerticalNavButtons({
   items = [
-    { label: "Section One", targetId: "section-1" },
+    { label: "Summary", targetId: "summary" },
     {
-      label: "Section Two",
+      label: "Say Hello",
       targetId: "section-2",
     },
-    { label: "Section Three", targetId: "section-3" },
+    { label: "Work", targetId: "section-3" },
   ],
   offsetY = 80,
   size = "sm",
@@ -40,7 +40,7 @@ export default function VerticalNavButtons({
       const selector = `#${id}`;
       gsap.to(window, {
         duration: 0.9,
-        ease: "power2.out",
+        ease: "power4.out",
         scrollTo: { y: selector, offsetY },
       });
     },
