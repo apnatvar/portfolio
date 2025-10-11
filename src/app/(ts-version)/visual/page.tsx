@@ -1,22 +1,18 @@
 "use client";
+import SkillPage from "@/components/visual/skills";
 import HeroPage from "@/components/visual/hero";
-import LiquidEther from "@/components/visual/LiquidEther";
+import LetterGlitch from "@/components/visual/LetterGlitch";
 import React from "react";
 export default function Page() {
   return (
     <>
       <HeroPage />
-      {/* <section className="max-h-[100dvh]">
-        <HorizontalTimeline
-          title="Roadmap"
-          milestones={milestones}
-          scrollDistance={15000}
-          alternateCards
-        />
-      </section> */}
-      <div className="relative z-10 w-full h-full">
-        <LiquidEther />
-      </div>
+      <SkillPage />
+      <LetterGlitch
+        glitchSpeed={50}
+        glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
+        smooth={true}
+      />
     </>
   );
 }

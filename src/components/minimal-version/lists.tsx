@@ -23,26 +23,9 @@ import {
   SiShadcnui,
   SiChessdotcom,
 } from "react-icons/si";
-// --------------------
-// Work (name + date)
-// --------------------
+
 type WorkItem = { role: string; org: string; date: string };
 const WORK_DATA: WorkItem[] = [
-  // {
-  //   role: "Full Stack Developer",
-  //   org: "Fiora",
-  //   date: "Sep 2025 — Present",
-  // },
-  // {
-  //   role: "Web Developer",
-  //   org: "Unisafe Secure Solutions",
-  //   date: "Sep 2025 — Present",
-  // },
-  // {
-  //   role: "Full Stack Developer",
-  //   org: "Ariyana Creations",
-  //   date: "Aug 2025 — Present",
-  // },
   {
     role: "Backend Developer",
     org: "PasTicks",
@@ -92,9 +75,6 @@ export function WorkList() {
   );
 }
 
-// -----------------------
-// Education (name + date)
-// -----------------------
 type EducationItem = { program: string; school: string; date: string };
 const EDUCATION_DATA: EducationItem[] = [
   {
@@ -126,9 +106,6 @@ export function EducationList() {
   );
 }
 
-// -------------------
-// Skills (name + icon)
-// -------------------
 type SkillItem = {
   name: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -166,9 +143,6 @@ export function SkillsList() {
   );
 }
 
-// -----------------------------------
-// About Me (name/label + date/timing)
-// -----------------------------------
 type AboutItem = { label: string; date: string };
 const ABOUT_DATA: AboutItem[] = [
   // { label: "Built a financial data tool processing ~₹10M/yr", date: "2024" },
@@ -194,9 +168,6 @@ export function AboutList() {
   );
 }
 
-// ------------------------------------
-// Social Links (icon + hyperlink text)
-// ------------------------------------
 type SocialItem = {
   label: string;
   href: string;

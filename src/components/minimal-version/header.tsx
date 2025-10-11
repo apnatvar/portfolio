@@ -3,7 +3,6 @@
 import * as React from "react";
 
 export default function Header() {
-  // Mock data (replace with PayloadCMS JSON later)
   const title = "Apnatva";
   const subtitle = "• Full Stack Developer • Marketing •";
 

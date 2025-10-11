@@ -8,6 +8,9 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    remotePatterns: [new URL("https://live.staticflickr.com/**")],
+  },
   allowedDevOrigins: ["192.168.29.125"],
 };
 export default nextConfig;

@@ -128,7 +128,7 @@ export default function HeroPage() {
   }, []);
   return (
     <>
-      <section className="w-full h-[300dvh]">
+      <section className="w-full h-[200dvh]">
         <div
           ref={fadeRef}
           className="w-full h-full fixed z-0 pointer-events-none"

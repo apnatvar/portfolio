@@ -7,7 +7,7 @@ type SectionBlockProps = {
   subtitle1?: string;
   subtitle2?: string;
   children?: React.ReactNode;
-  lead?: boolean; // uses slightly larger/leading text for About section
+  lead?: boolean;
 };
 
 export default function SectionBlock({

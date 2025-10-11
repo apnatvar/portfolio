@@ -4,7 +4,6 @@ import * as React from "react";
 import { Badge } from "../ui/badge";
 
 export default function TagRow() {
-  // Mock data
   const tags: string[] = [
     "Automations",
     "AI",
