@@ -21,25 +21,19 @@ type AnyTween = gsap.TweenVars & Record<string, unknown>;
 
 export default function HeroPage() {
   const isMobile = useIsMobile();
-  const devWord = "अपनत्व"; // Devanagari (always visible)
-  const engWord = "Apnatva"; // English (scramble)
-  const pron = "/ˈʌp.nəː.tvə/"; // Enunciation (fade-in)
-
-  // ---- Refs ----
+  const devWord = "अपनत्व";
+  const engWord = "Apnatva";
+  const pron = "/ˈʌp.nəː.tvə/";
   const rootRef = useRef<HTMLDivElement>(null);
   const engRef = useRef<HTMLDivElement>(null);
   const pronRef = useRef<HTMLDivElement>(null);
   const meaningRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const fadeRef = React.useRef<HTMLDivElement | null>(null);
-  // ---- Animations ----
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Initial states for animated lines
       gsap.set(pronRef.current, { opacity: 0, y: 8 });
       gsap.set(ctaRef.current, { opacity: 0, x: -50 });
-
-      // Timeline to orchestrate hero text
       const tl = gsap.timeline({ defaults: { ease: "power4.in" } });
 
       tl.to(fadeRef, {
@@ -48,17 +42,15 @@ export default function HeroPage() {
         scrollTrigger: {
           trigger: ".fade-me",
           start: "top top",
-          end: "+=100vh", // adjust distance
+          end: "+=100vh",
           scrub: true,
         },
       });
 
-      // Scramble English word
       tl.to(
         engRef.current,
         {
           duration: 3,
-          // Scramble to the final english text
           scrambleText: {
             text: engWord,
             chars: "upperAndLowerCase",
@@ -67,22 +59,16 @@ export default function HeroPage() {
         } as AnyTween,
         0
       );
-
-      // Enunciation fade-in (after a short beat)
       tl.to(pronRef.current, { opacity: 1, y: 0, duration: 2 }, 0.1);
-
-      // CTAs pop in
       tl.to(ctaRef.current, { opacity: 1, x: 0, duration: 1 }, ">-0.1");
     }, rootRef);
     const el = meaningRef.current;
     if (el) {
-      // create line splits and style lines differently
       const split = SplitText.create(".split", {
         type: "lines",
         linesClass: "overflow-hidden will-change-transform",
       });
 
-      // optional per-line styling
       if (split.lines[0])
         split.lines[0].classList.add("text-accent-foreground", "md:text-sm");
       if (split.lines[1])
@@ -147,7 +133,7 @@ export default function HeroPage() {
         >
           <div className="max-h-full items-center justify-center place-content-center w-full max-w-3xl text-center space-y-3 md:space-y-4">
             {/* 1) Devanagari — always visible */}
-            <h1 className="font-semibold tracking-tight text-2xl md:text-5xl leading-[1.1] text-foreground">
+            <h1 className="font-semibold tracking-tight text-2xl md:text-5xl leading-[1.1] text-foreground animate-pulse">
               {devWord}
             </h1>
 

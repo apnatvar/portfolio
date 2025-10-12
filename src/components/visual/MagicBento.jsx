@@ -26,7 +26,7 @@ const cardData = [
   {
     color: '#000801',
     title: 'Summary',
-    description: "I began my career creating graphics and Instagram content for Hult Prize.\n\nMy first professional positions were as a backend software developer which honed my technical skills, but ultimately was not something I completely enjoyed.\n\nI am currently working as an intern and a freelance web-developer. I manage the brand’s social media and develop fully dynamic websites.\n\nI plan to establish my own agency to combine stories, products,and vision in truly personalised, unique, and memorable digital designs.",
+    description: "I first got into designing content and templates for social media and instructional PDFs in college.\n\nMy first professional positions were as a backend software developer. Now I am freelancer, developing desktop apps and fully dynamic websites with a CMS.\n\nWorking in Content & Branding has taught me management and creation of content at scale, social media marketing, and deriving insights from available analytics.\n\nWith plans to run my agency managing online marketing across platforms. With excellent technical skills, I am looking for a better understanding of design to succeed in my plans.",
     label: 'Curriculum Vitae',
     link: "https://www.google.com"
   },
@@ -658,6 +658,7 @@ const MagicBento = ({
           })}
         </div>
       </BentoCardGrid>
+      <p className='text-xs text-muted-foreground hover:text-green-600'>Hover Above!</p>
     </>
   );
 };

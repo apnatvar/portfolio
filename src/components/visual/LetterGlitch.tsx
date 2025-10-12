@@ -1,8 +1,6 @@
 import React from "react";
 import { useRef, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
-import Image from "next/image";
-import Link from "next/link";
 
 const LetterGlitch = ({
   glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
@@ -247,25 +245,23 @@ const LetterGlitch = ({
       <div ref={fadeRef} className="h-full w-full absolute top-0 left-0 z-0">
         <canvas ref={canvasRef} className="relative h-full w-full" />
       </div>
-      <div className="relative z-100 mx-auto top-0 w-full h-full text-6xl bg-background">
-        HELLO
-        <Link
-          data-flickr-embed="true"
-          href="https://www.flickr.com/photos/202543676@N03/54845305607/"
-          target="_blank"
-          title="Lines and Shadows"
-          className="z-10 max-w-1/2"
-        >
-          <Image
-            src="https://live.staticflickr.com/65535/54845305607_65a785ba15_4k.jpg"
-            width="3642"
-            height="2160"
-            alt="Lines and Shadows"
-            className="z-10 max-w-1/2"
-          />
-        </Link>
-        <script async src="//embedr.flickr.com/assets/client-code.js"></script>
-        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+      <div className="relative z-1 mx-auto top-0 w-full h-full text-6xl text-shadow-lg">
+        HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213
+        123 12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO
+        HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123
+        12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+        HELLO 213 123 12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO
+        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12
+        12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+        HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123 12312 312 HELLO1
+        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213 123
+        12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO
+        HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123
+        12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+        HELLO 213 123 12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO
+        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12
+        12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+        HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123 12312 312
       </div>
     </section>
   );

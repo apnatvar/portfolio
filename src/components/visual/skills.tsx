@@ -4,7 +4,6 @@ import React, { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-// icons
 import {
   SiTypescript,
   SiPayloadcms,
@@ -59,22 +58,26 @@ export default function SkillPage() {
         rightCol.querySelectorAll<HTMLElement>('[data-skill-item="right"]')
       );
 
-      // photo: simple fade-in from bottom
       if (centerRef.current) {
-        gsap.from(centerRef.current, {
-          y: 28,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: centerRef.current,
-            start: "top 80%",
-            once: true,
-          },
-        });
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: centerRef.current!,
+              start: "top 80%",
+              end: "bottom 30%",
+              scrub: 1,
+              invalidateOnRefresh: true,
+              toggleActions: "restart",
+            },
+          })
+          .fromTo(
+            centerRef.current!,
+            { y: 38, opacity: 0 },
+            { y: 0, opacity: 1, ease: "power4.out" }
+          )
+          .to(centerRef.current!, { y: -38, opacity: 0, ease: "power4.in" });
       }
 
-      // base styles for items
       gsap.set([...leftItems, ...rightItems], {
         opacity: 0.3,
         scale: 0.86,
@@ -82,14 +85,13 @@ export default function SkillPage() {
         willChange: "transform",
       });
 
-      // dial-like scaler/offset on scroll
-      const AMP = () => Math.min(36, Math.max(20, window.innerWidth * 0.04)); // x amplitude (px)
+      const AMP = () => Math.min(36, Math.max(20, window.innerWidth * 0.04));
       const maxScale = 1.14;
       const minScale = 0.84;
 
       const updateDial = () => {
         const centerY = window.innerHeight / 2;
-        const band = window.innerHeight * 0.42; // active band height
+        const band = window.innerHeight * 0.42;
 
         const updateSet = (items: HTMLElement[], side: "left" | "right") => {
           items.forEach((el) => {
@@ -179,27 +181,52 @@ export default function SkillPage() {
             className="md:grid md:order-2 max-h-full text-muted-foreground text-justify gap-6 md:gap-4"
           >
             <h1 className="text-xl md:text-2xl text-green-600 text-center">
-              Work
+              Toolbox
             </h1>
             <p>
-              Initially I worked only on scripting and backend development but I
-              have since taught myself React and Tailwind to write simpler
-              modern applications. I am currently working on a Social Media
-              Automation App, Algorithm Backtesting, and an App for launching
-              new ideas. things
+              Initially I developed backend systems for web apps, desktop apps,
+              web scraping scripts, and ML models using Python, GO, and Java.
+              Since 2024 I have been teaching myself React(Next.js), with TSX. I
+              can now design, develop, and deploy fully dynamic websites on
+              Vercel with a complete backend.
             </p>
             <p>
-              I worked on loads of sample wbesites. I am heavily using Shadcn
-              for UI modules, so I made a website to host all the practice
-              components, blocks, and websites that I have made, availabe at{" "}
+              I use{" "}
+              <Link
+                target="_blank"
+                href="http://ui.shadcn.com/"
+                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+              >
+                Shadcn
+              </Link>{" "}
+              for UI development, with{" "}
+              <Link
+                target="_blank"
+                href="http://gsap.com/"
+                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+              >
+                GSAP
+              </Link>{" "}
+              and{" "}
+              <Link
+                target="_blank"
+                href="https://motion.dev/examples"
+                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+              >
+                Motion.dev
+              </Link>{" "}
+              for animating this and other websites.
+            </p>
+            <p>
+              To track everything I made I developed{" "}
               <Link
                 target="_blank"
                 href="https://ap-sample.vercel.app/"
-                className="underline underline-offset-2 decoration-green-600"
+                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
               >
                 ap-samples
               </Link>
-              .
+              , showcasing components, blocks, and entire pages.
             </p>
             <span className="text-center">
               Some additional websites/tools that I rely on
@@ -208,7 +235,7 @@ export default function SkillPage() {
                   <Link
                     target="_blank"
                     href="https://tweakcn.com/"
-                    className="underline underline-offset-2 decoration-green-600"
+                    className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
                   >
                     Tweakcn
                   </Link>
@@ -217,27 +244,9 @@ export default function SkillPage() {
                   <Link
                     target="_blank"
                     href="https://reactbits.dev/"
-                    className="underline underline-offset-2 decoration-green-600"
+                    className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
                   >
                     React Bits
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    target="_blank"
-                    href="http://gsap.com/"
-                    className="underline underline-offset-2 decoration-green-600"
-                  >
-                    GSAP
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    target="_blank"
-                    href="https://motion.dev/examples"
-                    className="underline underline-offset-2 decoration-green-600"
-                  >
-                    Motion.dev
                   </Link>
                 </li>
               </ul>
