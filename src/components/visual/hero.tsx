@@ -114,7 +114,7 @@ export default function HeroPage() {
   }, []);
   return (
     <>
-      <section className="w-full h-[200dvh]">
+      <section className="w-full min-h-[200dvh] h-fit">
         <div
           ref={fadeRef}
           className="w-full h-full fixed z-0 pointer-events-none"
@@ -170,6 +170,9 @@ export default function HeroPage() {
         <div ref={ctaRef} className="md:top-1/3 md:left-1/15 md:absolute z-10">
           <VerticalNavButtons className="w-fit mx-auto justify-self-center md:justify-start relative" />
         </div>
+        <p className="text-xs text-white text-center mt-5 md:mt-0">
+          From Brain<span className="text-green-600">storms</span> to Products
+        </p>
         <div className="justify-items-center mt-40 md:mt-10">
           <MagicBento />
         </div>

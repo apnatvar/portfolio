@@ -1,6 +1,5 @@
 import { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import "@/app/globals.css";
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#060010" },

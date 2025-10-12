@@ -189,7 +189,7 @@ const Lightning = ({
       // };
     }
   }, [hue, xOffset, speed, intensity, size]);
-  return <canvas ref={canvasRef} className="w-full h-full fixed" />;
+  return <canvas ref={canvasRef} className="absolute z-0 top-0 left-0 w-full h-full" />;
 };
 
 export default Lightning;

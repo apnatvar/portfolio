@@ -12,6 +12,7 @@ import SectionBlock from "@/components/minimal-version/sectionBlock";
 import TagRow from "@/components/minimal-version/tagRow";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
+import "@/app/minimal.css";
 
 export default function Page() {
   return (

@@ -1,6 +1,43 @@
 import React from "react";
 import { useRef, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
+import { SiApplemusic, SiChessdotcom } from "react-icons/si";
+import { FaLinkedin, FaGithub, FaInstagram, FaFile } from "react-icons/fa6";
+import Link from "next/link";
+import { Card, CardHeader, CardContent, CardFooter } from "../ui/card";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+type SocialItem = {
+  label: string;
+  href: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+const SOCIAL_DATA: SocialItem[] = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
+    icon: FaLinkedin,
+  },
+  { label: "GitHub", href: "https://github.com/apnatvar/", icon: FaGithub },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/nattupi/",
+    icon: FaInstagram,
+  },
+  {
+    label: "Apple Music",
+    href: "https://music.apple.com/profile/nattupi",
+    icon: SiApplemusic,
+  },
+  {
+    label: "Chess.com",
+    href: "https://www.chess.com/member/nattupi",
+    icon: SiChessdotcom,
+  },
+];
 
 const LetterGlitch = ({
   glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
@@ -29,8 +66,8 @@ const LetterGlitch = ({
 
   const lettersAndSymbols = Array.from(characters);
 
-  const fontSize = 10;
-  const charWidth = 5;
+  const fontSize = 15;
+  const charWidth = 8;
   const charHeight = 15;
 
   const getRandomChar = () => {
@@ -217,51 +254,88 @@ const LetterGlitch = ({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
-  const fadeRef = React.useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (!fadeRef.current) return;
+      if (!canvasRef.current) return;
       gsap.fromTo(
-        fadeRef.current,
+        canvasRef.current,
         { opacity: 0 },
         {
-          opacity: 0.6,
-          ease: "none",
+          opacity: 1,
+          ease: "linear",
           scrollTrigger: {
-            trigger: fadeRef.current,
+            trigger: canvasRef.current,
             start: "top 80%",
-            end: "bottom bottom", // or "+=100vh" for a fixed distance
-            scrub: true,
+            end: "top top", // or "+=100vh" for a fixed distance
+            scrub: 5,
           },
         }
       );
-    }, fadeRef);
+    }, canvasRef);
     return () => ctx.revert();
   });
 
   return (
-    <section className="relative max-w-full h-[200dvh] bg-background overflow-hidden">
-      <div ref={fadeRef} className="h-full w-full absolute top-0 left-0 z-0">
-        <canvas ref={canvasRef} className="relative h-full w-full" />
-      </div>
-      <div className="relative z-1 mx-auto top-0 w-full h-full text-6xl text-shadow-lg">
-        HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213
-        123 12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO
-        HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123
-        12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
-        HELLO 213 123 12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO
-        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12
-        12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO
-        HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123 12312 312 HELLO1
-        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213 123
-        12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO
-        HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123
-        12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
-        HELLO 213 123 12312 3123 12 12312 123 123 12312 312 HELLO1 HELLO HELLO
-        HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO 213 123 12312 3123 12
-        12312 123 123 12312 312 HELLO1 HELLO HELLO HELLO HELLO HELLO HELLO HELLO
-        HELLO HELLO HELLO 213 123 12312 3123 12 12312 123 123 12312 312
+    <section className="relative max-w-full h-[100dvh] overflow-hidden">
+      <canvas
+        ref={canvasRef}
+        className="absolute z-10 top-0 left-0 h-full w-full bg-background"
+      />
+      <div className="relative z-11 w-full h-full text-shadow-lg py-15 px-10 md:px-30">
+        <Card className="bg-background/75 ring-1 ring-green-600 rounded-4xl h-full backdrop-blur-[1px] content-center justify-around gap-0">
+          <CardHeader>
+            <p
+              className="text-xs text-center text-muted-foreground"
+              id="contactme"
+            >
+              Connected to My Mainframe
+            </p>
+          </CardHeader>
+          <CardContent>
+            <ul className="w-full m-auto p-4 text-md flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 md:text-gray-400">
+              {SOCIAL_DATA.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <li
+                    key={s.label}
+                    className="flex items-center gap-1 justify-center mb-5"
+                  >
+                    <Icon className="" aria-hidden />
+                    <Link
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-green-600"
+                    >
+                      {s.label}
+                    </Link>
+                  </li>
+                );
+              })}
+              <li
+                key="CV"
+                className="flex items-center gap-2 justify-center mb-5"
+              >
+                <FaFile className="" aria-hidden />
+                <Link
+                  href="./ApnatvaSinghRawatCV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-green-600"
+                  download="./ApnatvaSinghRawatCV.pdf"
+                >
+                  CV
+                </Link>
+              </li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <p className="text-xs text-center text-muted-foreground mx-auto">
+              Inspired by The Matrix
+            </p>
+          </CardFooter>
+        </Card>
       </div>
     </section>
   );

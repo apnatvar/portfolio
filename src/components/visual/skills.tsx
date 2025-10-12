@@ -72,7 +72,7 @@ export default function SkillPage() {
           })
           .fromTo(
             centerRef.current!,
-            { y: 38, opacity: 0 },
+            { y: 28, opacity: 0 },
             { y: 0, opacity: 1, ease: "power4.out" }
           )
           .to(centerRef.current!, { y: -38, opacity: 0, ease: "power4.in" });
@@ -146,7 +146,7 @@ export default function SkillPage() {
       ref={rootRef}
       className="relative min-h-[140dvh] bg-background text-foreground overflow-x-hidden my-20"
     >
-      <section className="container mx-auto px-4 py-16 md:py-24">
+      <section className="relative container mx-auto px-4 py-16 md:py-24 z-1">
         <div
           className="
             grid grid-cols-1 md:grid-cols-[1fr_minmax(260px,400px)_1fr]
@@ -156,7 +156,7 @@ export default function SkillPage() {
           {/* LEFT COLUMN (scrolls naturally, animated by dial calc) */}
           <div
             ref={leftColRef}
-            className="order-1 md:order-1 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600"
+            className="md:order-1 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600"
           >
             {leftSkills.map((s, i) => {
               const Icon = s.icon;
@@ -178,7 +178,7 @@ export default function SkillPage() {
           {/* CENTER PHOTO (simple fade-in from bottom) */}
           <div
             ref={centerRef}
-            className="md:grid md:order-2 max-h-full text-muted-foreground text-justify gap-6 md:gap-4"
+            className="order-first max-h-full text-muted-foreground text-justify gap-6 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
           >
             <h1 className="text-xl md:text-2xl text-green-600 text-center">
               Toolbox
@@ -195,6 +195,7 @@ export default function SkillPage() {
               <Link
                 target="_blank"
                 href="http://ui.shadcn.com/"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
               >
                 Shadcn
@@ -203,6 +204,7 @@ export default function SkillPage() {
               <Link
                 target="_blank"
                 href="http://gsap.com/"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
               >
                 GSAP
@@ -211,6 +213,7 @@ export default function SkillPage() {
               <Link
                 target="_blank"
                 href="https://motion.dev/examples"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
               >
                 Motion.dev
@@ -222,6 +225,7 @@ export default function SkillPage() {
               <Link
                 target="_blank"
                 href="https://ap-sample.vercel.app/"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
               >
                 ap-samples
@@ -235,6 +239,7 @@ export default function SkillPage() {
                   <Link
                     target="_blank"
                     href="https://tweakcn.com/"
+                    rel="noopener noreferrer"
                     className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
                   >
                     Tweakcn
@@ -244,6 +249,7 @@ export default function SkillPage() {
                   <Link
                     target="_blank"
                     href="https://reactbits.dev/"
+                    rel="noopener noreferrer"
                     className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
                   >
                     React Bits
@@ -256,7 +262,7 @@ export default function SkillPage() {
           {/* RIGHT COLUMN (scrolls naturally, animated by dial calc) */}
           <div
             ref={rightColRef}
-            className="order-2 md:order-3 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600"
+            className="md:order-3 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600"
           >
             {rightSkills.map((s, i) => {
               const Icon = s.icon;
@@ -275,6 +281,10 @@ export default function SkillPage() {
             })}
           </div>
         </div>
+        <p className="text-xs text-muted-foreground text-center mt-3">
+          Yes, <span className="text-green-600">Green</span> is my favourite
+          colour.
+        </p>
       </section>
     </div>
   );

@@ -27,7 +27,7 @@ export default function VerticalNavButtons({
     { label: "Summary", targetId: "summary" },
     {
       label: "Say Hello",
-      targetId: "section-2",
+      targetId: "contactme",
     },
     { label: "Work", targetId: "section-3" },
   ],
@@ -39,7 +39,7 @@ export default function VerticalNavButtons({
     (id: string) => {
       const selector = `#${id}`;
       gsap.to(window, {
-        duration: 0.9,
+        duration: 1.2,
         ease: "power4.out",
         scrollTo: { y: selector, offsetY },
       });
