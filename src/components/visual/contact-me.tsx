@@ -266,7 +266,7 @@ const LetterGlitch = ({
           ease: "linear",
           scrollTrigger: {
             trigger: canvasRef.current,
-            start: "top 80%",
+            start: "top 60%",
             end: "top top", // or "+=100vh" for a fixed distance
             scrub: 5,
           },
@@ -289,7 +289,7 @@ const LetterGlitch = ({
               className="text-xs text-center text-muted-foreground"
               id="contactme"
             >
-              Connected to My Mainframe
+              Connect to My Mainframe
             </p>
           </CardHeader>
           <CardContent>

@@ -1,5 +1,6 @@
 import { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import SmoothScrollProvider from "@/components/smooth-scroll";
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#060010" },
@@ -116,15 +117,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-dvh font-body antialiased">
-        {/* <Header /> */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className="mx-auto px-2 py-3">{children}</main>
-        </ThemeProvider>
+        <SmoothScrollProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main className="mx-auto px-2 py-3">{children}</main>
+          </ThemeProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

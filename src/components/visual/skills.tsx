@@ -181,7 +181,7 @@ export default function SkillPage() {
             className="order-first max-h-full text-muted-foreground text-justify gap-6 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
           >
             <h1 className="text-xl md:text-2xl text-green-600 text-center">
-              Toolbox
+              Tool Box
             </h1>
             <p>
               Initially I developed backend systems for web apps, desktop apps,
@@ -230,7 +230,7 @@ export default function SkillPage() {
               >
                 ap-samples
               </Link>
-              , showcasing components, blocks, and entire pages.
+              , showcasing unstyled components, blocks, and entire pages.
             </p>
             <span className="text-center">
               Some additional websites/tools that I rely on
@@ -281,7 +281,7 @@ export default function SkillPage() {
             })}
           </div>
         </div>
-        <p className="text-xs text-muted-foreground text-center mt-3">
+        <p className="text-xs text-muted-foreground text-center mt-9">
           Yes, <span className="text-green-600">Green</span> is my favourite
           colour.
         </p>

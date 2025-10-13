@@ -5,16 +5,18 @@ import LetterGlitch from "@/components/visual/contact-me";
 import React from "react";
 import InfiniteDualMarquee from "@/components/visual/marquee";
 import "@/app/visual.css";
+import ScrollImage from "@/components/visual/photo-parallax-scroll";
 export default function Page() {
   return (
     <>
       <HeroPage />
       <SkillPage />
       <InfiniteDualMarquee />
+      <ScrollImage />
       <LetterGlitch
-        glitchSpeed={100}
-        glitchColors={["#04bd73", "#045937", "#333"]}
-        smooth={true}
+        glitchSpeed={70}
+        glitchColors={["#04bd73", "#156a48", "#222"]}
+        smooth={false}
       />
     </>
   );

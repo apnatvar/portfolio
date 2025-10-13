@@ -26,14 +26,9 @@ export default function InfiniteDualMarquee() {
     const c2 = content2Ref.current;
     if (!t1 || !t2 || !c1 || !c2) return;
 
-    // Each track has duplicated content side-by-side to enable seamless loop.
     const halfWidth = c1.offsetWidth;
-
-    // Duration = distance / speed
     const dur = halfWidth / SPEED_PX_S;
 
-    // Animate: Track 1 goes L → R (positive x), Track 2 goes R → L (negative x)
-    // We animate one "half width" per cycle to seamlessly wrap.
     const a1 = animate(
       t1,
       {
@@ -41,21 +36,18 @@ export default function InfiniteDualMarquee() {
       },
       { duration: dur, ease: "linear", repeat: Infinity }
     );
-
     const a2 = animate(
       t2,
       { transform: [`translateX(0px)`, `translateX(-${halfWidth}px)`] },
       { duration: dur, ease: "linear", repeat: Infinity }
     );
 
-    // Cleanup
     return () => {
       a1?.cancel();
       a2?.cancel();
     };
   }, []);
 
-  // Scroll velocity → skewX (subtle, clamped)
   useEffect(() => {
     let rafId = 0;
     let prevY = window.scrollY;
@@ -65,10 +57,9 @@ export default function InfiniteDualMarquee() {
       const now = performance.now();
       const dt = Math.max(16, now - prevT); // ms
       const dy = window.scrollY - prevY; // px
-      const vy = (dy / dt) * 1000; // px/s
+      const vy = (dy / dt) * 100; // px/s
 
-      // Map velocity to skew degrees, clamp to [-8, 8]
-      const targetSkew = Math.max(-25, Math.min(25, vy * 0.2));
+      const targetSkew = Math.max(-9, Math.min(9, vy * 0.3));
       posRawSkew.set(targetSkew);
       negRawSkew.set(-targetSkew);
 
@@ -82,22 +73,15 @@ export default function InfiniteDualMarquee() {
   }, [posRawSkew, negRawSkew]);
 
   return (
-    <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30">
-      {/* Track A: Left → Right */}
+    <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 py-10">
       <motion.div
         style={{
           skewY: negSkew,
           willChange: "transform",
         }}
+        className="overflow-y-visible"
       >
-        <div
-          ref={track1Ref}
-          style={{
-            display: "flex",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {/* Duplicate content A */}
+        <div ref={track1Ref} className="flex flex-nowrap">
           <div className="flex flex-nowrap">
             <MarqueeChunk />
           </div>
@@ -107,34 +91,26 @@ export default function InfiniteDualMarquee() {
         </div>
       </motion.div>
 
-      {/* Gap between lines */}
-      <div style={{ height: 34 }} />
+      <div className="h-[3dvh]" />
 
-      {/* Track B: Right → Left */}
       <motion.div
         style={{
           skewY: posSkew,
           willChange: "transform",
         }}
+        className="overflow-y-visible"
       >
-        <div
-          ref={track2Ref}
-          style={{
-            display: "flex",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {/* Duplicate content B */}
-          <div ref={content2Ref} className="flex flex-nowrap">
+        <div ref={track2Ref} className="flex flex-nowrap">
+          <div ref={content2Ref} className="flex flex-nowrap flex-row-reverse">
             <MarqueeChunk />
           </div>
-          <div className="flex flex-nowrap">
+          <div className="flex flex-nowrap flex-row-reverse">
             <MarqueeChunk />
           </div>
         </div>
       </motion.div>
-      <p className="text-xs text-muted-foreground text-center">
-        Scroll to Merge
+      <p className="text-xs text-muted-foreground text-center skew-y-4 mb-1">
+        Work <span className=" text-green-600">Tags</span>
       </p>
     </div>
   );
@@ -169,7 +145,7 @@ function MarqueeChunk() {
       <p style={baseStyle} className="text-green-600">
         •
       </p>
-      <p style={baseStyle}>WEB-APPS</p>
+      <p style={baseStyle}>WEBAPPS</p>
       <p style={baseStyle} className="text-green-600">
         •
       </p>
