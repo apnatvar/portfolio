@@ -189,3 +189,8 @@ main {
   padding: 0;
   margin: 0;
 }
+.text-stroke-only {
+  -webkit-text-stroke-width: 2px; /* Adjust stroke width as needed */
+  -webkit-text-stroke-color: theme('colors.green.500'); /* Adjust stroke color */
+  -webkit-text-fill-color: transparent; /* Makes the fill transparent */
+}

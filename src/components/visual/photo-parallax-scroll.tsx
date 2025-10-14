@@ -13,25 +13,28 @@ export default function ScrollImage() {
       imageRefs.current.push(el);
     }
   };
+
+  function randomIntegerInRange(
+    min: number,
+    max: number,
+    step: number
+  ): number {
+    const numSteps = (max - min) / step + 1;
+    const randomStep = Math.floor(Math.random() * numSteps);
+    const result = min + randomStep * step;
+    return result;
+  }
+
   useEffect(() => {
     if (!imageRefs.current || !pinRef.current) return;
-    function randomIntegerInRange(
-      min: number,
-      max: number,
-      step: number
-    ): number {
-      const numSteps = (max - min) / step + 1;
-      const randomStep = Math.floor(Math.random() * numSteps);
-      const result = min + randomStep * step;
-      return result;
-    }
+
     imageRefs.current.forEach((imageRef: HTMLImageElement) => {
       const speed: number = Number(imageRef.getAttribute("data-speed"));
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinRef.current,
           start: "top 90%",
-          end: "top 50%",
+          end: `top ${randomIntegerInRange(20, 60, 5)}%`,
           pin: imageRef,
           pinSpacing: false,
           scrub: true,
@@ -45,13 +48,14 @@ export default function ScrollImage() {
           scale: 0.5,
           skewY: randomIntegerInRange(20, 40, 5),
           yPercent: 50,
+          opacity: 0,
         },
         {
           yPercent: -60 * speed,
           scale: 1,
           rotateY: 0,
           skewY: 0,
-          y: -randomIntegerInRange(80, 120, 10),
+          opacity: 1,
         }
       );
     });
@@ -63,12 +67,12 @@ export default function ScrollImage() {
       <div className="h-dvh">
         <h1
           ref={pinRef}
-          className="w-full absolute text-center z-999 text-5xl mx-auto"
+          className="w-full absolute text-center z-999 text-5xl mx-auto font-extrabold text-stroke-only mix-blend-color-dodge"
         >
           Photographs I edit
         </h1>
         <div className="relative flex flex-wrap justify-around">
-          <div className="relative text-center w-100 h-100 z-100 ">
+          <div className="relative text-center w-100 h-100 z-100">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -189,6 +193,7 @@ export default function ScrollImage() {
             />
           </div>
         </div>
+        <div className="h-[20dvh]"></div>
       </div>
     </>
   );

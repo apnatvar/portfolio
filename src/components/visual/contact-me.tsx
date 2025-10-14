@@ -266,9 +266,9 @@ const LetterGlitch = ({
           ease: "linear",
           scrollTrigger: {
             trigger: canvasRef.current,
-            start: "top 60%",
+            start: "top 40%",
             end: "top top", // or "+=100vh" for a fixed distance
-            scrub: 5,
+            scrub: 1,
           },
         }
       );
@@ -282,7 +282,7 @@ const LetterGlitch = ({
         ref={canvasRef}
         className="absolute z-10 top-0 left-0 h-full w-full bg-background"
       />
-      <div className="relative z-11 w-full h-full text-shadow-lg py-15 px-10 md:px-30">
+      <div className="relative z-11 w-full h-full text-shadow-lg py-15 px-10 md:px-30 bg-gradient-to-b from-background to-transparent via-background/20">
         <Card className="bg-background/75 ring-1 ring-green-600 rounded-4xl h-full backdrop-blur-[1px] content-center justify-around gap-0">
           <CardHeader>
             <p

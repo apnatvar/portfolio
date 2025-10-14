@@ -6,12 +6,15 @@ import React from "react";
 import InfiniteDualMarquee from "@/components/visual/marquee";
 import "@/app/visual.css";
 import ScrollImage from "@/components/visual/photo-parallax-scroll";
+import ProjectCarouselCard from "@/components/visual/projects";
 export default function Page() {
   return (
     <>
       <HeroPage />
-      <SkillPage />
+      <div className="h-[15dvh]"></div>
+      <ProjectCarouselCard />
       <InfiniteDualMarquee />
+      <SkillPage />
       <ScrollImage />
       <LetterGlitch
         glitchSpeed={70}

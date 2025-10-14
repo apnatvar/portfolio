@@ -25,11 +25,11 @@ export interface VerticalNavButtonsProps {
 export default function VerticalNavButtons({
   items = [
     { label: "Summary", targetId: "summary" },
+    { label: "Work", targetId: "work" },
     {
       label: "Say Hello",
       targetId: "contactme",
     },
-    { label: "Work", targetId: "section-3" },
   ],
   offsetY = 80,
   size = "sm",

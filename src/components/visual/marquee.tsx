@@ -73,46 +73,51 @@ export default function InfiniteDualMarquee() {
   }, [posRawSkew, negRawSkew]);
 
   return (
-    <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 py-10">
-      <motion.div
-        style={{
-          skewY: negSkew,
-          willChange: "transform",
-        }}
-        className="overflow-y-visible"
-      >
-        <div ref={track1Ref} className="flex flex-nowrap">
-          <div className="flex flex-nowrap">
-            <MarqueeChunk />
+    <>
+      <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 py-10">
+        <motion.div
+          style={{
+            skewY: negSkew,
+            willChange: "transform",
+          }}
+          className="overflow-y-visible"
+        >
+          <div ref={track1Ref} className="flex flex-nowrap">
+            <div className="flex flex-nowrap">
+              <MarqueeChunk />
+            </div>
+            <div ref={content1Ref} className="flex flex-nowrap">
+              <MarqueeChunk />
+            </div>
           </div>
-          <div ref={content1Ref} className="flex flex-nowrap">
-            <MarqueeChunk />
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      <div className="h-[3dvh]" />
+        <div className="h-[3dvh]" />
 
-      <motion.div
-        style={{
-          skewY: posSkew,
-          willChange: "transform",
-        }}
-        className="overflow-y-visible"
-      >
-        <div ref={track2Ref} className="flex flex-nowrap">
-          <div ref={content2Ref} className="flex flex-nowrap flex-row-reverse">
-            <MarqueeChunk />
+        <motion.div
+          style={{
+            skewY: posSkew,
+            willChange: "transform",
+          }}
+          className="overflow-y-visible"
+        >
+          <div ref={track2Ref} className="flex flex-nowrap">
+            <div
+              ref={content2Ref}
+              className="flex flex-nowrap flex-row-reverse"
+            >
+              <MarqueeChunk />
+            </div>
+            <div className="flex flex-nowrap flex-row-reverse">
+              <MarqueeChunk />
+            </div>
           </div>
-          <div className="flex flex-nowrap flex-row-reverse">
-            <MarqueeChunk />
-          </div>
-        </div>
-      </motion.div>
-      <p className="text-xs text-muted-foreground text-center skew-y-4 mb-1">
-        Work <span className=" text-green-600">Tags</span>
-      </p>
-    </div>
+        </motion.div>
+        <p className="text-xs text-muted-foreground text-center skew-y-4 mb-1">
+          Work <span className=" text-green-600">Tags</span>
+        </p>
+      </div>
+    </>
   );
 }
 
