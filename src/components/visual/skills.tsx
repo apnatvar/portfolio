@@ -144,7 +144,7 @@ export default function SkillPage() {
   return (
     <div
       ref={rootRef}
-      className="relative min-h-[140dvh] bg-background text-foreground overflow-x-hidden my-20"
+      className="relative min-h-[140dvh] bg-background text-foreground overflow-x-hidden my-10"
     >
       <section className="relative container mx-auto px-4 py-16 md:py-24 z-1">
         <div
@@ -181,8 +181,11 @@ export default function SkillPage() {
             className="order-first max-h-full text-muted-foreground text-justify gap-6 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
           >
             <h1 className="text-xl md:text-2xl text-green-600 text-center">
-              Tool Box
-            </h1>
+              The Toolkit
+            </h1>{" "}
+            <p className="text-xs text-amber-400 text-center">
+              Tools, Frameworks, and Habits that power my pixel creations.
+            </p>
             <p>
               Initially I developed backend systems for web apps, desktop apps,
               web scraping scripts, and ML models using Python, GO, and Java.
@@ -196,7 +199,7 @@ export default function SkillPage() {
                 target="_blank"
                 href="http://ui.shadcn.com/"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
               >
                 Shadcn
               </Link>{" "}
@@ -205,7 +208,7 @@ export default function SkillPage() {
                 target="_blank"
                 href="http://gsap.com/"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
               >
                 GSAP
               </Link>{" "}
@@ -214,7 +217,7 @@ export default function SkillPage() {
                 target="_blank"
                 href="https://motion.dev/examples"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
               >
                 Motion.dev
               </Link>{" "}
@@ -226,7 +229,7 @@ export default function SkillPage() {
                 target="_blank"
                 href="https://ap-sample.vercel.app/"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500hover:decoration-muted-foreground"
               >
                 ap-samples
               </Link>
@@ -240,7 +243,7 @@ export default function SkillPage() {
                     target="_blank"
                     href="https://tweakcn.com/"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+                    className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500hover:decoration-muted-foreground"
                   >
                     Tweakcn
                   </Link>
@@ -250,7 +253,7 @@ export default function SkillPage() {
                     target="_blank"
                     href="https://reactbits.dev/"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 decoration-green-600 hover:text-green-600 hover:decoration-muted-foreground"
+                    className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500hover:decoration-muted-foreground"
                   >
                     React Bits
                   </Link>
@@ -281,10 +284,6 @@ export default function SkillPage() {
             })}
           </div>
         </div>
-        <p className="text-xs text-muted-foreground text-center mt-9">
-          Yes, <span className="text-green-600">Green</span> is my favourite
-          colour.
-        </p>
       </section>
     </div>
   );

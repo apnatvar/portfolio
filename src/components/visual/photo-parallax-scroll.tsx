@@ -6,7 +6,7 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollImage() {
-  const pinRef = useRef<HTMLHeadingElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<HTMLImageElement[]>([]);
   const addtoImageRefs = (el: HTMLImageElement) => {
     if (el) {
@@ -27,16 +27,16 @@ export default function ScrollImage() {
 
   useEffect(() => {
     if (!imageRefs.current || !pinRef.current) return;
-
+    const toKill: HTMLImageElement[] = [];
     imageRefs.current.forEach((imageRef: HTMLImageElement) => {
       const speed: number = Number(imageRef.getAttribute("data-speed"));
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinRef.current,
-          start: "top 90%",
-          end: `top ${randomIntegerInRange(20, 60, 5)}%`,
+          start: "top 70%",
+          end: `bottom ${randomIntegerInRange(80, 100, 5)}%`,
           pin: imageRef,
-          pinSpacing: false,
+          pinSpacing: "margin",
           scrub: true,
           invalidateOnRefresh: true,
         },
@@ -44,45 +44,35 @@ export default function ScrollImage() {
       tl.fromTo(
         imageRef,
         {
-          rotateY: randomIntegerInRange(20, 50, 5),
-          scale: 0.5,
-          skewY: randomIntegerInRange(20, 40, 5),
-          yPercent: 50,
-          opacity: 0,
+          scale: 1 / randomIntegerInRange(1, 10, 1),
+          yPercent: 200 * speed,
         },
         {
-          yPercent: -60 * speed,
+          yPercent: -100 * speed,
           scale: 1,
-          rotateY: 0,
-          skewY: 0,
-          opacity: 1,
         }
       );
+      toKill.push(imageRef);
     });
+    return () => {
+      gsap.killTweensOf(toKill);
+    };
   }, [imageRefs, pinRef]);
 
   return (
     <>
-      <div className="h-[50dvh]"></div>
-      <div className="h-dvh">
-        <h1
-          ref={pinRef}
-          className="w-full absolute text-center z-999 text-5xl mx-auto font-extrabold text-stroke-only mix-blend-color-dodge"
-        >
-          Photographs I edit
-        </h1>
+      <div className="h-[100dvh]" />
+      <h1
+        ref={pinRef}
+        className="w-full relative text-center z-11 text-8xl mx-auto font-extrabold text-stroke-only mix-blend-color-dodge mb-[20dvh]"
+      >
+        <span>Pixels</span> <br />
+        <span>simulating</span> <br />
+        <span>Life</span>
+      </h1>
+      <div className="min-h-dvh relative">
         <div className="relative flex flex-wrap justify-around">
-          <div className="relative text-center w-100 h-100 z-100">
-            <Image
-              src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
-              fill
-              alt="Snapseed"
-              ref={addtoImageRefs}
-              className=""
-              data-speed={1}
-            />
-          </div>
-          <div className="relative text-center w-20 h-40 z-100">
+          <div className="relative text-center w-20 h-40 z-10">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -92,7 +82,7 @@ export default function ScrollImage() {
               data-speed={4}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100 ">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -102,7 +92,7 @@ export default function ScrollImage() {
               data-speed={2}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100 ">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -112,7 +102,7 @@ export default function ScrollImage() {
               data-speed={3}
             />
           </div>
-          <div className="relative text-center w-100 h-100 z-100 ">
+          <div className="relative text-center w-100 h-100 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -122,7 +112,7 @@ export default function ScrollImage() {
               data-speed={1}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100  grid-spa">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -132,7 +122,7 @@ export default function ScrollImage() {
               data-speed={4}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100 ">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -142,7 +132,7 @@ export default function ScrollImage() {
               data-speed={5}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100 ">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -152,7 +142,7 @@ export default function ScrollImage() {
               data-speed={6}
             />
           </div>
-          <div className="relative text-center w-100 h-100 z-100 ">
+          <div className="relative text-center w-100 h-100 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -162,7 +152,7 @@ export default function ScrollImage() {
               data-speed={9}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100  grid-spa">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -172,7 +162,7 @@ export default function ScrollImage() {
               data-speed={8}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100 ">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -182,7 +172,7 @@ export default function ScrollImage() {
               data-speed={7}
             />
           </div>
-          <div className="relative text-center w-20 h-40 z-100 ">
+          <div className="relative text-center w-20 h-40 z-10 ">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
@@ -193,7 +183,6 @@ export default function ScrollImage() {
             />
           </div>
         </div>
-        <div className="h-[20dvh]"></div>
       </div>
     </>
   );

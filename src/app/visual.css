@@ -194,3 +194,34 @@ main {
   -webkit-text-stroke-color: theme('colors.green.500'); /* Adjust stroke color */
   -webkit-text-fill-color: transparent; /* Makes the fill transparent */
 }
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.animated-border::before, .animated-border::after  {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: conic-gradient(from var(--gradient-angle), theme('colors.green.500'),theme('colors.background'),#00918A,theme('colors.green.500'));;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin-grad linear infinite;
+}
+.animated-border::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin-grad{
+  from {
+    --gradient-angle: 0deg;
+  }
+  to {
+    --gradient-angle: 360deg;
+  }
+}

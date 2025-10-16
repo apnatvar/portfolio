@@ -79,9 +79,9 @@ export default function HeroPage() {
       gsap.from(split.lines, {
         yPercent: 200,
         opacity: 0,
-        duration: 1,
+        duration: 1.5,
         ease: "power2.out",
-        stagger: 0.12,
+        stagger: 0.3,
         scrollTrigger: {
           trigger: el,
           start: "top 80%",
@@ -104,8 +104,9 @@ export default function HeroPage() {
           scrollTrigger: {
             trigger: fadeRef.current,
             start: "top top",
-            end: "bottom 6%", // or "+=100vh" for a fixed distance
-            scrub: true,
+            end: "bottom 60%", // or "+=100vh" for a fixed distance
+            scrub: 2,
+            invalidateOnRefresh: true,
           },
         }
       );
@@ -170,8 +171,8 @@ export default function HeroPage() {
         <div ref={ctaRef} className="md:top-1/3 md:left-1/15 md:absolute z-10">
           <VerticalNavButtons className="w-fit mx-auto justify-self-center md:justify-start relative" />
         </div>
-        <p className="text-xs text-white text-center mt-5 md:mt-0">
-          From Brain<span className="text-green-600">storms</span> to Products
+        <p className="text-xs text-amber-400 text-center mt-5 md:mt-0">
+          Designing systems, interfaces, and ideas — one spark at a time.{" "}
         </p>
         <div className="justify-items-center mt-40 md:mt-10">
           <MagicBento />

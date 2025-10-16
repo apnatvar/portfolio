@@ -3,16 +3,14 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { Badge } from "../ui/badge";
+import { FaLink } from "react-icons/fa6";
 type Slide = {
   title: string;
   desc: string;
@@ -20,6 +18,7 @@ type Slide = {
   imageLink: string;
   projectLink: string;
   alt: string;
+  tools: string[];
 };
 
 type Props = {
@@ -37,6 +36,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
+    tools: ["Python", "SQL"],
   },
   {
     title: "Portfolio — Motion Experiments",
@@ -45,6 +45,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Mountain range photography",
+    tools: ["Python", "SQL"],
   },
   {
     title: "Finance Dashboard",
@@ -53,6 +54,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
+    tools: ["Python", "SQL"],
   },
   {
     title: "Portfolio — Motion Experiments",
@@ -61,6 +63,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Mountain range photography",
+    tools: ["Python", "SQL"],
   },
   {
     title: "Finance Dashboard",
@@ -69,6 +72,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
+    tools: ["Python", "SQL"],
   },
   {
     title: "Portfolio — Motion Experiments",
@@ -77,6 +81,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Mountain range photography",
+    tools: ["Python", "SQL"],
   },
   {
     title: "Finance Dashboard",
@@ -85,20 +90,44 @@ const MOCK_SLIDES: Slide[] = [
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
+    tools: ["Python", "SQL"],
   },
 ];
 
 export default function ProjectCarouselCard({
   slides = MOCK_SLIDES,
-  durationMs = 100,
+  durationMs = 600,
 }: Props) {
   const total = slides.length;
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
 
-  const scrollerRef = React.useRef<HTMLDivElement | null>(null);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const imageRefs = useRef<HTMLImageElement[]>([]);
+  const addtoImageRefs = (el: HTMLImageElement) => {
+    if (el) {
+      imageRefs.current.push(el);
+    }
+  };
+  useEffect(() => {
+    if (!imageRefs.current) return;
+    const toKill: HTMLImageElement[] = [];
+    imageRefs.current.forEach((imageRef: HTMLImageElement) => {
+      gsap.fromTo(
+        imageRef,
+        {
+          scale: 2,
+          duration: 1.2,
+        },
+        { scale: 1 }
+      );
+      toKill.push(imageRef);
+    });
+    return () => {
+      gsap.killTweensOf(toKill);
+    };
+  });
 
-  // Update index when user drags / swipes (snap-x)
-  React.useEffect(() => {
+  useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
 
@@ -135,7 +164,6 @@ export default function ProjectCarouselCard({
 
       const step = (now: number) => {
         const t = Math.min(1, (now - startTime) / durationMs);
-        // easeInOutCubic
         const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         el.scrollLeft = start + diff * eased;
         if (t < 1) requestAnimationFrame(step);
@@ -158,28 +186,26 @@ export default function ProjectCarouselCard({
 
   return (
     <section
-      className="relative mx-auto flex min-h-[60dvh] h-fit max-h-dvh w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10"
+      className="relative mx-auto min-h-[60dvh] h-fit max-h-dvh w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10"
       aria-label="Projects Carousel"
     >
-      {/* Left / Right controls outside the card */}
+      {/* Left / Right controls outside the card */}{" "}
+      <p className="text-xs text-center text-amber-400 mb-2">
+        When Code and Design converge.
+      </p>
       <div className="relative flex flex-wrap md:flex-nowrap w-full max-w-5xl items-center justify-center gap-3">
         <Button
           type="button"
           size="icon"
-          variant="secondary"
+          variant="outline"
           onClick={handlePrev}
           aria-label="Previous"
           className="z-10 order-2 md:order-1"
         >
-          <ChevronLeft className="h-5 w-5 text-green-600" />
+          <ChevronLeft className="h-5 w-5 text-teal-500" />
         </Button>
 
-        <Card className="w-full max-w-4xl border-2 border-green-600 bg-transparent backdrop-blur order-1 md:order-2">
-          <CardHeader>
-            <p className="text-xs text-center text-muted-foreground mx-auto">
-              Some Interesting Projects
-            </p>
-          </CardHeader>
+        <Card className="w-full max-w-4xl border-2 border-green-600 bg-transparent order-1 md:order-2 gap-0">
           <CardContent id="work" className="p-4">
             <div
               ref={scrollerRef}
@@ -202,6 +228,7 @@ export default function ProjectCarouselCard({
                       >
                         <div className="relative aspect-[4/3] w-full">
                           <Image
+                            ref={addtoImageRefs}
                             src={s.src}
                             alt={s.alt}
                             fill
@@ -216,25 +243,42 @@ export default function ProjectCarouselCard({
                         <div className="space-y-2">
                           <Link
                             href={s.projectLink}
-                            className="text-md md:text-lg font-semibold leading-tight underline underline-offset-2 hover:decoration-green-600"
+                            className="text-md md:text-lg font-semibold leading-tight"
                           >
-                            {s.title}
+                            <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500">
+                              {s.title}
+                            </span>{" "}
+                            <FaLink className="inline-block" />
                           </Link>
-                          <p className="text-sm text-muted-foreground">
+                          <div className="flex flex-row flex-wrap gap-1 pt-1 pb-2">
+                            {s.tools.map((t, ti) => (
+                              <Badge
+                                variant="outline"
+                                key={ti}
+                                className="hover:text-green-600"
+                              >
+                                {t}
+                              </Badge>
+                            ))}
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-2">
                             {s.desc}
                           </p>
                         </div>
                       </div>
                     </div>
+                    <p className="text-xs text-muted-foreground text-center mt-3">{`${
+                      i + 1
+                    } of ${slides.length}`}</p>
                   </article>
                 ))}
               </div>
             </div>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="pt-0 mt-0">
             <Progress
               value={pct}
-              className="w-full [&>div]:bg-yellow-600"
+              className="w-full [&>div]:bg-teal-500"
               aria-label="Slide progress"
             />
           </CardFooter>
@@ -243,12 +287,12 @@ export default function ProjectCarouselCard({
         <Button
           type="button"
           size="icon"
-          variant="secondary"
+          variant="outline"
           onClick={handleNext}
           aria-label="Next"
           className="z-10 order-3"
         >
-          <ChevronRight className="h-5 w-5 text-green-600" />
+          <ChevronRight className="h-5 w-5 text-teal-500" />
         </Button>
       </div>
     </section>

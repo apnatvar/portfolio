@@ -283,12 +283,9 @@ const LetterGlitch = ({
         className="absolute z-10 top-0 left-0 h-full w-full bg-background"
       />
       <div className="relative z-11 w-full h-full text-shadow-lg py-15 px-10 md:px-30 bg-gradient-to-b from-background to-transparent via-background/20">
-        <Card className="bg-background/75 ring-1 ring-green-600 rounded-4xl h-full backdrop-blur-[1px] content-center justify-around gap-0">
+        <Card className="bg-background/75 ring-1 ring-green-600 rounded-4xl h-full backdrop-blur-[1px] content-center justify-around gap-0 ">
           <CardHeader>
-            <p
-              className="text-xs text-center text-muted-foreground"
-              id="contactme"
-            >
+            <p className="text-xs text-center text-amber-500" id="contactme">
               Connect to My Mainframe
             </p>
           </CardHeader>
@@ -297,20 +294,21 @@ const LetterGlitch = ({
               {SOCIAL_DATA.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <li
+                  <Link
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     key={s.label}
-                    className="flex items-center gap-1 justify-center mb-5"
+                    className="z-20"
                   >
-                    <Icon className="" aria-hidden />
-                    <Link
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline underline-offset-2 hover:text-green-600"
-                    >
-                      {s.label}
-                    </Link>
-                  </li>
+                    <li className="flex items-center gap-1 justify-center mb-5">
+                      <Icon aria-hidden />
+
+                      <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500">
+                        {s.label}
+                      </span>
+                    </li>{" "}
+                  </Link>
                 );
               })}
               <li
@@ -322,7 +320,7 @@ const LetterGlitch = ({
                   href="./ApnatvaSinghRawatCV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-2 hover:text-green-600"
+                  className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500"
                   download="./ApnatvaSinghRawatCV.pdf"
                 >
                   CV
@@ -331,8 +329,8 @@ const LetterGlitch = ({
             </ul>
           </CardContent>
           <CardFooter>
-            <p className="text-xs text-center text-muted-foreground mx-auto">
-              Inspired by The Matrix
+            <p className="text-xs text-center text-amber-500 mx-auto">
+              The Simulation is always running.
             </p>
           </CardFooter>
         </Card>

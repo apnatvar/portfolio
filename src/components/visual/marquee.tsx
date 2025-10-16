@@ -1,24 +1,26 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, animate, useMotionValue, useSpring } from "motion/react";
+import {
+  motion,
+  animate,
+  useMotionValue,
+  useSpring,
+  frame,
+  cancelFrame,
+} from "motion/react";
 
 export default function InfiniteDualMarquee() {
-  // Refs
   const track1Ref = useRef<HTMLDivElement | null>(null);
   const track2Ref = useRef<HTMLDivElement | null>(null);
   const content1Ref = useRef<HTMLDivElement | null>(null);
   const content2Ref = useRef<HTMLDivElement | null>(null);
-  // Control marquee speed (pixels per second)
   const SPEED_PX_S = 40;
-
-  // Skew (reacts to scroll velocity)
   const posRawSkew = useMotionValue(0);
   const negRawSkew = useMotionValue(0);
-  const posSkew = useSpring(posRawSkew, { stiffness: 10, damping: 12 });
-  const negSkew = useSpring(negRawSkew, { stiffness: 10, damping: 12 });
+  const posSkew = useSpring(posRawSkew, { stiffness: 3, damping: 0.9 });
+  const negSkew = useSpring(negRawSkew, { stiffness: 3, damping: 0.9 });
 
-  // Measure + start infinite animations
   useEffect(() => {
     const t1 = track1Ref.current;
     const t2 = track2Ref.current;
@@ -49,15 +51,14 @@ export default function InfiniteDualMarquee() {
   }, []);
 
   useEffect(() => {
-    let rafId = 0;
     let prevY = window.scrollY;
     let prevT = performance.now();
 
-    const tick = () => {
+    const update = () => {
       const now = performance.now();
       const dt = Math.max(16, now - prevT); // ms
       const dy = window.scrollY - prevY; // px
-      const vy = (dy / dt) * 100; // px/s
+      const vy = (dy / dt) * 60; // px/s (normalized to ~fps)
 
       const targetSkew = Math.max(-9, Math.min(9, vy * 0.3));
       posRawSkew.set(targetSkew);
@@ -65,11 +66,12 @@ export default function InfiniteDualMarquee() {
 
       prevY = window.scrollY;
       prevT = now;
-      rafId = requestAnimationFrame(tick);
     };
 
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
+    frame.update(update, true);
+    return () => {
+      cancelFrame(update);
+    };
   }, [posRawSkew, negRawSkew]);
 
   return (
@@ -92,7 +94,11 @@ export default function InfiniteDualMarquee() {
           </div>
         </motion.div>
 
-        <div className="h-[3dvh]" />
+        <div className="min-h-[10dvh]">
+          <p className="text-xs text-amber-400 text-center mt-[5dvh] skew-y-3">
+            Designer. Developer. Creator. Different forms, same intent.
+          </p>
+        </div>
 
         <motion.div
           style={{
@@ -113,9 +119,6 @@ export default function InfiniteDualMarquee() {
             </div>
           </div>
         </motion.div>
-        <p className="text-xs text-muted-foreground text-center skew-y-4 mb-1">
-          Work <span className=" text-green-600">Tags</span>
-        </p>
       </div>
     </>
   );

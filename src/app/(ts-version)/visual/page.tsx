@@ -7,14 +7,15 @@ import InfiniteDualMarquee from "@/components/visual/marquee";
 import "@/app/visual.css";
 import ScrollImage from "@/components/visual/photo-parallax-scroll";
 import ProjectCarouselCard from "@/components/visual/projects";
+import PromoPreviewSection from "@/components/visual/promo";
 export default function Page() {
   return (
     <>
       <HeroPage />
-      <div className="h-[15dvh]"></div>
-      <ProjectCarouselCard />
       <InfiniteDualMarquee />
       <SkillPage />
+      <ProjectCarouselCard />
+      <PromoPreviewSection />
       <ScrollImage />
       <LetterGlitch
         glitchSpeed={70}
