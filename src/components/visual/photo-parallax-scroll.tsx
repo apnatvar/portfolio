@@ -6,7 +6,8 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollImage() {
-  const pinRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLHeadingElement>(null);
+  const toPinRef = useRef<HTMLHeadingElement>(null);
   const imageRefs = useRef<HTMLImageElement[]>([]);
   const addtoImageRefs = (el: HTMLImageElement) => {
     if (el) {
@@ -26,16 +27,16 @@ export default function ScrollImage() {
   }
 
   useEffect(() => {
-    if (!imageRefs.current || !pinRef.current) return;
+    if (!imageRefs.current || !pinRef.current || !toPinRef.current) return;
     const toKill: HTMLImageElement[] = [];
     imageRefs.current.forEach((imageRef: HTMLImageElement) => {
       const speed: number = Number(imageRef.getAttribute("data-speed"));
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinRef.current,
-          start: "top 70%",
-          end: `bottom ${randomIntegerInRange(80, 100, 5)}%`,
-          pin: imageRef,
+          start: "top top",
+          end: "+=200dvh",
+          pin: toPinRef.current,
           pinSpacing: "margin",
           scrub: true,
           invalidateOnRefresh: true,
@@ -50,7 +51,8 @@ export default function ScrollImage() {
         {
           yPercent: -100 * speed,
           scale: 1,
-        }
+        },
+        0
       );
       toKill.push(imageRef);
     });
@@ -61,17 +63,17 @@ export default function ScrollImage() {
 
   return (
     <>
-      <div className="h-[100dvh]" />
-      <h1
-        ref={pinRef}
-        className="w-full relative text-center z-11 text-8xl mx-auto font-extrabold text-stroke-only mix-blend-color-dodge mb-[20dvh]"
-      >
-        <span>Pixels</span> <br />
-        <span>simulating</span> <br />
-        <span>Life</span>
-      </h1>
-      <div className="min-h-dvh relative">
-        <div className="relative flex flex-wrap justify-around">
+      <div ref={pinRef} className="h-[100dvh]" />
+      <div className="relative">
+        <h1
+          ref={toPinRef}
+          className="w-full sticky text-center text-8xl mx-auto font-extrabold text-stroke-only mix-blend-color-dodge mb-[20dvh] z-11"
+        >
+          Pixels <br />
+          Simulating <br />
+          Life
+        </h1>
+        <div className="min-h-dvh relative flex flex-wrap justify-around">
           <div className="relative text-center w-20 h-40 z-10">
             <Image
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"

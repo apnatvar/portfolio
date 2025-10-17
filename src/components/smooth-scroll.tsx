@@ -12,13 +12,16 @@ export default function SmoothScrollProvider({
     const lenis = new Lenis({
       autoRaf: true,
     });
+    if (document.visibilityState === "visible") {
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-    function raf(time: number) {
-      lenis.raf(time);
       requestAnimationFrame(raf);
+    } else {
+      lenis.stop();
     }
-
-    requestAnimationFrame(raf);
     return () => {
       lenis.destroy();
     };

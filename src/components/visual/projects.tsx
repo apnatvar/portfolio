@@ -248,14 +248,14 @@ export default function ProjectCarouselCard({
                             <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500">
                               {s.title}
                             </span>{" "}
-                            <FaLink className="inline-block" />
+                            <FaLink className="inline-block text-muted-foreground" />
                           </Link>
                           <div className="flex flex-row flex-wrap gap-1 pt-1 pb-2">
                             {s.tools.map((t, ti) => (
                               <Badge
                                 variant="outline"
                                 key={ti}
-                                className="hover:text-green-600"
+                                className="hover:text-violet-500"
                               >
                                 {t}
                               </Badge>

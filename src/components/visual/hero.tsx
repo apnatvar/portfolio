@@ -162,7 +162,7 @@ export default function HeroPage() {
             >
               1. sense of belonging
               <br />
-              2. marketing technologist
+              2. digital designer
               <br />
               3. oneness
             </div>

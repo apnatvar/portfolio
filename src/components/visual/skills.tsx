@@ -229,7 +229,7 @@ export default function SkillPage() {
                 target="_blank"
                 href="https://ap-sample.vercel.app/"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500hover:decoration-muted-foreground"
+                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
               >
                 ap-samples
               </Link>
@@ -243,7 +243,7 @@ export default function SkillPage() {
                     target="_blank"
                     href="https://tweakcn.com/"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500hover:decoration-muted-foreground"
+                    className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
                   >
                     Tweakcn
                   </Link>
@@ -253,7 +253,7 @@ export default function SkillPage() {
                     target="_blank"
                     href="https://reactbits.dev/"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500hover:decoration-muted-foreground"
+                    className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
                   >
                     React Bits
                   </Link>

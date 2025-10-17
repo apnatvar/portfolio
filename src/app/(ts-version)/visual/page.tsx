@@ -8,6 +8,7 @@ import "@/app/visual.css";
 import ScrollImage from "@/components/visual/photo-parallax-scroll";
 import ProjectCarouselCard from "@/components/visual/projects";
 import PromoPreviewSection from "@/components/visual/promo";
+import FuturePlans from "@/components/visual/road-map-v2";
 export default function Page() {
   return (
     <>
@@ -15,6 +16,7 @@ export default function Page() {
       <InfiniteDualMarquee />
       <SkillPage />
       <ProjectCarouselCard />
+      <FuturePlans />
       <PromoPreviewSection />
       <ScrollImage />
       <LetterGlitch

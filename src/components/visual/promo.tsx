@@ -142,7 +142,10 @@ export default function PromoPreviewSection() {
               </span>{" "}
               <FaLink className="inline-block text-amber-400 text-xs" />
             </Link>{" "}
-            so I can build more than just basic components with GenAI.
+            so I can build more than just basic components with GenAI. Something
+            extra that my components have is that I try ot have each one be
+            dynamically constructed i.e. no data is hard-coded making it easy to
+            reuse.
           </p>
         </div>
       </div>

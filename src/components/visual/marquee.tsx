@@ -56,7 +56,7 @@ export default function InfiniteDualMarquee() {
 
     const update = () => {
       const now = performance.now();
-      const dt = Math.max(16, now - prevT); // ms
+      const dt = Math.max(20, now - prevT); // ms
       const dy = window.scrollY - prevY; // px
       const vy = (dy / dt) * 60; // px/s (normalized to ~fps)
 

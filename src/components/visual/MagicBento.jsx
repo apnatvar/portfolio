@@ -641,7 +641,7 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}>
                   <div className="card__header flex justify-between gap-3 relative">
-                    <span className="card__label text-base text-white mb-1 md:mb-0"><Link href={card.link} target='_blank'><span className='underline-offset-4 underline'>{card.label}</span> <FaLink className='inline-block'/></Link></span>
+                    <span className="card__label text-base mb-1 md:mb-0"><Link href={card.link} target='_blank'><span className='underline-offset-2 underline text-white decoration-teal-500 hover:text-teal-500'>{card.label}</span> <FaLink className='inline-block text-muted-foreground'/></Link></span>
                   </div>
                   <div className="card__content flex flex-col relative">
                     <h3

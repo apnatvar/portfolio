@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Scrollbar from "smooth-scrollbar";
+import InstagramEmbed from "./ig-embed";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -162,27 +163,31 @@ const PanelScrollDemo: React.FC<Props> = ({
       {/* Section 2: Black – pinned, panels + vertical text slides */}
       <section
         ref={sectionBlackRef}
-        className="flex h-screen items-center justify-around bg-[#070707]"
+        className="flex flex-col md:flex-row h-screen items-center justify-around bg-[#070707]"
       >
         {/* Text stack */}
         <div className="relative overflow-hidden" style={boxStyle}>
-          <div className="panel-text absolute inset-0 grid place-items-center bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-blue-500">
+          <div className="panel-text absolute inset-50 bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-blue-500">
             Blue
           </div>
-          <div className="panel-text absolute inset-0 grid place-items-center bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-red-500">
+          <div className="panel-text absolute inset-50 bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-red-500">
             Red
           </div>
-          <div className="panel-text absolute inset-0 grid place-items-center bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-orange-400">
+          <div className="panel-text absolute inset-50 bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-orange-400">
             Orange
           </div>
-          <div className="panel-text absolute inset-0 grid place-items-center bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-purple-500">
+          <div className="panel-text absolute inset-50 bg-[#070707] text-4xl font-black uppercase opacity-0 translate-y-full text-purple-500">
             Purple
           </div>
         </div>
 
         {/* Color panels stack (blue, red, orange, purple) */}
         <div className="relative overflow-hidden" style={boxStyle}>
-          <div className="panel absolute inset-0 bg-blue-700" />
+          <div className="panel absolute inset-0">
+            <div className="container mx-auto p-6">
+              <InstagramEmbed permalink="https://www.instagram.com/p/CwxwGzDIYee/" />
+            </div>
+          </div>
           <div className="panel absolute inset-0 bg-red-600" />
           <div className="panel absolute inset-0 bg-orange-600" />
           <div className="panel panel-purple absolute inset-0 bg-purple-700" />
