@@ -285,7 +285,10 @@ const LetterGlitch = ({
       <div className="relative z-11 w-full h-full text-shadow-lg py-15 px-10 md:px-30 bg-gradient-to-b from-background to-transparent via-background/20">
         <Card className="bg-background/75 ring-1 ring-green-600 rounded-4xl h-full backdrop-blur-[1px] content-center justify-around gap-0 ">
           <CardHeader>
-            <p className="text-xs text-center text-amber-500" id="contactme">
+            <p
+              className="text-xs text-center text-amber-500 font-orbitron"
+              id="contactme"
+            >
               Connect to My Mainframe
             </p>
           </CardHeader>
@@ -299,7 +302,7 @@ const LetterGlitch = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     key={s.label}
-                    className="z-20"
+                    className="z-20 font-share-tech"
                   >
                     <li className="flex items-center gap-1 justify-center mb-5">
                       <Icon aria-hidden />
@@ -313,7 +316,7 @@ const LetterGlitch = ({
               })}
               <li
                 key="CV"
-                className="flex items-center gap-2 justify-center mb-5"
+                className="flex items-center gap-2 justify-center mb-5 font-share-tech"
               >
                 <FaFile className="" aria-hidden />
                 <Link
@@ -329,7 +332,7 @@ const LetterGlitch = ({
             </ul>
           </CardContent>
           <CardFooter>
-            <p className="text-xs text-center text-amber-500 mx-auto">
+            <p className="text-xs text-center text-amber-500 font-orbitron mx-auto">
               The Simulation is always running.
             </p>
           </CardFooter>

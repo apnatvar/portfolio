@@ -11,7 +11,7 @@ import { FaLink } from "react-icons/fa6";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, CustomEase);
 
 type StatItem = {
   label: string;
@@ -114,7 +114,7 @@ export default function PromoPreviewSection() {
         <div className="p-4 md:p-6">
           <p
             ref={splitTextRef}
-            className="text-sm text-muted-foreground leading-relaxed text-center"
+            className="text-sm text-muted-foreground leading-relaxed text-center font-space-grotestk"
           >
             Something I observed in my learning journey was I would initially
             build what was `cool`. I would find a bunch of designs and
@@ -127,7 +127,7 @@ export default function PromoPreviewSection() {
               target="_blank"
               rel="noreferrer"
             >
-              <FaLink className="inline-block text-amber-400 text-xs" />
+              <FaLink className="inline-block text-amber-400 font-orbitron text-xs" />
             </Link>{" "}
             of the possible designs just to push the limits of what I can
             actually build. This serves as my personal registry which I will
@@ -137,10 +137,10 @@ export default function PromoPreviewSection() {
               target="_blank"
               rel="noreferrer"
             >
-              <span className="underline underline-offset-2 hover:text-teal-500decoration-teal-500">
+              <span className="underline underline-offset-2 hover:text-teal-500 decoration-teal-500">
                 MCP
               </span>{" "}
-              <FaLink className="inline-block text-amber-400 text-xs" />
+              <FaLink className="inline-block text-amber-400 font-orbitron text-xs" />
             </Link>{" "}
             so I can build more than just basic components with GenAI. Something
             extra that my components have is that I try ot have each one be
@@ -161,7 +161,10 @@ export default function PromoPreviewSection() {
         )}
       >
         {MOCK_STATS.map((item, i) => (
-          <div key={i} className="rounded-xl border border-green-600">
+          <div
+            key={i}
+            className="rounded-xl border border-green-600 font-syncopate"
+          >
             <div className="flex items-center justify-between p-4">
               <span className="text-xs uppercase tracking-wide text-muted-foreground">
                 {item.label}

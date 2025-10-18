@@ -1,0 +1,16 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+/* Define named font tokens for IntelliSense */
+@theme inline{
+  --font-space-grotestk: var(--font-space-grotesk);
+  --font-playfair: var(--font-playfair-display);
+  --font-mono: var(--font-share-tech-mono);
+  --font-amita: var(--font-amita);
+  --font-unbounded: var(--font-unbounded);
+  --font-bebas: var(--font-bebas-neue);
+  --font-syncopate: var(--font-syncopate);
+  --font-orbitron: var(--font-orbitron);
+  --font-libre: var(--font-libre-baskerville);
+  --font-share-tech: var(--font-share-tech-mono);
+}

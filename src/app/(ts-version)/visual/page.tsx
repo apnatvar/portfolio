@@ -5,10 +5,10 @@ import LetterGlitch from "@/components/visual/contact-me";
 import React from "react";
 import InfiniteDualMarquee from "@/components/visual/marquee";
 import "@/app/visual.css";
-import ScrollImage from "@/components/visual/photo-parallax-scroll";
 import ProjectCarouselCard from "@/components/visual/projects";
 import PromoPreviewSection from "@/components/visual/promo";
 import FuturePlans from "@/components/visual/road-map-v2";
+import FlowingGallery from "@/components/visual/photo-gallery-2";
 export default function Page() {
   return (
     <>
@@ -18,7 +18,7 @@ export default function Page() {
       <ProjectCarouselCard />
       <FuturePlans />
       <PromoPreviewSection />
-      <ScrollImage />
+      <FlowingGallery />
       <LetterGlitch
         glitchSpeed={70}
         glitchColors={["#04bd73", "#156a48", "#222"]}

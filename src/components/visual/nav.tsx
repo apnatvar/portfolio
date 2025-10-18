@@ -57,7 +57,7 @@ export default function VerticalNavButtons({
             key={i}
             size={size}
             variant="outline"
-            className="justify-center"
+            className="justify-center hover:text-violet-500 font-playfair"
             onClick={() => scrollToId(item.targetId)}
           >
             {item.label}

@@ -156,7 +156,7 @@ export default function SkillPage() {
           {/* LEFT COLUMN (scrolls naturally, animated by dial calc) */}
           <div
             ref={leftColRef}
-            className="md:order-1 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600"
+            className="md:order-1 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600 font-share-tech"
           >
             {leftSkills.map((s, i) => {
               const Icon = s.icon;
@@ -180,20 +180,20 @@ export default function SkillPage() {
             ref={centerRef}
             className="order-first max-h-full text-muted-foreground text-justify gap-6 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
           >
-            <h1 className="text-xl md:text-2xl text-green-600 text-center">
+            <h1 className="text-xl md:text-2xl text-green-600 text-center font-libre">
               The Toolkit
-            </h1>{" "}
-            <p className="text-xs text-amber-400 text-center">
+            </h1>
+            <p className="text-xs text-amber-400 text-center font-orbitron">
               Tools, Frameworks, and Habits that power my pixel creations.
             </p>
-            <p>
+            <p className="font-space-grotestk">
               Initially I developed backend systems for web apps, desktop apps,
               web scraping scripts, and ML models using Python, GO, and Java.
               Since 2024 I have been teaching myself React(Next.js), with TSX. I
               can now design, develop, and deploy fully dynamic websites on
               Vercel with a complete backend.
             </p>
-            <p>
+            <p className="font-space-grotestk">
               I use{" "}
               <Link
                 target="_blank"
@@ -223,7 +223,7 @@ export default function SkillPage() {
               </Link>{" "}
               for animating this and other websites.
             </p>
-            <p>
+            <p className="font-space-grotestk">
               To track everything I made I developed{" "}
               <Link
                 target="_blank"
@@ -235,7 +235,7 @@ export default function SkillPage() {
               </Link>
               , showcasing unstyled components, blocks, and entire pages.
             </p>
-            <span className="text-center">
+            <span className="text-center font-space-grotestk">
               Some additional websites/tools that I rely on
               <ul className="list-disc list-inside grid grid-cols-2 gap-2">
                 <li>
@@ -265,7 +265,7 @@ export default function SkillPage() {
           {/* RIGHT COLUMN (scrolls naturally, animated by dial calc) */}
           <div
             ref={rightColRef}
-            className="md:order-3 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600"
+            className="md:order-3 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600 font-share-tech"
           >
             {rightSkills.map((s, i) => {
               const Icon = s.icon;

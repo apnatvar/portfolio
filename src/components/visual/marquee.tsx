@@ -18,8 +18,8 @@ export default function InfiniteDualMarquee() {
   const SPEED_PX_S = 40;
   const posRawSkew = useMotionValue(0);
   const negRawSkew = useMotionValue(0);
-  const posSkew = useSpring(posRawSkew, { stiffness: 3, damping: 0.9 });
-  const negSkew = useSpring(negRawSkew, { stiffness: 3, damping: 0.9 });
+  const posSkew = useSpring(posRawSkew, { stiffness: 60, damping: 0.95 });
+  const negSkew = useSpring(negRawSkew, { stiffness: 60, damping: 0.95 });
 
   useEffect(() => {
     const t1 = track1Ref.current;
@@ -58,9 +58,9 @@ export default function InfiniteDualMarquee() {
       const now = performance.now();
       const dt = Math.max(20, now - prevT); // ms
       const dy = window.scrollY - prevY; // px
-      const vy = (dy / dt) * 60; // px/s (normalized to ~fps)
+      const vy = (dy / dt) * 40; // px/s (normalized to ~fps)
 
-      const targetSkew = Math.max(-9, Math.min(9, vy * 0.3));
+      const targetSkew = Math.max(-4, Math.min(4, vy * 0.2));
       posRawSkew.set(targetSkew);
       negRawSkew.set(-targetSkew);
 
@@ -76,7 +76,7 @@ export default function InfiniteDualMarquee() {
 
   return (
     <>
-      <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 py-10">
+      <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 py-10 font-unbounded">
         <motion.div
           style={{
             skewY: negSkew,
@@ -95,7 +95,7 @@ export default function InfiniteDualMarquee() {
         </motion.div>
 
         <div className="min-h-[10dvh]">
-          <p className="text-xs text-amber-400 text-center mt-[5dvh] skew-y-3">
+          <p className="text-xs text-amber-400 font-orbitron text-center mt-[5dvh] skew-y-3">
             Designer. Developer. Creator. Different forms, same intent.
           </p>
         </div>

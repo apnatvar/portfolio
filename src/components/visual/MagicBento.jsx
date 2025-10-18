@@ -19,14 +19,14 @@ const cardData = [
   {
     color: '#000801',
     title: 'Current Job',
-    description: 'Content & Branding Intern\nMotilal Oswal',
+    description: 'Content & Branding\nMotilal Oswal',
     label: 'LinkedIn',
     link: "https://www.google.com"
   },
   {
     color: '#000801',
     title: 'Summary',
-    description: "I first got into designing content and templates for social media and instructional PDFs in college.\n\nMy first professional positions were as a backend software developer. Now I am freelancer, developing desktop apps and fully dynamic websites with a CMS.\n\nWorking in Content & Branding has taught me management and creation of content at scale, social media marketing, and deriving insights from available analytics.\n\nWith plans to run my agency managing online marketing across platforms. With excellent technical skills, I am looking for a better understanding of design to succeed in my plans.",
+    description: "I first got into designing content and templates for social media and instructional PDFs in college.\nMy first professional positions were as a backend software developer. Now I am freelancer, developing desktop apps and fully dynamic websites with a CMS.\nWorking in Content & Branding has taught me management and creation of content at scale, social media marketing, and deriving insights from available analytics.\nWith plans to run my agency managing online marketing across platforms. With excellent technical skills, I am looking for a better understanding of design to succeed in my plans.",
     label: 'Curriculum Vitae',
     link: "https://www.google.com"
   },
@@ -641,15 +641,15 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}>
                   <div className="card__header flex justify-between gap-3 relative">
-                    <span className="card__label text-base mb-1 md:mb-0"><Link href={card.link} target='_blank'><span className='underline-offset-2 underline text-white decoration-teal-500 hover:text-teal-500'>{card.label}</span> <FaLink className='inline-block text-muted-foreground'/></Link></span>
+                    <span className="card__label text-base mb-1 md:mb-0 font-libre"><Link href={card.link} target='_blank'><span className='underline-offset-2 underline text-[#f5f5f5] decoration-teal-500 hover:text-teal-500'>{card.label}</span> <FaLink className='inline-block text-muted-foreground'/></Link></span>
                   </div>
                   <div className="card__content flex flex-col relative">
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 text-green-600`}>
+                      className={`card__title font-normal text-base m-0 mb-1 text-green-600 font-unbounded`}>
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 text-justify`} style={{ whiteSpace: 'pre-wrap' }}>
+                      className={`card__description text-xs leading-5 opacity-90 text-justify font-space-grotestk`} style={{ whiteSpace: 'pre-wrap' }}>
                       {card.description}
                     </p>
                   </div>
@@ -658,8 +658,8 @@ const MagicBento = ({
           })}
         </div>
       </BentoCardGrid>
-      <p className="hidden md:block text-xs text-amber-400 text-center">Hover Above!</p>    
-      <p className="block md:hidden text-xs text-amber-400 text-center">Bento Grids are best viewed on Desktops!</p>
+      <p className="hidden md:block text-xs text-amber-400 font-orbitron text-center">Hover Above!</p>    
+      <p className="block md:hidden text-xs text-amber-400 font-orbitron text-center">Bento Grids are best viewed on Desktops!</p>
     </>
   );
 };

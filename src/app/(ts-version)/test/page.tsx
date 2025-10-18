@@ -1,204 +1,31 @@
 "use client";
 import "@/app/visual.css";
-import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
-import { SplitText } from "gsap/SplitText";
+import FlowingGallery, { FlowImage } from "@/components/visual/photo-gallery-2";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-type Slide = {
-  title: string;
-  desc: string;
-  src: string;
-  imageLink: string;
-  alt: string;
-  tags: string[];
-};
-
-const MOCK_SLIDES: Slide[] = [
+const MOCK: FlowImage[] = [
   {
-    title: "Arie",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur, nemo cumque ullam porro, ipsa, maiores provident accusantium magni beatae odio veritatis excepturi placeat? Laudantium accusamus aut ad hic recusandae! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse culpa impedit nobis itaque vero nesciunt consequuntur quis repudiandae dolor voluptates nulla, odit est natus perferendis, ut facilis. Dicta, voluptatibus nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quaerat cum laborum impedit laudantium similique, dolores ipsam veniam quis temporibus saepe magni corrupti officia est, maxime odio voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
+    id: "1",
     src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
+    alt: "Emerald sari",
+    href: "https://example.com/a",
+    aspect: 4 / 5,
   },
-  {
-    title: "Arie2",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur, nemo cumque ullam porro, ipsa, maiores provident accusantium magni beatae odio veritatis excepturi placeat? Laudantium accusamus aut ad hic recusandae! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse culpa impedit nobis itaque vero nesciunt consequuntur quis repudiandae dolor voluptates nulla, odit est natus perferendis, ut facilis. Dicta, voluptatibus nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quaerat cum laborum impedit laudantium similique, dolores ipsam veniam quis temporibus saepe magni corrupti officia est, maxime odio voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie3",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur, nemo cumque ullam porro, ipsa, maiores provident accusantium magni beatae odio veritatis excepturi placeat? Laudantium accusamus aut ad hic recusandae! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse culpa impedit nobis itaque vero nesciunt consequuntur quis repudiandae dolor voluptates nulla, odit est natus perferendis, ut facilis. Dicta, voluptatibus nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quaerat cum laborum impedit laudantium similique, dolores ipsam veniam quis temporibus saepe magni corrupti officia est, maxime odio voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie4",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur, nemo cumque ullam porro, ipsa, maiores provident accusantium magni beatae odio veritatis excepturi placeat? Laudantium accusamus aut ad hic recusandae! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse culpa impedit nobis itaque vero nesciunt consequuntur quis repudiandae dolor voluptates nulla, odit est natus perferendis, ut facilis. Dicta, voluptatibus nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quaerat cum laborum impedit laudantium similique, dolores ipsam veniam quis temporibus saepe magni corrupti officia est, maxime odio voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur, nemo cumque ullam porro, ipsa, maiores provident accusantium magni beatae odio veritatis excepturi placeat? Laudantium accusamus aut ad hic recusandae! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse culpa impedit nobis itaque vero nesciunt consequuntur quis repudiandae dolor voluptates nulla, odit est natus perferendis, ut facilis. Dicta, voluptatibus nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quaerat cum laborum impedit laudantium similique, dolores ipsam veniam quis temporibus saepe magni corrupti officia est, maxime odio voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie3",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur, nemo cumque ullam porro, ipsa, maiores provident accusantium magni beatae odio veritatis excepturi placeat? Laudantium accusamus aut ad hic recusandae! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse culpa impedit nobis itaque vero nesciunt consequuntur quis repudiandae dolor voluptates nulla, odit est natus perferendis, ut facilis. Dicta, voluptatibus nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quaerat cum laborum impedit laudantium similique, dolores ipsam veniam quis temporibus saepe magni corrupti officia est, maxime odio voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
+  { id: "2", src: "/mountain.svg", alt: "Crimson lehenga", aspect: 3 / 4 },
+  { id: "3", src: "/mountain.svg", alt: "Portrait" },
+  { id: "4", src: "/mountain.svg", alt: "Street" },
+  { id: "5", src: "/mountain.svg", alt: "Mountains", aspect: 16 / 10 },
+  { id: "6", src: "/mountain.svg", alt: "Studio" },
+  { id: "7", src: "/mountain.svg", alt: "City lights" },
+  { id: "8", src: "/mountain.svg", alt: "Textures" },
+  { id: "9", src: "/mountain.svg", alt: "Candid" },
+  { id: "10", src: "/ap-icon.svg", alt: "Editorial" },
 ];
-
 export default function FuturePlans() {
-  const endRef = useRef<HTMLDivElement | null>(null);
-  const headingRefs = useRef<(HTMLHeadingElement | null)[]>([]);
-  const paragraphRefs = useRef<(HTMLParagraphElement | null)[]>([]);
-  const pinMeRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const addtoHeadingRefs = (el: HTMLImageElement) => {
-    if (el) {
-      headingRefs.current.push(el);
-    }
-  };
-  const addtoParagraphRefs = (el: HTMLImageElement) => {
-    if (el) {
-      paragraphRefs.current.push(el);
-    }
-  };
-  const addtoPinRefs = (el: HTMLImageElement) => {
-    if (el) {
-      pinMeRefs.current.push(el);
-    }
-  };
-  useEffect(() => {
-    if (
-      !pinMeRefs.current ||
-      !endRef.current ||
-      !headingRefs.current ||
-      !paragraphRefs.current
-    )
-      return;
-
-    const ctx = gsap.context(() => {
-      pinMeRefs.current.forEach((pinMe, idx) => {
-        if (idx === 0) {
-          gsap.to(pinMe, {
-            z: 0,
-            skewX: -90,
-            opacity: 0,
-            scrollTrigger: {
-              trigger: pinMe,
-              endTrigger: pinMe,
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-              pin: true,
-              pinSpacing: false,
-            },
-          });
-        } else {
-          gsap.to(pinMe, {
-            z: 0,
-            scrollTrigger: {
-              trigger: pinMe,
-              endTrigger: endRef.current,
-              start: "top top",
-              scrub: true,
-              pin: true,
-              pinSpacing: false,
-            },
-          });
-          const splitHead = new SplitText(headingRefs.current[idx - 1], {
-            type: "chars",
-          });
-          const splitBody = new SplitText(paragraphRefs.current[idx - 1], {
-            type: "lines",
-          });
-          gsap.from(splitHead.chars, {
-            x: -30,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: pinMe,
-              start: "top 50%",
-              scrub: false,
-            },
-          });
-          gsap.from(splitBody.lines, {
-            y: -30,
-            opacity: 0,
-            stagger: 0.2,
-            scrollTrigger: {
-              trigger: pinMe,
-              start: "top 30%",
-              scrub: false,
-            },
-          });
-        }
-      });
-    });
-    return () => {
-      ctx.revert();
-    };
-  });
   return (
     <>
-      <section
-        ref={addtoPinRefs}
-        className="min-h-dvh h-fit p-4 md:p-6 flex items-center z-0"
-      >
-        <h1 className="text-8xl text-green-600 text-center w-full">
-          Future Plans
-        </h1>
-      </section>
-      {MOCK_SLIDES.map((slide, idx) => (
-        <section
-          key={idx}
-          className="min-h-dvh h-fit p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-2 z-1 bg-background"
-        >
-          <div className="flex flex-col gap-2">
-            <h3 ref={addtoHeadingRefs} className="text-4xl text-green-600">
-              {slide.title}
-            </h3>
-            <p
-              ref={addtoParagraphRefs}
-              className="text-md text-muted-foreground leading-6 "
-            >
-              {slide.desc}
-            </p>
-          </div>
-          <div className="relative max-h-dvh aspect-square md:aspect-auto">
-            <Image
-              ref={addtoPinRefs}
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              className="rounded-3xl object-cover p-5"
-            />
-          </div>
-        </section>
-      ))}
-      <div ref={endRef} className="h-1/3 bg-white" />
-      <div className="h-dvh bg-black" />
+      <div className="h-dvh bg-green-400" />
+      <FlowingGallery images={MOCK} />{" "}
+      <div className="h-[100dvh] bg-green-400" />
     </>
   );
 }

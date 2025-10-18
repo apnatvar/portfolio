@@ -1,6 +1,94 @@
 import { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import SmoothScrollProvider from "@/components/smooth-scroll";
+import {
+  Syncopate,
+  Share_Tech_Mono,
+  Libre_Baskerville,
+  Unbounded,
+  Amita,
+  Orbitron,
+  Playfair_Display,
+  Bebas_Neue,
+  Space_Grotesk,
+} from "next/font/google";
+export const syncopate = Syncopate({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-syncopate",
+});
+import "@/app/globals.css";
+export const shareTechMono = Share_Tech_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-share-tech-mono",
+});
+
+export const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-libre-baskerville",
+});
+
+export const unbounded = Unbounded({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-unbounded",
+});
+
+export const amita = Amita({
+  subsets: ["devanagari"],
+  weight: ["700"],
+  display: "swap",
+  variable: "--font-amita",
+});
+
+export const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-orbitron",
+});
+
+export const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-playfair-display",
+});
+
+export const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-bebas-neue",
+});
+
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+});
+
+export const FONT_VARS = [
+  syncopate.variable,
+  shareTechMono.variable,
+  libreBaskerville.variable,
+  unbounded.variable,
+  amita.variable,
+  orbitron.variable,
+  playfairDisplay.variable,
+  bebasNeue.variable,
+  spaceGrotesk.variable,
+].join(" ");
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#060010" },
@@ -116,7 +204,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-dvh font-body antialiased">
+      <body className={`min-h-dvh font-body antialiased ${FONT_VARS}`}>
         <SmoothScrollProvider>
           <ThemeProvider
             attribute="class"
@@ -124,7 +212,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className="mx-auto px-2 py-3">{children}</main>
+            <main className={`mx-auto px-2 py-3`}>{children}</main>
           </ThemeProvider>
         </SmoothScrollProvider>
       </body>

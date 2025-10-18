@@ -1,14 +1,15 @@
 "use client";
-import Lightning from "@/components/visual/Lightning";
-import React, { useEffect, useRef, useLayoutEffect } from "react";
+// import Lightning from "@/components/visual/Lightning";
+import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import SplitText from "gsap/SplitText";
 import VerticalNavButtons from "@/components/visual/nav";
-import { useIsMobile } from "@/hooks/isMobile";
+// import { useIsMobile } from "@/hooks/isMobile";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagicBento from "@/components/visual/MagicBento";
+import MothsToFlame from "./moth-to-a-flame";
 
 gsap.registerPlugin(
   ScrollToPlugin,
@@ -20,7 +21,7 @@ gsap.registerPlugin(
 type AnyTween = gsap.TweenVars & Record<string, unknown>;
 
 export default function HeroPage() {
-  const isMobile = useIsMobile();
+  // const isMobile = useIsMobile();
   const devWord = "अपनत्व";
   const engWord = "Apnatva";
   const pron = "/ˈʌp.nəː.tvə/";
@@ -30,7 +31,7 @@ export default function HeroPage() {
   const meaningRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const fadeRef = React.useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(pronRef.current, { opacity: 0, y: 8 });
       gsap.set(ctaRef.current, { opacity: 0, x: -50 });
@@ -120,45 +121,42 @@ export default function HeroPage() {
           ref={fadeRef}
           className="w-full h-full fixed z-0 pointer-events-none"
         >
-          <Lightning
+          {/* <Lightning
             hue={100}
             xOffset={isMobile ? -0.8 : -1.8}
             speed={0.8}
             intensity={isMobile ? 1 : 2}
             size={2}
-          />
+          /> */}
+          <MothsToFlame className="min-w-full min-h-full" />
         </div>
         <div
           ref={rootRef}
           className="container mx-auto px-4 py-16 md:py-24 flex text-foreground items-center justify-center z-10 relative"
         >
           <div className="max-h-full items-center justify-center place-content-center w-full max-w-3xl text-center space-y-3 md:space-y-4">
-            {/* 1) Devanagari — always visible */}
-            <h1 className="font-semibold tracking-tight text-2xl md:text-5xl leading-[1.1] text-foreground animate-pulse">
+            <h1 className="tracking-tight text-2xl md:text-5xl leading-[1.1] text-foreground font-amita">
               {devWord}
             </h1>
 
-            {/* 2) English — scrambled text */}
             <div
               ref={engRef}
-              className="font-medium tracking-tight text-1xl md:text-2xl leading-[1.1] text-primary will-change-transform"
+              className="font-medium tracking-tight text-1xl md:text-2xl leading-[1.1] will-change-transform text-muted-foreground font-libre"
               aria-label={`${engWord} (animated)`}
             >
-              {/* ScrambleText will replace this */}▮
+              .
             </div>
 
-            {/* 3) Enunciation — fade in place */}
             <div
               ref={pronRef}
-              className="italic text-sm md:text-lg text-muted-foreground"
+              className="italic text-sm md:text-lg text-accent-foreground"
             >
               {pron}
             </div>
 
-            {/* 4) Meanings — split (by line) reveal */}
             <div
               ref={meaningRef}
-              className="mt-3 md:mt-4 space-y-[1/2] md:space-y-1 split"
+              className="mt-3 md:mt-4 space-y-[1/2] md:space-y-1 split font-unbounded"
             >
               1. sense of belonging
               <br />
@@ -171,8 +169,11 @@ export default function HeroPage() {
         <div ref={ctaRef} className="md:top-1/3 md:left-1/15 md:absolute z-10">
           <VerticalNavButtons className="w-fit mx-auto justify-self-center md:justify-start relative" />
         </div>
-        <p className="text-xs text-amber-400 text-center mt-5 md:mt-0">
+        {/* <p className="text-xs text-amber-400 font-orbitron text-center mt-5 md:mt-0">
           Designing systems, interfaces, and ideas — one spark at a time.{" "}
+        </p> */}
+        <p className="text-xs text-amber-400 font-orbitron text-center mt-5 md:mt-0">
+          Searching for memorable designs.
         </p>
         <div className="justify-items-center mt-40 md:mt-10">
           <MagicBento />

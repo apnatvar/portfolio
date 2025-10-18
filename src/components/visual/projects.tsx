@@ -190,7 +190,7 @@ export default function ProjectCarouselCard({
       aria-label="Projects Carousel"
     >
       {/* Left / Right controls outside the card */}{" "}
-      <p className="text-xs text-center text-amber-400 mb-2">
+      <p className="text-xs text-center text-amber-400 font-orbitron mb-2">
         When Code and Design converge.
       </p>
       <div className="relative flex flex-wrap md:flex-nowrap w-full max-w-5xl items-center justify-center gap-3">
@@ -245,29 +245,29 @@ export default function ProjectCarouselCard({
                             href={s.projectLink}
                             className="text-md md:text-lg font-semibold leading-tight"
                           >
-                            <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500">
+                            <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
                               {s.title}
                             </span>{" "}
-                            <FaLink className="inline-block text-muted-foreground" />
+                            <FaLink className="inline-block text-amber-500 font-orbitron" />
                           </Link>
                           <div className="flex flex-row flex-wrap gap-1 pt-1 pb-2">
                             {s.tools.map((t, ti) => (
                               <Badge
                                 variant="outline"
                                 key={ti}
-                                className="hover:text-violet-500"
+                                className="hover:text-violet-500 font-playfair"
                               >
                                 {t}
                               </Badge>
                             ))}
                           </div>
-                          <p className="text-sm text-muted-foreground mt-2">
+                          <p className="text-sm text-muted-foreground mt-2 font-space-grotestk">
                             {s.desc}
                           </p>
                         </div>
                       </div>
                     </div>
-                    <p className="text-xs text-muted-foreground text-center mt-3">{`${
+                    <p className="text-xs text-muted-foreground text-center mt-3 font-space-grotestk">{`${
                       i + 1
                     } of ${slides.length}`}</p>
                   </article>
