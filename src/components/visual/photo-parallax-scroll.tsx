@@ -15,17 +15,6 @@ export default function ScrollImage() {
     }
   };
 
-  function randomIntegerInRange(
-    min: number,
-    max: number,
-    step: number
-  ): number {
-    const numSteps = (max - min) / step + 1;
-    const randomStep = Math.floor(Math.random() * numSteps);
-    const result = min + randomStep * step;
-    return result;
-  }
-
   useEffect(() => {
     if (!imageRefs.current || !pinRef.current || !toPinRef.current) return;
     const toKill: HTMLImageElement[] = [];
@@ -45,7 +34,7 @@ export default function ScrollImage() {
       tl.fromTo(
         imageRef,
         {
-          scale: 1 / randomIntegerInRange(1, 10, 1),
+          scale: 1 / gsap.utils.random(1, 10, 1),
           yPercent: 200 * speed,
         },
         {

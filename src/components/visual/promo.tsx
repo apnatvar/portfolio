@@ -19,11 +19,25 @@ type StatItem = {
   suffix?: string; // e.g., "+", "k", "%"
 };
 
+function daysSinceDate(targetDate: Date): number {
+  const today = new Date(); // Get the current date
+  const timeDifference = today.getTime() - targetDate.getTime(); // Difference in milliseconds
+  const millisecondsPerDay = 1000 * 60 * 60 * 24; // Milliseconds in one day
+
+  // Calculate the number of days and round down to get whole days
+  const daysSince = Math.floor(timeDifference / millisecondsPerDay);
+
+  return daysSince;
+}
+
 const MOCK_STATS: StatItem[] = [
   { label: "Components", value: 128, suffix: "+" },
-  { label: "Demos", value: 42 },
-  { label: "Variants", value: 76 },
-  { label: "Benchmarks", value: 19 },
+  { label: "Blocks", value: 42, suffix: "+" },
+  {
+    label: "Days Spent",
+    value: daysSinceDate(new Date("2025-08-13")),
+    suffix: "+",
+  },
 ];
 
 export default function PromoPreviewSection() {
@@ -116,22 +130,22 @@ export default function PromoPreviewSection() {
             ref={splitTextRef}
             className="text-sm text-muted-foreground leading-relaxed text-center font-space-grotestk"
           >
-            Something I observed in my learning journey was I would initially
-            build what was `cool`. I would find a bunch of designs and
-            animations and cram them all together and think I made the greatest
-            thing ever[1,2,3 (add links)]. I realised that good design has
-            purpose, cohesion and is not merely `attractive`. So I built a
-            collection{" "}
+            My{" "}
             <Link
               href="https://modelcontextprotocol.io/docs/getting-started/intro"
               target="_blank"
               rel="noreferrer"
             >
+              <span className="underline underline-offset-2 hover:text-teal-500 decoration-teal-500">
+                UI Component Library
+              </span>
               <FaLink className="inline-block text-amber-400 font-orbitron text-xs" />
             </Link>{" "}
-            of the possible designs just to push the limits of what I can
-            actually build. This serves as my personal registry which I will
-            integrate into an{" "}
+            was initially to showcase what I can build, letting clients `shop`
+            sections for their sites, while acting as a foundation for
+            refinement. Built with Shadcn UI and Tailwind, it&apos;s dynamic,
+            reusable, and theme-ready. A eureka moment led to me working to
+            integrate{" "}
             <Link
               href="https://modelcontextprotocol.io/docs/getting-started/intro"
               target="_blank"
@@ -139,13 +153,13 @@ export default function PromoPreviewSection() {
             >
               <span className="underline underline-offset-2 hover:text-teal-500 decoration-teal-500">
                 MCP
-              </span>{" "}
+              </span>
               <FaLink className="inline-block text-amber-400 font-orbitron text-xs" />
-            </Link>{" "}
-            so I can build more than just basic components with GenAI. Something
-            extra that my components have is that I try ot have each one be
-            dynamically constructed i.e. no data is hard-coded making it easy to
-            reuse.
+            </Link>
+            . It&apos;ll evolve into an AI-driven design system trained to
+            create with my taste. Currently the library only hosts simple
+            components, the blocks get creative, and full websites take it
+            further.
           </p>
         </div>
       </div>
@@ -163,7 +177,7 @@ export default function PromoPreviewSection() {
         {MOCK_STATS.map((item, i) => (
           <div
             key={i}
-            className="rounded-xl border border-green-600 font-syncopate"
+            className="rounded-xl border border-green-600 font-orbitron"
           >
             <div className="flex items-center justify-between p-4">
               <span className="text-xs uppercase tracking-wide text-muted-foreground">

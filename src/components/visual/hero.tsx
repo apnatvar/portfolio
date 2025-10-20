@@ -37,17 +37,19 @@ export default function HeroPage() {
       gsap.set(ctaRef.current, { opacity: 0, x: -50 });
       const tl = gsap.timeline({ defaults: { ease: "power4.in" } });
 
-      tl.to(fadeRef, {
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".fade-me",
-          start: "top top",
-          end: "+=100vh",
-          scrub: true,
-        },
-      });
-
+      if (fadeRef.current) {
+        tl.to(fadeRef, {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".fade-me",
+            start: "top top",
+            end: "+=100vh",
+            scrub: true,
+          },
+        });
+      }
+      engRef.current?.classList.add("text-secondary-foreground");
       tl.to(
         engRef.current,
         {
@@ -92,10 +94,10 @@ export default function HeroPage() {
     }
 
     return () => ctx.revert();
-  }, [engWord]);
+  }, [engWord, fadeRef, pronRef, ctaRef, meaningRef, engRef, rootRef]);
   useLayoutEffect(() => {
+    if (!fadeRef.current) return;
     const ctx = gsap.context(() => {
-      if (!fadeRef.current) return;
       gsap.fromTo(
         fadeRef.current,
         { opacity: 1 },
@@ -113,7 +115,7 @@ export default function HeroPage() {
       );
     }, fadeRef);
     return () => ctx.revert();
-  }, []);
+  }, [fadeRef]);
   return (
     <>
       <section className="w-full min-h-[200dvh] h-fit">

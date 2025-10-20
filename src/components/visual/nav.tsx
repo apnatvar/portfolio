@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollToPlugin);
 export type NavItem = {
   label: string;
   targetId: string; // e.g., "features"
+  speed: number;
 };
 
 export interface VerticalNavButtonsProps {
@@ -24,11 +25,12 @@ export interface VerticalNavButtonsProps {
 
 export default function VerticalNavButtons({
   items = [
-    { label: "Summary", targetId: "summary" },
-    { label: "Work", targetId: "work" },
+    { label: "Summary", targetId: "summary", speed: 0.5 },
+    { label: "Work", targetId: "work", speed: 1.2 },
     {
       label: "Say Hello",
       targetId: "contactme",
+      speed: 6,
     },
   ],
   offsetY = 80,
@@ -36,10 +38,10 @@ export default function VerticalNavButtons({
   className,
 }: VerticalNavButtonsProps) {
   const scrollToId = React.useCallback(
-    (id: string) => {
+    (id: string, speed: number) => {
       const selector = `#${id}`;
       gsap.to(window, {
-        duration: 1.2,
+        duration: speed,
         ease: "power4.out",
         scrollTo: { y: selector, offsetY },
       });
@@ -58,7 +60,7 @@ export default function VerticalNavButtons({
             size={size}
             variant="outline"
             className="justify-center hover:text-violet-500 font-playfair"
-            onClick={() => scrollToId(item.targetId)}
+            onClick={() => scrollToId(item.targetId, item.speed)}
           >
             {item.label}
           </Button>

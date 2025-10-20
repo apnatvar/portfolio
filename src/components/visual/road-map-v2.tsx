@@ -19,52 +19,44 @@ type Slide = {
 
 const MOCK_SLIDES: Slide[] = [
   {
-    title: "Arie",
-    desc: "eataepsut t amet consectetur adipisicing elit. Architecto quaeribus saepe mao voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
+    title: "Bringing Motion to Meaning",
+    desc: "Animation is where design breathes. I work with GSAP and Motion.dev to push creative boundaries makingtransitions feel deliberate and alive, inviting user interaction.",
+    src: "/mountain.svg",
+    imageLink: "https://www.google.com",
+    alt: "A stylized mountain illustration",
+    tags: ["GSAP", "2D", "Motion.dev"],
+  },
+  {
+    title: "A Third Dimension",
+    desc: "3D modelling will enable me to craft custom SVGs and props, build immersive scenes, and bring them to life using Three.js and GSAP. This is the most natural next step in my journey.",
+    src: "/mountain.svg",
+    imageLink: "https://www.google.com",
+    alt: "A stylized mountain illustration",
+    tags: ["Three.js", "GSAP", "3D", "SVG"],
+  },
+  {
+    title: "Mastering the Principles",
+    desc: "I plan to pursue a Master's in Design to deepen my understanding of visual psychology, user perception, and design best practices. The goal is to create with intention and craft simple and memorable experiences.",
     src: "/ap-icon.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
+    tags: ["Master's", "Design", "Interaction"],
   },
   {
-    title: "Arie2",
-    desc: "eataepsut t amet consectetur adipisicing elit. Architecto quaeribus saepe mao voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
+    title: "Learning from the System",
+    desc: "I aim to join a professional design studio to refine my craft in a collaborative, high-standard environment. This will be a great stepping stone before I take a leap of faith.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
+    tags: ["Developer", "UI/UX", "Designer"],
   },
   {
-    title: "Arie3",
-    desc: "eataepsut t amet consectetur adipisicing elit. Architecto quaeribus saepe mao voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
+    title: "Building My Simulation",
+    desc: "I want to establish my own design studio creating memorable stories and experiences. My biggest reasons for this dream are Pininfarina and Jony Ive's IO and earlier work. I am inspired to merge function with emotion and be an excellent storyteller.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie4",
-    desc: "eataepsut t amet consectetur adipisicing elit. Architecto quaeribus saepe mao voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie",
-    desc: "eataepsut t amet consectetur adipisicing elit. Architecto quaeribus saepe mao voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
-  },
-  {
-    title: "Arie3",
-    desc: "eataepsut t amet consectetur adipisicing elit. Architecto quaeribus saepe mao voluptates error reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit maiores fugiat perferendis placeat sequi odio porro non cupiditate natus voluptatum temporibus omnis optio ea atque reprehenderit, hic quia illum neque.",
-    src: "/ap-icon.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
-    tags: ["Python", "SQL"],
+    tags: ["Design", "Storytelling", "Entrepreneur"],
   },
 ];
 
@@ -95,16 +87,6 @@ export default function FuturePlans() {
     }
   };
   const mm = gsap.matchMedia();
-  function randomIntegerInRange(
-    min: number,
-    max: number,
-    step: number
-  ): number {
-    const numSteps = (max - min) / step + 1;
-    const randomStep = Math.floor(Math.random() * numSteps);
-    const result = min + randomStep * step;
-    return Math.random() > 0.5 ? result : -result;
-  }
   useEffect(() => {
     if (
       !pinMeRefs.current ||
@@ -121,8 +103,8 @@ export default function FuturePlans() {
       splitTitle.chars.forEach((char) => {
         gsap.from(char, {
           opacity: 0,
-          x: randomIntegerInRange(20, 100, 5) * 10,
-          y: randomIntegerInRange(20, 100, 5) * 10,
+          x: gsap.utils.random(-100, 100, 10) * 10,
+          y: gsap.utils.random(-100, 100, 10) * 10,
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top bottom",
@@ -140,6 +122,7 @@ export default function FuturePlans() {
             start: "top 70%",
             end: "top 40%",
             scrub: false,
+            fastScrollEnd: true,
           },
         });
       });
@@ -147,12 +130,12 @@ export default function FuturePlans() {
     mm.add("(max-width: 799px)", () => {
       headingRefs.current.forEach((headingRef, idx) => {
         const splitHead = new SplitText(headingRefs.current[idx], {
-          type: "chars",
+          type: "words",
         });
         const splitBody = new SplitText(paragraphRefs.current[idx], {
-          type: "lines",
+          type: "words, lines",
         });
-        gsap.from(splitHead.chars, {
+        gsap.from(splitHead.words, {
           x: -30,
           opacity: 0,
           stagger: 0.1,
@@ -161,16 +144,18 @@ export default function FuturePlans() {
             trigger: headingRef,
             start: "top 50%",
             scrub: false,
+            fastScrollEnd: true,
           },
         });
         gsap.from(splitBody.lines, {
-          y: -30,
+          // y: -30,
           opacity: 0,
           stagger: 0.1,
           scrollTrigger: {
             trigger: headingRef,
             start: "top 50%",
             scrub: false,
+            fastScrollEnd: true,
           },
         });
       });
@@ -185,7 +170,7 @@ export default function FuturePlans() {
               trigger: pinMe,
               start: "top top",
               end: "bottom top",
-              scrub: 10,
+              scrub: 5,
               pin: true,
               pinSpacing: false,
             },
@@ -204,12 +189,12 @@ export default function FuturePlans() {
             },
           });
           const splitHead = new SplitText(headingRefs.current[idx - 1], {
-            type: "chars",
+            type: "words",
           });
           const splitBody = new SplitText(paragraphRefs.current[idx - 1], {
             type: "lines",
           });
-          gsap.from(splitHead.chars, {
+          gsap.from(splitHead.words, {
             x: -30,
             opacity: 0,
             stagger: 0.1,
@@ -218,6 +203,7 @@ export default function FuturePlans() {
               trigger: pinMe,
               start: "top 50%",
               scrub: false,
+              fastScrollEnd: true,
             },
           });
           gsap.from(splitBody.lines, {
@@ -228,6 +214,7 @@ export default function FuturePlans() {
               trigger: pinMe,
               start: "top 30%",
               scrub: false,
+              fastScrollEnd: true,
             },
           });
         }
@@ -245,9 +232,10 @@ export default function FuturePlans() {
       >
         <h1
           ref={titleRef}
-          className="text-8xl text-green-600 text-center w-full hover:not-visited:animate-pulse font-amita"
+          className="text-8xl text-green-600 text-center w-full hover:not-visited:animate-pulse font-unbounded"
         >
-          Future Plans
+          Plans of <br />
+          Tomorrow
         </h1>
       </section>
       {MOCK_SLIDES.map((slide, idx) => (
@@ -255,7 +243,7 @@ export default function FuturePlans() {
           key={idx}
           className="min-h-dvh p-2 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-2 z-1 bg-background"
         >
-          <div className="flex flex-col gap-2 min-h-full p-2">
+          <div className="flex flex-col gap-2 min-h-full p-2 justify-end">
             <h3
               ref={addtoHeadingRefs}
               className="text-4xl text-green-600 font-libre"
@@ -291,7 +279,7 @@ export default function FuturePlans() {
               src={slide.src}
               alt={slide.alt}
               fill
-              className="rounded-3xl object-cover p-5"
+              className="rounded-full object-cover p-5"
             />
           </div>
         </section>

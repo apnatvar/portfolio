@@ -26,14 +26,14 @@ const cardData = [
   {
     color: '#000801',
     title: 'Summary',
-    description: "I first got into designing content and templates for social media and instructional PDFs in college.\nMy first professional positions were as a backend software developer. Now I am freelancer, developing desktop apps and fully dynamic websites with a CMS.\nWorking in Content & Branding has taught me management and creation of content at scale, social media marketing, and deriving insights from available analytics.\nWith plans to run my agency managing online marketing across platforms. With excellent technical skills, I am looking for a better understanding of design to succeed in my plans.",
+    description: "My journey began in college, where I designed social media creatives and publication PDFs, exploring how layout and typography could tell attract and advertise. That phase grounded my appreciation for design as communication, not decoration. My early internships and work pulled me into software development. I worked on scripting, backend systems, and automation pipelines learning to build systems that work elegantly.\n\nMy current job sits closer to branding and content, shaping how ideas translate visually across social platforms. Alongside this, I freelance and keep learning, connecting both sides of my craft. It's this constant movement between design and development that gives me an edge in bringing design to life.",
     label: 'Curriculum Vitae',
     link: "https://www.google.com"
   },
   {
     color: '#000801',
     title: 'UI/UX Toolbox',
-    description: 'Next.js - React Framework\nGSAP, Motion.dev - Animation Libraries\nPayloadCMS - Content Management System\nShadcn - UI Component Builder',
+    description: 'TypeScript\nNext.js\nGSAP, Motion.dev\nShadcn',
     label: 'GitHub',
     link: "https://www.google.com"
   },

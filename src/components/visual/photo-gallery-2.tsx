@@ -37,17 +37,11 @@ const MOCK: FlowImage[] = [
 type Props = {
   images?: FlowImage[];
   columns?: 2 | 3 | 4;
-  /** Total scroll distance while pinned (e.g., "200%" = 2 viewport heights) */
   scrollSpan?: string;
-  /** Max absolute skew in degrees derived from scroll speed */
   maxSkew?: number;
-  /** Base upward travel in pixels each photo will at least move (further modulated by parallax speed) */
   baseTravel?: number;
-  /** Section height (CSS) while pinned */
   heightClass?: string;
-  /** Gap between items (tailwind class) */
   gapClass?: string;
-  /** Optional rounded corners on images (tailwind class) */
   radiusClass?: string;
 };
 
@@ -66,7 +60,6 @@ const FlowingGallery: React.FC<Props> = ({
   const itemRefs = useRef<HTMLDivElement[]>([]);
   const killAll = useRef<(() => void) | null>(null);
 
-  // split images into columns (not a single column!)
   const cols = useMemo(() => {
     const count = Math.max(2, Math.min(4, columns));
     const arr: FlowImage[][] = Array.from({ length: count }, () => []);
@@ -107,7 +100,6 @@ const FlowingGallery: React.FC<Props> = ({
       rotateZ: 1,
       skewY: 3,
     });
-    // master timeline driven by ScrollTrigger; we won't animate properties directly here,
     const tl = gsap.timeline({
       paused: true,
     });
@@ -128,9 +120,8 @@ const FlowingGallery: React.FC<Props> = ({
           maxSkew,
           (self.getVelocity() / 1000) * maxSkew
         );
-        // compute an upward offset based on progress & per-item parallax speed
         itemRefs.current.forEach((el, i) => {
-          const travel = baseTravel * speeds[i]; // different travel amounts
+          const travel = baseTravel * speeds[i];
           const y = p * travel;
           gsap.set(el, {
             yPercent: -y,
@@ -182,7 +173,7 @@ const FlowingGallery: React.FC<Props> = ({
     return () => {
       killAll.current?.();
     };
-  }, [images, scrollSpan, maxSkew, baseTravel]);
+  }, [images, scrollSpan, maxSkew, baseTravel, itemRefs, sectionRef]);
 
   const gridTemplate =
     columns === 4
@@ -211,10 +202,13 @@ const FlowingGallery: React.FC<Props> = ({
         className={`relative w-full ${heightClass} bg-background text-[#f5f5f5] overflow-hidden`}
         aria-label="Scroll-pinned flowing gallery"
       >
-        <div className="pointer-events-none p-[40dvh] flex items-center justify-center">
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight font-amita text-green-600 select-none z-22 ">
-            Featured Shots
+        <div className="pointer-events-none p-[40dvh] flex flex-col items-center justify-center">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight font-unbounded text-green-600 select-none z-22 ">
+            Travel Memoirs
           </h2>
+          <p className="text-xs text-amber-400 font-orbitron text-center">
+            Crafting experiences, on-screen and off.
+          </p>
         </div>
       </section>
       <section className={`relative min-w-dvw h-fit bg-transparent z-10`}>

@@ -13,10 +13,12 @@ export default function Page() {
   return (
     <>
       <HeroPage />
+      <div className="mt-30"></div>
       <InfiniteDualMarquee />
       <SkillPage />
       <ProjectCarouselCard />
       <FuturePlans />
+      <div className="mt-30"></div>
       <PromoPreviewSection />
       <FlowingGallery />
       <LetterGlitch

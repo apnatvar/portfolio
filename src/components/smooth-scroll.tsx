@@ -10,13 +10,20 @@ export default function SmoothScrollProvider({
 }) {
   useEffect(() => {
     const lenis = new Lenis({
-      autoRaf: true,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.2,
+      lerp: 0.1,
     });
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
     if (document.visibilityState === "visible") {
-      function raf(time: number) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+      lenis?.start();
+      lenis?.resize();
+      lenis?.raf(performance.now());
 
       requestAnimationFrame(raf);
     } else {

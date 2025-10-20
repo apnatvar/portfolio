@@ -144,6 +144,7 @@ const MothsToFlame: React.FC<MothsToFlameProps> = ({
           duration: 18,
           ease: "none",
           repeat: -1,
+          yoyo: true,
           modifiers: {
             current: (v) => {
               const num = parseFloat(v);
@@ -198,7 +199,7 @@ const MothsToFlame: React.FC<MothsToFlameProps> = ({
       ctx.globalCompositeOperation = "screen";
       ctx.fillStyle = grad;
       ctx.beginPath();
-      ctx.arc(lx, ly, radius, 0, Math.PI * 2);
+      ctx.arc(lx, ly, radius, 0, 360);
       ctx.fill();
       ctx.globalCompositeOperation = "source-over";
 

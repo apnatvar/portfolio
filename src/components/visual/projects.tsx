@@ -23,74 +23,91 @@ type Slide = {
 
 type Props = {
   slides?: Slide[];
-  /** Animation duration (ms) for programmatic next/prev scroll */
   durationMs?: number;
   className?: string;
 };
 
 const MOCK_SLIDES: Slide[] = [
   {
-    title: "Ariyana Creations — Ethnic Store",
-    desc: "Boutique site with Shadcn UI, GSAP, and PayloadCMS.",
+    title: "AI Traffic System",
+    desc: "FYP built over 8 months to minimise reliance of automated trafic lights on street-level hardware bringing down costs and optimising inputs.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
-    tools: ["Python", "SQL"],
+    tools: ["Python", "PyTorch", "SUMO"],
   },
   {
-    title: "Portfolio — Motion Experiments",
-    desc: "Scroll-based animations, parallax, and infinite marquee.",
+    title: "Excel Automation Application",
+    desc: "Freelance project with a basic GUI to consolidate financial data and enabling simpler and faster insight extraction.",
     src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Mountain range photography",
-    tools: ["Python", "SQL"],
+    tools: ["Python", "Pandas", "Tkinter"],
   },
   {
-    title: "Finance Dashboard",
-    desc: "Python + Pandas engine with a minimal GUI, exports and charts.",
+    title: "Cyclistic Data Analysis",
+    desc: "Technical Project analysing company data using technical and visual cues, following up with insights and recommendations regarding SLG.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
-    tools: ["Python", "SQL"],
+    tools: ["Python", "SQL", "Pandas", "Tableau"],
   },
   {
-    title: "Portfolio — Motion Experiments",
-    desc: "Scroll-based animations, parallax, and infinite marquee.",
+    title: "Emissions Tracking Software",
+    desc: "MVP to publicly track and record emissions using Blockchain incentivising the public to drive conciously and responsibly.",
+    src: "/mountain.svg",
+    imageLink: "https://www.google.com",
+    projectLink: "https://www.google.com",
+    alt: "Abstract mountain icon",
+    tools: ["Python", "SQL", "Networking"],
+  },
+  {
+    title: "Formula Trinity Driverless Car",
+    desc: "College Club participation in developing an AI driven RC car to race in unfamiliar tracks.",
     src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Mountain range photography",
-    tools: ["Python", "SQL"],
+    tools: ["Python", "PyTorch"],
   },
   {
-    title: "Finance Dashboard",
-    desc: "Python + Pandas engine with a minimal GUI, exports and charts.",
+    title: "ML Data Lake",
+    desc: "Web Scraper collecting data from multiple online sources based on requested keywords to drive sentiment analysis training.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
-    tools: ["Python", "SQL"],
+    tools: ["Python", "Selenium", "SQL"],
   },
   {
-    title: "Portfolio — Motion Experiments",
-    desc: "Scroll-based animations, parallax, and infinite marquee.",
+    title: "Campagne",
+    desc: "Platform for managing Social Media for brands and/or marketing agencies.",
+    src: "/mountain.svg",
+    imageLink: "https://www.google.com",
+    projectLink: "https://www.google.com",
+    alt: "Abstract mountain icon",
+    tools: ["TypeScript", "PayloadCMS"],
+  },
+  {
+    title: "Pastick",
+    desc: "Personal Project for testing, developing, and (hopefully) executing fully automated commodity trades in NSE/BSE.",
     src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Mountain range photography",
-    tools: ["Python", "SQL"],
+    tools: ["Python", "SQL", "Finance"],
   },
   {
-    title: "Finance Dashboard",
-    desc: "Python + Pandas engine with a minimal GUI, exports and charts.",
+    title: "Prompterest",
+    desc: "Pinterest inspired platform focussing on collecting and sharing prompts to provide guidelines for complex tasks.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
-    tools: ["Python", "SQL"],
+    tools: ["TypeScript", "PayloadCMS"],
   },
 ];
 
@@ -186,10 +203,9 @@ export default function ProjectCarouselCard({
 
   return (
     <section
-      className="relative mx-auto min-h-[60dvh] h-fit max-h-dvh w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10"
+      className="relative mx-auto min-h-[60dvh] md:h-[100dvh] h-fit max-h-dvh w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10"
       aria-label="Projects Carousel"
     >
-      {/* Left / Right controls outside the card */}{" "}
       <p className="text-xs text-center text-amber-400 font-orbitron mb-2">
         When Code and Design converge.
       </p>
@@ -219,9 +235,7 @@ export default function ProjectCarouselCard({
                     aria-roledescription="slide"
                     aria-label={`${i + 1} of ${total}`}
                   >
-                    {/* Two-column grid (stacks to 1 on phones) */}
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-2 items-stretch">
-                      {/* Column 1 — 4:3 image wrapped with imageLink */}
                       <Link
                         href={s.imageLink}
                         className="block rounded-xl overflow-hidden"
@@ -238,7 +252,6 @@ export default function ProjectCarouselCard({
                         </div>
                       </Link>
 
-                      {/* Column 2 — title in projectLink, plus desc */}
                       <div className="flex flex-col justify-between rounded-xl p-4">
                         <div className="space-y-2">
                           <Link

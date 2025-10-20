@@ -76,7 +76,7 @@ export default function InfiniteDualMarquee() {
 
   return (
     <>
-      <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 py-10 font-unbounded">
+      <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 pt-10 font-unbounded">
         <motion.div
           style={{
             skewY: negSkew,
@@ -96,7 +96,7 @@ export default function InfiniteDualMarquee() {
 
         <div className="min-h-[10dvh]">
           <p className="text-xs text-amber-400 font-orbitron text-center mt-[5dvh] skew-y-3">
-            Designer. Developer. Creator. Different forms, same intent.
+            Different forms, same intent.
           </p>
         </div>
 
@@ -165,6 +165,10 @@ function MarqueeChunk() {
       <p style={baseStyle} className="text-green-600">
         •
       </p>
+      <p style={baseStyle}>SEO</p>
+      <p style={baseStyle} className="text-green-600">
+        •
+      </p>
       <p style={baseStyle}>AI</p>
       <p style={baseStyle} className="text-green-600">
         •
@@ -174,6 +178,10 @@ function MarqueeChunk() {
         •
       </p>
       <p style={baseStyle}>ENGINEER</p>
+      <p style={baseStyle} className="text-green-600">
+        •
+      </p>
+      <p style={baseStyle}>ARCHITECT</p>
       <p style={baseStyle} className="text-green-600">
         •
       </p>

@@ -97,8 +97,7 @@ export default function SkillPage() {
           items.forEach((el) => {
             const r = el.getBoundingClientRect();
             const mid = r.top + r.height / 2;
-            const n = gsap.utils.clamp(-1, 1, (mid - centerY) / band); // -1..1
-            // cosine gives 1 at center, -1 at edges => nice dial curve
+            const n = gsap.utils.clamp(-1, 1, (mid - centerY) / band);
             const c = Math.cos(Math.PI * n);
 
             const x = (side === "left" ? -1 : 1) * AMP() * c;
@@ -107,7 +106,7 @@ export default function SkillPage() {
               0,
               minScale,
               maxScale
-            )(Math.abs(n)); // peak at center
+            )(Math.abs(n));
             const o = gsap.utils.mapRange(1, 0, 0.28, 1)(Math.abs(n));
 
             gsap.to(el, {
@@ -124,7 +123,6 @@ export default function SkillPage() {
         updateSet(leftItems, "left");
         updateSet(rightItems, "right");
       };
-      // tie updates to scroll & refresh
       ScrollTrigger.create({
         trigger: rootRef.current!,
         start: "top bottom",
@@ -133,8 +131,6 @@ export default function SkillPage() {
         onRefresh: updateDial,
         scrub: true,
       });
-
-      // initial
       updateDial();
     }, rootRef);
 
@@ -144,7 +140,7 @@ export default function SkillPage() {
   return (
     <div
       ref={rootRef}
-      className="relative min-h-[140dvh] bg-background text-foreground overflow-x-hidden my-10"
+      className="relative min-h-[140dvh] bg-background text-foreground overflow-x-hidden my-5"
     >
       <section className="relative container mx-auto px-4 py-16 md:py-24 z-1">
         <div
@@ -153,7 +149,6 @@ export default function SkillPage() {
             items-center gap-10 md:gap-12
           "
         >
-          {/* LEFT COLUMN (scrolls naturally, animated by dial calc) */}
           <div
             ref={leftColRef}
             className="md:order-1 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600 font-share-tech"
@@ -175,65 +170,29 @@ export default function SkillPage() {
             })}
           </div>
 
-          {/* CENTER PHOTO (simple fade-in from bottom) */}
           <div
             ref={centerRef}
             className="order-first max-h-full text-muted-foreground text-justify gap-6 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
           >
             <h1 className="text-xl md:text-2xl text-green-600 text-center font-libre">
-              The Toolkit
+              From Systems to Screens
             </h1>
             <p className="text-xs text-amber-400 text-center font-orbitron">
-              Tools, Frameworks, and Habits that power my pixel creations.
+              Engineering roots, design-driven present.
             </p>
             <p className="font-space-grotestk">
-              Initially I developed backend systems for web apps, desktop apps,
-              web scraping scripts, and ML models using Python, GO, and Java.
-              Since 2024 I have been teaching myself React(Next.js), with TSX. I
-              can now design, develop, and deploy fully dynamic websites on
-              Vercel with a complete backend.
+              I have built web applications, written automation and scraping
+              scripts, and designed ML models and pipelines. My experience with
+              Python, Go, Java, Docker, and Kubernetes gave me a solid
+              understanding of backend systems, scalability, and
+              production-grade architecture.
             </p>
             <p className="font-space-grotestk">
-              I use{" "}
-              <Link
-                target="_blank"
-                href="http://ui.shadcn.com/"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
-              >
-                Shadcn
-              </Link>{" "}
-              for UI development, with{" "}
-              <Link
-                target="_blank"
-                href="http://gsap.com/"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
-              >
-                GSAP
-              </Link>{" "}
-              and{" "}
-              <Link
-                target="_blank"
-                href="https://motion.dev/examples"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
-              >
-                Motion.dev
-              </Link>{" "}
-              for animating this and other websites.
-            </p>
-            <p className="font-space-grotestk">
-              To track everything I made I developed{" "}
-              <Link
-                target="_blank"
-                href="https://ap-sample.vercel.app/"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 hover:decoration-muted-foreground"
-              >
-                ap-samples
-              </Link>
-              , showcasing unstyled components, blocks, and entire pages.
+              Currently, I am focussing on front-end design. I work extensively
+              with TypeScript, Next.js, Tailwind CSS, Shadcn, GSAP, and
+              PayloadCMS to create visually refined, interactive, and scalable
+              web experiences. I now can design, develop, and deliver full-stack
+              web-apps.
             </p>
             <span className="text-center font-space-grotestk">
               Some additional websites/tools that I rely on
@@ -262,7 +221,6 @@ export default function SkillPage() {
             </span>
           </div>
 
-          {/* RIGHT COLUMN (scrolls naturally, animated by dial calc) */}
           <div
             ref={rightColRef}
             className="md:order-3 flex flex-col items-center justify-center gap-8 md:gap-12 text-green-600 font-share-tech"
