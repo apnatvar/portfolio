@@ -20,6 +20,7 @@ export default function Page() {
       <FuturePlans />
       <div className="mt-30"></div>
       <PromoPreviewSection />
+      <div className="mt-30"></div>
       <FlowingGallery />
       <LetterGlitch
         glitchSpeed={70}

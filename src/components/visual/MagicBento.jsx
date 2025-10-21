@@ -26,7 +26,7 @@ const cardData = [
   {
     color: '#000801',
     title: 'Summary',
-    description: "My journey began in college, where I designed social media creatives and publication PDFs, exploring how layout and typography could tell attract and advertise. That phase grounded my appreciation for design as communication, not decoration. My early internships and work pulled me into software development. I worked on scripting, backend systems, and automation pipelines learning to build systems that work elegantly.\n\nMy current job sits closer to branding and content, shaping how ideas translate visually across social platforms. Alongside this, I freelance and keep learning, connecting both sides of my craft. It's this constant movement between design and development that gives me an edge in bringing design to life.",
+    description: "My journey began in college, where I designed social media creatives and publication PDFs, exploring how layout and typography could tell attract and advertise. That phase grounded my appreciation for design as communication, not decoration. My early internships and work pulled me into software development. I worked on scripting, webapps, and automation pipelines learning to build systems that scale.\n\nMy current job sits closer to branding, shaping how ideas translate visually across social platforms. Alongside this, I freelance and keep learning, connecting both sides of my craft. It's this harmony between ideas and technology that gives me an edge in bringing design to life.",
     label: 'Curriculum Vitae',
     link: "https://www.google.com"
   },
@@ -641,7 +641,7 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}>
                   <div className="card__header flex justify-between gap-3 relative">
-                    <span className="card__label text-base mb-1 md:mb-0 font-libre"><Link href={card.link} target='_blank'><span className='underline-offset-2 underline text-[#f5f5f5] decoration-teal-500 hover:text-teal-500'>{card.label}</span> <FaLink className='inline-block text-muted-foreground'/></Link></span>
+                    <span className="card__label text-base mb-1 md:mb-0 font-libre"><Link href={card.link} target='_blank'><span className='underline-offset-2 underline text-[#f5f5f5] decoration-teal-500 hover:text-teal-500'>{card.label}</span> <FaLink className='inline-block text-amber-400'/></Link></span>
                   </div>
                   <div className="card__content flex flex-col relative">
                     <h3

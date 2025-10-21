@@ -73,11 +73,23 @@ export default function HeroPage() {
       });
 
       if (split.lines[0])
-        split.lines[0].classList.add("text-accent-foreground", "md:text-sm");
+        split.lines[0].classList.add(
+          "text-accent-foreground",
+          "text-lg",
+          "md:text-sm"
+        );
       if (split.lines[1])
-        split.lines[1].classList.add("text-secondary-foreground", "md:text-sm");
+        split.lines[1].classList.add(
+          "text-secondary-foreground",
+          "text-lg",
+          "md:text-sm"
+        );
       if (split.lines[2])
-        split.lines[2].classList.add("text-accent-foreground", "md:text-sm");
+        split.lines[2].classList.add(
+          "text-accent-foreground",
+          "text-lg",
+          "md:text-sm"
+        );
 
       gsap.from(split.lines, {
         yPercent: 200,
@@ -121,7 +133,7 @@ export default function HeroPage() {
       <section className="w-full min-h-[200dvh] h-fit">
         <div
           ref={fadeRef}
-          className="w-full h-full fixed z-0 pointer-events-none"
+          className="w-full h-full absolute inset-0 z-0 pointer-events-none"
         >
           {/* <Lightning
             hue={100}
@@ -137,13 +149,13 @@ export default function HeroPage() {
           className="container mx-auto px-4 py-16 md:py-24 flex text-foreground items-center justify-center z-10 relative"
         >
           <div className="max-h-full items-center justify-center place-content-center w-full max-w-3xl text-center space-y-3 md:space-y-4">
-            <h1 className="tracking-tight text-2xl md:text-5xl leading-[1.1] text-foreground font-amita">
+            <h1 className="tracking-tight text-8xl md:text-5xl leading-[1.1] text-foreground font-amita">
               {devWord}
             </h1>
 
             <div
               ref={engRef}
-              className="font-medium tracking-tight text-1xl md:text-2xl leading-[1.1] will-change-transform text-muted-foreground font-libre"
+              className="font-medium tracking-tight text-4xl md:text-2xl leading-[1.1] will-change-transform text-muted-foreground font-libre"
               aria-label={`${engWord} (animated)`}
             >
               .
@@ -151,7 +163,7 @@ export default function HeroPage() {
 
             <div
               ref={pronRef}
-              className="italic text-sm md:text-lg text-accent-foreground"
+              className="italic text-2xl md:text-lg text-accent-foreground"
             >
               {pron}
             </div>

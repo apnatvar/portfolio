@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   animate,
@@ -76,7 +77,13 @@ export default function InfiniteDualMarquee() {
 
   return (
     <>
-      <div className="w-full overflow-x-hidden overflow-y-visible bg-transparent select-none pointer-events-none mb-30 pt-10 font-unbounded">
+      <div className="relative w-full min-h-[50dvh] overflow-hidden bg-transparent select-none pointer-events-none mb-30 pt-10 font-unbounded flex flex-col gap-6 justify-around">
+        <Image
+          src={"/5.jpg"}
+          fill
+          alt="test"
+          className="absolute top-0 left-0 h-full aspect-4/3 object-cover opacity-20 object-[100%_50%] md:object-[100%_35%]"
+        />
         <motion.div
           style={{
             skewY: negSkew,

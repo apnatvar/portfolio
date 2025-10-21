@@ -59,6 +59,7 @@ const FlowingGallery: React.FC<Props> = ({
   const gridRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<HTMLDivElement[]>([]);
   const killAll = useRef<(() => void) | null>(null);
+  const mm = gsap.matchMedia();
 
   const cols = useMemo(() => {
     const count = Math.max(2, Math.min(4, columns));
@@ -103,36 +104,36 @@ const FlowingGallery: React.FC<Props> = ({
     const tl = gsap.timeline({
       paused: true,
     });
-
-    const st = ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: `+=${scrollSpan}%`, // e.g. "+=250%"
-      pin: true,
-      scrub: true,
-      pinSpacing: false,
-      anticipatePin: 1,
-      fastScrollEnd: true,
-      onUpdate(self) {
-        const p = self.progress; // 0..1
-        const skew = gsap.utils.clamp(
-          -maxSkew,
-          maxSkew,
-          (self.getVelocity() / 1000) * maxSkew
-        );
-        itemRefs.current.forEach((el, i) => {
-          const travel = baseTravel * speeds[i];
-          const y = p * travel;
-          gsap.set(el, {
-            yPercent: -y,
-            skewY: skew,
-            stagger: 0.1,
-            rotateZ: 1,
+    mm.add("(min-width: 800px)", () => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: `+=${scrollSpan}%`, // e.g. "+=250%"
+        pin: true,
+        scrub: true,
+        pinSpacing: false,
+        anticipatePin: 1,
+        fastScrollEnd: true,
+        onUpdate(self) {
+          const p = self.progress; // 0..1
+          const skew = gsap.utils.clamp(
+            -maxSkew,
+            maxSkew,
+            (self.getVelocity() / 1000) * maxSkew
+          );
+          itemRefs.current.forEach((el, i) => {
+            const travel = baseTravel * speeds[i];
+            const y = p * travel;
+            gsap.set(el, {
+              yPercent: -y,
+              skewY: skew,
+              stagger: 0.1,
+              rotateZ: 1,
+            });
           });
-        });
-      },
+        },
+      });
     });
-
     const floatTweens: gsap.core.Tween[] = itemRefs.current.map((el) =>
       gsap.to(el, {
         x: () =>
@@ -164,7 +165,7 @@ const FlowingGallery: React.FC<Props> = ({
     });
 
     killAll.current = () => {
-      st.kill();
+      mm.kill();
       fadeCTX.kill();
       floatTweens.forEach((t) => t.kill());
       tl.kill();
@@ -173,7 +174,7 @@ const FlowingGallery: React.FC<Props> = ({
     return () => {
       killAll.current?.();
     };
-  }, [images, scrollSpan, maxSkew, baseTravel, itemRefs, sectionRef]);
+  }, [images, scrollSpan, maxSkew, baseTravel, itemRefs, sectionRef, mm]);
 
   const gridTemplate =
     columns === 4
@@ -199,12 +200,18 @@ const FlowingGallery: React.FC<Props> = ({
     <>
       <section
         ref={sectionRef}
-        className={`relative w-full ${heightClass} bg-background text-[#f5f5f5] overflow-hidden`}
+        className={`relative w-full ${heightClass} bg-background overflow-hidden`}
         aria-label="Scroll-pinned flowing gallery"
       >
-        <div className="pointer-events-none p-[40dvh] flex flex-col items-center justify-center">
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight font-unbounded text-green-600 select-none z-22 ">
-            Travel Memoirs
+        <div className="relative w-full h-full pointer-events-none md:p-[40dvh] flex flex-col items-center">
+          <Image
+            src={"/1.jpg"}
+            fill
+            alt="test"
+            className="absolute inset-0 object-cover opacity-10 object-[60%_50%] md:object-[100%_63%]"
+          />
+          <h2 className="pt-[40%] md:pt-0 text-3xl md:text-6xl font-semibold tracking-tight font-unbounded text-green-600 text-center select-none z-22 ">
+            Between Work
           </h2>
           <p className="text-xs text-amber-400 font-orbitron text-center">
             Crafting experiences, on-screen and off.
@@ -227,7 +234,7 @@ const FlowingGallery: React.FC<Props> = ({
                   const content = (
                     <div
                       ref={setItemRef}
-                      className={`relative ${radiusClass} overflow-hidden shadow-md shadow-black/30 perspective-near mb-[25dvh]`}
+                      className={`relative ${radiusClass} overflow-hidden shadow-md shadow-black/30 perspective-near md:mb-[25dvh]`}
                       style={{
                         aspectRatio: `${AR} / 1`,
                         transformStyle: "preserve-3d",

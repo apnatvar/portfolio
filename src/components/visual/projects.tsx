@@ -30,7 +30,7 @@ type Props = {
 const MOCK_SLIDES: Slide[] = [
   {
     title: "AI Traffic System",
-    desc: "FYP built over 8 months to minimise reliance of automated trafic lights on street-level hardware bringing down costs and optimising inputs.",
+    desc: "FYP built to minimise reliance of automated traffic systems on street-level hardware like cameras bringing down setup and running costs while optimising algorithmic inputs.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
@@ -39,7 +39,7 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "Excel Automation Application",
-    desc: "Freelance project with a basic GUI to consolidate financial data and enabling simpler and faster insight extraction.",
+    desc: "Freelance project to consolidate financial data and enabling simpler and faster insight extraction via a Desktop GUI.",
     src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
@@ -48,7 +48,7 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "Cyclistic Data Analysis",
-    desc: "Technical Project analysing company data using technical and visual cues, following up with insights and recommendations regarding SLG.",
+    desc: "Technical Project analysing company data using technical and visual analysis, following up with insights and recommendations regarding SLG.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
@@ -57,22 +57,22 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "Emissions Tracking Software",
-    desc: "MVP to publicly track and record emissions using Blockchain incentivising the public to drive conciously and responsibly.",
+    desc: "MVP to publicly track and record emissions using Blockchain technology incentivising the users to drive conciously and responsibly.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     projectLink: "https://www.google.com",
     alt: "Abstract mountain icon",
     tools: ["Python", "SQL", "Networking"],
   },
-  {
-    title: "Formula Trinity Driverless Car",
-    desc: "College Club participation in developing an AI driven RC car to race in unfamiliar tracks.",
-    src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Mountain range photography",
-    tools: ["Python", "PyTorch"],
-  },
+  // {
+  //   title: "Formula Trinity Driverless Car",
+  //   desc: "College Club Project, to develop an AI driven RC car to race in unfamiliar tracks.",
+  //   src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
+  //   imageLink: "https://www.google.com",
+  //   projectLink: "https://www.google.com",
+  //   alt: "Mountain range photography",
+  //   tools: ["Python", "PyTorch"],
+  // },
   {
     title: "ML Data Lake",
     desc: "Web Scraper collecting data from multiple online sources based on requested keywords to drive sentiment analysis training.",
@@ -207,7 +207,7 @@ export default function ProjectCarouselCard({
       aria-label="Projects Carousel"
     >
       <p className="text-xs text-center text-amber-400 font-orbitron mb-2">
-        When Code and Design converge.
+        Syntax meets purpose.
       </p>
       <div className="relative flex flex-wrap md:flex-nowrap w-full max-w-5xl items-center justify-center gap-3">
         <Button

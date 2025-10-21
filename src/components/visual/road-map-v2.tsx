@@ -20,19 +20,19 @@ type Slide = {
 const MOCK_SLIDES: Slide[] = [
   {
     title: "Bringing Motion to Meaning",
-    desc: "Animation is where design breathes. I work with GSAP and Motion.dev to push creative boundaries makingtransitions feel deliberate and alive, inviting user interaction.",
+    desc: "Animation is where design breathes. I continue to push creative boundaries with GSAP and Motion.dev making transitions feel deliberate and alive, inviting user interaction.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
-    tags: ["GSAP", "2D", "Motion.dev"],
+    tags: ["GSAP", "2D/3D Animations", "Motion.dev"],
   },
   {
     title: "A Third Dimension",
-    desc: "3D modelling will enable me to craft custom SVGs and props, build immersive scenes, and bring them to life using Three.js and GSAP. This is the most natural next step in my journey.",
+    desc: "3D modelling will enable me to craft custom objects, SVGs and props, build immersive scenes, and bring them to life using Three.js and GSAP. This will help me create custom experiences that feel unique and personalized.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
-    tags: ["Three.js", "GSAP", "3D", "SVG"],
+    tags: ["Three.js", "3D Modelling", "SVG"],
   },
   {
     title: "Mastering the Principles",
@@ -44,7 +44,7 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "Learning from the System",
-    desc: "I aim to join a professional design studio to refine my craft in a collaborative, high-standard environment. This will be a great stepping stone before I take a leap of faith.",
+    desc: "Nothing is better than learning straight from professionals. Working in a collaborative, high-standard design studio will be a great ladder to climb for my ultimate leap of faith.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
@@ -52,7 +52,7 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "Building My Simulation",
-    desc: "I want to establish my own design studio creating memorable stories and experiences. My biggest reasons for this dream are Pininfarina and Jony Ive's IO and earlier work. I am inspired to merge function with emotion and be an excellent storyteller.",
+    desc: "I want to establish my own design studio creating memorable stories and experiences. My biggest motivations for this dream are Pininfarina and Jony Ive's IO and earlier work. I am inspired to merge function with emotion and be an excellent digital storyteller.",
     src: "/mountain.svg",
     imageLink: "https://www.google.com",
     alt: "A stylized mountain illustration",
@@ -136,7 +136,7 @@ export default function FuturePlans() {
           type: "words, lines",
         });
         gsap.from(splitHead.words, {
-          x: -30,
+          x: -20,
           opacity: 0,
           stagger: 0.1,
           ease: "power3.out",
@@ -148,7 +148,7 @@ export default function FuturePlans() {
           },
         });
         gsap.from(splitBody.lines, {
-          // y: -30,
+          y: -20,
           opacity: 0,
           stagger: 0.1,
           scrollTrigger: {
@@ -228,11 +228,17 @@ export default function FuturePlans() {
     <>
       <section
         ref={addtoPinRefs}
-        className="min-h-dvh h-fit p-4 md:p-6 flex items-center z-0"
+        className="relative min-h-dvh h-fit p-4 md:p-6 flex items-center z-0"
       >
+        <Image
+          src={"/2.jpg"}
+          fill
+          alt="test"
+          className="absolute inset-0 h-full object-cover opacity-30"
+        />
         <h1
           ref={titleRef}
-          className="text-8xl text-green-600 text-center w-full hover:not-visited:animate-pulse font-unbounded"
+          className="text-5xl md:text-8xl text-green-600 text-center w-full font-unbounded"
         >
           Plans of <br />
           Tomorrow

@@ -172,7 +172,7 @@ export default function SkillPage() {
 
           <div
             ref={centerRef}
-            className="order-first max-h-full text-muted-foreground text-justify gap-6 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
+            className="order-first max-h-full text-muted-foreground text-justify gap-16 mt-[40px] md:mt-auto md:grid md:order-2 md:gap-4 "
           >
             <h1 className="text-xl md:text-2xl text-green-600 text-center font-libre">
               From Systems to Screens

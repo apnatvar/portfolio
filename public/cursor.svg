@@ -1,0 +1,10 @@
+<svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title" role="img">
+  <title>AP monogram, tilted 30° left</title>
+  <!-- Inherit color from parent; change via CSS (color: ...) -->
+  <g transform="rotate(-35 16 16)" fill="green" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle" dominant-baseline="middle">
+    <!-- Top A -->
+    <text x="16" y="10.5" font-size="12">A</text>
+    <!-- Bottom P -->
+    <text x="16" y="19.5" font-size="12">P</text>
+  </g>
+</svg>

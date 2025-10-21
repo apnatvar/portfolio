@@ -29,7 +29,7 @@ type Moth = {
 const MothsToFlame: React.FC<MothsToFlameProps> = ({
   className,
   population = 70,
-  lightRadius = 180,
+  lightRadius = 230,
   lightColor = "rgb(22,163,74)",
   background = "#111",
   mothColor = "rgba(0,0,0,0.85)",
