@@ -34,7 +34,7 @@ const MOCK_SLIDES: Slide[] = [
     src: "https://live.staticflickr.com/65535/54891894450_485ae70176_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891894450/in/dateposted-public/",
-    alt: "A stylized mountain illustration",
+    alt: "A creative with 3D Bird prop and text about the use of 3D in websites",
     tags: ["Three.js", "3D Modelling", "SVG"],
   },
   {
@@ -43,7 +43,7 @@ const MOCK_SLIDES: Slide[] = [
     src: "https://live.staticflickr.com/65535/54891821323_bfa069e7a0_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891821323/in/dateposted-public/",
-    alt: "A stylized mountain illustration",
+    alt: "A creative talking about academic excellence",
     tags: ["Master's", "Design", "Interaction"],
   },
   {
@@ -52,7 +52,7 @@ const MOCK_SLIDES: Slide[] = [
     src: "https://live.staticflickr.com/65535/54890722027_41bfeebbf4_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54890722027/in/dateposted-public/",
-    alt: "A stylized mountain illustration",
+    alt: "A creative asking about living in the moment and attracting good energy",
     tags: ["Developer", "UI/UX", "Designer"],
   },
   {
@@ -61,7 +61,7 @@ const MOCK_SLIDES: Slide[] = [
     src: "https://live.staticflickr.com/65535/54891599921_84a50e5c41_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891599921/in/dateposted-public/",
-    alt: "A stylized mountain illustration",
+    alt: "A creative talking about a journey through time and hoping it was worth it.",
     tags: ["Design", "Storytelling", "Entrepreneur"],
   },
 ];

@@ -36,7 +36,7 @@ const MOCK_SLIDES: Slide[] = [
       "https://www.flickr.com/photos/203680033@N06/54891821358/in/dateposted-public/",
 
     projectLink: "https://github.com/apnatvar/adaptive-traffic-control",
-    alt: "Python code for AI Model",
+    alt: "Photo of a Traffic Light",
     tools: ["Python", "PyTorch", "SUMO"],
   },
   {
@@ -56,7 +56,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891599941/in/dateposted-public/",
     projectLink: "https://www.google.com",
-    alt: "A screengrab of placing a simple order",
+    alt: "A stylised creative representing trading in Rupees using Python and DhanHQ",
     tools: ["Python", "Pandas", "Finance"],
   },
   {
@@ -67,7 +67,7 @@ const MOCK_SLIDES: Slide[] = [
       "https://www.flickr.com/photos/203680033@N06/54891894495/in/dateposted-public/",
     projectLink:
       "https://github.com/apnatvar/Computer-Networking/tree/main/Project%202",
-    alt: "Logical Diagram of software capability",
+    alt: "Sample photo of a bitcoin",
     tools: ["Python", "SQL", "Networking"],
   }, // {
   //   title: "Formula Trinity Driverless Car",
@@ -85,7 +85,7 @@ const MOCK_SLIDES: Slide[] = [
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891599931/in/dateposted-public/",
     projectLink: "",
-    alt: "A screengrab of the syntax SQL table structure",
+    alt: "A creative representing an ML tapping into a lake",
     tools: ["Python", "Selenium", "SQL"],
   },
   {
@@ -96,7 +96,7 @@ const MOCK_SLIDES: Slide[] = [
       "https://live.staticflickr.com/65535/54890722047_95de3a5652_b.jpg",
     projectLink:
       "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py",
-    alt: "Screenshot of the Desktop GUI",
+    alt: "A creative represeting Excel running on machines",
     tools: ["Python", "Pandas", "Tkinter"],
   },
   // {

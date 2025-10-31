@@ -37,6 +37,11 @@ const SOCIAL_DATA: SocialItem[] = [
     href: "https://www.chess.com/member/nattupi",
     icon: SiChessdotcom,
   },
+  {
+    label: "CV",
+    href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
+    icon: FaFile,
+  },
 ];
 
 const LetterGlitch = ({
@@ -314,21 +319,6 @@ const LetterGlitch = ({
                   </Link>
                 );
               })}
-              <li
-                key="CV"
-                className="flex items-center gap-2 justify-center mb-5 font-share-tech"
-              >
-                <FaFile className="" aria-hidden />
-                <Link
-                  href="./ApnatvaSinghRawatCV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500"
-                  download="./ApnatvaSinghRawatCV.pdf"
-                >
-                  CV
-                </Link>
-              </li>
             </ul>
           </CardContent>
           <CardFooter>

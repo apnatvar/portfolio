@@ -223,11 +223,10 @@ export function SocialList() {
       <li key="CV" className="flex items-center gap-2 justify-center mb-5">
         <FaFile className="h-4 w-4 text-muted-foreground" aria-hidden />
         <Link
-          href="./ApnatvaSinghRawatCV.pdf"
+          href="https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline hover:underline-offset-4 hover:opacity-90"
-          download="./ApnatvaSinghRawatCV.pdf"
         >
           CV
         </Link>
