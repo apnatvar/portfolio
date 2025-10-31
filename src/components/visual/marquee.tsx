@@ -10,6 +10,7 @@ import {
   frame,
   cancelFrame,
 } from "motion/react";
+import Link from "next/link";
 
 export default function InfiniteDualMarquee() {
   const track1Ref = useRef<HTMLDivElement | null>(null);
@@ -77,19 +78,20 @@ export default function InfiniteDualMarquee() {
 
   return (
     <>
-      <div className="relative w-full min-h-[50dvh] overflow-hidden bg-transparent select-none pointer-events-none mb-30 pt-10 font-unbounded flex flex-col gap-6 justify-around">
-        <Image
-          src={"/5.jpg"}
-          fill
-          alt="test"
-          className="absolute top-0 left-0 h-full aspect-4/3 object-cover opacity-20 object-[100%_50%] md:object-[100%_35%]"
-        />
+      <div className="relative w-full min-h-[50dvh] overflow-hidden bg-transparent select-none pointer-events-none mb-30 py-10 font-unbounded flex flex-col gap-6 justify-around">
+        <Link href="https://www.flickr.com/photos/203680033@N06/54889832945/in/dateposted-public/">
+          <Image
+            src="https://live.staticflickr.com/65535/54889832945_75ef4d42f4_w.jpg"
+            fill
+            alt="test"
+            className="absolute top-0 left-0 h-full aspect-4/3 object-cover opacity-10 object-[100%_50%] md:object-[100%_40%]"
+          />
+        </Link>
         <motion.div
           style={{
             skewY: negSkew,
             willChange: "transform",
           }}
-          className="overflow-y-visible"
         >
           <div ref={track1Ref} className="flex flex-nowrap">
             <div className="flex flex-nowrap">
@@ -112,7 +114,6 @@ export default function InfiniteDualMarquee() {
             skewY: posSkew,
             willChange: "transform",
           }}
-          className="overflow-y-visible"
         >
           <div ref={track2Ref} className="flex flex-nowrap">
             <div

@@ -18,20 +18,102 @@ export type FlowImage = {
 const MOCK: FlowImage[] = [
   {
     id: "1",
-    src: "/mountain.svg",
-    alt: "Emerald sari",
-    href: "https://example.com/a",
-    aspect: 4 / 5,
+    src: "https://live.staticflickr.com/65535/54888664057_55bbe2d3e2_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54888664057/in/dateposted-public/",
+    alt: "17887716397094171",
+    aspect: 1.0,
   },
-  { id: "2", src: "/mountain.svg", alt: "Crimson lehenga", aspect: 3 / 4 },
-  { id: "3", src: "/mountain.svg", alt: "Portrait" },
-  { id: "4", src: "/mountain.svg", alt: "Street" },
-  { id: "5", src: "/mountain.svg", alt: "Mountains", aspect: 16 / 10 },
-  { id: "6", src: "/mountain.svg", alt: "Studio" },
-  { id: "7", src: "/mountain.svg", alt: "City lights" },
-  { id: "8", src: "/mountain.svg", alt: "Textures" },
-  { id: "9", src: "/mountain.svg", alt: "Candid" },
-  { id: "10", src: "/ap-icon.svg", alt: "Editorial" },
+  {
+    id: "2",
+    src: "https://live.staticflickr.com/65535/54888664062_9dbc7d2440_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54888664062/in/dateposted-public/",
+    alt: "17875899428254786",
+    aspect: 1,
+  },
+  {
+    id: "4",
+    src: "https://live.staticflickr.com/65535/54889541331_2873982e01_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889541331/in/dateposted-public/",
+    alt: "17867156662585940",
+    aspect: 0.8,
+  },
+  {
+    id: "5",
+    src: "https://live.staticflickr.com/65535/54888664092_aaa53443d5_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54888664092/in/dateposted-public/",
+    alt: "17866820963288583",
+    aspect: 0.8,
+  },
+  {
+    id: "6",
+    src: "https://live.staticflickr.com/65535/54889832925_c9c528a0ab_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889832925/in/dateposted-public/",
+    alt: "17855304025610906",
+    aspect: 0.8,
+  },
+  {
+    id: "7",
+    src: "https://live.staticflickr.com/65535/54889783374_0a5897d701_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889783374/in/dateposted-public/",
+    alt: "17846217435413300",
+    aspect: 0.8,
+  },
+  {
+    id: "8",
+    src: "https://live.staticflickr.com/65535/54889541366_fbe6d75d55_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889541366/in/dateposted-public/",
+    alt: "3",
+    aspect: 16 / 9,
+  },
+  {
+    id: "10",
+    src: "https://live.staticflickr.com/65535/54889541396_4efc4630c6_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889541396/in/dateposted-public/",
+    alt: "18394570492138723",
+    aspect: 0.75,
+  },
+  {
+    id: "11",
+    src: "https://live.staticflickr.com/65535/54888664117_e3b797ff2f_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54888664117/in/dateposted-public/",
+    alt: "18271660087264956",
+    aspect: 0.8,
+  },
+  {
+    id: "12",
+    src: "https://live.staticflickr.com/65535/54889541401_59944113a3_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889541401/in/dateposted-public/",
+    alt: "18104725240483422",
+    aspect: 16 / 12,
+  },
+  {
+    id: "13",
+    src: "https://live.staticflickr.com/65535/54889832985_b5908850ef_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889832985/in/dateposted-public/",
+    alt: "18092023000645450",
+    aspect: 1,
+  },
+  {
+    id: "14",
+    src: "https://live.staticflickr.com/65535/54889832980_544b3e2282_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889832980/in/dateposted-public/",
+    alt: "17996441557983266",
+    aspect: 16 / 9,
+  },
+  {
+    id: "15",
+    src: "https://live.staticflickr.com/65535/54889833005_0f991d1e7f_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54889833005/in/dateposted-public/",
+    alt: "17946597058311749",
+    aspect: 1.0,
+  },
+  {
+    id: "16",
+    src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
+    href: "https://www.flickr.com/photos/203680033@N06/54847521978/in/dateposted-public/",
+    alt: "Snapseed",
+    aspect: 0.75,
+  },
 ];
 
 type Props = {
@@ -204,12 +286,18 @@ const FlowingGallery: React.FC<Props> = ({
         aria-label="Scroll-pinned flowing gallery"
       >
         <div className="relative w-full h-full pointer-events-none md:p-[40dvh] flex flex-col items-center">
-          <Image
-            src={"/1.jpg"}
-            fill
-            alt="test"
-            className="absolute inset-0 object-cover opacity-10 object-[60%_50%] md:object-[100%_63%]"
-          />
+          <Link
+            href="https://www.flickr.com/photos/203680033@N06/54889783404/in/dateposted-public/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://live.staticflickr.com/65535/54889783404_fbc7f64c95_b.jpg"
+              alt="A photo of AP with a Kanji background"
+              fill
+              className="absolute inset-0 object-cover opacity-10 object-[60%_50%] md:object-[100%_63%]"
+            />
+          </Link>
           <h2 className="pt-[40%] md:pt-0 text-3xl md:text-6xl font-semibold tracking-tight font-unbounded text-green-600 text-center select-none z-22 ">
             Between Work
           </h2>

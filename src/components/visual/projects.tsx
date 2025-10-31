@@ -31,40 +31,45 @@ const MOCK_SLIDES: Slide[] = [
   {
     title: "AI Traffic System",
     desc: "FYP built to minimise reliance of automated traffic systems on street-level hardware like cameras bringing down setup and running costs while optimising algorithmic inputs.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
+    src: "https://live.staticflickr.com/65535/54891821358_873a33106d_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891821358/in/dateposted-public/",
+
+    projectLink: "https://github.com/apnatvar/adaptive-traffic-control",
+    alt: "Python code for AI Model",
     tools: ["Python", "PyTorch", "SUMO"],
-  },
-  {
-    title: "Excel Automation Application",
-    desc: "Freelance project to consolidate financial data and enabling simpler and faster insight extraction via a Desktop GUI.",
-    src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Mountain range photography",
-    tools: ["Python", "Pandas", "Tkinter"],
   },
   {
     title: "Cyclistic Data Analysis",
     desc: "Technical Project analysing company data using technical and visual analysis, following up with insights and recommendations regarding SLG.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Abstract mountain icon",
+    src: "https://live.staticflickr.com/65535/54888922607_014ee0e6c6_w.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54888922607/in/dateposted-public/",
+    projectLink: "https://github.com/apnatvar/analytics/tree/main/Cyclistic",
+    alt: "A screenshot of sample visualisation of the data from Tableau",
     tools: ["Python", "SQL", "Pandas", "Tableau"],
+  },
+  {
+    title: "Dhan Automated Trading",
+    desc: "Automated trading strategy building and executing trades via the dhanhq Python Library and API.",
+    src: "https://live.staticflickr.com/65535/54891599941_b031be3aa6_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891599941/in/dateposted-public/",
+    projectLink: "https://www.google.com",
+    alt: "A screengrab of placing a simple order",
+    tools: ["Python", "Pandas", "Finance"],
   },
   {
     title: "Emissions Tracking Software",
     desc: "MVP to publicly track and record emissions using Blockchain technology incentivising the users to drive conciously and responsibly.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Abstract mountain icon",
+    src: "https://live.staticflickr.com/65535/54891894495_eb242fe6ec_n.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891894495/in/dateposted-public/",
+    projectLink:
+      "https://github.com/apnatvar/Computer-Networking/tree/main/Project%202",
+    alt: "Logical Diagram of software capability",
     tools: ["Python", "SQL", "Networking"],
-  },
-  // {
+  }, // {
   //   title: "Formula Trinity Driverless Car",
   //   desc: "College Club Project, to develop an AI driven RC car to race in unfamiliar tracks.",
   //   src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
@@ -76,39 +81,43 @@ const MOCK_SLIDES: Slide[] = [
   {
     title: "ML Data Lake",
     desc: "Web Scraper collecting data from multiple online sources based on requested keywords to drive sentiment analysis training.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Abstract mountain icon",
+    src: "https://live.staticflickr.com/65535/54891599931_d7359edd1a_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891599931/in/dateposted-public/",
+    projectLink: "",
+    alt: "A screengrab of the syntax SQL table structure",
     tools: ["Python", "Selenium", "SQL"],
   },
   {
-    title: "Campagne",
-    desc: "Platform for managing Social Media for brands and/or marketing agencies.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Abstract mountain icon",
-    tools: ["TypeScript", "PayloadCMS"],
+    title: "Excel Automation Application",
+    desc: "Freelance project to consolidate financial data and enabling simpler and faster insight extraction via a Desktop GUI.",
+    src: "https://live.staticflickr.com/65535/54890722047_d6a7112bb4_b.jpg",
+    imageLink:
+      "https://live.staticflickr.com/65535/54890722047_95de3a5652_b.jpg",
+    projectLink:
+      "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py",
+    alt: "Screenshot of the Desktop GUI",
+    tools: ["Python", "Pandas", "Tkinter"],
   },
-  {
-    title: "Pastick",
-    desc: "Personal Project for testing, developing, and (hopefully) executing fully automated commodity trades in NSE/BSE.",
-    src: "https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Mountain range photography",
-    tools: ["Python", "SQL", "Finance"],
-  },
-  {
-    title: "Prompterest",
-    desc: "Pinterest inspired platform focussing on collecting and sharing prompts to provide guidelines for complex tasks.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    projectLink: "https://www.google.com",
-    alt: "Abstract mountain icon",
-    tools: ["TypeScript", "PayloadCMS"],
-  },
+  // {
+  //   title: "Campagne",
+  //   desc: "Platform for managing Social Media for brands and/or marketing agencies.",
+  //   src: "/mountain.svg",
+  //   imageLink: "https://www.google.com",
+  //   projectLink: "https://www.google.com",
+  //   alt: "Abstract mountain icon",
+  //   tools: ["TypeScript", "PayloadCMS"],
+  // },
+
+  // {
+  //   title: "Prompterest",
+  //   desc: "Pinterest inspired platform focussing on collecting and sharing prompts to provide guidelines for complex tasks.",
+  //   src: "/mountain.svg",
+  //   imageLink: "https://www.google.com",
+  //   projectLink: "https://www.google.com",
+  //   alt: "Abstract mountain icon",
+  //   tools: ["TypeScript", "PayloadCMS"],
+  // },
 ];
 
 export default function ProjectCarouselCard({
@@ -207,7 +216,7 @@ export default function ProjectCarouselCard({
       aria-label="Projects Carousel"
     >
       <p className="text-xs text-center text-amber-400 font-orbitron mb-2">
-        Syntax meets purpose.
+        Syntax meets purpose. Curated Projects.
       </p>
       <div className="relative flex flex-wrap md:flex-nowrap w-full max-w-5xl items-center justify-center gap-3">
         <Button
@@ -238,7 +247,7 @@ export default function ProjectCarouselCard({
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-2 items-stretch">
                       <Link
                         href={s.imageLink}
-                        className="block rounded-xl overflow-hidden"
+                        className="block rounded-4xl overflow-hidden"
                       >
                         <div className="relative aspect-[4/3] w-full">
                           <Image
@@ -246,8 +255,9 @@ export default function ProjectCarouselCard({
                             src={s.src}
                             alt={s.alt}
                             fill
-                            className="object-cover"
                             priority={i === 0}
+                            quality={100}
+                            className="object-cover"
                           />
                         </div>
                       </Link>
@@ -256,14 +266,14 @@ export default function ProjectCarouselCard({
                         <div className="space-y-2">
                           <Link
                             href={s.projectLink}
-                            className="text-md md:text-lg font-semibold leading-tight"
+                            className="text-lg md:text-xl font-semibold leading-tight"
                           >
                             <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
                               {s.title}
                             </span>{" "}
                             <FaLink className="inline-block text-amber-500 font-orbitron" />
                           </Link>
-                          <div className="flex flex-row flex-wrap gap-1 pt-1 pb-2">
+                          <div className="flex flex-row flex-wrap gap-1 pt-2 pb-3 md:pt-1 md:pb-2 scale-95">
                             {s.tools.map((t, ti) => (
                               <Badge
                                 variant="outline"
@@ -274,7 +284,7 @@ export default function ProjectCarouselCard({
                               </Badge>
                             ))}
                           </div>
-                          <p className="text-sm text-muted-foreground mt-2 font-space-grotestk">
+                          <p className="text-sm text-muted-foreground mt-2 font-space-grotestk w-full">
                             {s.desc}
                           </p>
                         </div>

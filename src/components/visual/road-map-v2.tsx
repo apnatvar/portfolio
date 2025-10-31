@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { SplitText } from "gsap/SplitText";
 import { Badge } from "../ui/badge";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -21,40 +22,45 @@ const MOCK_SLIDES: Slide[] = [
   {
     title: "Bringing Motion to Meaning",
     desc: "Animation is where design breathes. I continue to push creative boundaries with GSAP and Motion.dev making transitions feel deliberate and alive, inviting user interaction.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
-    alt: "A stylized mountain illustration",
+    src: "https://live.staticflickr.com/65535/54891894480_3e02a3e0a3_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891894480/in/dateposted-public/",
+    alt: "An image with text talking about the importance of animations in UI/UX",
     tags: ["GSAP", "2D/3D Animations", "Motion.dev"],
   },
   {
     title: "A Third Dimension",
     desc: "3D modelling will enable me to craft custom objects, SVGs and props, build immersive scenes, and bring them to life using Three.js and GSAP. This will help me create custom experiences that feel unique and personalized.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
+    src: "https://live.staticflickr.com/65535/54891894450_485ae70176_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891894450/in/dateposted-public/",
     alt: "A stylized mountain illustration",
     tags: ["Three.js", "3D Modelling", "SVG"],
   },
   {
     title: "Mastering the Principles",
     desc: "I plan to pursue a Master's in Design to deepen my understanding of visual psychology, user perception, and design best practices. The goal is to create with intention and craft simple and memorable experiences.",
-    src: "/ap-icon.svg",
-    imageLink: "https://www.google.com",
+    src: "https://live.staticflickr.com/65535/54891821323_bfa069e7a0_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891821323/in/dateposted-public/",
     alt: "A stylized mountain illustration",
     tags: ["Master's", "Design", "Interaction"],
   },
   {
     title: "Learning from the System",
     desc: "Nothing is better than learning straight from professionals. Working in a collaborative, high-standard design studio will be a great ladder to climb for my ultimate leap of faith.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
+    src: "https://live.staticflickr.com/65535/54890722027_41bfeebbf4_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54890722027/in/dateposted-public/",
     alt: "A stylized mountain illustration",
     tags: ["Developer", "UI/UX", "Designer"],
   },
   {
     title: "Building My Simulation",
     desc: "I want to establish my own design studio creating memorable stories and experiences. My biggest motivations for this dream are Pininfarina and Jony Ive's IO and earlier work. I am inspired to merge function with emotion and be an excellent digital storyteller.",
-    src: "/mountain.svg",
-    imageLink: "https://www.google.com",
+    src: "https://live.staticflickr.com/65535/54891599921_84a50e5c41_b.jpg",
+    imageLink:
+      "https://www.flickr.com/photos/203680033@N06/54891599921/in/dateposted-public/",
     alt: "A stylized mountain illustration",
     tags: ["Design", "Storytelling", "Entrepreneur"],
   },
@@ -105,6 +111,7 @@ export default function FuturePlans() {
           opacity: 0,
           x: gsap.utils.random(-100, 100, 10) * 10,
           y: gsap.utils.random(-100, 100, 10) * 10,
+          rotateX: gsap.utils.random(0, 300, 30),
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top bottom",
@@ -230,12 +237,18 @@ export default function FuturePlans() {
         ref={addtoPinRefs}
         className="relative min-h-dvh h-fit p-4 md:p-6 flex items-center z-0"
       >
-        <Image
-          src={"/2.jpg"}
-          fill
-          alt="test"
-          className="absolute inset-0 h-full object-cover opacity-30"
-        />
+        <Link
+          target="_blank"
+          href="https://www.flickr.com/photos/203680033@N06/54889832960/in/dateposted-public/"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="https://live.staticflickr.com/65535/54889832960_e8df7e4457_b.jpg"
+            fill
+            alt="A photo of AP holding a Book Inpired Lamp"
+            className="absolute inset-0 h-full object-cover opacity-30"
+          />
+        </Link>
         <h1
           ref={titleRef}
           className="text-5xl md:text-8xl text-green-600 text-center w-full font-unbounded"
@@ -285,7 +298,8 @@ export default function FuturePlans() {
               src={slide.src}
               alt={slide.alt}
               fill
-              className="rounded-full object-cover p-5"
+              className="p-5  rounded-full"
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw"
             />
           </div>
         </section>
