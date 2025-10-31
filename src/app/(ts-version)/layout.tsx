@@ -197,7 +197,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className={`mx-auto w-full px-2 py-3`}>{children}</main>
+            <main className={`mx-auto max-w-dvw px-2 py-3`}>{children}</main>
           </ThemeProvider>
         </SmoothScrollProvider>
       </body>

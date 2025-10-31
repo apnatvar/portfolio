@@ -290,17 +290,24 @@ export default function FuturePlans() {
               {slide.desc}
             </p>
           </div>
+
           <div
             ref={addtoPinRefs}
             className="relative max-h-full aspect-square md:aspect-auto"
           >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              className="p-5  rounded-full"
-              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw"
-            />
+            <Link
+              target="_blank"
+              href={slide.imageLink}
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                className="p-5 rounded-full"
+                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw"
+              />
+            </Link>
           </div>
         </section>
       ))}
