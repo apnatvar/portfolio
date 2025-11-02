@@ -21,7 +21,7 @@ type Slide = {
 const MOCK_SLIDES: Slide[] = [
   {
     title: "Bringing Motion to Meaning",
-    desc: "Animation is where design breathes. I continue to push creative boundaries with GSAP and Motion.dev making transitions feel deliberate and alive, inviting user interaction.",
+    desc: "Animation is where design breathes. I continue to push creative boundaries with two animation libraries GSAP and Motion.dev to make transitions feel deliberate and alive, inviting user interaction.",
     src: "https://live.staticflickr.com/65535/54891894480_3e02a3e0a3_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891894480/in/dateposted-public/",
@@ -30,25 +30,25 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "A Third Dimension",
-    desc: "3D modelling will enable me to craft custom objects, SVGs and props, build immersive scenes, and bring them to life using Three.js and GSAP. This will help me create custom experiences that feel unique and personalized.",
+    desc: "Blender is an amazing tool that I have begun working with recently. I use Meshy for fast object creation, while I plan to use blender for product designing and scene development.",
     src: "https://live.staticflickr.com/65535/54891894450_485ae70176_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891894450/in/dateposted-public/",
     alt: "A creative with 3D Bird prop and text about the use of 3D in websites",
-    tags: ["Three.js", "3D Modelling", "SVG"],
+    tags: ["Three.js", "3D Modelling", "Blender", "Meshy AI"],
   },
   {
     title: "Mastering the Principles",
-    desc: "I plan to pursue a Master's in Design to deepen my understanding of visual psychology, user perception, and design best practices. The goal is to create with intention and craft simple and memorable experiences.",
+    desc: "I have always analysed tech products and thought about how I would go about designing them. I want to design products and interfaces that compliment them, to give users an experience that is unintrusive and seamless.",
     src: "https://live.staticflickr.com/65535/54891821323_bfa069e7a0_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891821323/in/dateposted-public/",
     alt: "A creative talking about academic excellence",
-    tags: ["Master's", "Design", "Interaction"],
+    tags: ["Master's", "Design", "Interaction", "Interface"],
   },
   {
     title: "Learning from the System",
-    desc: "Nothing is better than learning straight from professionals. Working in a collaborative, high-standard design studio will be a great ladder to climb for my ultimate leap of faith.",
+    desc: "Every product has a lot of parts and great products are defined by the harmony between these parts. One person cannot do everything, so I want to work with creators and learn how a design goes from ideation to delivery.",
     src: "https://live.staticflickr.com/65535/54890722027_41bfeebbf4_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54890722027/in/dateposted-public/",
@@ -57,7 +57,7 @@ const MOCK_SLIDES: Slide[] = [
   },
   {
     title: "Building My Simulation",
-    desc: "I want to establish my own design studio creating memorable stories and experiences. My biggest motivations for this dream are Pininfarina and Jony Ive's IO and earlier work. I am inspired to merge function with emotion and be an excellent digital storyteller.",
+    desc: "I want to establish my own design studio creating stories, experiences, products. My biggest motivations for this dream are Pininfarina, Virgil's OFF-WHITE designs, and Jony Ive's IO and earlier work. I am inspired to merge function with emotion and be an excellent digital storyteller and designer.",
     src: "https://live.staticflickr.com/65535/54891599921_84a50e5c41_b.jpg",
     imageLink:
       "https://www.flickr.com/photos/203680033@N06/54891599921/in/dateposted-public/",
