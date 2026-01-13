@@ -65,6 +65,7 @@ export default function ScrollImage() {
         <div className="min-h-dvh relative flex flex-wrap justify-around">
           <div className="relative text-center w-20 h-40 z-10">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -75,6 +76,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -85,6 +87,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -95,6 +98,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-100 h-100 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -105,6 +109,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -115,6 +120,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -125,6 +131,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -135,6 +142,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-100 h-100 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -145,6 +153,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -155,6 +164,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"
@@ -165,6 +175,7 @@ export default function ScrollImage() {
           </div>
           <div className="relative text-center w-20 h-40 z-10 ">
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54847521978_6510e5ab15_b.jpg"
               fill
               alt="Snapseed"

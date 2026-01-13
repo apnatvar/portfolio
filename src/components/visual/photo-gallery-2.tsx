@@ -292,6 +292,7 @@ const FlowingGallery: React.FC<Props> = ({
             rel="noopener noreferrer"
           >
             <Image
+              quality={100}
               src="https://live.staticflickr.com/65535/54889783404_fbc7f64c95_b.jpg"
               alt="A photo of AP with a Kanji background"
               fill
@@ -330,6 +331,7 @@ const FlowingGallery: React.FC<Props> = ({
                       }}
                     >
                       <Image
+                        quality={100}
                         src={img.src || "/change-this.svg"}
                         alt={img.alt ?? "photo"}
                         fill

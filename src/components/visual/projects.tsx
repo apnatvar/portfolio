@@ -251,6 +251,7 @@ export default function ProjectCarouselCard({
                       >
                         <div className="relative aspect-[4/3] w-full">
                           <Image
+                            quality={100}
                             ref={addtoImageRefs}
                             src={s.src}
                             alt={s.alt}

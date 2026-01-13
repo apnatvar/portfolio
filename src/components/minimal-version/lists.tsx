@@ -26,11 +26,11 @@ import {
 
 type WorkItem = { role: string; org: string; date: string };
 const WORK_DATA: WorkItem[] = [
-  {
-    role: "Backend Developer",
-    org: "PasTicks",
-    date: "Sep 2025 — Present",
-  },
+  // {
+  //   role: "Backend Developer",
+  //   org: "PasTicks",
+  //   date: "Sep 2025 — Present",
+  // },
   {
     role: "Content and Brand Intern",
     org: "Motilal Oswal Financial Services",

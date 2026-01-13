@@ -243,6 +243,7 @@ export default function FuturePlans() {
           rel="noopener noreferrer"
         >
           <Image
+            quality={100}
             src="https://live.staticflickr.com/65535/54889832960_e8df7e4457_b.jpg"
             fill
             alt="A photo of AP holding a Book Inpired Lamp"
@@ -301,6 +302,7 @@ export default function FuturePlans() {
               rel="noopener noreferrer"
             >
               <Image
+                quality={100}
                 src={slide.src}
                 alt={slide.alt}
                 fill

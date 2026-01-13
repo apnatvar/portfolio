@@ -81,6 +81,7 @@ export default function InfiniteDualMarquee() {
       <div className="relative w-full min-h-[50dvh] overflow-hidden bg-transparent select-none pointer-events-none mb-30 py-10 font-unbounded flex flex-col gap-6 justify-around">
         <Link href="https://www.flickr.com/photos/203680033@N06/54889832945/in/dateposted-public/">
           <Image
+            quality={100}
             src="https://live.staticflickr.com/65535/54889832945_75ef4d42f4_w.jpg"
             fill
             alt="test"

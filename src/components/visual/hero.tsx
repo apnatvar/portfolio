@@ -10,6 +10,7 @@ import VerticalNavButtons from "@/components/visual/nav";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagicBento from "@/components/visual/MagicBento";
 import MothsToFlame from "./moth-to-a-flame";
+import Lightning from "./Lightning";
 
 gsap.registerPlugin(
   ScrollToPlugin,
@@ -22,8 +23,9 @@ type AnyTween = gsap.TweenVars & Record<string, unknown>;
 
 export default function HeroPage() {
   // const isMobile = useIsMobile();
-  const devWord = "अपनत्व";
-  const engWord = "Apnatva";
+  const devWord = ["अपनत्व", "सिंह", "रावत"];
+  // const devWord = ["test1234789", "test2", "test345"];
+  const engWord = "Apnatva Singh Rawat";
   const pron = "/ˈʌp.nəː.tvə/";
   const rootRef = useRef<HTMLDivElement>(null);
   const engRef = useRef<HTMLDivElement>(null);
@@ -76,19 +78,19 @@ export default function HeroPage() {
         split.lines[0].classList.add(
           "text-accent-foreground",
           "text-lg",
-          "md:text-sm"
+          "md:text-xl"
         );
       if (split.lines[1])
         split.lines[1].classList.add(
           "text-secondary-foreground",
           "text-lg",
-          "md:text-sm"
+          "md:text-xl"
         );
       if (split.lines[2])
         split.lines[2].classList.add(
           "text-accent-foreground",
           "text-lg",
-          "md:text-sm"
+          "md:text-xl"
         );
 
       gsap.from(split.lines, {
@@ -137,55 +139,66 @@ export default function HeroPage() {
         >
           {/* <Lightning
             hue={100}
-            xOffset={isMobile ? -0.8 : -1.8}
+            xOffset={-1.2}
             speed={0.8}
-            intensity={isMobile ? 1 : 2}
+            intensity={0.5}
             size={2}
           /> */}
           <MothsToFlame className="min-w-full min-h-full" />
         </div>
-        <div
-          ref={rootRef}
-          className="container mx-auto px-4 py-16 md:py-24 flex text-foreground items-center justify-center z-10 relative"
-        >
-          <div className="max-h-full items-center justify-center place-content-center w-full max-w-3xl text-center space-y-3 md:space-y-4">
-            <h1 className="tracking-tight text-8xl md:text-5xl leading-[1.1] text-foreground font-amita">
-              {devWord}
-            </h1>
+        <div ref={rootRef} className="mx-auto relative z-10 px-4 py-16 md:py-2">
+          <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col md:flex-row justify-between">
+            <div>
+              {devWord.map((word, idx) => (
+                <h1
+                  key={idx}
+                  className="font-amita text-foreground/80 tracking-tight leading-[2] md:leading-[1.2] w-fit text-[clamp(4.5rem,12vw,10rem)] md:max-w-[70%]"
+                >
+                  {word}
+                </h1>
+              ))}
+            </div>
 
-            <div
-              ref={engRef}
-              className="font-medium tracking-tight text-4xl md:text-2xl leading-[1.1] will-change-transform text-muted-foreground font-libre"
-              aria-label={`${engWord} (animated)`}
-            >
-              .
+            <div className="flex md:flex-col flex-row-reverse md:gap-5 justify-between md:py-10">
+              <div className="text-right">
+                <div
+                  ref={engRef}
+                  className="font-libre font-medium tracking-tight text-muted-foreground will-change-transform text-[clamp(1.25rem,2.2vw,2rem)] leading-none"
+                  aria-label={`${engWord} (animated)`}
+                >
+                  {engWord}
+                </div>
+
+                <div
+                  ref={pronRef}
+                  className="mt-3 italic text-accent-foreground leading-tight text-[clamp(1rem,1.6vw,1.4rem)]"
+                >
+                  {pron}
+                </div>
+
+                <div
+                  ref={meaningRef}
+                  className="mt-6 font-unbounded leading-[1.35] text-foreground text-[clamp(0.95rem,1.2vw,1.05rem)] split"
+                >
+                  1. sense of belonging
+                  <br />
+                  2. digital designer
+                  <br />
+                  3. oneness
+                </div>
+              </div>
+              <div className="justify-end">
+                <VerticalNavButtons className="w-fit mx-auto relative" />
+              </div>
             </div>
 
             <div
-              ref={pronRef}
-              className="italic text-2xl md:text-lg text-accent-foreground"
-            >
-              {pron}
-            </div>
-
-            <div
-              ref={meaningRef}
-              className="mt-3 md:mt-4 space-y-[1/2] md:space-y-1 split font-unbounded"
-            >
-              1. sense of belonging
-              <br />
-              2. digital designer
-              <br />
-              3. oneness
-            </div>
+              ref={ctaRef}
+              className="mt-6 md:mt-0 md:absolute md:right-0 md:bottom-0"
+            ></div>
           </div>
         </div>
-        <div ref={ctaRef} className="md:top-1/3 md:left-1/15 md:absolute z-10">
-          <VerticalNavButtons className="w-fit mx-auto justify-self-center md:justify-start relative" />
-        </div>
-        {/* <p className="text-xs text-amber-400 font-orbitron text-center mt-5 md:mt-0">
-          Designing systems, interfaces, and ideas — one spark at a time.{" "}
-        </p> */}
+
         <p className="text-xs text-amber-400 font-orbitron text-center mt-5 md:mt-0">
           Searching for memorable designs.
         </p>

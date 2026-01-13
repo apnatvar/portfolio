@@ -1,8 +1,14 @@
 import React from "react";
 import { useRef, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
-import { SiApplemusic, SiChessdotcom } from "react-icons/si";
-import { FaLinkedin, FaGithub, FaInstagram, FaFile } from "react-icons/fa6";
+import { SiChessdotcom } from "react-icons/si";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaFile,
+  FaMedium,
+} from "react-icons/fa6";
 import Link from "next/link";
 import { Card, CardHeader, CardContent, CardFooter } from "../ui/card";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -28,9 +34,9 @@ const SOCIAL_DATA: SocialItem[] = [
     icon: FaInstagram,
   },
   {
-    label: "Apple Music",
-    href: "https://music.apple.com/profile/nattupi",
-    icon: SiApplemusic,
+    label: "Medium",
+    href: "https://medium.com/@nattupi",
+    icon: FaMedium,
   },
   {
     label: "Chess.com",

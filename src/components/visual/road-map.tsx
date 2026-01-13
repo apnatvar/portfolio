@@ -78,6 +78,7 @@ export default function FuturePlans() {
         </div>
         <div className="relative max-h-dvh aspect-square md:aspect-auto">
           <Image
+            quality={100}
             src="ap-icon.svg"
             alt="test"
             fill
@@ -110,6 +111,7 @@ export default function FuturePlans() {
         </div>
         <div className="relative max-h-dvh aspect-square md:aspect-auto">
           <Image
+            quality={100}
             src="ap-icon.svg"
             alt="test"
             fill
@@ -142,6 +144,7 @@ export default function FuturePlans() {
         </div>
         <div className="relative max-h-dvh aspect-square md:aspect-auto">
           <Image
+            quality={100}
             src="ap-icon.svg"
             alt="test"
             fill
@@ -174,6 +177,7 @@ export default function FuturePlans() {
         </div>
         <div className="relative max-h-dvh aspect-square md:aspect-auto">
           <Image
+            quality={100}
             src="ap-icon.svg"
             alt="test"
             fill
@@ -206,6 +210,7 @@ export default function FuturePlans() {
         </div>
         <div className="relative max-h-dvh px-3 aspect-square md:aspect-auto">
           <Image
+            quality={100}
             src="ap-icon.svg"
             alt="test"
             fill
