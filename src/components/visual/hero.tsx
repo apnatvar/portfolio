@@ -159,7 +159,7 @@ export default function HeroPage() {
               ))}
             </div>
 
-            <div className="flex md:flex-col flex-row-reverse md:gap-5 justify-between md:py-10">
+            <div className="flex md:flex-col md:min-w-1/2 flex-row-reverse md:gap-5 justify-between md:py-10">
               <div className="text-right">
                 <div
                   ref={engRef}
@@ -187,8 +187,8 @@ export default function HeroPage() {
                   3. oneness
                 </div>
               </div>
-              <div className="justify-end">
-                <VerticalNavButtons className="w-fit mx-auto relative" />
+              <div className="flex justify-end">
+                <VerticalNavButtons className="w-fit relative" />
               </div>
             </div>
 
