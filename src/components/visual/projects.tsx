@@ -257,7 +257,6 @@ export default function ProjectCarouselCard({
                             alt={s.alt}
                             fill
                             priority={i === 0}
-                            quality={100}
                             className="object-cover"
                           />
                         </div>

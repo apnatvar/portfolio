@@ -10,7 +10,7 @@ import VerticalNavButtons from "@/components/visual/nav";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagicBento from "@/components/visual/MagicBento";
 import MothsToFlame from "./moth-to-a-flame";
-import Lightning from "./Lightning";
+// import Lightning from "./Lightning";
 
 gsap.registerPlugin(
   ScrollToPlugin,
