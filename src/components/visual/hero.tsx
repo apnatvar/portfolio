@@ -25,14 +25,20 @@ export default function HeroPage() {
   // const isMobile = useIsMobile();
   const devWord = ["अपनत्व", "सिंह", "रावत"];
   // const devWord = ["test1234789", "test2", "test345"];
-  const engWord = "Apnatva Singh Rawat";
+  const engWord = "Apnatva";
   const pron = "/ˈʌp.nəː.tvə/";
-  const rootRef = useRef<HTMLDivElement>(null);
-  const engRef = useRef<HTMLDivElement>(null);
-  const pronRef = useRef<HTMLDivElement>(null);
-  const meaningRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const fadeRef = React.useRef<HTMLDivElement | null>(null);
+  const devRefs = useRef<HTMLHeadingElement[]>([]);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const engRef = useRef<HTMLDivElement | null>(null);
+  const pronRef = useRef<HTMLDivElement | null>(null);
+  const meaningRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const fadeRef = useRef<HTMLDivElement | null>(null);
+  const addToDevRefs = (el: HTMLImageElement) => {
+    if (el) {
+      devRefs.current.push(el);
+    }
+  };
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(pronRef.current, { opacity: 0, y: 8 });
@@ -55,7 +61,7 @@ export default function HeroPage() {
       tl.to(
         engRef.current,
         {
-          duration: 3,
+          duration: 2,
           scrambleText: {
             text: engWord,
             chars: "upperAndLowerCase",
@@ -106,30 +112,29 @@ export default function HeroPage() {
         },
       });
     }
+    if (devRefs.current.length === 0) return;
+
+    devRefs.current.forEach((el) => {
+      const split = new SplitText(el, {
+        type: "chars",
+        charsClass: "split-char",
+      });
+
+      gsap.from(split.chars, {
+        xPercent: -100,
+        opacity: 0,
+        duration: 3,
+        ease: "power3.out",
+        stagger: {
+          each: 0.2,
+          from: "start",
+        },
+      });
+    });
 
     return () => ctx.revert();
-  }, [engWord, fadeRef, pronRef, ctaRef, meaningRef, engRef, rootRef]);
-  useLayoutEffect(() => {
-    if (!fadeRef.current) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        fadeRef.current,
-        { opacity: 1 },
-        {
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: fadeRef.current,
-            start: "top top",
-            end: "bottom 60%", // or "+=100vh" for a fixed distance
-            scrub: 2,
-            invalidateOnRefresh: true,
-          },
-        }
-      );
-    }, fadeRef);
-    return () => ctx.revert();
-  }, [fadeRef]);
+  }, [engWord, fadeRef, pronRef, ctaRef, meaningRef, engRef, rootRef, devRefs]);
+
   return (
     <>
       <section className="w-full min-h-[200dvh] h-fit">
@@ -144,26 +149,27 @@ export default function HeroPage() {
             intensity={0.5}
             size={2}
           /> */}
-          <MothsToFlame className="min-w-full min-h-full" />
+          {/* <MothsToFlame className="min-w-full min-h-full" /> */}
         </div>
-        <div ref={rootRef} className="mx-auto relative z-10 px-4 py-16 md:py-2">
-          <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col md:flex-row justify-between">
-            <div>
+        <div ref={rootRef} className="mx-auto relative z-10 px-4 py-6 md:py-2">
+          <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col gap-5 md:gap-0 md:flex-row justify-between">
+            <div className="min-w-2/3">
               {devWord.map((word, idx) => (
                 <h1
                   key={idx}
-                  className="font-amita text-foreground/80 tracking-tight leading-[2] md:leading-[1.2] w-fit text-[clamp(4.5rem,12vw,10rem)] md:max-w-[70%]"
+                  ref={addToDevRefs}
+                  className="font-amita text-foreground/90 leading-[2] md:leading-[1.18] tracking-wide text-8xl md:text-9xl md:max-w-[70%]"
                 >
                   {word}
                 </h1>
               ))}
             </div>
 
-            <div className="flex md:flex-col md:min-w-1/2 flex-row-reverse md:gap-5 justify-between md:py-10">
+            <div className="flex md:flex-col md:min-w-1/3 flex-row-reverse md:gap-5 justify-between md:py-10">
               <div className="text-right">
                 <div
                   ref={engRef}
-                  className="font-libre font-medium tracking-tight text-muted-foreground will-change-transform text-[clamp(1.25rem,2.2vw,2rem)] leading-none"
+                  className="font-libre font-medium tracking-tight text-muted-foreground will-change-transform text-5xl leading-none"
                   aria-label={`${engWord} (animated)`}
                 >
                   {engWord}
@@ -171,7 +177,7 @@ export default function HeroPage() {
 
                 <div
                   ref={pronRef}
-                  className="mt-3 italic text-accent-foreground leading-tight text-[clamp(1rem,1.6vw,1.4rem)]"
+                  className="mt-3 italic text-accent-foreground leading-tight text-3xl"
                 >
                   {pron}
                 </div>

@@ -80,7 +80,7 @@ export default function PromoPreviewSection() {
     const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
+        start: "top 60%",
         scrub: false,
       },
     });

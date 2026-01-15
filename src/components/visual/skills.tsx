@@ -15,6 +15,7 @@ import {
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { FaPython, FaDatabase, FaGitAlt, FaDocker } from "react-icons/fa6";
 import Link from "next/link";
+import SplitText from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -38,6 +39,7 @@ const SKILLS_DATA: SkillItem[] = [
 
 export default function SkillPage() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const centerRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
@@ -48,6 +50,14 @@ export default function SkillPage() {
   }, []);
 
   useEffect(() => {
+    if (
+      !rootRef.current ||
+      !headingRef.current ||
+      !centerRef.current ||
+      !leftColRef.current ||
+      !rightColRef.current
+    )
+      return;
     const ctx = gsap.context(() => {
       const leftCol = leftColRef.current!;
       const rightCol = rightColRef.current!;
@@ -132,17 +142,43 @@ export default function SkillPage() {
         scrub: true,
       });
       updateDial();
+
+      const split = new SplitText(headingRef.current, {
+        type: "words",
+      });
+
+      gsap.from(split.words, {
+        xPercent: -100,
+        opacity: 0,
+        ease: "power3.out",
+        duration: 2,
+        stagger: {
+          each: 0.05,
+          from: "start",
+        },
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 50%",
+          invalidateOnRefresh: true,
+        },
+      });
     }, rootRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [rootRef, headingRef, centerRef, leftColRef, rightColRef]);
 
   return (
     <div
       ref={rootRef}
       className="relative min-h-[140dvh] bg-background text-foreground overflow-x-hidden my-5"
     >
-      <section className="relative container mx-auto px-4 py-16 md:py-24 z-1">
+      <section className="relative container mx-auto px-4 py-4 md:py-8 z-1">
+        <h1
+          ref={headingRef}
+          className="text-6xl text-left md:text-7xl text-green-600 md:text-center font-libre pt-12 md:pb-8"
+        >
+          From Systems to Screens
+        </h1>
         <div
           className="
             grid grid-cols-1 md:grid-cols-[1fr_minmax(260px,400px)_1fr]
@@ -162,7 +198,7 @@ export default function SkillPage() {
                   className="flex items-center gap-4 md:gap-5"
                 >
                   <Icon className="h-6 w-6 md:h-7 md:w-7 text-muted-foreground" />
-                  <span className="text-base md:text-lg font-medium">
+                  <span className="text-2xl md:text-lg font-medium">
                     {s.name}
                   </span>
                 </div>
@@ -172,29 +208,26 @@ export default function SkillPage() {
 
           <div
             ref={centerRef}
-            className="order-first max-h-full text-muted-foreground text-justify gap-5 mt-[40px] md:mt-auto grid md:order-2 md:gap-2 "
+            className="order-first max-h-full text-muted-foreground text-justify gap-5 mt-[40px] grid md:order-2 md:gap-2 "
           >
-            <h1 className="text-xl md:text-2xl text-green-600 text-center font-libre">
-              From Systems to Screens
-            </h1>
-            <p className="text-xs text-amber-400 text-center font-orbitron">
+            <p className="text-md md:text-xs text-amber-400 text-center font-orbitron">
               Engineering roots, design-driven present.
             </p>
-            <p className="font-space-grotestk">
+            <p className="text-2xl md:text-sm font-space-grotestk">
               I have built web applications, written automation and scraping
               scripts, and designed ML models and pipelines. My experience with
               Python, Go, Java, Docker, and Kubernetes gave me a solid
               understanding of backend systems, scalability, and
               production-grade architecture.
             </p>
-            <p className="font-space-grotestk">
+            <p className="text-2xl md:text-sm font-space-grotestk">
               Currently, I am focussing on front-end design. I work extensively
               with TypeScript, Next.js, Tailwind CSS, Shadcn, GSAP, and
               PayloadCMS to create visually refined, interactive, and scalable
               web experiences. I now can design, develop, and deliver full-stack
               web-apps.
             </p>
-            <span className="text-center font-space-grotestk">
+            <span className="text-2xl md:text-sm text-center font-space-grotestk">
               Some additional tools that I rely on
               <ul className="list-disc list-inside grid grid-cols-2 gap-2">
                 <li>
@@ -233,7 +266,7 @@ export default function SkillPage() {
                   data-skill-item="right"
                   className="flex items-center gap-4 md:gap-5"
                 >
-                  <span className="text-base md:text-lg font-medium">
+                  <span className="text-2xl md:text-lg font-medium">
                     {s.name}
                   </span>
                   <Icon className="h-6 w-6 md:h-7 md:w-7 text-muted-foreground" />
