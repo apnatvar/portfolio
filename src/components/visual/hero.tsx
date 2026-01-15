@@ -9,7 +9,8 @@ import VerticalNavButtons from "@/components/visual/nav";
 // import { useIsMobile } from "@/hooks/isMobile";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagicBento from "@/components/visual/MagicBento";
-import MothsToFlame from "./moth-to-a-flame";
+// import MothsToFlame from "./moth-to-a-flame";
+import HeroBackground from "./reworkedSentinel";
 // import Lightning from "./Lightning";
 
 gsap.registerPlugin(
@@ -46,13 +47,13 @@ export default function HeroPage() {
       const tl = gsap.timeline({ defaults: { ease: "power4.in" } });
 
       if (fadeRef.current) {
-        tl.to(fadeRef, {
+        tl.to(fadeRef.current, {
           opacity: 0,
           ease: "none",
           scrollTrigger: {
-            trigger: ".fade-me",
+            trigger: fadeRef.current,
             start: "top top",
-            end: "+=100vh",
+            end: "bottom 20%",
             scrub: true,
           },
         });
@@ -150,6 +151,7 @@ export default function HeroPage() {
             size={2}
           /> */}
           {/* <MothsToFlame className="min-w-full min-h-full" /> */}
+          <HeroBackground />
         </div>
         <div ref={rootRef} className="mx-auto relative z-10 px-4 py-6 md:py-2">
           <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col gap-5 md:gap-0 md:flex-row justify-between">

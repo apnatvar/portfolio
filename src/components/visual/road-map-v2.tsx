@@ -185,8 +185,7 @@ export default function FuturePlans() {
         } else {
           gsap.to(pinMe, {
             z: 0,
-            x: gsap.utils.random(-30, 30, 10),
-            y: -10 * (pinMeRefs.current.length - idx),
+            x: -60 + idx * 20,
             scrollTrigger: {
               trigger: pinMe,
               start: "top top",

@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 import CustomEase from "gsap/CustomEase";
 import { FaLink } from "react-icons/fa6";
@@ -60,9 +59,9 @@ export default function PromoPreviewSection() {
       return;
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: sectionRef.current,
+        trigger: separatorRef.current,
         start: "top 90%",
-        end: "top top",
+        end: "top 10%",
         invalidateOnRefresh: true,
         scrub: true,
       },
@@ -123,12 +122,11 @@ export default function PromoPreviewSection() {
       className="flex w-full flex-col gap-4 max-w-dvw p-6 border-2 border-background"
       aria-label="Promo preview library"
     >
-      {/* div - 1 */}
       <div className="border-dashed">
         <div className="p-4 md:p-6">
           <p
             ref={splitTextRef}
-            className="text-sm text-muted-foreground leading-relaxed text-center font-space-grotestk"
+            className="text-lg text-muted-foreground leading-relaxed text-center font-space-grotestk"
           >
             My{" "}
             <Link
@@ -167,13 +165,7 @@ export default function PromoPreviewSection() {
         <Separator className=" bg-teal-500" />
       </div>
 
-      {/* div - 2 */}
-      <div
-        className={cn(
-          "flex flex-row flex-wrap gap-3",
-          "[&>*]:min-w-[180px] [&>*]:grow [&>*]:shrink-0"
-        )}
-      >
+      <div className="flex flex-col flex-wrap md:grid md:grid-cols-3 gap-3">
         {MOCK_STATS.map((item, i) => (
           <div
             key={i}
