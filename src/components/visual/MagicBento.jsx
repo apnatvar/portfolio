@@ -658,7 +658,7 @@ const MagicBento = ({
           })}
         </div>
       </BentoCardGrid>
-      <p className="hidden md:block text-xs text-amber-400 font-orbitron text-center">Hover Above!</p>    
+      <p className="hidden md:block text-xs text-amber-400 font-orbitron text-center">Hover Around!</p>    
       <p className="block md:hidden text-xs text-amber-400 font-orbitron text-center">Bento Grids are best viewed on Desktops!</p>
     </>
   );

@@ -17,7 +17,7 @@ import { FaPython, FaDatabase, FaGitAlt, FaDocker } from "react-icons/fa6";
 import Link from "next/link";
 import SplitText from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 type IconCmp = React.ComponentType<{ className?: string }>;
 type SkillItem = { name: string; icon: IconCmp };
@@ -62,10 +62,10 @@ export default function SkillPage() {
       const leftCol = leftColRef.current!;
       const rightCol = rightColRef.current!;
       const leftItems = Array.from(
-        leftCol.querySelectorAll<HTMLElement>('[data-skill-item="left"]')
+        leftCol.querySelectorAll<HTMLElement>('[data-skill-item="left"]'),
       );
       const rightItems = Array.from(
-        rightCol.querySelectorAll<HTMLElement>('[data-skill-item="right"]')
+        rightCol.querySelectorAll<HTMLElement>('[data-skill-item="right"]'),
       );
 
       if (centerRef.current) {
@@ -83,7 +83,7 @@ export default function SkillPage() {
           .fromTo(
             centerRef.current!,
             { y: 28, opacity: 0 },
-            { y: 0, opacity: 1, ease: "power4.out" }
+            { y: 0, opacity: 1, ease: "power4.out" },
           )
           .to(centerRef.current!, { y: -38, opacity: 0, ease: "power4.in" });
       }
@@ -115,7 +115,7 @@ export default function SkillPage() {
               1,
               0,
               minScale,
-              maxScale
+              maxScale,
             )(Math.abs(n));
             const o = gsap.utils.mapRange(1, 0, 0.28, 1)(Math.abs(n));
 
@@ -148,18 +148,17 @@ export default function SkillPage() {
       });
 
       gsap.from(split.words, {
-        xPercent: -100,
+        x: -300,
         opacity: 0,
         ease: "power3.out",
-        duration: 2,
         stagger: {
-          each: 0.05,
+          each: 0.1,
           from: "start",
         },
         scrollTrigger: {
           trigger: headingRef.current,
-          start: "top 50%",
-          invalidateOnRefresh: true,
+          start: "top 90%",
+          scrub: true,
         },
       });
     }, rootRef);
