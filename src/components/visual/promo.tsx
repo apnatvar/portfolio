@@ -15,15 +15,14 @@ gsap.registerPlugin(ScrollTrigger, CustomEase);
 type StatItem = {
   label: string;
   value: number;
-  suffix?: string; // e.g., "+", "k", "%"
+  suffix?: string;
 };
 
 function daysSinceDate(targetDate: Date): number {
-  const today = new Date(); // Get the current date
-  const timeDifference = today.getTime() - targetDate.getTime(); // Difference in milliseconds
-  const millisecondsPerDay = 1000 * 60 * 60 * 24; // Milliseconds in one day
+  const today = new Date();
+  const timeDifference = today.getTime() - targetDate.getTime();
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
 
-  // Calculate the number of days and round down to get whole days
   const daysSince = Math.floor(timeDifference / millisecondsPerDay);
 
   return daysSince;
@@ -72,7 +71,7 @@ export default function PromoPreviewSection() {
         scaleX: 0,
         ease: "none",
       },
-      0
+      0,
     );
 
     const split = new SplitText(splitTextRef.current, { type: "lines" });
@@ -84,9 +83,9 @@ export default function PromoPreviewSection() {
       },
     });
     tl2.from(split.lines, {
-      y: 30,
+      y: -30,
       opacity: 0,
-      stagger: -0.4,
+      stagger: 0.4,
     });
 
     valueRefs.current.forEach((el, idx) => {
@@ -99,14 +98,14 @@ export default function PromoPreviewSection() {
           duration: 5,
           ease: CustomEase.create(
             "custom",
-            "M0,0 C0.084,0.61 0.052,0.728 0.118,0.782 0.194,0.844 0.374,1 1,1 "
+            "M0,0 C0.084,0.61 0.052,0.728 0.118,0.782 0.194,0.844 0.374,1 1,1 ",
           ),
           onUpdate: () => {
             if (!el) return;
             el.textContent = Math.floor(obj.n).toString();
           },
         },
-        0
+        0,
       );
     });
 

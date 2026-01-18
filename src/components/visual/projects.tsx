@@ -176,15 +176,24 @@ export default function ProjectCarouselCard({
             ref={addToCardRefs}
           >
             <CardContent className="p-4">
-              <Link
-                href={s.projectLink}
-                className="text-lg font-semibold leading-tight"
-              >
-                <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
-                  {s.title}
-                </span>{" "}
-                <FaLink className="inline-block text-amber-500 font-orbitron" />
-              </Link>
+              {s.projectLink === "unavailable" ? (
+                <div className="text-xl font-semibold leading-tight">
+                  <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
+                    {s.title}
+                  </span>{" "}
+                  <Badge className="text-xs">Proprietary Code</Badge>
+                </div>
+              ) : (
+                <Link
+                  href={s.projectLink}
+                  className="text-xl font-semibold leading-tight"
+                >
+                  <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
+                    {s.title}
+                  </span>{" "}
+                  <FaLink className="inline-block text-amber-500 font-orbitron" />
+                </Link>
+              )}
 
               <div className="flex flex-row flex-wrap gap-1 pt-2 pb-3 scale-95">
                 {s.tools.map((t, ti) => (
@@ -241,12 +250,12 @@ export default function ProjectCarouselCard({
                 >
                   <CardContent className="p-5">
                     <div className="flex items-center justify-between gap-3">
-                      {s.projectLink === `unavailable` ? (
+                      {s.projectLink === "unavailable" ? (
                         <div className="text-xl font-semibold leading-tight">
                           <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
                             {s.title}
                           </span>{" "}
-                          <span className="text-xs">Proprietary Code</span>
+                          <Badge className="text-xs">Proprietary Code</Badge>
                         </div>
                       ) : (
                         <Link
