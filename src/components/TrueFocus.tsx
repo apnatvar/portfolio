@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 interface TrueFocusProps {
   sentence?: string;
@@ -24,7 +25,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
   separator = " ",
   manualMode = false,
   blurAmount = 5,
-  borderColor = "green",
+  borderColor = "yellow",
   glowColor = "rgba(0, 255, 0, 0.6)",
   animationDuration = 0.5,
   pauseBetweenAnimations = 1,
@@ -96,7 +97,10 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
             ref={(el) => {
               wordRefs.current[index] = el;
             }}
-            className="relative text-[1.5rem] md:text-[3rem] font-black cursor-pointer"
+            className={cn(
+              "relative text-[1.5rem] md:text-[3rem] font-black",
+              `${isActive ? "text-green-600" : ""}`,
+            )}
             style={
               {
                 filter: manualMode

@@ -104,7 +104,7 @@ const LetterGlitch = ({
   const interpolateColor = (
     start: { r: number; g: number; b: number },
     end: { r: number; g: number; b: number },
-    factor: number
+    factor: number,
   ) => {
     const result = {
       r: Math.round(start.r + (end.r - start.r) * factor),
@@ -205,7 +205,7 @@ const LetterGlitch = ({
           letter.color = interpolateColor(
             startRgb,
             endRgb,
-            letter.colorProgress
+            letter.colorProgress,
           );
           needsRedraw = true;
         }
@@ -275,7 +275,7 @@ const LetterGlitch = ({
             end: "top top", // or "+=100vh" for a fixed distance
             scrub: 1,
           },
-        }
+        },
       );
     }, canvasRef);
     return () => ctx.revert();
@@ -291,7 +291,7 @@ const LetterGlitch = ({
         <Card className="bg-background/75 ring-1 ring-green-600 rounded-4xl h-full backdrop-blur-[1px] content-center justify-around gap-0 ">
           <CardHeader>
             <p
-              className="text-xs text-center text-amber-500 font-orbitron"
+              className="text-xs text-center text-amber-400 font-orbitron"
               id="contactme"
             >
               Connect to My Mainframe
@@ -322,7 +322,7 @@ const LetterGlitch = ({
             </ul>
           </CardContent>
           <CardFooter>
-            <p className="text-xs text-center text-amber-500 font-orbitron mx-auto">
+            <p className="text-xs text-center text-amber-400 font-orbitron mx-auto">
               The Simulation is always running.
             </p>
           </CardFooter>

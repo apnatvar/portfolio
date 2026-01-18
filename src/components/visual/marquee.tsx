@@ -25,19 +25,13 @@ export default function ScrollStarWords() {
         />
       </Link>
       <div className="hidden md:block">
-        <TrueFocus
-          sentence={words}
-          manualMode={true}
-          blurAmount={5}
-          borderColor="green"
-        />
+        <TrueFocus sentence={words} manualMode={true} blurAmount={5} />
       </div>
       <div className="block md:hidden">
         <TrueFocus
           sentence={words}
           manualMode={false}
           blurAmount={3}
-          borderColor="green"
           animationDuration={1}
           pauseBetweenAnimations={0}
         />
