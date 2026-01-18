@@ -6,9 +6,9 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import SplitText from "gsap/SplitText";
 import VerticalNavButtons from "@/components/visual/nav";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HeroBackground from "./reworkedSentinel";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
+import Antigravity from "../Antigravity";
 
 gsap.registerPlugin(
   ScrollToPlugin,
@@ -30,6 +30,8 @@ export default function HeroPage() {
   const engWord = "Apnatva";
   const pron = "/ˈʌp.nəː.tvə/";
 
+  const [showContent, setShowContent] = useState(false);
+
   const devRefs = useRef<HTMLHeadingElement[]>([]);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const engRef = useRef<HTMLDivElement | null>(null);
@@ -48,7 +50,10 @@ export default function HeroPage() {
     const ctx = gsap.context(() => {
       gsap.set(pronRef.current, { opacity: 0, y: 8 });
       gsap.set(ctaRef.current, { opacity: 0, x: -50 });
-      const tl = gsap.timeline({ defaults: { ease: "power4.in" } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power4.in" },
+        onComplete: () => setShowContent(true),
+      });
 
       if (fadeRef.current) {
         tl.to(fadeRef.current, {
@@ -134,15 +139,20 @@ export default function HeroPage() {
         charsClass: "split-char",
       });
 
-      gsap.from(split.chars, {
-        xPercent: -100,
-        opacity: 0,
-        duration: 3,
-        ease: "power3.out",
-        stagger: {
-          each: 0.2,
-          from: "start",
-        },
+      split.chars.forEach((char) => {
+        gsap.from(char, {
+          opacity: 0.1,
+          scale: gsap.utils.random(0, 3, 1),
+          transformOrigin: `center ${gsap.utils.random(10, 100, 10)}%`,
+          x: gsap.utils.random(-100, 100, 10),
+          rotateZ: gsap.utils.random(-180, 180, 90),
+          duration: 4,
+          ease: "power3.out",
+          stagger: {
+            each: 1,
+            from: "end",
+          },
+        });
       });
     });
 
@@ -152,24 +162,40 @@ export default function HeroPage() {
   return (
     <>
       <section className="w-full mb-20">
-        <div
-          ref={fadeRef}
-          className="w-full h-full absolute inset-0 z-0 pointer-events-none"
-        >
-          {/* <HeroBackground /> */}
+        <div className="w-full h-full absolute inset-0 z-5 opacity-40">
+          <Antigravity
+            count={910}
+            magnetRadius={15}
+            ringRadius={15}
+            waveSpeed={1.9}
+            waveAmplitude={4.5}
+            particleSize={1.5}
+            lerpSpeed={0.38}
+            color="#43a047"
+            autoAnimate={true}
+            particleVariance={0.7}
+            rotationSpeed={0.1}
+            depthFactor={2.3}
+            pulseSpeed={4.5}
+            particleShape="sphere"
+            fieldStrength={30}
+          />
         </div>
-        <div ref={rootRef} className="mx-auto relative z-10 px-4 py-6 md:py-2">
+        <div
+          ref={rootRef}
+          className="mx-auto relative z-10 px-4 py-6 md:py-2 pointer-events-none"
+        >
           <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col gap-5 md:gap-0 md:flex-row justify-between">
             <div className="min-w-2/3">
               {Object.keys(devWord).map((word, idx) => (
-                <div key={idx} className="relative w-fit">
+                <div key={idx} className={cn("relative w-fit", `z-${idx}`)}>
                   <h1
                     ref={addToDevRefs}
                     onMouseEnter={() => setHoveredWordIdx(idx)}
                     onMouseLeave={() =>
                       setHoveredWordIdx((v) => (v === idx ? 4 : v))
                     }
-                    className="font-amita text-foreground/90 leading-[2] md:leading-[1.18] tracking-wide text-8xl md:text-9xl"
+                    className="font-amita text-foreground/90 leading-[2] md:leading-[1.18] tracking-[3.3] text-8xl md:text-9xl pointer-events-auto"
                   >
                     {devWord[word]}
                   </h1>
@@ -180,10 +206,11 @@ export default function HeroPage() {
                       "absolute top-0 -right-15 z-10",
                       "pointer-events-none",
                       "text-xs font-orbitron whitespace-nowrap",
-                      "transition-transform duration-1000 ease-out",
+                      "transition-all duration-1000 ease-out",
                       hoveredWordIdx === idx
                         ? "translate-x-0"
                         : "-translate-x-10",
+                      showContent ? "opacity-100" : "opacity-0",
                     )}
                   >
                     {hoveredWordIdx === idx ? word : word[0]}
@@ -195,6 +222,8 @@ export default function HeroPage() {
                       "absolute top-8 -right-15 z-10",
                       "pointer-events-none",
                       "text-xs font-orbitron whitespace-nowrap",
+                      "transition-opacity duration-1000 ease-out",
+                      showContent ? "opacity-100" : "opacity-0",
                     )}
                   >
                     {word}
@@ -222,7 +251,7 @@ export default function HeroPage() {
 
                 <div
                   ref={meaningRef}
-                  className="mt-6 font-unbounded leading-[1.35] text-foreground text-[clamp(0.95rem,1.2vw,1.05rem)] split"
+                  className="mt-6 font-unbounded leading-[1.35] text-foreground text-[clamp(0.95rem,1.2vw,1.05rem)] split pointer-events-auto"
                 >
                   1. sense of belonging
                   <br />
@@ -232,7 +261,7 @@ export default function HeroPage() {
                 </div>
               </div>
               <div className="flex justify-end">
-                <VerticalNavButtons className="w-fit relative" />
+                <VerticalNavButtons className="w-fit relative pointer-events-auto" />
               </div>
             </div>
           </div>
