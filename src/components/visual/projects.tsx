@@ -22,13 +22,13 @@ type Slide = {
 const MOCK_SLIDES: Slide[] = [
   {
     title: "AI Traffic System",
-    desc: "FYP built to minimise reliance of automated traffic systems on street-level hardware like cameras bringing down setup and running costs while optimising algorithmic inputs.",
+    desc: "Built as a part of my Final Year Thesis. The aim of the project was to decrease the reliance on hardware for automated traffic management. The algorithm relies on available GPS data from services like Google Maps for lane and traffic density. THe information is then processed via a Neural Net, training the Multi-Agent model using reinforcement learning techniques to minimise metrics like average wait times, and average queue length. The model was built using Python and PyTorch training the model from base. The simulation was ran on SUMO across 7 maps of varying complexity to track the success of the algorithm. Achieved a First Class Honours on this work.",
     projectLink: "https://github.com/apnatvar/adaptive-traffic-control",
     tools: ["Python", "PyTorch", "SUMO"],
   },
   {
     title: "Cyclistic Data Analysis",
-    desc: "Technical Project analysing company data using technical and visual analysis, following up with insights and recommendations regarding SLG.",
+    desc: "Technical Project completed as part of the Google Data Analytics Certificate. The project demanded collection of yearly data in CSV format. The data was (E)xtracted, (L)oaded into an MSSQL database, and (T)ransformed for consistency and correctness. The data was analysed via Python scripts and Tableau visualisations to analyse daily, weekly, and monthly trends in data drawing insights and forming recommendations. The summarised data was loaded and visualised in Excel and exported to PowerPoint for the final presentation.",
     projectLink: "https://github.com/apnatvar/analytics/tree/main/Cyclistic",
     tools: ["Python", "SQL", "Pandas", "Tableau"],
   },
@@ -40,7 +40,7 @@ const MOCK_SLIDES: Slide[] = [
   // },
   {
     title: "Emissions Tracking Software",
-    desc: "MVP to publicly track and record emissions using Blockchain technology incentivising the users to drive conciously and responsibly.",
+    desc: "Group project completed as part of the Computer Networking Module at Trinity College Dublin. Leveraged a Raspberry Pi on a LAN to connect multiple devices to a blockchain. Demonstrated usecase of tracking car emissions on a blockchain to for public access and strictness. Used Python multi-threading to handle concurrent collections, block hash secured with SHA-256, SQLite to store and retrieve standard emission rates for cars, and auto-update blocks after every trip.",
     projectLink:
       "https://github.com/apnatvar/Computer-Networking/tree/main/Project%202",
     tools: ["Python", "SQL", "Networking"],
@@ -52,23 +52,23 @@ const MOCK_SLIDES: Slide[] = [
   // },
   {
     title: "ML Data Lake",
-    desc: "Web Scraper collecting data from multiple online sources based on requested keywords to drive sentiment analysis training.",
-    projectLink: "",
+    desc: "Built a web scraper to scrape data in multiple Indian languages from Social Platforms like Facebook, Twitter, Google News, etc. Data was cleaned and stored in an MSSQL database to prepare to be fed into a LLM for processing and report the sentiment analysis of the public on specified topics. Used Python and Selenium to build the scraper handling data with standard REST APIs and browser scraping. Worked solo on the project developing a small GUI as well to aid the non-tech users in using the underlying technology.",
+    projectLink: "unavailable",
     tools: ["Python", "Selenium", "SQL"],
   },
   {
     title: "Excel Automation Application",
-    desc: "Freelance project to consolidate financial data and enabling simpler and faster insight extraction via a Desktop GUI.",
+    desc: "Completed as part of a Freelancing job. Built a Python-based script (using only NumPy and Pandas) packaged with PyInstaller as a `.exe` to install on Windows and run independently. Consolidated data from 34 (files) x 5 (sheets) into 5 files. Reduced processing times from several days to minutes. Added features for after-processing to reduce even more human efforts in consolidating and cleaning data. Set up Excel macros to transform the final data into the required format, eliminating the need for manual work.",
     projectLink:
       "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py",
     tools: ["Python", "Pandas", "Tkinter"],
   },
-  // {
-  //   title: "Campagne",
-  //   desc: "Platform for managing Social Media for brands and/or marketing agencies.",
-  //   projectLink: "https://www.google.com",
-  //   tools: ["TypeScript", "PayloadCMS"],
-  // },
+  {
+    title: "Sample UI Blocks",
+    desc: "Pre-cursor to a template based website builder. Offers a look into standalone components and blocks built with Shadcn primitives and styled with Tailwind. The components are built for reuse and utilise props and dynamically genreates them to let the user extend the functionality without any code changes. Currently hosted on vercel, and offering previews only at the moment.",
+    projectLink: "https://samples-ap.vercel.app/",
+    tools: ["TypeScript", "Next.js", "Shadcn", "Tailwind CSS"],
+  },
   // {
   //   title: "Prompterest",
   //   desc: "Pinterest inspired platform focussing on collecting and sharing prompts to provide guidelines for complex tasks.",
@@ -168,7 +168,6 @@ export default function ProjectCarouselCard({
         Solo & Group Projects
       </p>
 
-      {/* Mobile: single grid, fully visible cards */}
       <div className="md:hidden w-full max-w-5xl mx-auto grid grid-cols-1 gap-3">
         {slides.map((s: Slide, i: number) => (
           <Card
@@ -207,14 +206,12 @@ export default function ProjectCarouselCard({
         ))}
       </div>
 
-      {/* Desktop: long vertical list, alternating left/right with offsets + hover expand */}
       <div className="hidden md:block w-full max-w-5xl mx-auto">
         <div className="flex flex-col gap-6">
           {slides.map((s: Slide, i: number) => {
             const isLeft = i % 2 === 0;
             const isOpen = expanded === i;
 
-            // asymmetry offsets (slight, alternating)
             const offsetX = isLeft ? "md:-translate-x-8" : "md:translate-x-8";
             const offsetY =
               i % 3 === 0
@@ -243,24 +240,30 @@ export default function ProjectCarouselCard({
                   onBlur={() => setExpanded((v) => (v === i ? null : v))}
                 >
                   <CardContent className="p-5">
-                    {/* Always visible: Title + link */}
                     <div className="flex items-center justify-between gap-3">
-                      <Link
-                        href={s.projectLink}
-                        className="text-xl font-semibold leading-tight"
-                      >
-                        <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
-                          {s.title}
-                        </span>{" "}
-                        <FaLink className="inline-block text-amber-500 font-orbitron" />
-                      </Link>
-
+                      {s.projectLink === `unavailable` ? (
+                        <div className="text-xl font-semibold leading-tight">
+                          <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
+                            {s.title}
+                          </span>{" "}
+                          <span className="text-xs">Proprietary Code</span>
+                        </div>
+                      ) : (
+                        <Link
+                          href={s.projectLink}
+                          className="text-xl font-semibold leading-tight"
+                        >
+                          <span className="underline underline-offset-2 decoration-teal-500 hover:text-teal-500 font-libre">
+                            {s.title}
+                          </span>{" "}
+                          <FaLink className="inline-block text-amber-500 font-orbitron" />
+                        </Link>
+                      )}
                       <span className="text-xs text-muted-foreground font-space-grotestk">
                         {i + 1} of {slides.length}
                       </span>
                     </div>
 
-                    {/* Hover-reveal: tools + desc */}
                     <div
                       className={[
                         "overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-out",
