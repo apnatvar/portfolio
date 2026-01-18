@@ -98,7 +98,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
               wordRefs.current[index] = el;
             }}
             className={cn(
-              "relative text-[1.5rem] md:text-[3rem] font-black",
+              "relative text-[1.5rem] md:text-[3rem] font-unbounded",
               `${isActive ? "text-green-600" : ""}`,
             )}
             style={

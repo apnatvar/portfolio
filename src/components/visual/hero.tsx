@@ -173,17 +173,28 @@ export default function HeroPage() {
                   >
                     {devWord[word]}
                   </h1>
-
                   <Badge
                     variant="secondary"
                     className={cn(
+                      "hidden md:block",
                       "absolute top-0 -right-15 z-10",
                       "pointer-events-none",
                       "text-xs font-orbitron whitespace-nowrap",
-                      "transition-all duration-700 ease-out",
+                      "transition-transform duration-1000 ease-out",
                       hoveredWordIdx === idx
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-20",
+                        ? "translate-x-0"
+                        : "-translate-x-10",
+                    )}
+                  >
+                    {hoveredWordIdx === idx ? word : word[0]}
+                  </Badge>
+                  <Badge
+                    variant="secondary"
+                    className={cn(
+                      "md:hidden block",
+                      "absolute top-8 -right-15 z-10",
+                      "pointer-events-none",
+                      "text-xs font-orbitron whitespace-nowrap",
                     )}
                   >
                     {word}
