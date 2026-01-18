@@ -1,33 +1,35 @@
 "use client";
-// import Lightning from "@/components/visual/Lightning";
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import SplitText from "gsap/SplitText";
 import VerticalNavButtons from "@/components/visual/nav";
-// import { useIsMobile } from "@/hooks/isMobile";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import MagicBento from "@/components/visual/MagicBento";
-// import MothsToFlame from "./moth-to-a-flame";
 import HeroBackground from "./reworkedSentinel";
-// import Lightning from "./Lightning";
+import { Badge } from "../ui/badge";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(
   ScrollToPlugin,
   ScrambleTextPlugin,
   SplitText,
-  ScrollTrigger
+  ScrollTrigger,
 );
 
 type AnyTween = gsap.TweenVars & Record<string, unknown>;
 
 export default function HeroPage() {
-  // const isMobile = useIsMobile();
-  const devWord = ["अपनत्व", "सिंह", "रावत"];
-  // const devWord = ["test1234789", "test2", "test345"];
+  const [hoveredWordIdx, setHoveredWordIdx] = useState<number>(4);
+
+  const devWord: { [key: string]: string } = {
+    Apnatva: "अपनत्व",
+    Singh: "सिंह",
+    Rawat: "रावत",
+  };
   const engWord = "Apnatva";
   const pron = "/ˈʌp.nəː.tvə/";
+
   const devRefs = useRef<HTMLHeadingElement[]>([]);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const engRef = useRef<HTMLDivElement | null>(null);
@@ -35,11 +37,13 @@ export default function HeroPage() {
   const meaningRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLDivElement | null>(null);
   const fadeRef = useRef<HTMLDivElement | null>(null);
+
   const addToDevRefs = (el: HTMLImageElement) => {
     if (el) {
       devRefs.current.push(el);
     }
   };
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(pronRef.current, { opacity: 0, y: 8 });
@@ -69,7 +73,7 @@ export default function HeroPage() {
             speed: 0.8,
           },
         } as AnyTween,
-        0
+        0,
       );
       tl.to(pronRef.current, { opacity: 1, y: 0, duration: 2 }, 0.1);
       tl.to(ctaRef.current, { opacity: 1, x: 0, duration: 1 }, ">-0.1");
@@ -83,21 +87,30 @@ export default function HeroPage() {
 
       if (split.lines[0])
         split.lines[0].classList.add(
+          "animate-pulse",
+          "hover:animate-none",
           "text-accent-foreground",
+          "hover:text-secondary-foreground",
           "text-lg",
-          "md:text-xl"
+          "md:text-xl",
         );
       if (split.lines[1])
         split.lines[1].classList.add(
-          "text-secondary-foreground",
+          "animate-pulse",
+          "hover:animate-none",
+          "text-accent-foreground",
+          "hover:text-secondary-foreground",
           "text-lg",
-          "md:text-xl"
+          "md:text-xl",
         );
       if (split.lines[2])
         split.lines[2].classList.add(
+          "animate-pulse",
+          "hover:animate-none",
           "text-accent-foreground",
+          "hover:text-secondary-foreground",
           "text-lg",
-          "md:text-xl"
+          "md:text-xl",
         );
 
       gsap.from(split.lines, {
@@ -138,32 +151,44 @@ export default function HeroPage() {
 
   return (
     <>
-      <section className="w-full min-h-[200dvh] h-fit">
+      <section className="w-full mb-20">
         <div
           ref={fadeRef}
           className="w-full h-full absolute inset-0 z-0 pointer-events-none"
         >
-          {/* <Lightning
-            hue={100}
-            xOffset={-1.2}
-            speed={0.8}
-            intensity={0.5}
-            size={2}
-          /> */}
-          {/* <MothsToFlame className="min-w-full min-h-full" /> */}
-          <HeroBackground />
+          {/* <HeroBackground /> */}
         </div>
         <div ref={rootRef} className="mx-auto relative z-10 px-4 py-6 md:py-2">
           <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col gap-5 md:gap-0 md:flex-row justify-between">
             <div className="min-w-2/3">
-              {devWord.map((word, idx) => (
-                <h1
-                  key={idx}
-                  ref={addToDevRefs}
-                  className="font-amita text-foreground/90 leading-[2] md:leading-[1.18] tracking-wide text-8xl md:text-9xl md:max-w-[70%]"
-                >
-                  {word}
-                </h1>
+              {Object.keys(devWord).map((word, idx) => (
+                <div key={idx} className="relative w-fit">
+                  <h1
+                    ref={addToDevRefs}
+                    onMouseEnter={() => setHoveredWordIdx(idx)}
+                    onMouseLeave={() =>
+                      setHoveredWordIdx((v) => (v === idx ? 4 : v))
+                    }
+                    className="font-amita text-foreground/90 leading-[2] md:leading-[1.18] tracking-wide text-8xl md:text-9xl"
+                  >
+                    {devWord[word]}
+                  </h1>
+
+                  <Badge
+                    variant="secondary"
+                    className={cn(
+                      "absolute top-0 -right-15 z-10",
+                      "pointer-events-none",
+                      "text-xs font-orbitron whitespace-nowrap",
+                      "transition-all duration-700 ease-out",
+                      hoveredWordIdx === idx
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-20",
+                    )}
+                  >
+                    {word}
+                  </Badge>
+                </div>
               ))}
             </div>
 
@@ -199,20 +224,12 @@ export default function HeroPage() {
                 <VerticalNavButtons className="w-fit relative" />
               </div>
             </div>
-
-            <div
-              ref={ctaRef}
-              className="mt-6 md:mt-0 md:absolute md:right-0 md:bottom-0"
-            ></div>
           </div>
         </div>
 
         <p className="text-xs text-amber-400 font-orbitron text-center mt-5 md:mt-0">
           Searching for memorable designs.
         </p>
-        <div className="justify-items-center mt-40 md:mt-10">
-          <MagicBento />
-        </div>
       </section>
     </>
   );

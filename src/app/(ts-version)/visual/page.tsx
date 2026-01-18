@@ -9,12 +9,15 @@ import ProjectCarouselCard from "@/components/visual/projects";
 import PromoPreviewSection from "@/components/visual/promo";
 import FuturePlans from "@/components/visual/road-map-v2";
 import FlowingGallery from "@/components/visual/photo-gallery-2";
+import MagicBento from "@/components/visual/MagicBento";
 export default function Page() {
   return (
     <>
       <HeroPage />
-      <div className="mt-30"></div>
       <InfiniteDualMarquee />
+      <div className="justify-items-center mt-40 md:mt-10">
+        <MagicBento />
+      </div>
       <SkillPage />
       <ProjectCarouselCard />
       <FuturePlans />
