@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export type NavItem = {
   label: string;
-  targetId: string; // e.g., "features"
+  targetId: string;
   speed: number;
 };
 
@@ -46,12 +46,12 @@ export default function VerticalNavButtons({
         scrollTo: { y: selector, offsetY },
       });
     },
-    [offsetY]
+    [offsetY],
   );
 
   return (
     <div
-      className={["flex flex-col gap-2", className].filter(Boolean).join(" ")}
+      className={["flex flex-row gap-2", className].filter(Boolean).join(" ")}
     >
       {items.map((item, i) => {
         return (

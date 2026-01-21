@@ -260,7 +260,7 @@ export default function HeroPage() {
                   3. oneness
                 </div>
               </div>
-              <div className="flex justify-end">
+              <div className="flex justify-start">
                 <VerticalNavButtons className="w-fit relative pointer-events-auto" />
               </div>
             </div>
