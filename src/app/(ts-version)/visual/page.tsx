@@ -10,9 +10,12 @@ import PromoPreviewSection from "@/components/visual/promo";
 import FuturePlans from "@/components/visual/road-map-v2";
 import FlowingGallery from "@/components/visual/photo-gallery-2";
 import MagicBento from "@/components/visual/MagicBento";
+import { FloatingOrbitalMenu } from "@/components/visual/fixed-menu";
+
 export default function Page() {
   return (
     <>
+      <FloatingOrbitalMenu />
       <HeroPage />
       <InfiniteDualMarquee />
       <div className="justify-items-center mt-40 md:mt-10">
