@@ -11,9 +11,9 @@ export default function SmoothScrollProvider({
   useEffect(() => {
     const lenis = new Lenis({
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.2,
-      lerp: 0.1,
+      wheelMultiplier: 1.5,
+      touchMultiplier: 1.1,
+      lerp: 0.05,
     });
     function raf(time: number) {
       lenis.raf(time);
