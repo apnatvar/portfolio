@@ -94,7 +94,7 @@ export default function HeroPage() {
         split.lines[0].classList.add(
           "animate-pulse",
           "hover:animate-none",
-          "text-accent-foreground",
+          "text-white/60",
           "hover:text-secondary-foreground",
           "text-lg",
           "md:text-xl",
@@ -103,7 +103,7 @@ export default function HeroPage() {
         split.lines[1].classList.add(
           "animate-pulse",
           "hover:animate-none",
-          "text-accent-foreground",
+          "text-white/60",
           "hover:text-secondary-foreground",
           "text-lg",
           "md:text-xl",
@@ -112,7 +112,7 @@ export default function HeroPage() {
         split.lines[2].classList.add(
           "animate-pulse",
           "hover:animate-none",
-          "text-accent-foreground",
+          "text-white/60",
           "hover:text-secondary-foreground",
           "text-lg",
           "md:text-xl",
@@ -195,7 +195,7 @@ export default function HeroPage() {
                     onMouseLeave={() =>
                       setHoveredWordIdx((v) => (v === idx ? 4 : v))
                     }
-                    className="font-amita text-foreground/90 leading-[2] md:leading-[1.18] tracking-[3.3] text-8xl md:text-9xl pointer-events-auto"
+                    className="font-amita text-white/80 leading-[2] md:leading-[1.18] tracking-[3.3] text-8xl md:text-9xl pointer-events-auto"
                   >
                     {devWord[word]}
                   </h1>

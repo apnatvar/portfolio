@@ -26,7 +26,7 @@ export interface VerticalNavButtonsProps {
 export default function VerticalNavButtons({
   items = [
     { label: "Summary", targetId: "summary", speed: 0.5 },
-    { label: "Work", targetId: "work", speed: 1.2 },
+    { label: "Work", targetId: "projects", speed: 1.2 },
     {
       label: "Say Hello",
       targetId: "contactme",

@@ -154,6 +154,7 @@ export default function ProjectCarouselCard({
     <section
       className="relative mx-auto min-h-[60dvh] h-fit w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10"
       aria-label="Projects"
+      id="projects"
     >
       <h1
         ref={headingRef}

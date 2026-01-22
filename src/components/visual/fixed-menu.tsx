@@ -68,7 +68,7 @@ export function FloatingOrbitalMenu() {
         id: "work",
         label: "Projects",
         icon: <BriefcaseBusiness className="h-4 w-4" />,
-        href: "#work",
+        href: "#projects",
       },
       {
         id: "contact",
