@@ -11,6 +11,7 @@ import FuturePlans from "@/components/visual/road-map-v2";
 import FlowingGallery from "@/components/visual/photo-gallery-2";
 import MagicBento from "@/components/visual/MagicBento";
 import { FloatingOrbitalMenu } from "@/components/visual/fixed-menu";
+import ProcessRolodexSection from "@/components/visual/services";
 
 export default function Page() {
   return (
@@ -18,9 +19,10 @@ export default function Page() {
       <FloatingOrbitalMenu />
       <HeroPage />
       <InfiniteDualMarquee />
-      <div className="justify-items-center mt-40 md:mt-10">
+      <div className="justify-items-center mx-auto px-5 mt-40 md:mt-10">
         <MagicBento />
       </div>
+      <ProcessRolodexSection />
       <SkillPage />
       <ProjectCarouselCard />
       <FuturePlans />

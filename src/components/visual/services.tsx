@@ -29,36 +29,37 @@ export default function ProcessRolodexSection() {
         stepLabel: "Step-1",
         title: "Discovery & Requirements",
         bullets: [
-          "Stakeholder goals, success metrics, constraints",
+          "Defining goals and aligning requirements",
           "Audience, positioning, brand voice (draft)",
-          "Sitemap draft + content inventory",
+          "Inspirations, sitemap draft and content inventory",
         ],
       },
       {
         stepLabel: "Step-2",
-        title: "Information Architecture",
+        title: "Wireframes & UX Flows",
         bullets: [
-          "Navigation model and page hierarchy",
-          "Content model and reusable sections",
-          "SEO basics: URL structure, metadata plan",
+          "Low-fidelity layout structure per section and page",
+          "Defining critical requirements",
+          "Mobile-first reworks and accessibility pass",
         ],
       },
       {
         stepLabel: "Step-3",
-        title: "Wireframes & UX Flows",
+        title: "Informative Reconciliation",
         bullets: [
-          "Low-fidelity layout structure per page",
-          "Critical flows: inquiry, signup, checkout (if any)",
-          "Mobile-first constraints and accessibility pass",
+          "Map drafts and ideas to initial requirements",
+          "Content model and reusable sections",
+          "Hosting Plans, data modelling and security discussions",
         ],
       },
+
       {
         stepLabel: "Step-4",
         title: "UI Design System",
         bullets: [
           "Typography scale, spacing, grid rules",
-          "Components: buttons, cards, forms, alerts",
-          "Light/dark tokens and contrast checks",
+          "Brand Guidelines and Logo Asset building",
+          "Building the final UI and defining the UX",
         ],
       },
       {
@@ -75,17 +76,17 @@ export default function ProcessRolodexSection() {
         title: "QA, Performance, SEO",
         bullets: [
           "Cross-browser/device QA + edge cases",
-          "Core Web Vitals pass and bundle trimming",
-          "Indexing, sitemap/robots, structured data (as needed)",
+          "Trial website deployment for client satisfaction",
+          "Rework UI/UX and content as per requirements",
         ],
       },
       {
         stepLabel: "Step-7",
         title: "Deploy & Monitor",
         bullets: [
-          "CI/CD, environment variables, secrets",
-          "CDN caching strategy and redirects",
-          "Uptime + logging + analytics instrumentation",
+          "CI/CD, Docker VPS or Serverless deployments",
+          "Cloudfare CDN caching strategy and redirects",
+          "Optional Uptime + logging + analytics instrumentation",
         ],
       },
     ],
