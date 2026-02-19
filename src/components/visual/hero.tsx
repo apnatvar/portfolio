@@ -161,7 +161,7 @@ export default function HeroPage() {
 
   return (
     <>
-      <section className="w-full mb-20">
+      <section className="relative w-full mb-20">
         <div className="w-full h-full absolute inset-0 z-5 opacity-40">
           <Antigravity
             count={910}
@@ -185,7 +185,7 @@ export default function HeroPage() {
           ref={rootRef}
           className="mx-auto relative z-10 px-4 py-6 md:py-2 pointer-events-none"
         >
-          <div className="relative min-h-[70vh] md:min-h-[75vh] flex flex-col gap-5 md:gap-0 md:flex-row justify-between">
+          <div className="relative h-full flex flex-col gap-5 md:gap-0 md:flex-row justify-between">
             <div className="min-w-2/3">
               {Object.keys(devWord).map((word, idx) => (
                 <div key={idx} className={cn("relative w-fit", `z-${idx}`)}>
@@ -260,7 +260,7 @@ export default function HeroPage() {
                   3. oneness
                 </div>
               </div>
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center md:justify-end md:pr-20">
                 <VerticalNavButtons className="w-fit relative pointer-events-auto" />
               </div>
             </div>
