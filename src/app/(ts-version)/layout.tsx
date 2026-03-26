@@ -187,9 +187,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`max-w-full font-body antialiased overflow-x-hidden ${FONT_VARS}`}
-      >
+      <body className={`mx-auto font-body antialiased ${FONT_VARS}`}>
         <SmoothScrollProvider>
           <ThemeProvider
             attribute="class"
@@ -197,7 +195,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className={`mx-auto max-w-dvw px-2 py-3`}>{children}</main>
+            <main>{children}</main>
           </ThemeProvider>
         </SmoothScrollProvider>
       </body>

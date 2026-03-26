@@ -152,7 +152,7 @@ export default function ProjectCarouselCard({
 
   return (
     <section
-      className="relative mx-auto min-h-[60dvh] h-fit w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10"
+      className="relative mx-auto min-h-[60dvh] h-fit w-full items-center justify-center px-4 md:px-34 py-6 sm:py-10 z-0 overflow-hidden"
       aria-label="Projects"
       id="projects"
     >
@@ -233,12 +233,12 @@ export default function ProjectCarouselCard({
             return (
               <div
                 key={`${s.title}-${i}`}
-                className={`w-full flex ${isLeft ? "justify-start" : "justify-end"}`}
+                className={`flex ${isLeft ? "justify-start" : "justify-end"}`}
                 ref={addToCardRefs}
               >
                 <Card
                   className={[
-                    "group border-2 border-green-600 bg-transparent w-full max-w-3xl",
+                    "group border-2 border-green-600 bg-transparent max-w-3xl",
                     "transition-all duration-300 ease-out",
                     offsetX,
                     offsetY,

@@ -167,10 +167,10 @@ const FlowingGallery: React.FC<Props> = ({
     });
 
     const speeds: number[] = itemRefs.current.map(() =>
-      gsap.utils.random(1, 1.001)
+      gsap.utils.random(1, 1.001),
     );
     const scales: number[] = itemRefs.current.map(() =>
-      gsap.utils.random(0.92, 1.06)
+      gsap.utils.random(0.92, 1.06),
     );
 
     gsap.set(itemRefs.current, {
@@ -201,7 +201,7 @@ const FlowingGallery: React.FC<Props> = ({
           const skew = gsap.utils.clamp(
             -maxSkew,
             maxSkew,
-            (self.getVelocity() / 1000) * maxSkew
+            (self.getVelocity() / 1000) * maxSkew,
           );
           itemRefs.current.forEach((el, i) => {
             const travel = baseTravel * speeds[i];
@@ -226,7 +226,7 @@ const FlowingGallery: React.FC<Props> = ({
         yoyo: true,
         repeat: -1,
         ease: "linear",
-      })
+      }),
     );
 
     const fadeCTX = gsap.context(() => {
@@ -262,8 +262,8 @@ const FlowingGallery: React.FC<Props> = ({
     columns === 4
       ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
       : columns === 2
-      ? "grid-cols-1 md:grid-cols-2"
-      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+        ? "grid-cols-1 md:grid-cols-2"
+        : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
 
   const normalizedCols = useMemo(
     () =>
@@ -273,9 +273,9 @@ const FlowingGallery: React.FC<Props> = ({
           aspect:
             img.aspect ??
             [1, 4 / 5, 3 / 4, 4 / 3][Math.floor(Math.random() * 4)],
-        }))
+        })),
       ),
-    [cols]
+    [cols],
   );
   let idx = 0;
   return (
@@ -307,7 +307,7 @@ const FlowingGallery: React.FC<Props> = ({
           </p>
         </div>
       </section>
-      <section className={`relative min-w-dvw h-fit bg-transparent z-10`}>
+      <section className={`relative w-full h-fit bg-transparent z-10`}>
         <div ref={gridRef} className={`relative z-10 h-full px-4 md:px-8`}>
           <div
             className={`grid ${gridTemplate} ${gapClass} auto-rows-min h-full items-end`}

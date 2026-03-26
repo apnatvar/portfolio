@@ -282,7 +282,7 @@ const LetterGlitch = ({
   });
 
   return (
-    <section className="relative max-w-full h-[100dvh] overflow-hidden">
+    <section className="relative max-w-full h-dvh overflow-hidden">
       <canvas
         ref={canvasRef}
         className="absolute z-10 top-0 left-0 h-full w-full bg-background"

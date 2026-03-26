@@ -118,7 +118,7 @@ export default function PromoPreviewSection() {
   return (
     <section
       ref={sectionRef}
-      className="flex w-full flex-col gap-4 max-w-dvw p-6 border-2 border-background"
+      className="flex w-full flex-col gap-4 p-6 border-2 border-background"
       aria-label="Promo preview library"
     >
       <div className="border-dashed">

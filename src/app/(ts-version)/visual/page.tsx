@@ -16,25 +16,28 @@ import ProcessRolodexSection from "@/components/visual/services";
 export default function Page() {
   return (
     <>
-      <FloatingOrbitalMenu />
-      <HeroPage />
-      <InfiniteDualMarquee />
-      <div className="justify-items-center mx-auto px-5 mt-40 md:mt-10">
-        <MagicBento />
+      <div className="mx-auto max-w-7xl">
+        <FloatingOrbitalMenu />
+
+        <HeroPage />
+        <InfiniteDualMarquee />
+        <div className="flex flex-col justify-center items-center px-5 mt-40 md:mt-10 z-0">
+          <MagicBento />
+        </div>
+        <ProcessRolodexSection />
+        <SkillPage />
+        <ProjectCarouselCard />
+        <FuturePlans />
+        <div className="mt-30"></div>
+        <PromoPreviewSection />
+        <div className="mt-30"></div>
+        <FlowingGallery />
+        <LetterGlitch
+          glitchSpeed={70}
+          glitchColors={["#04bd73", "#156a48", "#222"]}
+          smooth={false}
+        />
       </div>
-      <ProcessRolodexSection />
-      <SkillPage />
-      <ProjectCarouselCard />
-      <FuturePlans />
-      <div className="mt-30"></div>
-      <PromoPreviewSection />
-      <div className="mt-30"></div>
-      <FlowingGallery />
-      <LetterGlitch
-        glitchSpeed={70}
-        glitchColors={["#04bd73", "#156a48", "#222"]}
-        smooth={false}
-      />
     </>
   );
 }

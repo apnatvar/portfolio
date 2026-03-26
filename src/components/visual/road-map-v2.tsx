@@ -293,10 +293,7 @@ export default function FuturePlans() {
             </p>
           </div>
 
-          <div
-            ref={addtoPinRefs}
-            className="relative max-h-full aspect-square md:aspect-auto"
-          >
+          <div ref={addtoPinRefs} className="relative max-h-full aspect-square">
             <Link
               target="_blank"
               href={slide.imageLink}
