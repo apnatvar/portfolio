@@ -59,6 +59,76 @@ const PRINCIPLE_SECTIONS: PrincipleSection[] = [
       "Make the other person happy about doing the thing you suggest.",
     ],
   },
+  {
+    title: "On Power and Authority",
+    principles: [
+      "It is better to be feared than loved, if you cannot be both.",
+      "A ruler must avoid being hated above all else.",
+      "Power is maintained through strength, not goodwill alone.",
+      "People are quick to forget kindness but never forget fear.",
+      "A prince must always appear strong and in control.",
+    ],
+  },
+  {
+    title: "On Human Nature",
+    principles: [
+      "Men are ungrateful, fickle, false, cowardly, and greedy.",
+      "People will support you while it benefits them.",
+      "Loyalty is conditional and often temporary.",
+      "Most people judge by appearances rather than reality.",
+      "He who trusts everyone will be deceived.",
+    ],
+  },
+  {
+    title: "On Strategy and Decision Making",
+    principles: [
+      "A prince must learn how not to be good when necessary.",
+      "Adapt to changing circumstances or risk failure.",
+      "Fortune favors the bold, not the cautious.",
+      "Indecision is more dangerous than making the wrong choice.",
+      "A wise ruler anticipates problems before they arise.",
+    ],
+  },
+  {
+    title: "On Leadership and Control",
+    principles: [
+      "Maintain control through clear structure and authority.",
+      "Reward and punish decisively and without hesitation.",
+      "Delegating blame and keeping credit strengthens leadership.",
+      "Avoid empowering those who may become threats.",
+      "Control the narrative around your rule.",
+    ],
+  },
+  {
+    title: "On Appearances and Reputation",
+    principles: [
+      "It is not necessary to be virtuous, but it is essential to appear so.",
+      "People judge more by what they see than what is true.",
+      "A ruler should appear merciful, faithful, humane, and religious.",
+      "Reputation is a tool for maintaining power.",
+      "Deception, when used carefully, is a political instrument.",
+    ],
+  },
+  {
+    title: "On War and Military",
+    principles: [
+      "A prince must have no objective other than war and its discipline.",
+      "Mercenaries and auxiliaries are unreliable and dangerous.",
+      "Strong armies are the foundation of stable rule.",
+      "Peace is only a preparation for war.",
+      "A ruler who neglects military matters loses power.",
+    ],
+  },
+  {
+    title: "On Stability and Survival",
+    principles: [
+      "Crush threats completely; do not leave room for retaliation.",
+      "New rulers must eliminate former power structures.",
+      "People accept change if their lives improve or remain stable.",
+      "Control over institutions ensures long-term power.",
+      "Survival often requires actions that conflict with morality.",
+    ],
+  },
 ];
 
 export default function CarnegiePrinciples() {
@@ -71,15 +141,7 @@ export default function CarnegiePrinciples() {
           <header className="mx-auto w-full max-w-4xl">
             <Card className="border-white/10 bg-white/8 shadow-2xl backdrop-blur-2xl">
               <CardContent className="px-6 py-8 md:px-10 md:py-10">
-                <div className="flex flex-col gap-4 text-center">
-                  <h1 className="text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-                    How to Win Friends and Influence People
-                  </h1>
-
-                  <p className="text-sm leading-7 text-muted-foreground md:text-base">
-                    Dale Carnegie
-                  </p>
-                </div>
+                <div className="flex flex-col gap-4 text-center"></div>
               </CardContent>
             </Card>
           </header>
