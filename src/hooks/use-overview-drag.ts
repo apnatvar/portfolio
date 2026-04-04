@@ -52,7 +52,7 @@ export function useOverviewDrag({
       minY: Math.min(0, viewportHeight - FIELD_HEIGHT),
       maxY: 0,
     };
-  }, [viewportRef, cards.length]);
+  }, [viewportRef]);
 
   const clampPoint = useCallback(
     (value: Point) => ({

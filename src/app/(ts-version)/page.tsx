@@ -7,7 +7,7 @@ export default function RedirectPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push("/visual"); // Or router.replace()
+      router.push("/visual");
     }, 1000);
     return () => clearTimeout(timer);
   }, [router]);

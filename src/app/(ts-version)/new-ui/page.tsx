@@ -3,21 +3,13 @@
 import { OverviewCanvas } from "@/components/new-ui/overview-canvas";
 import { SectionReader } from "@/components/new-ui/section-reader";
 import { Badge } from "@/components/ui/badge";
-import {
-  portfolioSections,
-  type PortfolioSection,
-} from "@/data/new-ui-sections";
+import { portfolioSections } from "@/data/new-ui-sections";
 import { useMemo, useState } from "react";
 
 type ViewMode = "overview" | "expanded";
 
-type SpatialNavigationShellProps = {
-  sections: PortfolioSection[];
-};
-
-export default function SpatialNavigation({
-  sections = portfolioSections,
-}: SpatialNavigationShellProps) {
+export default function SpatialNavigation({}) {
+  const sections = portfolioSections;
   const [viewMode, setViewMode] = useState<ViewMode>("overview");
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
   const [focusedIndex, setFocusedIndex] = useState(0);
