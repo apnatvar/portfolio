@@ -16,7 +16,7 @@ import ProcessRolodexSection from "@/components/visual/services";
 export default function Page() {
   return (
     <>
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-8xl">
         <FloatingOrbitalMenu />
 
         <HeroPage />
