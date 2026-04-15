@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type PrincipleSection = {
@@ -127,6 +126,106 @@ const PRINCIPLE_SECTIONS: PrincipleSection[] = [
       "People accept change if their lives improve or remain stable.",
       "Control over institutions ensures long-term power.",
       "Survival often requires actions that conflict with morality.",
+    ],
+  },
+  {
+    title: "Self-Image",
+    principles: [
+      "Your self-image determines your behavior and outcomes.",
+      "You cannot outperform your internal identity for long.",
+      "Change the self-image first; results follow automatically.",
+      "The mind acts consistently with how you see yourself.",
+      "Self-acceptance is the foundation of all improvement.",
+    ],
+  },
+  {
+    title: "The Success Mechanism",
+    principles: [
+      "The brain operates as a goal-seeking mechanism.",
+      "Clear goals activate subconscious problem-solving.",
+      "You do not need all answers upfront; direction is sufficient.",
+      "Trust the process once the target is defined.",
+      "Feedback, not perfection, drives progress.",
+    ],
+  },
+  {
+    title: "Imagination and Mental Rehearsal",
+    principles: [
+      "The mind cannot clearly distinguish between real and vividly imagined experiences.",
+      "Mental rehearsal builds familiarity and confidence.",
+      "Repeated visualization conditions expected outcomes.",
+      "Acting 'as if' rewires internal belief systems.",
+      "Imagination sets the blueprint for behavior.",
+    ],
+  },
+  {
+    title: "Failure and Learning",
+    principles: [
+      "Failure is feedback, not identity.",
+      "Mistakes are data for course correction.",
+      "Avoid emotional overreaction to setbacks.",
+      "Detach self-worth from temporary outcomes.",
+      "Success is built through iterative adjustment.",
+    ],
+  },
+  {
+    title: "Rational Thinking",
+    principles: [
+      "Use reason to challenge negative assumptions.",
+      "Separate facts from interpretations.",
+      "Most fears are exaggerated or imagined.",
+      "Objective thinking reduces emotional distortion.",
+      "Clarity comes from questioning automatic thoughts.",
+    ],
+  },
+  {
+    title: "Relaxation and Control",
+    principles: [
+      "Tension blocks effective performance.",
+      "Relaxation improves accuracy and response.",
+      "Over-effort often reduces results.",
+      "Calm focus outperforms forced intensity.",
+      "Control comes from reducing internal resistance.",
+    ],
+  },
+  {
+    title: "Habit and Conditioning",
+    principles: [
+      "Behavior is shaped through repetition.",
+      "New habits require consistent reinforcement.",
+      "Identity shifts through repeated action.",
+      "Small wins accumulate into lasting change.",
+      "Consistency matters more than intensity.",
+    ],
+  },
+  {
+    title: "Confidence and Action",
+    principles: [
+      "Confidence is built through action, not waiting.",
+      "Take action before you feel fully ready.",
+      "Momentum reduces fear.",
+      "Acting despite doubt strengthens belief.",
+      "Courage grows through repeated exposure.",
+    ],
+  },
+  {
+    title: "Emotional Control",
+    principles: [
+      "You can choose responses to external events.",
+      "Emotions follow interpretation, not reality itself.",
+      "Pause before reacting.",
+      "Reframe situations to regain control.",
+      "Stability is a trained skill.",
+    ],
+  },
+  {
+    title: "Purpose and Direction",
+    principles: [
+      "A clear direction organizes behavior.",
+      "Meaningful goals sustain long-term effort.",
+      "Drifting leads to inconsistency and frustration.",
+      "Purpose aligns conscious and subconscious processes.",
+      "Direction reduces internal conflict.",
     ],
   },
 ];
