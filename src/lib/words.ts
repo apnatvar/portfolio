@@ -1,0 +1,18 @@
+export const WORDS = [
+  "Web Development",
+  "Data Visualisation",
+  "Excel Automations",
+  "Web Design",
+  "Copywriting",
+  "Blog and Press releases",
+  "Full-stack Development",
+  "Content Management",
+  "Content Strategy",
+  "UI/UX Design",
+  "Front-end Development",
+  "Social Media Management",
+  "Automations",
+  "Backend Development",
+  "Email Marketing",
+  "Shopify Development",
+];

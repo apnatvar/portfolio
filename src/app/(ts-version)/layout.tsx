@@ -1,21 +1,29 @@
-import { Metadata, Viewport } from "next";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import "@/app/globals.css";
 import SmoothScrollProvider from "@/components/smooth-scroll";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Metadata, Viewport } from "next";
 import {
-  Share_Tech_Mono,
-  Libre_Baskerville,
-  Unbounded,
   Amita,
+  Libre_Baskerville,
+  Manufacturing_Consent,
   Orbitron,
   Playfair_Display,
+  Share_Tech_Mono,
   Space_Grotesk,
+  Unbounded,
 } from "next/font/google";
-import "@/app/globals.css";
 const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
   variable: "--font-share-tech-mono",
+});
+
+const manufacturingConsent = Manufacturing_Consent({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-manufacturing-consent",
 });
 
 const libreBaskerville = Libre_Baskerville({
@@ -70,6 +78,7 @@ const FONT_VARS = [
   orbitron.variable,
   playfairDisplay.variable,
   spaceGrotesk.variable,
+  manufacturingConsent.variable,
 ].join(" ");
 
 export const viewport: Viewport = {
