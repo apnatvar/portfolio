@@ -188,11 +188,12 @@ export default function ProfileSplitSection() {
             connect with me across various socials.
             <br />
             <br />
-            If you are looking to hire a remote worker you can contact me via{" "}
+            If you are looking to hire a designer/developer you can contact me
+            via{" "}
             <span>
               <Link
-                href=""
-                className="underline underline-offset-2 hover:text-white"
+                href="/hire-ap"
+                className="underline underline-offset-2 hover:text-foreground"
               >
                 this page
               </Link>

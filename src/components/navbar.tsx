@@ -29,7 +29,7 @@ const subNavItemsHireMe: SubNavItem[] = [
   },
   {
     label: "Socials",
-    href: "/#footer",
+    href: "/#socials",
   },
   {
     label: "rawat@apnatva.dev",
@@ -53,7 +53,7 @@ function HireAPSubComponent() {
 }
 
 const subNavItemsWork: SubNavItem[] = [
-  { label: "Elza - Website", href: "" },
+  { label: "Elza - Website", href: "https://elza.co.in" },
   { label: "Haneri - Online Catalog", href: "" },
   { label: "Urban Mobility - AI Traffic Control", href: "" },
 ];

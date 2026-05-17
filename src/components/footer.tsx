@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const workedWith = [
+  "Avaya LLC",
   "Haneri Electricals Ltd.",
   "Elza International Ltd.",
   "Motilal Oswal Financial Services Ltd.",
-  "Avaya LLC",
-  // "and more...",
+  "and more...",
 ];
 
 type FooterLink = {
@@ -16,7 +16,7 @@ type FooterLink = {
 };
 
 const sitemapLinks: FooterLink[] = [
-  { label: "Work", href: "" },
+  { label: "Work", href: "/#work" },
   { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
 ];
@@ -74,7 +74,10 @@ function WorkedWith() {
 function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
   return (
     <div className="flex flex-col items-center gap-2">
-      <h3 className="text-lg font-medium tracking-tight text-background">
+      <h3
+        id="socials"
+        className="text-lg font-medium tracking-tight text-background"
+      >
         {title}
       </h3>
 

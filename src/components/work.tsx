@@ -242,7 +242,10 @@ export default function WorkHorizontalScrollSection() {
           will-change-transform transform-gpu
         "
       >
-        <div className="work-panel flex h-dvh w-full shrink-0 items-center justify-center md:w-dvw">
+        <div
+          id="work"
+          className="work-panel flex h-dvh w-full shrink-0 items-center justify-center md:w-dvw"
+        >
           <h2 className="work-title-word flex overflow-hidden leading-none tracking-tight text-[150px] py-8">
             {"Work".split("").map((char, index) => (
               <span

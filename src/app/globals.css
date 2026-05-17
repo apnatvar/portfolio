@@ -122,6 +122,7 @@ body {
   cursor:
     url("/cursor.svg") 12 12,
     auto;
+  scroll-behavior: smooth;
 }
 * {
   scrollbar-width: none;
