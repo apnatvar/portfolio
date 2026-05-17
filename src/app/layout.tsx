@@ -27,6 +27,7 @@ const manufacturingConsent = Manufacturing_Consent({
   weight: ["400"],
   display: "swap",
   variable: "--font-manufacturing-consent",
+  fallback: ["system-ui", "arial"],
 });
 
 const amita = Amita({

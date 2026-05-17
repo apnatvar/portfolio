@@ -125,10 +125,9 @@ export function SiteFooter() {
             <span className="block text-5xl font-medium md:inline md:text-7xl text-background font-italianno">
               Hi Again!
             </span>{" "}
-            Personalised work where the colours, typography, copy, and design is
-            coded to you and your brand will set you apart. Working remotely
-            gives me the freedom to be more expresive and creative towards my
-            work. Help support my forever remote dreams.
+            In an increasingly online world where information about you is key
+            to being discovered, do not be late to final evolution of social
+            media, the internet.
             <span className="inline-block text-background md:text-2xl">
               Always available for an adventure.
             </span>
