@@ -50,105 +50,88 @@ export const viewport: Viewport = {
   ],
 };
 
+const siteUrl = "https://apnatva.dev";
+
 export const metadata: Metadata = {
-  title: "Apnatva's Portfolio Website - Tech Consulting & Development",
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "AP | Design-First Next.js Developer",
+    template: "%s | AP",
+  },
+
   description:
-    "A portfolio website meant to replace a traditional CV. Includes information about previous work experience, projects completed, and education of Apnatva Singh Rawat. Crisp detailing and animations showcase Next.js skills and familiarity with JavaScript. Website additionally contains links to LinkedIn, GitHub, and a downloadable CV to make available the website content in more conventional formats. A 'Get in Touch' section is included to make it easier for users to contact Apnatva Singh Rawat via e-mail, phone, or social media like Instagram and LinkedIn.",
+    "AP is a design-first Next.js developer building portfolio sites, e-commerce stores, dashboards, and technical web experiences for freelance and contract clients.",
+
   keywords: [
-    "Tech Consultant",
-    "Freelancer",
-    "Apnatva",
     "AP",
-    "Full-Stack Developer",
-    "Software Development",
-    "Backend Developer",
-    "Python",
-    "JavaScript",
-    "SQL",
-    "AI",
-    "Artificial Intelligence",
-    "Machine Learning",
-    "ML",
-    "Deep Learning",
-    "Reinforcement Learning",
-    "Gen AI",
-    "AI Thesis",
-    "Next.js",
-    "React",
-    "AWS",
-    "Azure",
-    "Excel",
-    "PowerPoint",
-    "Tableau",
-    "Docker",
-    "Kubernetes",
-    "Helm",
-    "Kafka",
-    "POSTMAN",
-    "Cloud Solutions",
-    "FinTech",
-    "Blockchain",
-    "Standalone Applications",
-    "Portfolio",
-    "CV",
-    "Resume",
-    "Remote",
-    "Europe",
-    "India",
-    "US",
-    "Projects",
-    "Experience",
-    "Education",
-    "Trinity College Dublin",
-    "St. George's College Mussoorie",
-    "Linkedin",
-    "Instagram",
-    "Github",
-    "LinkedIn",
-    "Contact",
+    "Apnatva",
+    "Next.js developer",
+    "Node.js developer",
+    "designer developer",
+    "design first developer",
+    "freelance web developer India",
+    "contract Next.js developer",
+    "e-commerce store developer",
+    "portfolio website developer",
+    "frontend developer",
+    "full stack developer",
+    "PayloadCMS developer",
+    "Shadcn UI developer",
+    "Tailwind CSS developer",
+    "GSAP developer",
   ],
-  authors: [
-    { name: "Apnatva 'AP' Singh Rawat", url: "https://apnatva.vercel.app" },
-  ],
-  creator: "Apnatva 'AP' Singh Rawat",
-  publisher: "AP Technology Consultant",
-  robots: "index, follow",
-  applicationName: "AP's Next.js Portfolio Website",
-  generator: "Next.js",
-  referrer: "origin-when-cross-origin",
-  category: "technology",
+
+  authors: [{ name: "AP", url: siteUrl }],
+  creator: "AP",
+  publisher: "AP",
+
+  applicationName: "AP Portfolio",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Apnatva's Portfolio Website - Tech Consulting & Development",
+    type: "website",
+    locale: "en_IN",
+    url: siteUrl,
+    siteName: "AP",
+    title: "AP | Design-First Next.js Developer",
     description:
-      "Portfolio of Apnatva Singh Rawat, a Software Developer specializing in modern, scalable, and efficient AI-based technology solutions.",
-    url: "https://apnatva.vercel.app",
-    siteName: "Apnatva's Website Portfolio",
+      "Portfolio of AP, a design-first developer creating Next.js websites, e-commerce stores, CMS-backed experiences, and visual web interfaces.",
     images: [
       {
-        url: "https://apnatva.vercel.app/ap-icon.png",
-        alt: "AP Icon",
+        url: "/ap.svg",
+        width: 1200,
+        height: 630,
+        alt: "AP design-first developer portfolio",
       },
     ],
-    locale: "en-IN",
-    type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "AP's Portfolio Webstie – Tech Consulting & Development",
+    title: "AP | Design-First Next.js Developer",
     description:
-      "Portfolio of Apnatva, building technology solutions to help you see your ideas come to life.",
-    images: ["https://apnatva.vercel.app/ap-icon.png"],
+      "Design-first Next.js developer for portfolio sites, e-commerce stores, CMS-backed websites, and freelance/contract web work.",
+    images: ["/ap.svg"],
+    creator: "@nattupi0",
   },
-  icons: {
-    icon: "/ap-icon.svg",
-    shortcut: "/ap-icon.svg",
-  },
-  alternates: {
-    canonical: "https://apnatva.vercel.app",
-    languages: {
-      "en-IN": "https://apnatva.vercel.app",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
+
+  category: "technology",
 };
 
 export default function RootLayout({
