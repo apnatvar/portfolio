@@ -37,13 +37,16 @@ const TIMELINE_ITEMS = [
 ];
 
 const LINK_GROUPS = [
-  { label: "Portfolio", href: "#" },
+  { label: "Portfolio", href: "/" },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
   },
   { label: "GitHub", href: "https://github.com/apnatvar" },
-  { label: "Resume", href: "#" },
+  {
+    label: "Resume",
+    href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
+  },
   { label: "Medium", href: "https://medium.com/@nattupi" },
   { label: "Instagram", href: "https://instagram.com/nattupi/" },
 ];

@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
-import { RoundedRect, Shader, Shatter } from "shaders/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -184,21 +183,6 @@ export default function ShaderLinksSection() {
 
   return (
     <section ref={sectionRef} className="px-4 bg-foreground">
-      <Shader className="pointer-events-none absolute inset-0 -z-10 h-full w-full scale-x-150">
-        <Shatter
-          intensity={5}
-          radius={0.45}
-          crackWidth={100}
-          decay={1}
-          seed={7}
-          chromaticSplit={6}
-          refractionStrength={40}
-          shardLighting={0.12}
-          edges="mirror"
-        >
-          <RoundedRect color="#ffffff00" width={1} height={1} />
-        </Shatter>
-      </Shader>
       <div className="relative py-8">
         {linkItems.map((item, index) => (
           <Link

@@ -40,7 +40,7 @@ const subNavItemsHireMe: SubNavItem[] = [
 
 function HireAPSubComponent() {
   return (
-    <div className="flex flex-col md:flex-row max-w-2xl items-center flex-wrap">
+    <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl items-center">
       {subNavItemsHireMe.map((item) => (
         <Button key={item.label} variant={"link"}>
           <Link href={item.href} target="_blank">
@@ -53,16 +53,22 @@ function HireAPSubComponent() {
 }
 
 const subNavItemsWork: SubNavItem[] = [
-  { label: "Elza - Website", href: "https://elza.co.in" },
-  { label: "Haneri - Online Catalog", href: "" },
-  { label: "Urban Mobility - AI Traffic Control", href: "" },
+  {
+    label: "Elza",
+    href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
+  },
+  { label: "Haneri", href: "" },
+  {
+    label: "Urban Mobility",
+    href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
+  },
 ];
 
 function WorkSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
       <h3 className="text-center text-base md:text-xl">Full Case Study</h3>{" "}
-      <div>
+      <div className="flex flex-wrap items-center justify-center md:gap-24 md:py-4">
         {subNavItemsWork.map((item) => (
           <Button key={item.label} variant={"link"}>
             <Link href={item.href} target="_blank">
@@ -78,10 +84,11 @@ function WorkSubComponent() {
 function APSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
-      <p className="text-base md:text-lg">
+      <p className="text-sm md:text-base">
         I design interfaces for you with a sprinkle of personal innovation.
         Specialised websites help you stand out better. You can sell products,
-        courses, templates, art, clothes, and so much more.
+        courses, templates, art, clothes, or use it as a platform to voice your
+        opinions and ideas.
       </p>
     </div>
   );
@@ -274,12 +281,12 @@ export function MorphingNav() {
               {navItems.map((item) => (
                 <div
                   key={item.href}
-                  className="flex flex-row flex-nowrap shrink gap-12 md:gap-24 max-md:basis-1/2"
+                  className="flex flex-col md:flex-row flex-nowrap shrink gap-4 md:gap-24"
                 >
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="font-italianno transition-all hover:tracking-widest duration-500 hover:opacity-80 text-8xl md:text-[115px] italic"
+                    className="font-italianno max-md:text-center transition-all hover:tracking-widest duration-500 hover:opacity-80 text-7xl md:text-[115px] italic"
                   >
                     {item.label}
                   </Link>

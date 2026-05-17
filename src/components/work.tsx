@@ -232,20 +232,17 @@ export default function WorkHorizontalScrollSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-dvh overflow-hidden text-green-50"
+      className="relative min-h-dvh overflow-hidden max-md:max-w-dvw"
     >
       <div
         ref={trackRef}
         className="
           flex min-h-dvh flex-col
-          md:h-dvh md:w-max md:flex-row md:flex-nowrap
+          md:h-dvh md:flex-row md:flex-nowrap
           will-change-transform transform-gpu
         "
       >
-        <div
-          id="work"
-          className="work-panel flex h-dvh w-full shrink-0 items-center justify-center md:w-dvw"
-        >
+        <div className="work-panel flex h-dvh w-full shrink-0 items-center justify-center md:w-dvw">
           <h2 className="work-title-word flex overflow-hidden leading-none tracking-tight text-[150px] py-8">
             {"Work".split("").map((char, index) => (
               <span
@@ -257,7 +254,7 @@ export default function WorkHorizontalScrollSection() {
             ))}
           </h2>
         </div>
-
+        <div id="work" />
         {workItems.map((item) => (
           <article
             key={item.title}
@@ -268,7 +265,7 @@ export default function WorkHorizontalScrollSection() {
             "
           >
             <div className="flex min-h-[45dvh] items-center justify-center md:h-dvh md:w-dvw">
-              <p className="work-project-label text-9xl max-md: text-center md:text-[130px] text-foreground font-italianno">
+              <p className="work-project-label text-7xl max-md:text-center md:text-[130px] text-foreground font-italianno">
                 {item.title}
               </p>
             </div>
@@ -346,7 +343,7 @@ export default function WorkHorizontalScrollSection() {
                     md:row-start-6 md:row-span-5
                   "
                 >
-                  <ol className="list-disc list-inside pl-5 text-base md:text-lg space-y-4">
+                  <ol className="list-disc list-inside pl-5 text-sm md:text-lg space-y-4">
                     {item.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}

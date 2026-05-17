@@ -21,10 +21,11 @@ export default function Hero() {
         id="page-end-sentinel"
         className="min-h-dvh bg-foreground flex items-center justify-center"
       >
-        <h2 className="text-3xl md:text-5xl text-center font-manufacturing-consent text-background">
+        <h2 className="text-3xl md:text-5xl text-center font-manufacturing-consent text-background my-4">
           <span className="text-7xl">Once</span> you get to the{" "}
-          <span className="translate-y-20 inline-block">bottom,</span> the only
-          way is <span className="-translate-y-20 inline-block">up.</span>
+          <span className="md:translate-y-20 inline-block">bottom,</span> the
+          only way is{" "}
+          <span className="md:-translate-y-20 inline-block">up.</span>
         </h2>
       </div>
     </>
