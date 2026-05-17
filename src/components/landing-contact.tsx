@@ -218,11 +218,11 @@ export default function ContactSection() {
 
           <div ref={imageRef}>
             <Image
-              src="/ap-icon.svg"
-              alt="AP icon"
+              src="/4.webp"
+              alt="Apnatva Singh Rawat Designer/Developer/Writer"
               width={200}
               height={200}
-              className="rounded-full object-fill"
+              className="rounded-full object-cover aspect-square"
               priority
             />
           </div>

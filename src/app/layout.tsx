@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     "Apnatva",
     "Next.js developer",
     "Node.js developer",
-    "designer developer",
+    "web designer developer",
     "design first developer",
     "freelance web developer India",
     "contract Next.js developer",
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
       "Portfolio of AP, a design-first developer creating Next.js websites, e-commerce stores, CMS-backed experiences, and visual web interfaces.",
     images: [
       {
-        url: "/ap.svg",
+        url: "/4.webp",
         width: 1200,
         height: 630,
         alt: "AP design-first developer portfolio",
@@ -115,7 +115,7 @@ export const metadata: Metadata = {
     title: "AP | Design-First Next.js Developer",
     description:
       "Design-first Next.js developer for portfolio sites, e-commerce stores, CMS-backed websites, and freelance/contract web work.",
-    images: ["/ap.svg"],
+    images: ["/4.webp"],
     creator: "@nattupi0",
   },
 

@@ -11,10 +11,14 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const CAROUSEL_IMAGES = [
-  "/apnatva/ap-1.jpg",
-  "/apnatva/ap-2.jpg",
-  "/apnatva/ap-3.jpg",
-  "/apnatva/ap-4.jpg",
+  "/1.webp",
+  "/2.webp",
+  "/3.webp",
+  "/4.webp",
+  "/5.webp",
+  "/6.webp",
+  "/7.webp",
+  "/8.webp",
 ];
 
 const TIMELINE_ITEMS = [
@@ -104,7 +108,7 @@ export default function ProfileSplitSection() {
                 >
                   <Image
                     src={src}
-                    alt={`Apnatva Singh Rawat portrait ${index + 1}`}
+                    alt={`Apnatva Singh Rawat Designer/Developer/Writer ${index + 1}`}
                     fill
                     priority={index === 0}
                     className="object-cover"

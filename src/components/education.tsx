@@ -21,7 +21,7 @@ function CollegeCard({ title, imageSrc, points }: CollegeCardProps) {
         alt={title}
         fill
         priority
-        className="object-cover"
+        className="object-cover object-bottom grayscale"
         sizes="(max-width: 767px) 100vw, 50vw"
       />
 
@@ -91,7 +91,7 @@ export default function CollegeSplitSection() {
   const colleges = [
     {
       title: "Trinity College Dublin",
-      imageSrc: "/trinity-college-dublin.jpg",
+      imageSrc: "/tcd.webp",
       points: [
         "Graduated with a First Class Honours in BAI Computer Engineering.",
         "Wrote a thesis on the use of satellite based traffic information to automate congestion prevention without relying heavily on hardware.",
@@ -102,7 +102,7 @@ export default function CollegeSplitSection() {
     },
     {
       title: "St. George's College",
-      imageSrc: "/st-georges-college.jpg",
+      imageSrc: "/sgc.webp",
       points: [
         "Graduated with a 92% overall score in the Indian School Certificate Examinations.",
         "Exceptional grades in Mathematics and Computer Science.",
