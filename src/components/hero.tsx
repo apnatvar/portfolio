@@ -148,7 +148,7 @@ export default function HeroGridReveal() {
           data-large-reveal
           className="font-italianno col-start-1 col-span-3 row-start-3 text-8xl max-md:row-span-2 leading-none md:col-start-2 md:col-span-2 md:row-start-2 md:text-9xl transition-all hover:tracking-widest duration-500"
         >
-          <SplitLetters text="I am AP" />
+          <SplitLetters text="I am A P" />
         </span>
 
         <span

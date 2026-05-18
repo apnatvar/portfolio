@@ -125,11 +125,12 @@ export function SiteFooter() {
             <span className="block text-5xl font-medium md:inline md:text-7xl text-background font-italianno">
               Hi Again!
             </span>{" "}
-            In an increasingly online world where information about you is key
-            to being discovered, do not be late to final evolution of social
-            media, the internet.
+            In an increasingly online world, information is power. If you can
+            control what you want to share, you have already won half the
+            battle. Websites are a great way of getting yourself or your brand
+            out there.
             <span className="inline-block text-background md:text-2xl">
-              Always available for an adventure.
+              Always ready for an adventure.
             </span>
           </h2>
 

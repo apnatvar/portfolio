@@ -1,3 +1,4 @@
+import { ScrollRibbonBackground } from "@/components/bg";
 import ShaderLinksSection from "@/components/external-links";
 import { SiteFooter } from "@/components/footer";
 import HeroGridReveal from "@/components/hero";
@@ -9,6 +10,7 @@ import WorkHorizontalScrollSection from "@/components/work";
 export default function Hero() {
   return (
     <>
+      <ScrollRibbonBackground />
       <MorphingNav />
       <div className="min-h-[60svh] md:min-h-[50svh]" />
       <HeroGridReveal />

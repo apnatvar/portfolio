@@ -26,7 +26,10 @@ const workItems: WorkItem[] = [
     image: "/ap-icon.svg",
     links: [
       { label: "Website", href: "https://elza.co.in/" },
-      { label: "Case Study", href: "" },
+      {
+        label: "Case Study",
+        href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
+      },
     ],
     points: [
       "Performance, SEO, Asset Optimisation, and Responsive Design were treated as core requirements.",
@@ -38,8 +41,14 @@ const workItems: WorkItem[] = [
     title: "Autonomous Urban Mobility",
     image: "/ap-icon.svg",
     links: [
-      { label: "Code", href: "#" },
-      { label: "Thesis", href: "#" },
+      {
+        label: "Code",
+        href: "https://github.com/apnatvar/adaptive-traffic-control/",
+      },
+      {
+        label: "Thesis",
+        href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
+      },
     ],
     points: [
       "Final year thesis on adaptive traffic optimization framework built on satellite intelligence over hardware-heavy conventional methods.",
@@ -50,7 +59,12 @@ const workItems: WorkItem[] = [
   {
     title: "Excel Automation",
     image: "/ap-icon.svg",
-    links: [{ label: "Code", href: "#" }],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py",
+      },
+    ],
     points: [
       "Developed a Python-based Windows standalone application to automate consolidation of financial data with over $10M in yearly transactions.",
       "Reduced processing time to consolidate Excel tabular data from 5 days to ~17 minutes, generating 11 reports to save auditors hours in analysing and providing valuable insights as quickly as possible.",
@@ -327,6 +341,7 @@ export default function WorkHorizontalScrollSection() {
                         <Link
                           href={link.href}
                           className="text-base text-muted-foreground"
+                          target="_blank"
                         >
                           {link.label}
                         </Link>
