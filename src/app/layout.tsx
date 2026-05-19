@@ -62,6 +62,8 @@ export const metadata: Metadata = {
     template: "%s | AP",
   },
 
+  icons: "/4.webp",
+
   description:
     "AP is a design-first Next.js developer building portfolio sites, e-commerce stores, dashboards, and technical web experiences for freelance and contract clients.",
 
