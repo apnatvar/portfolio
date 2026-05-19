@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 import SmoothScrollProvider from "@/components/smooth-scroll";
-import { Metadata, Viewport } from "next";
+import { Metadata, MetadataRoute, Viewport } from "next";
 import {
   Amita,
   Italianno,
@@ -52,6 +52,28 @@ export const viewport: Viewport = {
 };
 
 const siteUrl = "https://apnatva.dev";
+
+export function sitemap(): MetadataRoute.Sitemap {
+  const routes = ["", "/about-ap", "/hire-ap"];
+
+  return routes.map((route) => ({
+    url: `${siteUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: route === "" ? 1 : 0.8,
+  }));
+}
+
+export function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
+  };
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
