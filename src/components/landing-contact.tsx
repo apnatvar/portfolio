@@ -1,6 +1,5 @@
 "use client";
 
-import { HireAP } from "@/app/hire-ap/page";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -14,6 +13,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { HireAP } from "./hire";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -237,7 +237,7 @@ export default function ContactSection() {
           </Button>
         </div>
       </div>
-      <HireAP />
+      <HireAP landing={true} />
       <div className="word-carousels flex w-full">
         <WordCarousel words={rowTwoWords} direction="backward" />
       </div>
