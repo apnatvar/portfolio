@@ -51,9 +51,9 @@ const workItems: WorkItem[] = [
       },
     ],
     points: [
-      "Final year thesis on adaptive traffic optimization framework built on satellite intelligence over hardware-heavy conventional methods.",
-      "Infrastructure-light, highly scalable approach designed to reduce deployment cost, maintenance overhead, and operational complexity for urban mobility systems.",
-      "Proof-of-concept that can evolve into a licensable B2B optimization engine for smart mobility and navigation ecosystems.",
+      "Final year thesis on adaptive traffic optimization using satellite intelligence over hardware-heavy conventional methods.",
+      "Proof-of-concept for a licensable B2B optimization engine for smart mobility and navigation ecosystems.",
+      "Highly scalable, designed to reduce deployment cost, maintenance overhead, and operational complexity for autonomous systems.",
     ],
   },
   {
