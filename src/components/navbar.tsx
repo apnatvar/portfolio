@@ -68,7 +68,7 @@ function WorkSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
       <h3 className="text-center text-base md:text-xl">Full Case Study</h3>{" "}
-      <div className="flex flex-wrap items-center justify-center md:gap-24 md:py-4">
+      <div className="flex flex-wrap items-center justify-center md:flex-nowrap md:gap-12 md:py-4">
         {subNavItemsWork.map((item) => (
           <Button key={item.label} variant={"link"}>
             <Link href={item.href} target="_blank">
@@ -286,7 +286,7 @@ export function MorphingNav() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="font-italianno max-md:text-center transition-all hover:tracking-widest duration-500 hover:opacity-80 text-7xl md:text-[115px] italic"
+                    className="font-italianno max-md:text-center transition-all hover:tracking-widest duration-500 hover:opacity-80 text-7xl md:text-[115px] italic md:basis-1/2"
                   >
                     {item.label}
                   </Link>
