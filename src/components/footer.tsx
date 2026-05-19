@@ -16,9 +16,11 @@ type FooterLink = {
 };
 
 const sitemapLinks: FooterLink[] = [
+  { label: "Home", href: "/" },
   { label: "Work", href: "/#work" },
   { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 const importantLinks: FooterLink[] = [

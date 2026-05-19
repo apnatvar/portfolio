@@ -1,5 +1,6 @@
 "use client";
 
+import { HireAP } from "@/app/hire-ap/page";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -211,7 +212,7 @@ export default function ContactSection() {
         </div>
         <div className="flex flex-col items-center justify-center md:basis-1/3">
           <Button variant="link" asChild className="reveal-once text-lg">
-            <Link href="" target="_blank">
+            <Link href="https://cal.eu/apnatva/15min" target="_blank">
               Book a Call
             </Link>
           </Button>
@@ -236,7 +237,7 @@ export default function ContactSection() {
           </Button>
         </div>
       </div>
-
+      <HireAP />
       <div className="word-carousels flex w-full">
         <WordCarousel words={rowTwoWords} direction="backward" />
       </div>

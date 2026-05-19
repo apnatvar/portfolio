@@ -1,6 +1,7 @@
 import "@/app/globals.css";
+import { SiteFooter } from "@/components/footer";
 import SmoothScrollProvider from "@/components/smooth-scroll";
-import { Metadata, MetadataRoute, Viewport } from "next";
+import { Metadata, Viewport } from "next";
 import {
   Amita,
   Italianno,
@@ -52,28 +53,6 @@ export const viewport: Viewport = {
 };
 
 const siteUrl = "https://apnatva.dev";
-
-export function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about-ap", "/hire-ap"];
-
-  return routes.map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.8,
-  }));
-}
-
-export function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
-  };
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -166,7 +145,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`mx-auto bg-background antialiased ${FONT_VARS}`}>
         <SmoothScrollProvider>
-          <main className="font-narrow">{children}</main>
+          <main className="font-narrow">
+            {children} <SiteFooter />
+          </main>
         </SmoothScrollProvider>
       </body>
     </html>

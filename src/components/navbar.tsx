@@ -38,6 +38,19 @@ const subNavItemsHireMe: SubNavItem[] = [
   { label: "+91-879-141-4856", href: "https://wa.me/918791414856" },
 ];
 
+const subNavItemsWork: SubNavItem[] = [
+  { label: "Portfolio", href: "/" },
+  {
+    label: "Elza",
+    href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
+  },
+  { label: "Haneri Catalog", href: "" },
+  {
+    label: "Urban Mobility",
+    href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
+  },
+];
+
 function HireAPSubComponent() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl items-center">
@@ -52,22 +65,10 @@ function HireAPSubComponent() {
   );
 }
 
-const subNavItemsWork: SubNavItem[] = [
-  {
-    label: "Elza",
-    href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
-  },
-  { label: "Haneri", href: "" },
-  {
-    label: "Urban Mobility",
-    href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
-  },
-];
-
 function WorkSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
-      <h3 className="text-center text-base md:text-xl">Full Case Study</h3>{" "}
+      <h3 className="text-center text-base md:text-lg">Full Case Study</h3>{" "}
       <div className="flex flex-wrap items-center justify-center md:flex-nowrap md:gap-12 md:py-4">
         {subNavItemsWork.map((item) => (
           <Button key={item.label} variant={"link"}>
@@ -84,11 +85,22 @@ function WorkSubComponent() {
 function APSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
-      <p className="text-sm md:text-base">
+      <p className="text-xs md:text-sm">
         I design interfaces for you with a sprinkle of personal innovation.
         Specialised websites help you stand out better. You can sell products,
         courses, templates, art, clothes, or use it as a platform to voice your
         opinions and ideas.
+      </p>
+    </div>
+  );
+}
+
+function BlogsSubComponent() {
+  return (
+    <div className="flex flex-col items-center justify-center max-w-2xl">
+      <p className="text-xs md:text-sm">
+        I am currently writing a daily blog covering technology, philosophy,
+        running & training, psychology, and personal stories.
       </p>
     </div>
   );
@@ -109,6 +121,11 @@ const navItems: NavItem[] = [
     label: "About",
     href: "/about-ap",
     SubComponent: APSubComponent,
+  },
+  {
+    label: "Blogs",
+    href: "/blogs",
+    SubComponent: BlogsSubComponent,
   },
 ];
 
@@ -275,7 +292,7 @@ export function MorphingNav() {
           clipPath: "circle(0px at calc(100% - 52px) calc(100% - 52px))",
         }}
       >
-        <div className="flex h-full flex-col px-12 py-12">
+        <div className="flex h-full flex-col px-12 py-8">
           <div className="grid flex-1 place-items-center">
             <div className="flex flex-col items-center gap-4 text-4xl font-medium">
               {navItems.map((item) => (
@@ -286,7 +303,7 @@ export function MorphingNav() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="font-italianno max-md:text-center transition-all hover:tracking-widest duration-500 hover:opacity-80 text-7xl md:text-[115px] italic md:basis-1/2"
+                    className="font-italianno max-md:text-center transition-all hover:tracking-widest duration-500 hover:opacity-80 text-5xl md:text-[8rem] italic md:basis-1/2"
                   >
                     {item.label}
                   </Link>
@@ -295,7 +312,7 @@ export function MorphingNav() {
               ))}
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="absolute right-12 bottom-12">
             <Button
               type="button"
               variant="ghost"

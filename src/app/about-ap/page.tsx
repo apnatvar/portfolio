@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className="max-w-[1400px] mx-auto">
       <MorphingNav />
-      <div className="min-h-[50svh]" />
+      <div className="min-h-[60svh] md:min-h-[50svh]" />
       <ProfileSplitSection />
       <CollegeSplitSection />
       <SkillsExplosionSection />

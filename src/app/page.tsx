@@ -1,6 +1,5 @@
 import { ScrollRibbonBackground } from "@/components/bg";
 import ShaderLinksSection from "@/components/external-links";
-import { SiteFooter } from "@/components/footer";
 import HeroGridReveal from "@/components/hero";
 import ContactSection from "@/components/landing-contact";
 import LessIsMoreTransition from "@/components/logic-beautifully";
@@ -18,7 +17,6 @@ export default function Hero() {
       <ContactSection />
       <LessIsMoreTransition />
       <ShaderLinksSection />
-      <SiteFooter />
       <div
         id="page-end-sentinel"
         className="min-h-dvh bg-foreground flex items-center justify-center"

@@ -36,7 +36,7 @@ function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function HireApnatvaPage() {
+export function HireAP() {
   const rootRef = useRef<HTMLElement | null>(null);
   const wordsRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -208,17 +208,10 @@ export default function HireApnatvaPage() {
 
   return (
     <>
-      <MorphingNav /> <div className="min-h-[50svh]" />
       <section
         ref={rootRef}
         className="mx-auto grid max-md:grid-rows-6 grid-cols-1 w-full max-w-7xl gap-8 px-4 py-10 md:grid-cols-2 md:px-6 md:py-8 h-svh"
       >
-        <div className="md:hidden row-start-1">
-          <div className="word-carousels flex w-full">
-            <WordCarousel words={WORDS} direction="forward" />
-          </div>
-        </div>
-
         <form
           onSubmit={handleSubmit}
           noValidate
@@ -350,6 +343,25 @@ export default function HireApnatvaPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+    </>
+  );
+}
+
+export default function Page() {
+  return (
+    <>
+      <MorphingNav /> <div className="min-h-[60svh] md:min-h-[50svh]" />
+      <div className="md:hidden row-start-1">
+        <div className="word-carousels flex w-full">
+          <WordCarousel words={WORDS} direction="forward" />
+        </div>
+      </div>
+      <HireAP />
+      <div className="md:hidden row-start-1">
+        <div className="word-carousels flex w-full">
+          <WordCarousel words={WORDS} direction="backward" />
+        </div>
+      </div>
     </>
   );
 }
