@@ -40,6 +40,7 @@ const subNavItemsHireMe: SubNavItem[] = [
 
 const subNavItemsWork: SubNavItem[] = [
   { label: "Portfolio", href: "/" },
+  { label: "Samples", href: "https://samples.apnatva.dev/" },
   {
     label: "Elza",
     href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
