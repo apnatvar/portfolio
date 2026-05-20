@@ -130,7 +130,7 @@ export function SiteFooter() {
             In an increasingly online world, information is power. If you can
             control what you want to share, you have already won half the
             battle. Websites are a great way of getting yourself or your brand
-            out there.
+            out there.{" "}
             <span className="inline-block text-background md:text-2xl">
               Always ready for an adventure.
             </span>

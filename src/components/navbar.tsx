@@ -99,8 +99,8 @@ function BlogsSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
       <p className="text-xs md:text-sm">
-        I am currently writing a daily blog covering technology, philosophy,
-        running & training, psychology, and personal stories.
+        I write a daily blog covering technology, philosophy, running &
+        training, psychology, and personal anecdotes.
       </p>
     </div>
   );
