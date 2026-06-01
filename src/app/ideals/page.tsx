@@ -228,6 +228,156 @@ const PRINCIPLE_SECTIONS: PrincipleSection[] = [
       "Direction reduces internal conflict.",
     ],
   },
+  {
+    title: "See Through People's Masks",
+    principles: [
+      "People rarely reveal their true motives directly.",
+      "Observe actions more than words.",
+      "Patterns reveal character better than promises.",
+      "Emotions often expose hidden intentions.",
+      "What people consistently avoid discussing can be as revealing as what they share.",
+    ],
+  },
+  {
+    title: "Master Self-Control",
+    principles: [
+      "Your emotional reactions are often your greatest vulnerability.",
+      "Pause before responding to provocation.",
+      "Distance creates clarity.",
+      "Never let temporary emotions dictate permanent decisions.",
+      "The person with greater emotional control usually has greater power.",
+    ],
+  },
+  {
+    title: "Understand Narcissism",
+    principles: [
+      "Everyone possesses narcissistic tendencies to some degree.",
+      "People are primarily focused on themselves.",
+      "Empathy provides insight into others' motivations.",
+      "The desire for validation drives much human behavior.",
+      "Appeal to people's self-interest before appealing to logic.",
+    ],
+  },
+  {
+    title: "Read Character",
+    principles: [
+      "Character reveals itself under pressure.",
+      "Observe how people treat those who cannot benefit them.",
+      "Past behavior is the strongest predictor of future behavior.",
+      "Small actions often reveal large truths.",
+      "Trust character over talent.",
+    ],
+  },
+  {
+    title: "Beware Envy",
+    principles: [
+      "Envy is often hidden behind criticism or indifference.",
+      "Success can create enemies more quickly than failure.",
+      "People rarely admit feeling envious.",
+      "Avoid unnecessary displays of superiority.",
+      "Recognize envy before it becomes sabotage.",
+    ],
+  },
+  {
+    title: "Influence Through Empathy",
+    principles: [
+      "Understand people's needs before attempting to persuade them.",
+      "Listen for emotional motivations beneath rational explanations.",
+      "People want to feel understood before they are willing to change.",
+      "Perspective-taking is a strategic advantage.",
+      "Influence begins with understanding.",
+    ],
+  },
+  {
+    title: "See Group Dynamics Clearly",
+    principles: [
+      "Groups often amplify irrational behavior.",
+      "People conform more than they realize.",
+      "Crowds reduce individual responsibility.",
+      "Question popular opinion before accepting it.",
+      "Maintain independent judgment under social pressure.",
+    ],
+  },
+  {
+    title: "Recognize Aggression",
+    principles: [
+      "Aggression is frequently indirect rather than overt.",
+      "Passive aggression can be more destructive than open conflict.",
+      "Resentment grows when left unaddressed.",
+      "Learn to identify disguised hostility.",
+      "Do not confuse politeness with goodwill.",
+    ],
+  },
+  {
+    title: "Avoid Self-Sabotage",
+    principles: [
+      "People often create the problems they blame on circumstances.",
+      "Your habits shape your destiny more than your intentions.",
+      "Awareness precedes transformation.",
+      "Identify recurring negative patterns in your life.",
+      "Responsibility creates freedom.",
+    ],
+  },
+  {
+    title: "Develop Realistic Confidence",
+    principles: [
+      "Confidence should be built on competence.",
+      "Overconfidence blinds people to risk.",
+      "Humility improves learning.",
+      "Accept limitations while pursuing growth.",
+      "Reality is a stronger ally than ego.",
+    ],
+  },
+  {
+    title: "Become More Rational",
+    principles: [
+      "Emotion often masquerades as reason.",
+      "Question your first interpretation of events.",
+      "Seek evidence before forming conclusions.",
+      "Bias affects everyone, including you.",
+      "Rationality is a practice, not a trait.",
+    ],
+  },
+  {
+    title: "Understand Power",
+    principles: [
+      "Power exists in every human relationship.",
+      "Influence often operates invisibly.",
+      "People compete for status more than they admit.",
+      "Control over yourself is the foundation of all power.",
+      "The less desperate you appear, the stronger your position becomes.",
+    ],
+  },
+  {
+    title: "Accept Human Nature",
+    principles: [
+      "People are complex and contradictory.",
+      "Expect flaws rather than perfection.",
+      "Idealizing others leads to disappointment.",
+      "Human behavior is driven by recurring patterns.",
+      "Understanding human nature reduces unnecessary conflict.",
+    ],
+  },
+  {
+    title: "Cultivate Purpose",
+    principles: [
+      "Purpose provides resistance against distraction.",
+      "Meaning organizes effort and attention.",
+      "People without direction become reactive.",
+      "Long-term vision improves short-term decisions.",
+      "A compelling purpose strengthens resilience.",
+    ],
+  },
+  {
+    title: "Transform Yourself",
+    principles: [
+      "Self-awareness is the beginning of mastery.",
+      "Observe yourself as objectively as you observe others.",
+      "Growth requires confronting uncomfortable truths.",
+      "Continual refinement is a lifelong process.",
+      "Mastering human nature begins with mastering your own.",
+    ],
+  },
 ];
 
 export default function CarnegiePrinciples() {
@@ -238,7 +388,7 @@ export default function CarnegiePrinciples() {
       <section className="relative z-10">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-10 md:px-6 md:py-16">
           <header className="mx-auto w-full max-w-4xl">
-            <Card className="border-white/10 bg-white/8 shadow-2xl backdrop-blur-2xl">
+            <Card className="border-white/40 bg-white/30 shadow-2xl backdrop-blur-2xl">
               <CardContent className="px-6 py-8 md:px-10 md:py-10">
                 <div className="flex flex-col gap-4 text-center"></div>
               </CardContent>
@@ -248,7 +398,7 @@ export default function CarnegiePrinciples() {
           <section className="flex flex-col gap-4 max-w-3xl mx-auto">
             {PRINCIPLE_SECTIONS.map((section) => (
               <article key={section.title} className="h-full w-full mx-auto">
-                <Card className="h-full border-white/10 bg-white/8 shadow-2xl backdrop-blur-2xl">
+                <Card className="h-full border-white/40 bg-white/30 shadow-2xl backdrop-blur-2xl">
                   <CardHeader className="pb-4">
                     <CardTitle className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
                       {section.title}
@@ -286,19 +436,16 @@ export default function CarnegiePrinciples() {
 function AnimatedBackground() {
   return (
     <>
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.04),_transparent_35%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
-
-        <div className="blob blob-1 absolute left-[-8rem] top-[-6rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500 blur-[110px] md:h-[34rem] md:w-[34rem]" />
-        <div className="blob blob-2 absolute right-[-8rem] top-[8%] h-[22rem] w-[22rem] rounded-full bg-orange-400 blur-[110px] md:h-[30rem] md:w-[30rem]" />
-        <div className="blob blob-3 absolute left-[8%] top-[38%] h-[18rem] w-[18rem] rounded-full bg-violet-500 blur-[110px] md:h-[26rem] md:w-[26rem]" />
-        <div className="blob blob-4 absolute right-[10%] top-[45%] h-[20rem] w-[20rem] rounded-full bg-pink-500 blur-[120px] md:h-[28rem] md:w-[28rem]" />
-        <div className="blob blob-5 absolute bottom-[-8rem] left-[18%] h-[22rem] w-[22rem] rounded-full bg-cyan-400 blur-[120px] md:h-[30rem] md:w-[30rem]" />
-        <div className="blob blob-6 absolute bottom-[-8rem] right-[8%] h-[24rem] w-[24rem] rounded-full bg-amber-300 blur-[120px] md:h-[32rem] md:w-[32rem]" />
-
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 backdrop-blur-[60px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,16,0.72),rgba(8,8,12,0.82))]" />
+      <div className="pointer-events-none fixed inset-0">
+        <div className="blob blob-1 fixed left-[-8rem] top-[-6rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500 blur-[110px] md:h-[34rem] md:w-[34rem]" />
+        <div className="blob blob-2 fixed right-[-8rem] top-[8%] h-[22rem] w-[22rem] rounded-full bg-orange-400 blur-[110px] md:h-[30rem] md:w-[30rem]" />
+        <div className="blob blob-3 fixed left-[8%] top-[38%] h-[18rem] w-[18rem] rounded-full bg-violet-500 blur-[110px] md:h-[26rem] md:w-[26rem]" />
+        <div className="blob blob-4 fixed right-[10%] top-[45%] h-[20rem] w-[20rem] rounded-full bg-pink-500 blur-[120px] md:h-[28rem] md:w-[28rem]" />
+        <div className="blob blob-5 fixed bottom-[-8rem] left-[18%] h-[22rem] w-[22rem] rounded-full bg-cyan-400 blur-[120px] md:h-[30rem] md:w-[30rem]" />
+        <div className="blob blob-6 fixed bottom-[-8rem] right-[8%] h-[24rem] w-[24rem] rounded-full bg-amber-300 blur-[120px] md:h-[32rem] md:w-[32rem]" />
+        <div className="fixed inset-0 bg-black/15" />
+        <div className="fixed inset-0 backdrop-blur-[60px]" />
+        <div className="fixed inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,16,0.72),rgba(8,8,12,0.82))]" />
       </div>
     </>
   );

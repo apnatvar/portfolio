@@ -21,6 +21,7 @@ const sitemapLinks: FooterLink[] = [
   { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
   { label: "Blogs", href: "/blogs" },
+  { label: "Samples", href: "https://samples.apnatva.dev" },
 ];
 
 const importantLinks: FooterLink[] = [

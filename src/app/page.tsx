@@ -5,6 +5,46 @@ import ContactSection from "@/components/landing-contact";
 import LessIsMoreTransition from "@/components/logic-beautifully";
 import { MorphingNav } from "@/components/navbar";
 import WorkHorizontalScrollSection from "@/components/work";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AP | Design-First Next.js Developer",
+  description:
+    "Portfolio homepage for AP, a design-first Next.js developer building expressive websites, e-commerce stores, dashboards, and technical web experiences.",
+  keywords: [
+    "AP portfolio",
+    "Apnatva",
+    "design-first developer",
+    "Next.js developer",
+    "frontend developer",
+    "web portfolio",
+    "freelance web developer",
+    "technical web experiences",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "AP | Design-First Next.js Developer",
+    description:
+      "Explore AP's design-first web development work, services, contact paths, and selected technical web projects.",
+    url: "/",
+  },
+  twitter: {
+    title: "AP | Design-First Next.js Developer",
+    description:
+      "Design-first Next.js developer creating portfolio sites, commerce experiences, dashboards, and visual web interfaces.",
+  },
+  other: {
+    "page:type": "portfolio-homepage",
+    "page:audience":
+      "clients, collaborators, recruiters, crawlers, and language models evaluating AP's web development work",
+    "page:summary":
+      "Homepage for AP's portfolio, featuring project work, contact information, external links, and design-first web development positioning.",
+    "llm:summary":
+      "AP is a design-first Next.js developer. This page introduces the portfolio, selected work, contact section, and external links.",
+  },
+};
 
 export default function Hero() {
   return (

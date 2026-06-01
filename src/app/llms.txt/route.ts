@@ -29,6 +29,7 @@ This website serves as a professional portfolio, technical CV, writing archive, 
 - ${SITE_URL}/about-ap
 - ${SITE_URL}/hire-ap
 - ${SITE_URL}/blogs
+- ${SITE_URL}/ideals
 
 ## Blog URLs
 

@@ -31,10 +31,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE_URL}/ideals`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/blogs`,
       lastModified: now,
       changeFrequency: "daily",
       priority: 0.7,
+    },
+    {
+      url: "https://samples.apnatva.dev",
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
   ];
 
