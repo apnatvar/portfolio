@@ -29,13 +29,30 @@ export const metadata: Metadata = {
     description:
       "Explore AP's design-first web development work, services, contact paths, and selected technical web projects.",
     url: "/",
+    images: [
+      {
+        url: "/4.webp",
+        width: 1200,
+        height: 630,
+        alt: "AP design-first developer portfolio homepage",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "AP | Design-First Next.js Developer",
     description:
       "Design-first Next.js developer creating portfolio sites, commerce experiences, dashboards, and visual web interfaces.",
+    images: ["/4.webp"],
   },
   other: {
+    image: "https://apnatva.dev/4.webp",
+    thumbnail: "https://apnatva.dev/4.webp",
+    "image:alt": "AP design-first developer portfolio homepage",
+    "document:type": "portfolio-homepage",
+    "document:language": "en-IN",
+    "document:primary-topic":
+      "AP's design-first Next.js development portfolio and selected work.",
     "page:type": "portfolio-homepage",
     "page:audience":
       "clients, collaborators, recruiters, crawlers, and language models evaluating AP's web development work",

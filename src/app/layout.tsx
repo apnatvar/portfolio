@@ -123,6 +123,17 @@ export const metadata: Metadata = {
     creator: "@nattupi0",
   },
 
+  other: {
+    image: `${siteUrl}/4.webp`,
+    thumbnail: `${siteUrl}/4.webp`,
+    "image:alt": "AP design-first developer portfolio",
+    "document:type": "website",
+    "document:language": "en-IN",
+    "document:scope":
+      "Portfolio, profile, services, writing, principles, and project discovery for AP.",
+    "document:owner": "AP",
+  },
+
   robots: {
     index: true,
     follow: true,

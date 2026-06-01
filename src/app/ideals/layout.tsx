@@ -23,13 +23,30 @@ export const metadata: Metadata = {
     description:
       "AP's curated collection of ideals and principles around leadership, strategy, self-image, confidence, and human behavior.",
     url: "/ideals",
+    images: [
+      {
+        url: "/4.webp",
+        width: 1200,
+        height: 630,
+        alt: "AP ideals and principles reference page",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Ideals | AP",
     description:
       "A principles page collecting AP's notes on leadership, strategy, self-control, confidence, and human nature.",
+    images: ["/4.webp"],
   },
   other: {
+    image: "https://apnatva.dev/4.webp",
+    thumbnail: "https://apnatva.dev/4.webp",
+    "image:alt": "AP ideals and principles reference page",
+    "document:type": "reference-page",
+    "document:language": "en-IN",
+    "document:primary-topic":
+      "Curated ideals and principles around communication, leadership, strategy, self-image, confidence, and human behavior.",
     "page:type": "principles-reference-page",
     "page:audience":
       "readers, crawlers, and language models trying to understand AP's curated ideals and personal operating principles",

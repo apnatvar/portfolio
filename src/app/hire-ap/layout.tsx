@@ -23,13 +23,30 @@ export const metadata: Metadata = {
     description:
       "Work with AP on design-first websites, stores, dashboards, CMS-backed pages, and technical frontend projects.",
     url: "/hire-ap",
+    images: [
+      {
+        url: "/4.webp",
+        width: 1200,
+        height: 630,
+        alt: "Hire AP for design-first Next.js web development",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Hire AP | Next.js Web Developer",
     description:
       "Hire AP for design-first Next.js, frontend, e-commerce, dashboard, and CMS-backed web work.",
+    images: ["/4.webp"],
   },
   other: {
+    image: "https://apnatva.dev/4.webp",
+    thumbnail: "https://apnatva.dev/4.webp",
+    "image:alt": "Hire AP for design-first Next.js web development",
+    "document:type": "service-page",
+    "document:language": "en-IN",
+    "document:primary-topic":
+      "Hiring AP for freelance or contract Next.js and frontend web development.",
     "page:type": "hire-services-page",
     "page:audience":
       "potential clients, collaborators, agencies, recruiters, crawlers, and language models evaluating AP for web development work",
