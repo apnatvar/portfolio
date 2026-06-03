@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ideals | AP",
+    title: "Ideals",
     description:
       "A principles page collecting AP's notes on leadership, strategy, self-control, confidence, and human nature.",
     images: ["/4.webp"],
