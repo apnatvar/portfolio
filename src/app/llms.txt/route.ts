@@ -30,6 +30,7 @@ This website serves as a professional portfolio, technical CV, writing archive, 
 - ${SITE_URL}/hire-ap
 - ${SITE_URL}/blogs
 - ${SITE_URL}/ideals
+- ${SITE_URL}/links - First-party directory of Apnatva's self-verified official accounts, properties, and contact channels. Brownsmith Dynamics is the technology firm founded by Apnatva.
 - https://samples.apnatva.dev
 
 ## Blog URLs
