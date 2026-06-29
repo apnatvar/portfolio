@@ -378,6 +378,156 @@ const PRINCIPLE_SECTIONS: PrincipleSection[] = [
       "Mastering human nature begins with mastering your own.",
     ],
   },
+  {
+    title: "System 1 and System 2",
+    principles: [
+      "System 1 is fast, automatic, and intuitive.",
+      "System 2 is slow, deliberate, and analytical.",
+      "Use System 2 for important decisions.",
+      "Do not assume your first intuition is correct.",
+      "Recognize when careful thinking is required.",
+    ],
+  },
+  {
+    title: "Cognitive Ease",
+    principles: [
+      "The mind prefers information that feels familiar.",
+      "Ease of processing is often mistaken for truth.",
+      "Repeated statements become more believable.",
+      "Clarity improves persuasion but not necessarily accuracy.",
+      "Question conclusions that feel 'obviously correct.'",
+    ],
+  },
+  {
+    title: "Overconfidence",
+    principles: [
+      "People consistently overestimate their knowledge.",
+      "Confidence is not a reliable indicator of accuracy.",
+      "Successful outcomes often involve luck.",
+      "Humility leads to better judgment.",
+      "Always consider what you might be missing.",
+    ],
+  },
+  {
+    title: "Anchoring",
+    principles: [
+      "Initial information strongly influences later judgments.",
+      "First numbers become unconscious reference points.",
+      "Evaluate estimates independently of the anchor.",
+      "Be cautious when negotiating from another person's starting point.",
+      "Question whether the initial value deserves influence.",
+    ],
+  },
+  {
+    title: "Availability Bias",
+    principles: [
+      "Events that are easier to recall appear more common.",
+      "Recent experiences distort perceived probability.",
+      "Emotional memories outweigh statistical evidence.",
+      "Seek objective data before estimating risk.",
+      "Do not confuse memorable with frequent.",
+    ],
+  },
+  {
+    title: "Confirmation Bias",
+    principles: [
+      "People naturally seek evidence supporting existing beliefs.",
+      "Actively search for information that disproves your assumptions.",
+      "Strong opinions require stronger evidence.",
+      "Question conclusions you want to be true.",
+      "Good judgment requires intellectual honesty.",
+    ],
+  },
+  {
+    title: "Loss Aversion",
+    principles: [
+      "Losses feel stronger than equivalent gains.",
+      "Fear of losing often drives poor decisions.",
+      "Evaluate choices by expected outcomes rather than emotion.",
+      "Separate sunk costs from future value.",
+      "Avoid protecting past investments at the expense of better opportunities.",
+    ],
+  },
+  {
+    title: "Prospect Theory",
+    principles: [
+      "People evaluate outcomes relative to a reference point.",
+      "Risk preferences change depending on perceived gains or losses.",
+      "People become risk-seeking when trying to avoid losses.",
+      "Framing changes decisions without changing facts.",
+      "Focus on objective value rather than presentation.",
+    ],
+  },
+  {
+    title: "The Planning Fallacy",
+    principles: [
+      "Projects almost always take longer than expected.",
+      "Optimism causes systematic underestimation.",
+      "Use historical evidence instead of intuition.",
+      "Estimate based on comparable past projects.",
+      "Include generous margins for uncertainty.",
+    ],
+  },
+  {
+    title: "The Halo Effect",
+    principles: [
+      "One positive trait influences unrelated judgments.",
+      "Separate individual qualities during evaluation.",
+      "Judge competence independently from likability.",
+      "Avoid letting first impressions dominate decisions.",
+      "Evaluate evidence attribute by attribute.",
+    ],
+  },
+  {
+    title: "Regression to the Mean",
+    principles: [
+      "Extreme outcomes naturally tend toward average over time.",
+      "Do not mistake randomness for lasting improvement or decline.",
+      "Exceptional performance is difficult to sustain.",
+      "Look for long-term patterns instead of isolated events.",
+      "Expect variation before assuming causation.",
+    ],
+  },
+  {
+    title: "Base Rates",
+    principles: [
+      "General statistical information often outperforms intuition.",
+      "Consider population data before individual stories.",
+      "Do not ignore probabilities when making predictions.",
+      "Extra details do not necessarily improve forecasts.",
+      "Use historical frequencies whenever possible.",
+    ],
+  },
+  {
+    title: "The Outside View",
+    principles: [
+      "Estimate outcomes using similar past situations.",
+      "Avoid relying solely on your unique circumstances.",
+      "Reference classes improve forecasting.",
+      "Historical evidence beats optimistic planning.",
+      "The outside view reduces overconfidence.",
+    ],
+  },
+  {
+    title: "Noise in Judgment",
+    principles: [
+      "Different people produce different judgments from the same information.",
+      "Consistency is as important as accuracy.",
+      "Reduce unnecessary variability in decision-making.",
+      "Use structured processes instead of intuition alone.",
+      "Standardization improves reliability.",
+    ],
+  },
+  {
+    title: "Decision Making",
+    principles: [
+      "Slow down when decisions have lasting consequences.",
+      "Separate emotion from analysis whenever possible.",
+      "Seek multiple independent perspectives.",
+      "Accept uncertainty instead of forcing confidence.",
+      "Good decisions do not always produce good outcomes, and bad outcomes do not always imply bad decisions.",
+    ],
+  },
 ];
 
 export default function CarnegiePrinciples() {
