@@ -22,6 +22,21 @@ type WorkItem = {
 
 const workItems: WorkItem[] = [
   {
+    title: "Open Workout",
+    image: "/ap-icon.svg",
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/apnatvar/open-workout",
+      },
+    ],
+    points: [
+      "Open-source workout builder for gym trainers, personal trainers, and other fitness professionals.",
+      "Makes it simple to design structured workouts and share them directly with clients.",
+      "Built as a lightweight, self-hostable foundation that can be adapted to different coaching workflows.",
+    ],
+  },
+  {
     title: "ELZA International",
     image: "/ap-icon.svg",
     links: [
@@ -68,6 +83,21 @@ const workItems: WorkItem[] = [
     points: [
       "Developed a Python-based Windows standalone application to automate consolidation of financial data with over $10M in yearly transactions.",
       "Reduced processing time to consolidate Excel tabular data from 5 days to ~17 minutes, generating 11 reports to save auditors hours in analysing and providing valuable insights as quickly as possible.",
+    ],
+  },
+  {
+    title: "Chattybot",
+    image: "/ap-icon.svg",
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/apnatvar/chattybot",
+      },
+    ],
+    points: [
+      "Self-hostable, multi-tenant website chatbot with an embeddable customer-facing widget.",
+      "Uses tenant-specific pages and product catalogues to answer questions and surface useful product or contact links.",
+      "Includes encrypted per-site credentials, resilient fallback responses, and a production-focused Docker deployment workflow.",
     ],
   },
   // {

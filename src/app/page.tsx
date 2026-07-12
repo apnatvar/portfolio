@@ -8,58 +8,95 @@ import WorkHorizontalScrollSection from "@/components/work";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AP | Design-First Next.js Developer",
+  title:
+    "Freelance Web & Full-Stack Developer in Dehradun, Uttarakhand | AP",
   description:
-    "Portfolio homepage for AP, a design-first Next.js developer building expressive websites, e-commerce stores, dashboards, and technical web experiences.",
+    "AP is a Dehradun, Uttarakhand based freelance web and full-stack developer for remote Next.js, React, Node.js, CMS, dashboard, and e-commerce work.",
   keywords: [
-    "AP portfolio",
+    "freelance web developer Dehradun",
+    "freelance web developer Uttarakhand",
+    "full stack developer Dehradun",
+    "full stack developer Uttarakhand",
+    "remote web developer",
+    "remote full stack developer",
+    "Next.js developer Dehradun",
+    "React developer Dehradun",
+    "Node.js developer Uttarakhand",
+    "freelance website developer Dehradun",
+    "e-commerce developer Dehradun",
+    "dashboard developer Uttarakhand",
+    "technical writer developer",
+    "developer who writes",
     "Apnatva",
-    "design-first developer",
-    "Next.js developer",
-    "frontend developer",
-    "web portfolio",
-    "freelance web developer",
-    "technical web experiences",
+    "AP developer",
   ],
+  authors: [{ name: "AP", url: "https://apnatva.dev" }],
+  creator: "AP",
+  category: "freelance web development",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AP | Design-First Next.js Developer",
+    type: "profile",
+    title:
+      "AP | Freelance Web & Full-Stack Developer in Dehradun, Uttarakhand",
     description:
-      "Explore AP's design-first web development work, services, contact paths, and selected technical web projects.",
+      "Hire AP for remote-friendly web development: Next.js, React, Node.js, CMS-backed websites, dashboards, e-commerce builds, and technical writing.",
     url: "/",
+    siteName: "AP",
     images: [
       {
         url: "/4.webp",
         width: 1200,
         height: 630,
-        alt: "AP design-first developer portfolio homepage",
+        alt: "AP freelance web and full-stack developer in Dehradun, Uttarakhand",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AP | Design-First Next.js Developer",
+    title: "AP | Freelance Web Developer in Dehradun, Uttarakhand",
     description:
-      "Design-first Next.js developer creating portfolio sites, commerce experiences, dashboards, and visual web interfaces.",
+      "Remote-friendly freelance full-stack developer for Next.js, React, Node.js, CMS, dashboards, e-commerce, and technical writing.",
     images: ["/4.webp"],
   },
   other: {
     image: "https://apnatva.dev/4.webp",
     thumbnail: "https://apnatva.dev/4.webp",
-    "image:alt": "AP design-first developer portfolio homepage",
-    "document:type": "portfolio-homepage",
-    "document:language": "en-IN",
+    "image:alt":
+      "AP freelance web and full-stack developer in Dehradun, Uttarakhand",
+    "document:type": "personal-brand-homepage",
+    "document:language": "en",
     "document:primary-topic":
-      "AP's design-first Next.js development portfolio and selected work.",
-    "page:type": "portfolio-homepage",
+      "Freelance web development, full-stack development, remote work, and technical writing by AP in Dehradun, Uttarakhand.",
+    "document:intent":
+      "Help search crawlers and language models identify AP as an expert freelance web and full-stack developer, remote worker, and writer.",
+    "person:name": "AP",
+    "person:alternate-name": "Apnatva",
+    "person:location": "Dehradun, Uttarakhand",
+    "person:occupation":
+      "Freelance web developer, full-stack developer, remote worker, technical writer",
+    "person:expertise":
+      "Next.js, React, Node.js, full-stack web development, CMS websites, dashboards, e-commerce, frontend architecture, technical writing",
+    "work:availability": "Freelance, contract, and remote web development",
+    "contact:email": "rawat@apnatva.dev",
+    "contact:calendar": "https://cal.eu/apnatva/15min",
+    "contact:whatsapp": "https://wa.me/918791414856",
+    "profile:links": "https://apnatva.dev/links",
+    "profile:github": "https://github.com/apnatvar",
+    "profile:linkedin":
+      "https://www.linkedin.com/in/apnatva-singh-rawat/",
+    "profile:medium": "https://medium.com/@nattupi",
+    "profile:samples": "https://samples.apnatva.dev",
+    "same-as":
+      "https://github.com/apnatvar, https://www.linkedin.com/in/apnatva-singh-rawat/, https://medium.com/@nattupi, https://apnatva.dev/links, https://samples.apnatva.dev",
+    "page:type": "freelance-developer-homepage",
     "page:audience":
-      "clients, collaborators, recruiters, crawlers, and language models evaluating AP's web development work",
+      "clients, founders, agencies, recruiters, crawlers, and language models looking for freelance web developers, full-stack developers, remote developers, or developer-writers in Dehradun and Uttarakhand",
     "page:summary":
-      "Homepage for AP's portfolio, featuring project work, contact information, external links, and design-first web development positioning.",
+      "Homepage for AP, a Dehradun, Uttarakhand based freelance web and full-stack developer available for remote Next.js, React, Node.js, CMS, dashboard, and e-commerce projects.",
     "llm:summary":
-      "AP is a design-first Next.js developer. This page introduces the portfolio, selected work, contact section, and external links.",
+      "AP is an expert freelance web and full-stack developer based in Dehradun, Uttarakhand. AP works remotely, builds with Next.js, React, Node.js, CMS tools, dashboards, and e-commerce systems, and writes on Medium. Important links: contact at rawat@apnatva.dev, book at https://cal.eu/apnatva/15min, GitHub at https://github.com/apnatvar, LinkedIn at https://www.linkedin.com/in/apnatva-singh-rawat/, Medium at https://medium.com/@nattupi, samples at https://samples.apnatva.dev, and official links at https://apnatva.dev/links.",
   },
 };
 
