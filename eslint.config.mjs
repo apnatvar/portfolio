@@ -31,7 +31,7 @@ const eslintConfig = [
     },
   },
   {
-    ignores: [".next/", "next-env.d.ts"],
+    ignores: [".next/", ".tool-tests/", "next-env.d.ts"],
   },
 ];
 

@@ -205,7 +205,11 @@ export function generateSchedule(
             gapEnd - cursor,
           )
         : nextCandidate.remaining;
-      const duration = Math.floor(target / FIVE_MINUTES) * FIVE_MINUTES;
+      let duration = Math.floor(target / FIVE_MINUTES) * FIVE_MINUTES;
+      const remainderAfterBlock = nextCandidate.remaining - duration;
+      if (remainderAfterBlock > 0 && remainderAfterBlock < MIN_BLOCK) {
+        duration -= MIN_BLOCK - remainderAfterBlock;
+      }
       if (duration < MIN_BLOCK) break;
 
       const block: ScheduleBlock = {

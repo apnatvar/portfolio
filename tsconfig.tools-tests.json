@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmit": false,
+    "outDir": ".tool-tests",
+    "rootDir": ".",
+    "paths": {}
+  },
+  "include": [
+    "tests/tools-logic.test.ts",
+    "src/lib/tools/focus-planner/config.ts",
+    "src/lib/tools/focus-planner/scheduler.ts",
+    "src/lib/tools/focus-planner/types.ts",
+    "src/lib/tools/decision-confidence/scoring.ts",
+    "src/lib/tools/decision-confidence/recommendations.ts",
+    "src/lib/tools/decision-confidence/types.ts"
+  ]
+}

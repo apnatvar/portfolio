@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:tools": "tsc -p tsconfig.tools-tests.json && node .tool-tests/tests/tools-logic.test.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
