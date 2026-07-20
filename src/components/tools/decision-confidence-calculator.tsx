@@ -1,6 +1,7 @@
 "use client";
 
 import { ResultCard } from "@/components/tools/result-card";
+import { ExportActions } from "@/components/tools/export-actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -10,6 +11,12 @@ import {
   DEFAULT_FACTORS,
   FACTOR_DEFINITIONS,
 } from "@/lib/tools/decision-confidence/scoring";
+import {
+  decisionAsJson,
+  decisionAsMarkdown,
+  decisionAsPlainText,
+} from "@/lib/tools/decision-confidence/exports";
+import { formatGeneratedDate } from "@/lib/tools/date-format";
 import type {
   DecisionCategory,
   DecisionInput,
@@ -155,6 +162,9 @@ export function DecisionConfidenceCalculator() {
           </div>
         ) : (
           <div aria-live="polite" aria-atomic="true">
+            <p className="mb-4 text-xs text-muted-foreground">
+              Generated {formatGeneratedDate(new Date(result.generatedAt))} · {categoryLabels[result.input.category]}
+            </p>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Recommendation</p>
             <h3 className="mt-2 text-3xl font-medium tracking-tight">{result.recommendationLabel}</h3>
             {result.input.title ? <p className="mt-2 text-sm text-muted-foreground">For: {result.input.title}</p> : null}
@@ -185,6 +195,14 @@ export function DecisionConfidenceCalculator() {
               <p className="mt-2 text-sm"><span className="font-medium">Urgency:</span> {result.bands.urgency} ({result.scores.urgency}/100).</p>
             </details>
             {result.input.category === "financial" ? <p className="mt-5 text-xs text-muted-foreground">This framework is not financial advice.</p> : null}
+            <div className="mt-5 border-t pt-5">
+              <ExportActions
+                filename="decision-confidence-result"
+                markdown={decisionAsMarkdown(result)}
+                json={decisionAsJson(result)}
+                plainText={decisionAsPlainText(result)}
+              />
+            </div>
           </div>
         )}
       </ResultCard>
