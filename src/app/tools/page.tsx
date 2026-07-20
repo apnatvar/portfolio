@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Free Developer and Decision Tools | AP Natva",
+  title: { absolute: "Free Developer and Decision Tools | AP Natva" },
   description:
     "Free browser-based tools for planning focused development work and evaluating decision readiness. No accounts, uploads or data storage.",
   alternates: { canonical: "/tools" },
