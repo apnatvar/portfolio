@@ -2,6 +2,7 @@ import { DecisionConfidenceCalculator } from "@/components/tools/decision-confid
 import { JsonLd } from "@/components/tools/json-ld";
 import { ToolPageHeader } from "@/components/tools/tool-page-header";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const title = "Decision Confidence Calculator and Decision Readiness Tool | AP Natva";
 const description =
@@ -96,6 +97,14 @@ export default function DecisionConfidenceCalculatorPage() {
             ))}
           </div>
         </div>
+        <nav className="md:col-span-2" aria-label="Related pages">
+          <h2 className="text-lg font-medium">Keep exploring</h2>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <Link className="underline underline-offset-4" href="/tools/developer-focus-planner">Developer Focus Planner</Link>
+            <Link className="underline underline-offset-4" href="/hire-ap">Web development services</Link>
+            <Link className="underline underline-offset-4" href="/about-ap">About AP</Link>
+          </div>
+        </nav>
       </section>
     </main>
   );

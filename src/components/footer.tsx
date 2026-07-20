@@ -21,6 +21,7 @@ const sitemapLinks: FooterLink[] = [
   { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
   { label: "Blogs", href: "/blogs" },
+  { label: "Tools", href: "/tools" },
   { label: "Links", href: "/links" },
   { label: "Samples", href: "https://samples.apnatva.dev" },
 ];
@@ -95,7 +96,7 @@ function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
           >
             <Link
               href={link.href}
-              target="_blank"
+              target={link.href.startsWith("http") ? "_blank" : undefined}
               className="footer-animated-link"
               style={getAnimationVars(index)}
             >

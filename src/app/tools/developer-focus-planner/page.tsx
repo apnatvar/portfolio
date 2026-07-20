@@ -2,6 +2,7 @@ import { FocusPlanner } from "@/components/tools/focus-planner";
 import { JsonLd } from "@/components/tools/json-ld";
 import { ToolPageHeader } from "@/components/tools/tool-page-header";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const title = "Developer Focus Planner and Pomodoro Schedule Builder | AP Natva";
 const description =
@@ -96,6 +97,14 @@ export default function DeveloperFocusPlannerPage() {
             ))}
           </div>
         </div>
+        <nav className="md:col-span-2" aria-label="Related pages">
+          <h2 className="text-lg font-medium">Keep exploring</h2>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <Link className="underline underline-offset-4" href="/tools/decision-confidence-calculator">Decision Confidence Calculator</Link>
+            <Link className="underline underline-offset-4" href="/hire-ap">Web development services</Link>
+            <Link className="underline underline-offset-4" href="/about-ap">About AP</Link>
+          </div>
+        </nav>
       </section>
     </main>
   );
