@@ -14,6 +14,11 @@ import {
   generateSchedule,
   validatePlanner,
 } from "@/lib/tools/focus-planner/scheduler";
+import {
+  plannerAsJson,
+  plannerAsMarkdown,
+  plannerAsPlainText,
+} from "@/lib/tools/focus-planner/exports";
 import type {
   CognitiveIntensity,
   PlannerResult,
@@ -25,6 +30,8 @@ import type {
 } from "@/lib/tools/focus-planner/types";
 import { ArrowDown, ArrowUp, Plus, RotateCcw, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { ExportActions } from "@/components/tools/export-actions";
+import { formatGeneratedDate } from "@/lib/tools/date-format";
 
 const initialSettings: WorkdaySettings = {
   startTime: "09:00",
@@ -259,6 +266,9 @@ export function FocusPlanner() {
           </div>
         ) : (
           <div aria-live="polite" aria-atomic="true">
+            <p className="mb-4 text-xs text-muted-foreground">
+              Generated {formatGeneratedDate(new Date(result.generatedAt))} · {PLANNING_STYLES[result.style].label}
+            </p>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Schedule summary">
               <SummaryStat label="Focus" value={minutesLabel(result.summary.focusMinutes)} />
               <SummaryStat label="Breaks" value={minutesLabel(result.summary.breakMinutes)} />
@@ -266,10 +276,10 @@ export function FocusPlanner() {
               <SummaryStat label="Allocated" value={`${result.summary.allocatedPercentage}%`} />
             </div>
 
-            <div className="mt-5 space-y-2 md:hidden">
+            <div className="tool-mobile-timeline mt-5 space-y-2 md:hidden">
               {result.blocks.map((block) => <TimelineCard key={block.id} block={block} />)}
             </div>
-            <div className="mt-5 hidden overflow-x-auto md:block">
+            <div className="tool-desktop-table mt-5 hidden overflow-x-auto md:block">
               <table className="w-full border-collapse text-left text-sm">
                 <caption className="sr-only">Generated workday schedule</caption>
                 <thead><tr className="border-b"><th scope="col" className="py-2 pr-3 font-medium">Time</th><th scope="col" className="py-2 pr-3 font-medium">Block</th><th scope="col" className="py-2 text-right font-medium">Length</th></tr></thead>
@@ -282,6 +292,14 @@ export function FocusPlanner() {
               {result.unscheduled.length ? (
                 <ul className="mt-3 space-y-3 text-sm">{result.unscheduled.map(({ task, remainingMinutes, reason }) => <li key={task.id}><span className="font-medium">{task.name}</span> · {minutesLabel(remainingMinutes)} remaining<span className="block text-muted-foreground">{reason}</span></li>)}</ul>
               ) : <p className="mt-2 text-sm text-muted-foreground">Everything fits in the available day.</p>}
+            </div>
+            <div className="mt-5 border-t pt-5">
+              <ExportActions
+                filename="developer-focus-plan"
+                markdown={plannerAsMarkdown(result)}
+                json={plannerAsJson(result)}
+                plainText={plannerAsPlainText(result)}
+              />
             </div>
           </div>
         )}

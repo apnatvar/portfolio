@@ -279,3 +279,59 @@ body {
   background: transparent;
   padding: 0;
 }
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  body {
+    background: white !important;
+    color: #171717 !important;
+    cursor: auto;
+    font-family: Arial, sans-serif;
+  }
+
+  body footer,
+  .tool-controls,
+  .tool-page header a {
+    display: none !important;
+  }
+
+  .tool-page {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .tool-page header {
+    border: 0 !important;
+    padding-bottom: 8mm !important;
+  }
+
+  .tool-page header h1 {
+    font-size: 28pt !important;
+  }
+
+  #planner-result,
+  #decision-result {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    position: static !important;
+  }
+
+  .tool-mobile-timeline {
+    display: none !important;
+  }
+
+  .tool-desktop-table {
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  tr,
+  article,
+  section {
+    break-inside: avoid;
+  }
+}
