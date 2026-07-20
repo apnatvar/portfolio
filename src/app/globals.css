@@ -295,6 +295,7 @@ body {
   body footer,
   .tool-controls,
   .tool-support-content,
+  .tool-closing-note,
   .tool-page header a {
     display: none !important;
   }

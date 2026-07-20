@@ -24,7 +24,7 @@ export function ToolPageHeader({
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {eyebrow}
       </p>
-      <h1 className="max-w-4xl text-4xl font-medium leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+      <h1 className="max-w-5xl font-italianno text-5xl leading-none transition-all duration-500 hover:tracking-wide sm:text-7xl lg:text-8xl">
         {title}
       </h1>
       <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">

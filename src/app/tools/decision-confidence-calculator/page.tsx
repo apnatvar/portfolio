@@ -1,6 +1,7 @@
 import { DecisionConfidenceCalculator } from "@/components/tools/decision-confidence-calculator";
 import { JsonLd } from "@/components/tools/json-ld";
 import { ToolPageHeader } from "@/components/tools/tool-page-header";
+import { ToolClosingNote } from "@/components/tools/tool-closing-note";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -106,6 +107,18 @@ export default function DecisionConfidenceCalculatorPage() {
           </div>
         </nav>
       </section>
+      <ToolClosingNote
+        title="Turn uncertainty into a useful next move."
+        action="Revisit the factors"
+        href="#decision-details-title"
+      >
+        <p>
+          Decisions often feel difficult because evidence, urgency, downside, emotion, and long-term fit are competing for attention at the same time. This calculator gives each of those concerns a clear place, helping you separate genuine readiness from pressure and replace vague hesitation with a practical next step.
+        </p>
+        <p>
+          Use it best when you score the situation as it is today rather than as you hope it will become. Expect a framework—not a verdict—that can reveal whether to commit, learn more, test cheaply, wait with purpose, or walk away. Revisit the factors when new information arrives and compare what actually changed.
+        </p>
+      </ToolClosingNote>
     </div>
   );
 }

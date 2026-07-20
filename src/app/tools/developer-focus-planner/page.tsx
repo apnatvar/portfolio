@@ -1,6 +1,7 @@
 import { FocusPlanner } from "@/components/tools/focus-planner";
 import { JsonLd } from "@/components/tools/json-ld";
 import { ToolPageHeader } from "@/components/tools/tool-page-header";
+import { ToolClosingNote } from "@/components/tools/tool-closing-note";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -106,6 +107,18 @@ export default function DeveloperFocusPlannerPage() {
           </div>
         </nav>
       </section>
+      <ToolClosingNote
+        title="A workday that feels possible."
+        action="Plan another day"
+        href="#workday-title"
+      >
+        <p>
+          A useful plan does more than fill every available minute. It makes the important work visible, protects the attention demanding tasks require, and shows you early when the day is carrying too much. Use this planner before opening your editor, after priorities change, or whenever an unstructured task list starts creating more pressure than direction.
+        </p>
+        <p>
+          You will get the most from it by being honest about duration and marking work as splittable only when stopping midway is genuinely practical. The result is not a promise of a perfect day; it is a realistic starting point you can print, adjust, and use to reduce context switching while keeping unfinished work in view.
+        </p>
+      </ToolClosingNote>
     </div>
   );
 }

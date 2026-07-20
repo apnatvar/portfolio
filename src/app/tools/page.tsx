@@ -48,7 +48,7 @@ export default function ToolsPage() {
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         Practical utilities
       </p>
-      <h1 className="mt-3 max-w-3xl text-4xl font-medium tracking-tight sm:text-6xl">
+      <h1 className="mt-3 max-w-4xl font-italianno text-5xl leading-none transition-all duration-500 hover:tracking-wide sm:text-7xl lg:text-8xl">
         Useful tools, without an account.
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
