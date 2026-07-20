@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Browser tools
+
+The `/tools` area includes a client-only Developer Focus Planner and Decision Confidence Calculator. Architecture, deterministic rules, exports, and verification steps are documented in [`docs/browser-tools.md`](docs/browser-tools.md).
+
 ## Getting Started
 
 First, run the development server:

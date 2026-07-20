@@ -64,20 +64,20 @@ export function validateDecisionInput(input: DecisionInput) {
   return errors;
 }
 
-type Influence = { key: FactorKey; positive: number; support: string; concern: string };
+type Influence = { key: FactorKey; label: string; positive: number; support: string; concern: string };
 
 function getInfluences(factors: FactorScores): Influence[] {
   return [
-    { key: "reversibility", positive: factors.reversibility, support: "The choice is relatively easy to reverse.", concern: "The choice may be difficult to unwind." },
-    { key: "informationQuality", positive: factors.informationQuality, support: "The available information is strong.", concern: "The evidence base is limited." },
-    { key: "assumptionConfidence", positive: factors.assumptionConfidence, support: "Core assumptions are well supported.", concern: "Important assumptions remain uncertain." },
-    { key: "costOfDelay", positive: factors.costOfDelay, support: "Waiting carries a meaningful cost.", concern: "There is little penalty for waiting." },
-    { key: "costOfWrong", positive: 6 - factors.costOfWrong, support: "The downside of a mistake is contained.", concern: "A wrong choice could be costly." },
-    { key: "potentialUpside", positive: factors.potentialUpside, support: "The potential upside is meaningful.", concern: "The potential upside appears limited." },
-    { key: "timePressure", positive: factors.timePressure, support: "A timely choice has practical value.", concern: "External pressure may be forcing the pace." },
-    { key: "emotionalPressure", positive: 6 - factors.emotionalPressure, support: "The decision is being considered calmly.", concern: "High emotion may be distorting the assessment." },
-    { key: "testability", positive: factors.testability, support: "A small validation test is feasible.", concern: "The choice is difficult to test safely." },
-    { key: "longTermAlignment", positive: factors.longTermAlignment, support: "The option aligns with long-term goals.", concern: "The option has weak long-term alignment." },
+    { key: "reversibility", label: "Reversibility", positive: factors.reversibility, support: "The choice is relatively easy to reverse.", concern: "The choice may be difficult to unwind." },
+    { key: "informationQuality", label: "Information quality", positive: factors.informationQuality, support: "The available information is strong.", concern: "The evidence base is limited." },
+    { key: "assumptionConfidence", label: "Assumption confidence", positive: factors.assumptionConfidence, support: "Core assumptions are well supported.", concern: "Important assumptions remain uncertain." },
+    { key: "costOfDelay", label: "Cost of delay", positive: factors.costOfDelay, support: "Waiting carries a meaningful cost.", concern: "There is little penalty for waiting." },
+    { key: "costOfWrong", label: "Contained downside", positive: 6 - factors.costOfWrong, support: "The downside of a mistake is contained.", concern: "A wrong choice could be costly." },
+    { key: "potentialUpside", label: "Potential upside", positive: factors.potentialUpside, support: "The potential upside is meaningful.", concern: "The potential upside appears limited." },
+    { key: "timePressure", label: "Time pressure", positive: factors.timePressure, support: "A timely choice has practical value.", concern: "External pressure may be forcing the pace." },
+    { key: "emotionalPressure", label: "Emotional calm", positive: 6 - factors.emotionalPressure, support: "The decision is being considered calmly.", concern: "High emotion may be distorting the assessment." },
+    { key: "testability", label: "Testability", positive: factors.testability, support: "A small validation test is feasible.", concern: "The choice is difficult to test safely." },
+    { key: "longTermAlignment", label: "Long-term alignment", positive: factors.longTermAlignment, support: "The option aligns with long-term goals.", concern: "The option has weak long-term alignment." },
   ];
 }
 
@@ -114,11 +114,23 @@ export function calculateDecision(input: DecisionInput, generatedAt: Date = new 
   const supportingFactors = [...influences]
     .sort((a, b) => b.positive - a.positive)
     .slice(0, 3)
-    .map((item) => item.support);
+    .map((item) =>
+      item.positive >= 4
+        ? item.support
+        : item.positive === 3
+          ? `${item.label} is assessed as moderate.`
+          : `${item.label} provides limited support at the current score.`,
+    );
   const concerns = [...influences]
     .sort((a, b) => a.positive - b.positive)
     .slice(0, 3)
-    .map((item) => item.concern);
+    .map((item) =>
+      item.positive <= 2
+        ? item.concern
+        : item.positive === 3
+          ? `${item.label} is only moderate.`
+          : `${item.label} is not a leading concern.`,
+    );
   const definitionByKey = new Map(FACTOR_DEFINITIONS.map((item) => [item.key, item.label]));
   const keyInfluences = [...influences]
     .sort((a, b) => Math.abs(b.positive - 3) - Math.abs(a.positive - 3))

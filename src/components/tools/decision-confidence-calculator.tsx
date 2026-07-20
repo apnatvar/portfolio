@@ -167,7 +167,7 @@ export function DecisionConfidenceCalculator() {
             </p>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Recommendation</p>
             <h3 className="mt-2 text-3xl font-medium tracking-tight">{result.recommendationLabel}</h3>
-            {result.input.title ? <p className="mt-2 text-sm text-muted-foreground">For: {result.input.title}</p> : null}
+            <p className="mt-2 text-sm text-muted-foreground">For: {result.input.title?.trim() || "Untitled decision"}</p>
 
             <div className="mt-6 space-y-4">
               <ScoreRow label="Decision readiness" score={result.scores.readiness} band={result.bands.readiness} />

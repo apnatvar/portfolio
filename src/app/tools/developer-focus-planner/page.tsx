@@ -70,7 +70,7 @@ const structuredData = [
 
 export default function DeveloperFocusPlannerPage() {
   return (
-    <main className="tool-page mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
+    <div className="tool-page mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
       <JsonLd data={structuredData} />
       <ToolPageHeader
         title="Developer Focus Planner"
@@ -106,6 +106,6 @@ export default function DeveloperFocusPlannerPage() {
           </div>
         </nav>
       </section>
-    </main>
+    </div>
   );
 }

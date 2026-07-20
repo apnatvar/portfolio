@@ -44,7 +44,7 @@ const tools = [
 
 export default function ToolsPage() {
   return (
-    <main className="mx-auto min-h-[75svh] w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
+    <div className="mx-auto min-h-[75svh] w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         Practical utilities
       </p>
@@ -60,7 +60,7 @@ export default function ToolsPage() {
           <Card key={href} className="group transition-colors hover:border-foreground/40">
             <CardHeader>
               <Icon aria-hidden="true" className="mb-5 size-8 text-muted-foreground" />
-              <CardTitle className="text-2xl font-medium">{title}</CardTitle>
+              <CardTitle className="text-2xl font-medium"><h2>{title}</h2></CardTitle>
               <CardDescription className="max-w-md leading-6">{description}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -74,6 +74,6 @@ export default function ToolsPage() {
           </Card>
         ))}
       </section>
-    </main>
+    </div>
   );
 }
