@@ -32,7 +32,7 @@ const workItems: WorkItem[] = [
     ],
     points: [
       "Open-source workout builder for gym trainers, personal trainers, and other fitness professionals.",
-      "Makes it simple to design structured workouts and share them directly with clients.",
+      "Makes it simple to design structured workouts with AI and share to clients.",
       "Built as a lightweight, self-hostable foundation that can be adapted to different coaching workflows.",
     ],
   },

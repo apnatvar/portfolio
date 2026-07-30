@@ -528,6 +528,105 @@ const PRINCIPLE_SECTIONS: PrincipleSection[] = [
       "Good decisions do not always produce good outcomes, and bad outcomes do not always imply bad decisions.",
     ],
   },
+  {
+    title: "Guard Your Position",
+    principles: [
+      "Never make a superior feel insecure by displaying your abilities too openly.",
+      "Do not assume friendship guarantees loyalty; incentives often matter more.",
+      "Keep your full intentions private until disclosure benefits you.",
+      "Say less than necessary and avoid exposing information that weakens your position.",
+      "Protect your reputation because it shapes how others interpret everything you do.",
+      "Visibility matters; unnoticed competence rarely produces influence.",
+    ],
+  },
+  {
+    title: "Control Perception",
+    principles: [
+      "Let others reveal their intentions while you preserve your own options.",
+      "Influence behaviour through incentives rather than arguments whenever possible.",
+      "Demonstrate results instead of trying to win through verbal confrontation.",
+      "Distance yourself from persistently destructive or destabilising people.",
+      "Make yourself valuable enough that others recognise the cost of losing you.",
+      "Use selective honesty to lower suspicion without surrendering strategic control.",
+    ],
+  },
+  {
+    title: "Act Decisively",
+    principles: [
+      "When confronting a serious threat, resolve it completely rather than partially.",
+      "Strategic absence can increase respect, curiosity and perceived value.",
+      "Unpredictability makes it harder for others to plan against you.",
+      "Isolation weakens awareness and reduces access to information.",
+      "Understand the temperament, interests and vulnerabilities of the person involved.",
+      "Preserve independence and avoid becoming permanently bound to another faction.",
+    ],
+  },
+  {
+    title: "Manage Status",
+    principles: [
+      "Allow others to underestimate you when their confidence creates an advantage.",
+      "Retreat can be strategic when direct resistance would produce unnecessary losses.",
+      "Concentrate resources on the few objectives that matter most.",
+      "Understand the social environment and adapt without surrendering your purpose.",
+      "People often need symbolic leaders, causes or beliefs around which to organise.",
+      "Present unconventional ideas gradually so they do not trigger immediate resistance.",
+    ],
+  },
+  {
+    title: "Shape Identity",
+    principles: [
+      "Create your own identity instead of accepting the role assigned to you.",
+      "Use presentation and symbolism to make important actions memorable.",
+      "Publicly respect prevailing norms even when your private thinking differs.",
+      "Create urgency carefully, but avoid producing disorder you cannot control.",
+      "Never accept a proposal without examining what the other party gains from it.",
+      "Avoid appearing dependent on constant effort; mastery should look controlled.",
+    ],
+  },
+  {
+    title: "Control Choices",
+    principles: [
+      "Structure choices so that every available option still supports your objective.",
+      "People are often persuaded more easily by compelling possibilities than harsh realities.",
+      "Discover the interests, fears or desires that strongly influence each person.",
+      "Reflecting another person's behaviour can reveal them and disrupt their composure.",
+      "Introduce necessary change gradually enough that people can adapt to it.",
+      "Avoid appearing flawless because perfection can provoke distrust and envy.",
+    ],
+  },
+  {
+    title: "Understand Timing",
+    principles: [
+      "Know when to advance, wait, withdraw or allow circumstances to mature.",
+      "Do not waste attention on what you cannot obtain or control.",
+      "Create striking images and symbols because perception often precedes analysis.",
+      "Think independently while remaining socially aware.",
+      "Disrupt opponents' composure rather than allowing them to disrupt yours.",
+      "Be cautious with anything presented as free because hidden obligations may follow.",
+    ],
+  },
+  {
+    title: "Create Your Own Authority",
+    principles: [
+      "Do not succeed merely by copying a powerful predecessor; establish a distinct identity.",
+      "Influencing a central figure can alter the behaviour of an entire group.",
+      "Win emotional commitment rather than relying only on obedience.",
+      "Appear approachable and familiar when doing so helps you gather information.",
+      "Avoid attacking deeply rooted problems directly when indirect leverage is safer.",
+      "Present yourself with dignity so that others are encouraged to treat you accordingly.",
+    ],
+  },
+  {
+    title: "Set the Pace",
+    principles: [
+      "Control the rhythm of events instead of reacting to another person's timetable.",
+      "Make desired outcomes seem valuable by controlling availability and access.",
+      "Move beyond defeating competitors by making their approach irrelevant.",
+      "People are drawn to certainty, belonging, ritual and a clear sense of purpose.",
+      "Do not continue beyond the point of victory and turn success into overreach.",
+      "Remain adaptable because rigid strategies fail when circumstances change.",
+    ],
+  },
 ];
 
 export default function CarnegiePrinciples() {
