@@ -1,6 +1,5 @@
-import { MorphingNav } from "@/components/navbar";
+import { BlogDetailRenderer } from "@/portfolio/blogs/blog-detail-renderer";
 import {
-  formatBlogDate,
   getBlogPost,
   getBlogPosts,
   getBlogUrl,
@@ -84,40 +83,5 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
 
   if (!post) notFound();
 
-  return (
-    <>
-      <MorphingNav /> <div className="min-h-[60svh] md:min-h-[50svh]" />
-      <div className="min-h-svh bg-background px-4 text-foreground md:px-8">
-        <article className="mx-auto w-full max-w-3xl">
-          <nav className="mb-12 flex items-center justify-between gap-4 text-sm text-muted-foreground">
-            <a
-              href={post.mediumUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline-offset-4 hover:underline"
-            >
-              Read on Medium
-            </a>
-          </nav>
-
-          <header className="border-b border-border pb-10">
-            <h1 className="text-6xl leading-tight tracking-normal md:text-8xl font-italianno">
-              {post.title}
-            </h1>
-            <time
-              className="mt-6 block text-sm text-muted-foreground"
-              dateTime={post.publishedAt}
-            >
-              {formatBlogDate(post.publishedAt)}
-            </time>
-          </header>
-
-          <div
-            className="blog-content mt-10"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-          />
-        </article>
-      </div>
-    </>
-  );
+  return <BlogDetailRenderer post={post} />;
 }

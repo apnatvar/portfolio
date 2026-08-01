@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { WORDS } from "@/lib/words";
+import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import gsap from "gsap";
 import {
   CircleAlert,
@@ -34,7 +35,14 @@ function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function HireAP({ landing }: { landing: boolean }) {
+export function HireAP({
+  landing,
+  presentation = "creative",
+}: {
+  landing: boolean;
+  presentation?: "creative" | "resume" | "swiss";
+}) {
+  const { mode } = useDisplayMode();
   const rootRef = useRef<HTMLElement | null>(null);
   const wordsRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -61,6 +69,7 @@ export function HireAP({ landing }: { landing: boolean }) {
   const emailIsValid = EMAIL_REGEX.test(email.trim());
   const messageIsValid = message.trim().length > 0;
   const formIsValid = emailIsValid && messageIsValid && !isSubmitting;
+  const isAlternative = !landing && presentation !== "creative";
 
   function openDialog(
     type: "success" | "error",
@@ -82,7 +91,10 @@ export function HireAP({ landing }: { landing: boolean }) {
   }, [message]);
 
   useEffect(() => {
-    gsap.matchMedia().add(
+    if (mode !== "creative") return;
+
+    const media = gsap.matchMedia();
+    media.add(
       "(min-width: 768px)",
       () => {
         if (!wordsRef.current) return;
@@ -145,7 +157,9 @@ export function HireAP({ landing }: { landing: boolean }) {
       },
       { scope: rootRef },
     );
-  }, []);
+
+    return () => media.revert();
+  }, [mode]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -209,27 +223,38 @@ export function HireAP({ landing }: { landing: boolean }) {
       <section
         ref={rootRef}
         className={cn(
-          "mx-auto grid max-md:grid-rows-6 grid-cols-1 w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-8 h-svh",
-          landing ? "md:max-w-4xl" : "md:grid-cols-2",
+          isAlternative
+            ? `hire-mode hire-mode--${presentation}`
+            : "mx-auto grid max-md:grid-rows-6 grid-cols-1 w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-8 h-svh",
+          !isAlternative && (landing ? "md:max-w-4xl" : "md:grid-cols-2"),
         )}
       >
+        {isAlternative ? (
+          <header className="hire-mode-header">
+            <span>{presentation === "swiss" ? "CONTACT—AP" : "Hire Me"}</span>
+            <h1>Describe your requirement.</h1>
+          </header>
+        ) : null}
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="flex flex-col justify-between gap-5 rounded-3xl border border-border bg-background p-4 shadow-sm md:p-8 max-md:row-start-2 max-md:row-span-3"
+          className={cn(
+            "flex flex-col justify-between gap-5 border border-border bg-background p-4 md:p-8",
+            isAlternative ? "hire-mode-form" : "rounded-3xl shadow-sm max-md:row-start-2 max-md:row-span-3",
+          )}
         >
           {landing ? (
             <></>
           ) : (
             <div className="flex flex-wrap gap-3">
-              <Button asChild className="rounded-full">
+              <Button asChild className={isAlternative ? "hire-mode-button" : "rounded-full"}>
                 <a href="mailto:rawat@apnatva.dev">
                   <Mail className="mr-2 size-4" />
                   Mail
                 </a>
               </Button>
 
-              <Button asChild variant="secondary" className="rounded-full">
+              <Button asChild variant="secondary" className={isAlternative ? "hire-mode-button" : "rounded-full"}>
                 <a
                   href="https://wa.me/918791414856"
                   target="_blank"
@@ -240,7 +265,7 @@ export function HireAP({ landing }: { landing: boolean }) {
                 </a>
               </Button>
 
-              <Button asChild variant="secondary" className="rounded-full">
+              <Button asChild variant="secondary" className={isAlternative ? "hire-mode-button" : "rounded-full"}>
                 <a
                   href="https://cal.eu/apnatva/15min"
                   target="_blank"
@@ -264,7 +289,8 @@ export function HireAP({ landing }: { landing: boolean }) {
               onBlur={() => setEmailTouched(true)}
               aria-invalid={emailTouched && !emailIsValid}
               className={cn(
-                "h-12 rounded-2xl",
+                "h-12",
+                isAlternative ? "rounded-[var(--radius)]" : "rounded-2xl",
                 emailTouched &&
                   !emailIsValid &&
                   "border-destructive focus-visible:ring-destructive/30",
@@ -291,7 +317,8 @@ export function HireAP({ landing }: { landing: boolean }) {
               }}
               aria-invalid={messageTouched && !messageIsValid}
               className={cn(
-                "min-h-[120px] resize-none rounded-2xl leading-6",
+                "min-h-[120px] resize-none leading-6",
+                isAlternative ? "rounded-[var(--radius)]" : "rounded-2xl",
                 messageTouched &&
                   !messageIsValid &&
                   "border-destructive focus-visible:ring-destructive/30",
@@ -313,7 +340,7 @@ export function HireAP({ landing }: { landing: boolean }) {
           <Button
             type="submit"
             disabled={!formIsValid}
-            className="h-12 rounded-2xl"
+            className={cn("h-12", isAlternative ? "rounded-[var(--radius)]" : "rounded-2xl")}
           >
             <Send className="mr-2 size-4" />
             {isSubmitting ? "Submitting..." : "Submit"}
@@ -322,18 +349,18 @@ export function HireAP({ landing }: { landing: boolean }) {
         {landing ? (
           <></>
         ) : (
-          <div className="relative hidden h-full overflow-hidden rounded-3xl border border-border bg-muted/20 md:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-muted/30 to-transparent" />
+          <div className={isAlternative ? "hire-mode-capabilities" : "relative hidden h-full overflow-hidden rounded-3xl border border-border bg-muted/20 md:block"}>
+            {!isAlternative ? <div className="absolute inset-0 bg-gradient-to-br from-transparent via-muted/30 to-transparent" /> : null}
 
             <div
               ref={wordsRef}
-              className="relative flex h-full items-center justify-center"
+              className={isAlternative ? "hire-mode-words" : "relative flex h-full items-center justify-center"}
             >
               {WORDS.map((word) => (
                 <span
                   key={word}
                   data-word
-                  className="pointer-events-none whitespace-nowrap text-4xl font-semibold uppercase text-foreground/90 lg:text-4xl w-full absolute text-center"
+                  className={isAlternative ? "hire-mode-word" : "pointer-events-none whitespace-nowrap text-4xl font-semibold uppercase text-foreground/90 lg:text-4xl w-full absolute text-center"}
                 >
                   {word}
                 </span>

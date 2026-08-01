@@ -93,11 +93,12 @@ export default function CollegeSplitSection() {
       title: "Trinity College Dublin",
       imageSrc: "/tcd.webp",
       points: [
-        "Graduated with a First Class Honours in BAI Computer Engineering.",
+        "Bachelor of Engineering in Computer Engineering, First Class Honours (1:1), October 2023.",
         "Wrote a thesis on the use of satellite based traffic information to automate congestion prevention without relying heavily on hardware.",
         "Worked with Formula Trinity in developing an autonomous RC-sized car for racing.",
         "Graduated with an honourary Bachelor of Arts.",
         "Focussed on developing Neural Network based autonomous machines for automated, ethical decision making.",
+        "Certifications include FreeCodeCamp Machine Learning, Automate the Boring Stuff, and Google Data Analytics.",
       ],
     },
     {

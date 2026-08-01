@@ -33,6 +33,7 @@ const workItems: WorkItem[] = [
     points: [
       "Open-source workout builder for gym trainers, personal trainers, and other fitness professionals.",
       "Makes it simple to design structured workouts with AI and share to clients.",
+      "Includes an MCP server that makes its workout-building capabilities available to compatible AI clients.",
       "Built as a lightweight, self-hostable foundation that can be adapted to different coaching workflows.",
     ],
   },
@@ -237,9 +238,6 @@ export default function WorkHorizontalScrollSection() {
           });
         });
 
-        return () => {
-          mm.revert();
-        };
       });
 
       mm.add("(max-width: 767px)", () => {

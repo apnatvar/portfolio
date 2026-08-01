@@ -19,7 +19,7 @@ export async function GET() {
 
 ## Overview
 
-AP (Apnatva) is a freelance and contract design-first full stack web developer focused on building high-performance modern web experiences for businesses, startups, founders, agencies, and personal brands.
+AP (Apnatva Singh Rawat) is a full-stack web and software developer with over three years of experience building production applications, internal tools, automations, API-driven systems, and cloud deployments.
 
 This website serves as a professional portfolio, technical CV, writing archive, capability index, and hiring destination for prospective clients seeking freelance, contract, consulting, or project-based development work.
 
@@ -39,7 +39,7 @@ ${blogLines}
 
 ## Core Stack
 
-Next.js, React, TypeScript, Tailwind CSS, Shadcn UI, GSAP, Node.js, PayloadCMS, Python.
+Next.js, React, TypeScript, Tailwind CSS, Shadcn UI, GSAP, Node.js, REST APIs, Python, PostgreSQL, Docker, Kubernetes, and Azure.
 
 ## Commercial Intent
 

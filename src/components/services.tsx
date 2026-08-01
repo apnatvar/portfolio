@@ -1,6 +1,7 @@
 "use client";
 
 import { WORDS } from "@/lib/words";
+import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -24,6 +25,7 @@ export default function InfinitePinnedWords({
   sideLabelLeft = "Home",
   sideLabelRight = "Hire me",
 }: InfinitePinnedWordsProps) {
+  const { mode } = useDisplayMode();
   const sectionRef = useRef<HTMLElement | null>(null);
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -39,6 +41,8 @@ export default function InfinitePinnedWords({
   }, [words]);
 
   useLayoutEffect(() => {
+    if (mode !== "creative") return;
+
     const section = sectionRef.current;
     const viewport = viewportRef.current;
     const items = itemRefs.current.filter(Boolean) as HTMLDivElement[];
@@ -187,7 +191,21 @@ export default function InfinitePinnedWords({
       observer.kill();
       trigger.kill();
     };
-  }, [repeatedWords]);
+  }, [mode, repeatedWords]);
+
+  if (mode !== "creative") {
+    return (
+      <section className="mx-auto w-full max-w-7xl px-4 py-20 md:px-8" aria-label="Services and capabilities">
+        <div className="flex flex-wrap gap-2">
+          {repeatedWords.map((word, index) => (
+            <span key={`${word}-${index}`} className="rounded-[var(--radius)] border bg-card px-3 py-2 text-sm font-medium">
+              {word}
+            </span>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

@@ -1,6 +1,6 @@
 import "@/app/globals.css";
-import { SiteFooter } from "@/components/footer";
-import SmoothScrollProvider from "@/components/smooth-scroll";
+import { DisplayModeProvider, displayModeBootstrapScript } from "@/components/display-mode/display-mode-provider";
+import { DisplayModeShell } from "@/components/display-mode/display-mode-shell";
 import { Metadata, Viewport } from "next";
 import {
   Amita,
@@ -155,13 +155,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-display-mode="creative" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: displayModeBootstrapScript }} />
+      </head>
       <body className={`mx-auto bg-background antialiased ${FONT_VARS}`}>
-        <SmoothScrollProvider>
-          <main className="font-narrow">
-            {children} <SiteFooter />
-          </main>
-        </SmoothScrollProvider>
+        <DisplayModeProvider>
+          <DisplayModeShell>{children}</DisplayModeShell>
+        </DisplayModeProvider>
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import Link from "next/link";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
+import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import { cn } from "@/lib/utils";
 
 const CAROUSEL_IMAGES = [
@@ -23,16 +24,20 @@ const CAROUSEL_IMAGES = [
 
 const TIMELINE_ITEMS = [
   {
-    year: "2018",
-    text: "Graduated High School focussing on Math and Computer Science",
+    year: "Sep 2024 - Present",
+    text: "Full-stack Web Developer at Brownsmith Dynamics.",
   },
   {
-    year: "2023",
-    text: "Graduated from Trinity College Dublin with a Bachelor in Computer Engineering and Arts.",
+    year: "Jun 2025 - May 2026",
+    text: "Content & Branding at Motilal Oswal Financial Services.",
   },
   {
-    year: "2025",
-    text: "Started officially freelancing.",
+    year: "May 2023 - Jul 2024",
+    text: "Junior Cloud Engineer at Avaya, working with Kubernetes, Docker, and Azure.",
+  },
+  {
+    year: "May 2022 - Aug 2022",
+    text: "Software Developer at Mount Technics Consultancy.",
   },
 ];
 
@@ -52,6 +57,7 @@ const LINK_GROUPS = [
 ];
 
 export default function ProfileSplitSection() {
+  const { mode } = useDisplayMode();
   const autoplay = React.useRef(
     Autoplay({
       delay: 4200,
@@ -68,7 +74,7 @@ export default function ProfileSplitSection() {
       skipSnaps: false,
       duration: 28,
     },
-    [autoplay.current],
+    mode === "creative" ? [autoplay.current] : [],
   );
 
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -135,7 +141,7 @@ export default function ProfileSplitSection() {
               </h2>
 
               <div className="mt-4 flex flex-col gap-1 text-sm text-muted sm:text-base">
-                <p>BAI Computer Engineering, TCD</p>
+                <p>BEng Computer Engineering, First Class Honours, TCD</p>
                 <p>BA Arts, TCD</p>
               </div>
             </div>
@@ -184,18 +190,17 @@ export default function ProfileSplitSection() {
 
         <article className="flex min-h-0 flex-col bg-background px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
           <p className="text-sm leading-7 text-muted-foreground sm:text-base">
-            I am Apnatva, most prefer to call me AP. I am a designer/developer
-            currently working freelance on personal and portfolio websites. I
-            like design that instills calmness and guides users to the intended
-            action.
-            <br /> Besides this I run, train, read philosophy and psychology,
-            travel and capture moments, or write blogs. <br />
+            I am Apnatva, though most people call me AP. I am a full-stack web
+            and software developer with over three years of experience building
+            and maintaining production applications, internal tools, automation
+            workflows, and API-driven systems. My work spans responsive
+            interfaces, backend integrations, SEO, cloud deployment, reporting
+            automation, and production support. <br />
+            <br /> Outside work I run, train, read philosophy and psychology,
+            travel, take photographs, and write.
             <br />
-            Use the link below to navigate to specific pieces of information or
-            connect with me across various socials.
             <br />
-            <br />
-            If you are looking to hire a designer/developer you can contact me
+            If you are looking to hire a full-stack developer you can contact me
             via{" "}
             <span>
               <Link
@@ -208,8 +213,8 @@ export default function ProfileSplitSection() {
             or just contact me on my socials directly.
           </p>
 
-          <div className="mt-8 grid min-h-0 flex-1 grid-cols-1 gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-            <div className="min-h-0 space-y-6">
+          <div className="mt-5 grid min-h-0 flex-1 grid-cols-1 gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+            <div className="min-h-0 space-y-3">
               {TIMELINE_ITEMS.map((item) => (
                 <section
                   key={item.year}

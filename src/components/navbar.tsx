@@ -1,6 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
+import { ThemedMenu } from "@/components/themed-menu";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -131,6 +133,12 @@ const navItems: NavItem[] = [
 ];
 
 export function MorphingNav() {
+  const { mode } = useDisplayMode();
+
+  return mode === "creative" ? <CreativeMorphingNav /> : <ThemedMenu />;
+}
+
+function CreativeMorphingNav() {
   const navRef = useRef<HTMLDivElement | null>(null);
   const pillRef = useRef<HTMLDivElement | null>(null);
   const fullMenuRef = useRef<HTMLDivElement | null>(null);

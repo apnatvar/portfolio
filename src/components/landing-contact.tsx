@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import {
   Carousel,
   CarouselApi,
@@ -68,9 +69,9 @@ const navItems: NavItem[] = [
 ];
 
 export function WordCarousel({ words, direction }: WordCarouselProps) {
+  const { mode } = useDisplayMode();
   const autoScroll = useMemo(
-    () =>
-      AutoScroll({
+    () => mode === "creative" ? AutoScroll({
         direction,
         speed: 0.6,
         startDelay: 0,
@@ -78,14 +79,14 @@ export function WordCarousel({ words, direction }: WordCarouselProps) {
         stopOnInteraction: false,
         stopOnMouseEnter: false,
         stopOnFocusIn: false,
-      }),
-    [direction],
+      }) : null,
+    [direction, mode],
   );
 
   const [api, setApi] = useState<CarouselApi>();
 
   useEffect(() => {
-    if (!api) return;
+    if (!api || !autoScroll) return;
 
     const timeout = window.setTimeout(() => {
       api.reInit();
@@ -93,7 +94,7 @@ export function WordCarousel({ words, direction }: WordCarouselProps) {
     }, 100);
 
     return () => window.clearTimeout(timeout);
-  }, [api]);
+  }, [api, autoScroll]);
 
   return (
     <div className="relative w-full min-w-0 overflow-hidden">
@@ -107,7 +108,7 @@ export function WordCarousel({ words, direction }: WordCarouselProps) {
           dragFree: true,
           align: "start",
         }}
-        plugins={[autoScroll]}
+        plugins={autoScroll ? [autoScroll] : []}
         className="w-full min-w-0"
       >
         <CarouselContent className="-ml-4">

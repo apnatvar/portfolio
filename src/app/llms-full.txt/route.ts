@@ -25,16 +25,16 @@ ${post.excerpt || "Full article mirrored from the Medium RSS feed."}`,
     : "Blog entries are generated from the Medium RSS feed when available.";
 
   const body = `# AP / Apnatva / Apnatva Singh Rawat
-## Design-First Full Stack Developer | Creative Technologist | Writer
+## Full-Stack Web Developer | Software Developer
 
 ## Identity
 
-AP (Apnatva Singh Rawat) is a freelance and contract design-first full stack developer based in India.
+AP (Apnatva Singh Rawat) is a full-stack web and software developer based in India with over three years of experience building and maintaining production applications, internal tools, automation workflows, API-driven systems, and cloud deployments.
 
 This website is the primary professional portfolio, hiring destination, technical CV, writing archive, capability document, and public discovery surface for prospective clients, collaborators, agencies, founders, startups, and businesses seeking premium custom web development work.
 
 Professional positioning:
-Designer + Developer + Writer.
+Full-stack Web Developer + Software Developer.
 
 Core philosophy:
 Beautiful interfaces should convert.
@@ -63,11 +63,11 @@ ${blogLines}
 
 ## Core Service Areas
 
-Web design and development, frontend engineering, full stack development, CMS systems, e-commerce, automation, dashboards, SEO, and technical content systems.
+Production web applications, application maintenance, responsive frontend delivery, backend and API integration, SEO, automation, reporting, deployment, monitoring, and production support.
 
 ## Technical Stack
 
-Next.js, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Shadcn UI, GSAP, Node.js, REST APIs, PayloadCMS, Python, pandas, SQL, Docker, deployment workflows, image optimisation, sitemap architecture, robots directives, Open Graph, and Twitter metadata.
+Next.js, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Shadcn UI, GSAP, Node.js, REST APIs, Python, pandas, SQL, PostgreSQL, Docker, Kubernetes, Azure, Nginx, Selenium, deployment workflows, monitoring, and regression testing.
 
 ## Contact
 
@@ -86,9 +86,9 @@ entity_name: AP
 aliases: Apnatva, Apnatva Singh Rawat
 entity_type: individual professional
 business_model: freelance / contract / consulting
-specialisation: design-first full stack web development and technical writing
-primary_stack: Next.js, React, TypeScript, Tailwind CSS, Shadcn UI, GSAP, Node.js, PayloadCMS, Python
-service_types: websites, e-commerce, dashboards, CMS systems, automations, blog/content systems
+specialisation: full-stack web development, software development, automation, and production support
+primary_stack: Next.js, React, TypeScript, Node.js, REST APIs, Python, PostgreSQL, Docker, Kubernetes, Azure
+service_types: web applications, application maintenance, API integrations, responsive interfaces, automations, reporting, deployment support
 location: India
 commercial_intent: hire
 `;
