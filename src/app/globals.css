@@ -707,6 +707,394 @@ html[data-display-mode="swiss"] .display-mode-prompt-action {
   }
 }
 
+/* Alternate-mode interaction system: expressive on pointer devices, quiet on touch. */
+html[data-display-mode="resume"],
+html[data-display-mode="swiss"] {
+  --interaction-fast: 180ms;
+  --interaction-slow: 420ms;
+  --interaction-ease: cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+html[data-display-mode="resume"] :is(
+  .display-mode-option,
+  .themed-menu-trigger,
+  .themed-menu-panel a,
+  .resume-index a,
+  .resume-project-heading a,
+  .resume-contact-links a,
+  .resume-about-header nav a,
+  .resume-about-links a,
+  .resume-blogs .blogs-mode-links a,
+  .resume-blog-detail article > nav a,
+  .hire-mode--resume button,
+  .hire-mode--resume a
+),
+html[data-display-mode="swiss"] :is(
+  .display-mode-option,
+  .themed-menu-trigger,
+  .themed-menu-panel a,
+  .swiss-project-links a,
+  .swiss-contact a,
+  .swiss-about-links a,
+  .swiss-blogs .blogs-mode-links a,
+  .swiss-blog-detail article > nav a,
+  .hire-mode--swiss button,
+  .hire-mode--swiss a
+) {
+  transition:
+    color var(--interaction-fast) ease,
+    background-color var(--interaction-fast) ease,
+    border-color var(--interaction-fast) ease,
+    box-shadow var(--interaction-fast) ease,
+    transform var(--interaction-slow) var(--interaction-ease),
+    font-size var(--interaction-slow) var(--interaction-ease),
+    letter-spacing var(--interaction-slow) var(--interaction-ease);
+}
+
+html[data-display-mode="resume"] :is(
+  .resume-project,
+  .resume-timeline article,
+  .resume-about-timeline article,
+  .resume-about-education article,
+  .resume-blogs main article
+),
+html[data-display-mode="swiss"] :is(
+  .swiss-role-grid article,
+  .swiss-project-list article,
+  .swiss-experience article,
+  .swiss-about-history article,
+  .swiss-about-education article,
+  .swiss-blogs main article
+) {
+  position: relative;
+  isolation: isolate;
+  transition:
+    color var(--interaction-fast) ease,
+    border-color var(--interaction-fast) ease,
+    transform var(--interaction-slow) var(--interaction-ease);
+}
+
+html[data-display-mode="resume"] :is(
+  .resume-project,
+  .resume-timeline article,
+  .resume-about-timeline article,
+  .resume-about-education article,
+  .resume-blogs main article
+)::before,
+html[data-display-mode="swiss"] :is(
+  .swiss-role-grid article,
+  .swiss-project-list article,
+  .swiss-experience article,
+  .swiss-about-history article,
+  .swiss-about-education article,
+  .swiss-blogs main article
+)::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--foreground);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--interaction-slow) var(--interaction-ease);
+}
+
+html[data-display-mode="resume"] :is(
+  .resume-project,
+  .resume-timeline article,
+  .resume-about-timeline article,
+  .resume-about-education article,
+  .resume-blogs main article
+) > *,
+html[data-display-mode="swiss"] :is(
+  .swiss-role-grid article,
+  .swiss-project-list article,
+  .swiss-experience article,
+  .swiss-about-history article,
+  .swiss-about-education article,
+  .swiss-blogs main article
+) > * {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-display-mode="resume"] :is(
+  .resume-project-heading h3,
+  .resume-timeline p,
+  .resume-about-timeline p,
+  .resume-about-education h3,
+  .resume-blogs article h2
+),
+html[data-display-mode="swiss"] :is(
+  .swiss-role-grid h2,
+  .swiss-project-title h3,
+  .swiss-experience p,
+  .swiss-about-history article p,
+  .swiss-about-education article h2,
+  .swiss-blogs article h2
+) {
+  transition:
+    color var(--interaction-fast) ease,
+    transform var(--interaction-slow) var(--interaction-ease),
+    font-size var(--interaction-slow) var(--interaction-ease),
+    letter-spacing var(--interaction-slow) var(--interaction-ease);
+  transform-origin: left center;
+}
+
+html[data-display-mode="resume"] :is(
+  .resume-capabilities li,
+  .resume-about-skill-groups li,
+  .hire-mode--resume .hire-mode-word
+),
+html[data-display-mode="swiss"] :is(
+  .swiss-word-field span,
+  .swiss-about-skills > div span,
+  .hire-mode--swiss .hire-mode-word
+) {
+  transition:
+    color var(--interaction-fast) ease,
+    background-color var(--interaction-fast) ease,
+    border-color var(--interaction-fast) ease,
+    transform var(--interaction-slow) var(--interaction-ease),
+    font-size var(--interaction-slow) var(--interaction-ease),
+    letter-spacing var(--interaction-slow) var(--interaction-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-display-mode="resume"] :is(
+    .resume-project,
+    .resume-timeline article,
+    .resume-about-timeline article,
+    .resume-about-education article,
+    .resume-blogs main article
+  ):is(:hover, :focus-within),
+  html[data-display-mode="swiss"] :is(
+    .swiss-role-grid article,
+    .swiss-project-list article,
+    .swiss-experience article,
+    .swiss-about-history article,
+    .swiss-about-education article,
+    .swiss-blogs main article
+  ):is(:hover, :focus-within) {
+    border-color: var(--foreground);
+    color: var(--background);
+  }
+
+  html[data-display-mode="resume"] :is(
+    .resume-project,
+    .resume-timeline article,
+    .resume-about-timeline article,
+    .resume-about-education article,
+    .resume-blogs main article
+  ):is(:hover, :focus-within)::before,
+  html[data-display-mode="swiss"] :is(
+    .swiss-role-grid article,
+    .swiss-project-list article,
+    .swiss-experience article,
+    .swiss-about-history article,
+    .swiss-about-education article,
+    .swiss-blogs main article
+  ):is(:hover, :focus-within)::before {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  html[data-display-mode="resume"] :is(
+    .resume-project,
+    .resume-timeline article,
+    .resume-about-timeline article,
+    .resume-about-education article,
+    .resume-blogs main article
+  ):is(:hover, :focus-within) :is(time, li, p, span),
+  html[data-display-mode="swiss"] :is(
+    .swiss-role-grid article,
+    .swiss-project-list article,
+    .swiss-experience article,
+    .swiss-about-history article,
+    .swiss-about-education article,
+    .swiss-blogs main article
+  ):is(:hover, :focus-within) :is(time, li, p) {
+    color: color-mix(in oklab, var(--background) 82%, var(--accent));
+  }
+
+  html[data-display-mode="resume"] :is(
+    .resume-project,
+    .resume-timeline article,
+    .resume-about-timeline article,
+    .resume-about-education article,
+    .resume-blogs main article
+  ):is(:hover, :focus-within) :is(h2, h3),
+  html[data-display-mode="swiss"] :is(
+    .swiss-role-grid article,
+    .swiss-project-list article,
+    .swiss-experience article,
+    .swiss-about-history article,
+    .swiss-about-education article,
+    .swiss-blogs main article
+  ):is(:hover, :focus-within) :is(h2, h3) {
+    color: var(--background);
+    letter-spacing: -0.055em;
+    transform: translateX(0.4rem) skewX(-3deg) scale(1.025);
+  }
+
+  html[data-display-mode="resume"] .resume-project:is(:hover, :focus-within) .resume-project-heading h3 {
+    font-size: 1.38rem;
+  }
+
+  html[data-display-mode="resume"] .resume-blogs main article:is(:hover, :focus-within) h2 {
+    font-size: clamp(1.3rem, 2.15vw, 2rem);
+  }
+
+  html[data-display-mode="swiss"] .swiss-project-list article:is(:hover, :focus-within) .swiss-project-title h3 {
+    font-size: clamp(2.2rem, 5.3vw, 5.3rem);
+  }
+
+  html[data-display-mode="swiss"] .swiss-blogs main article:is(:hover, :focus-within) h2 {
+    font-size: clamp(1.7rem, 3.2vw, 3.7rem);
+  }
+
+  html[data-display-mode="swiss"] :is(
+    .swiss-role-grid article,
+    .swiss-project-list article,
+    .swiss-experience article,
+    .swiss-about-history article,
+    .swiss-about-education article,
+    .swiss-blogs main article
+  ):is(:hover, :focus-within) > :is(span, .swiss-project-title > span) {
+    color: var(--accent);
+  }
+
+  html[data-display-mode="resume"] :is(
+    .resume-project-heading a,
+    .resume-contact-links a,
+    .resume-about-header nav a,
+    .resume-about-links a,
+    .resume-blogs .blogs-mode-links a,
+    .resume-blog-detail article > nav a,
+    .themed-menu-trigger
+  ):is(:hover, :focus-visible) {
+    border-color: var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+    letter-spacing: 0.035em;
+    transform: translateY(-0.15rem) skewX(-4deg);
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+
+  html[data-display-mode="swiss"] :is(
+    .swiss-project-links a,
+    .swiss-contact a,
+    .swiss-about-links a,
+    .swiss-blogs .blogs-mode-links a,
+    .swiss-blog-detail article > nav a,
+    .themed-menu-trigger
+  ):is(:hover, :focus-visible) {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-foreground);
+    letter-spacing: 0.075em;
+    transform: translate(-0.15rem, -0.15rem) skewX(-6deg);
+    box-shadow: 6px 6px 0 var(--foreground);
+  }
+
+  html[data-display-mode="resume"] .display-mode-option:hover {
+    background: var(--foreground);
+    color: var(--background);
+    transform: translateY(-0.15rem) skewX(-3deg);
+  }
+
+  html[data-display-mode="swiss"] .display-mode-option:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+    transform: translateY(-0.2rem) skewX(-6deg);
+  }
+
+  html[data-display-mode="resume"] :is(
+    .resume-capabilities li,
+    .resume-about-skill-groups li,
+    .hire-mode--resume .hire-mode-word
+  ):hover {
+    border-color: var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+    letter-spacing: 0.035em;
+    transform: translateY(-0.2rem) rotate(-1.5deg) scale(1.06);
+  }
+
+  html[data-display-mode="swiss"] :is(
+    .swiss-word-field span,
+    .swiss-about-skills > div span,
+    .hire-mode--swiss .hire-mode-word
+  ):hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+    letter-spacing: -0.035em;
+    transform: rotate(-3deg) scale(1.075);
+  }
+
+  html[data-display-mode="resume"] .hire-mode--resume :is(button, a):hover,
+  html[data-display-mode="resume"] .hire-mode--resume :is(button, a):focus-visible {
+    transform: translateY(-0.15rem) skewX(-3deg);
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+
+  html[data-display-mode="swiss"] .hire-mode--swiss :is(button, a):hover,
+  html[data-display-mode="swiss"] .hire-mode--swiss :is(button, a):focus-visible {
+    border-color: var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+    transform: translate(-0.15rem, -0.15rem) skewX(-5deg);
+    box-shadow: 6px 6px 0 var(--accent);
+  }
+
+  html[data-display-mode="resume"] .resume-profile figure:hover img,
+  html[data-display-mode="resume"] .resume-about-profile figure:hover img,
+  html[data-display-mode="swiss"] .swiss-hero-image:hover img,
+  html[data-display-mode="swiss"] .swiss-about-header figure:hover img {
+    filter: grayscale(0) saturate(1) contrast(1.02);
+    transform: scale(1.045) rotate(0.4deg);
+  }
+
+  html[data-display-mode="resume"] :is(.resume-profile figure img, .resume-about-profile figure img),
+  html[data-display-mode="swiss"] :is(.swiss-hero-image img, .swiss-about-header figure img) {
+    transition:
+      filter 500ms var(--interaction-ease),
+      transform 700ms var(--interaction-ease);
+  }
+
+  html[data-display-mode="resume"] .resume-index a:hover,
+  html[data-display-mode="resume"] .resume-index a:focus-visible {
+    background: var(--foreground);
+    color: var(--background);
+    transform: skewX(-5deg) scale(1.08);
+  }
+
+  html[data-display-mode="swiss"] :is(.swiss-section-label, .swiss-about main > section > header):hover h2 {
+    color: var(--accent);
+    letter-spacing: 0.22em;
+    transform: skewX(-7deg) translateX(0.35rem);
+  }
+
+  html[data-display-mode="swiss"] :is(.swiss-section-label h2, .swiss-about main > section > header h2) {
+    transition:
+      color var(--interaction-fast) ease,
+      transform var(--interaction-slow) var(--interaction-ease),
+      letter-spacing var(--interaction-slow) var(--interaction-ease);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-display-mode="resume"] *,
+  html[data-display-mode="swiss"] * {
+    transition-duration: 0.01ms !important;
+  }
+
+  html[data-display-mode="resume"] *::before,
+  html[data-display-mode="swiss"] *::before {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .blog-content {
   color: var(--foreground);
   font-size: 1.0625rem;
