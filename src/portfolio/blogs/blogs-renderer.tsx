@@ -25,7 +25,7 @@ export function BlogsRenderer({ posts }: { posts: BlogPost[] }) {
             <span>{String(index + 1).padStart(2, "0")}</span>
             <div><h2>{post.title}</h2><time dateTime={post.publishedAt}>{formatBlogDate(post.publishedAt)}</time></div>
             <div className="blogs-mode-links">
-              <Link href={`/blogs/${post.slug}`}>Read here</Link>
+              <Link href={`/blogs/${post.slug}`} prefetch={false}>Read here</Link>
               <a href={post.mediumUrl} target="_blank" rel="noopener noreferrer">Read on Medium</a>
             </div>
           </article>

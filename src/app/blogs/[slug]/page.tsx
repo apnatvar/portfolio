@@ -33,8 +33,11 @@ export async function generateMetadata({
   if (!post) {
     return {
       title: "Blog post",
+      alternates: {
+        canonical: getBlogUrl(slug),
+      },
       robots: {
-        index: true,
+        index: false,
         follow: true,
       },
     };
@@ -56,12 +59,14 @@ export async function generateMetadata({
       url: getBlogUrl(post.slug),
       publishedTime: post.publishedAt,
       authors: ["AP"],
+      images: ["/4.webp"],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description,
       creator: "@nattupi0",
+      images: ["/4.webp"],
     },
     robots: {
       index: true,

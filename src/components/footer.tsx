@@ -96,6 +96,7 @@ function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
           >
             <Link
               href={link.href}
+              prefetch={false}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               className="footer-animated-link"
               style={getAnimationVars(index)}

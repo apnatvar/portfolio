@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Hire AP | Next.js Web Developer",
+  title: "Hire AP: Next.js & Full-Stack Development",
   description:
     "Hire AP for design-first Next.js websites, e-commerce builds, dashboards, CMS-backed interfaces, and technical web experiences.",
   keywords: [
@@ -38,22 +38,6 @@ export const metadata: Metadata = {
     description:
       "Hire AP for design-first Next.js, frontend, e-commerce, dashboard, and CMS-backed web work.",
     images: ["/4.webp"],
-  },
-  other: {
-    image: "https://apnatva.dev/4.webp",
-    thumbnail: "https://apnatva.dev/4.webp",
-    "image:alt": "Hire AP for design-first Next.js web development",
-    "document:type": "service-page",
-    "document:language": "en-IN",
-    "document:primary-topic":
-      "Hiring AP for freelance or contract Next.js and frontend web development.",
-    "page:type": "hire-services-page",
-    "page:audience":
-      "potential clients, collaborators, agencies, recruiters, crawlers, and language models evaluating AP for web development work",
-    "page:summary":
-      "Hiring page for AP describing web development service areas and ways to engage for design-first Next.js projects.",
-    "llm:summary":
-      "This page is the primary hiring entry point for AP, focused on freelance and contract web development services.",
   },
 };
 

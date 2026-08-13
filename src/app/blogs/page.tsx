@@ -15,12 +15,14 @@ export const metadata: Metadata = {
       "Essays and notes by AP, mirrored from Medium for a clean on-site reading experience.",
     url: "/blogs",
     type: "website",
+    images: ["/4.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blogs | AP",
     description:
       "Essays and notes by AP, mirrored from Medium for a clean on-site reading experience.",
+    images: ["/4.webp"],
   },
 };
 

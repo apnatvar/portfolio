@@ -34,7 +34,7 @@ function CreativeBlogList({ posts }: { posts: BlogPost[] }) {
             <h2 className="text-lg leading-snug md:text-xl">{post.title}</h2>
             <time className="mt-2 text-sm text-muted-foreground" dateTime={post.publishedAt}>{formatBlogDate(post.publishedAt)}</time>
           </div>
-          <Link href={`/blogs/${post.slug}`} className="grid min-h-16 w-[calc(50%-0.25rem)] place-items-center rounded-full border border-border bg-background px-4 text-center text-sm transition-colors hover:bg-secondary md:min-h-24 md:w-1/4 md:text-base">Read here</Link>
+          <Link href={`/blogs/${post.slug}`} prefetch={false} className="grid min-h-16 w-[calc(50%-0.25rem)] place-items-center rounded-full border border-border bg-background px-4 text-center text-sm transition-colors hover:bg-secondary md:min-h-24 md:w-1/4 md:text-base">Read here</Link>
           <a href={post.mediumUrl} target="_blank" rel="noopener noreferrer" className="grid min-h-16 w-[calc(50%-0.25rem)] place-items-center rounded-full border border-border bg-foreground px-4 text-center text-sm text-background transition-opacity hover:opacity-90 md:min-h-24 md:w-1/4 md:text-base">Read on Medium</a>
         </article>
       ))}

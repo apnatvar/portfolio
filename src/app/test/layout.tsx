@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
+export const metadata: Metadata = {
+  title: "Test",
+  alternates: { canonical: "/test" },
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
+export default function TestLayout({ children }: { children: ReactNode }) {
+  return children;
+}

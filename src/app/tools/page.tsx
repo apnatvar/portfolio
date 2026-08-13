@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Developer and Decision Tools | AP Natva" },
+  title: { absolute: "Free Developer and Decision Tools | AP" },
   description:
     "Free browser-based tools for planning focused development work and evaluating decision readiness. No accounts, uploads or data storage.",
   alternates: { canonical: "/tools" },
   openGraph: {
-    title: "Free Developer and Decision Tools | AP Natva",
+    title: "Free Developer and Decision Tools | AP",
     description:
       "Plan focused development work and evaluate decision readiness with private browser-based tools.",
     url: "/tools",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Developer and Decision Tools | AP Natva",
+    title: "Free Developer and Decision Tools | AP",
     description:
       "Private, browser-based tools for focused work and clearer decisions.",
     images: ["/4.webp"],

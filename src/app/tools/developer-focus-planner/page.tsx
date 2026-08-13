@@ -1,11 +1,11 @@
 import { FocusPlanner } from "@/components/tools/focus-planner";
-import { JsonLd } from "@/components/tools/json-ld";
+import { JsonLd } from "@/components/json-ld";
 import { ToolPageHeader } from "@/components/tools/tool-page-header";
 import { ToolClosingNote } from "@/components/tools/tool-closing-note";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const title = "Developer Focus Planner and Pomodoro Schedule Builder | AP Natva";
+const title = "Developer Focus Planner and Pomodoro Schedule Builder | AP";
 const description =
   "Build a focused developer work schedule using deep work, Pomodoro or balanced time blocks. Runs entirely in your browser with printable exports.";
 const url = "https://apnatva.dev/tools/developer-focus-planner";

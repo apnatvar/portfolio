@@ -1,11 +1,11 @@
 import { DecisionConfidenceCalculator } from "@/components/tools/decision-confidence-calculator";
-import { JsonLd } from "@/components/tools/json-ld";
+import { JsonLd } from "@/components/json-ld";
 import { ToolPageHeader } from "@/components/tools/tool-page-header";
 import { ToolClosingNote } from "@/components/tools/tool-closing-note";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const title = "Decision Confidence Calculator and Decision Readiness Tool | AP Natva";
+const title = "Decision Confidence Calculator and Decision Readiness Tool | AP";
 const description =
   "Evaluate decision readiness, risk, evidence and reversibility using a structured client-side decision framework.";
 const url = "https://apnatva.dev/tools/decision-confidence-calculator";

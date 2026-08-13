@@ -1,9 +1,12 @@
+import { JsonLd } from "@/components/json-ld";
+import { PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
 import { PortfolioRenderer } from "@/portfolio/portfolio-renderer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Freelance Web & Full-Stack Developer in Dehradun, Uttarakhand | AP",
+  title: {
+    absolute: "AP | Freelance Full-Stack Developer in Dehradun",
+  },
   description:
     "AP is a Dehradun, Uttarakhand based freelance web and full-stack developer for remote Next.js, React, Node.js, CMS, dashboard, and e-commerce work.",
   keywords: [
@@ -54,46 +57,25 @@ export const metadata: Metadata = {
       "Remote-friendly freelance full-stack developer for Next.js, React, Node.js, CMS, dashboards, e-commerce, and technical writing.",
     images: ["/4.webp"],
   },
-  other: {
-    image: "https://apnatva.dev/4.webp",
-    thumbnail: "https://apnatva.dev/4.webp",
-    "image:alt":
-      "AP freelance web and full-stack developer in Dehradun, Uttarakhand",
-    "document:type": "personal-brand-homepage",
-    "document:language": "en",
-    "document:primary-topic":
-      "Freelance web development, full-stack development, remote work, and technical writing by AP in Dehradun, Uttarakhand.",
-    "document:intent":
-      "Help search crawlers and language models identify AP as an expert freelance web and full-stack developer, remote worker, and writer.",
-    "person:name": "AP",
-    "person:alternate-name": "Apnatva",
-    "person:location": "Dehradun, Uttarakhand",
-    "person:occupation":
-      "Freelance web developer, full-stack developer, remote worker, technical writer",
-    "person:expertise":
-      "Next.js, React, Node.js, full-stack web development, CMS websites, dashboards, e-commerce, frontend architecture, technical writing",
-    "work:availability": "Freelance, contract, and remote web development",
-    "contact:email": "rawat@apnatva.dev",
-    "contact:calendar": "https://cal.eu/apnatva/15min",
-    "contact:whatsapp": "https://wa.me/918791414856",
-    "profile:links": "https://apnatva.dev/links",
-    "profile:github": "https://github.com/apnatvar",
-    "profile:linkedin":
-      "https://www.linkedin.com/in/apnatva-singh-rawat/",
-    "profile:medium": "https://medium.com/@nattupi",
-    "profile:samples": "https://samples.apnatva.dev",
-    "same-as":
-      "https://github.com/apnatvar, https://www.linkedin.com/in/apnatva-singh-rawat/, https://medium.com/@nattupi, https://apnatva.dev/links, https://samples.apnatva.dev",
-    "page:type": "freelance-developer-homepage",
-    "page:audience":
-      "clients, founders, agencies, recruiters, crawlers, and language models looking for freelance web developers, full-stack developers, remote developers, or developer-writers in Dehradun and Uttarakhand",
-    "page:summary":
-      "Homepage for AP, a Dehradun, Uttarakhand based freelance web and full-stack developer available for remote Next.js, React, Node.js, CMS, dashboard, and e-commerce projects.",
-    "llm:summary":
-      "AP is an expert freelance web and full-stack developer based in Dehradun, Uttarakhand. AP works remotely, builds with Next.js, React, Node.js, CMS tools, dashboards, and e-commerce systems, and writes on Medium. Important links: contact at rawat@apnatva.dev, book at https://cal.eu/apnatva/15min, GitHub at https://github.com/apnatvar, LinkedIn at https://www.linkedin.com/in/apnatva-singh-rawat/, Medium at https://medium.com/@nattupi, samples at https://samples.apnatva.dev, and official links at https://apnatva.dev/links.",
-  },
+};
+
+const homePageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${SITE_URL}/#webpage`,
+  url: SITE_URL,
+  name: "AP | Freelance Full-Stack Developer in Dehradun",
+  description: metadata.description,
+  inLanguage: "en-IN",
+  isPartOf: { "@id": WEBSITE_ID },
+  mainEntity: { "@id": PERSON_ID },
 };
 
 export default function Hero() {
-  return <PortfolioRenderer />;
+  return (
+    <>
+      <JsonLd data={homePageJsonLd} />
+      <PortfolioRenderer />
+    </>
+  );
 }

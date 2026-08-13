@@ -1,6 +1,13 @@
 import "@/app/globals.css";
 import { DisplayModeProvider, displayModeBootstrapScript } from "@/components/display-mode/display-mode-provider";
 import { DisplayModeShell } from "@/components/display-mode/display-mode-shell";
+import { JsonLd } from "@/components/json-ld";
+import {
+  DEFAULT_SOCIAL_IMAGE,
+  SITE_NAME,
+  SITE_URL,
+  siteIdentityJsonLd,
+} from "@/lib/site";
 import { Metadata, Viewport } from "next";
 import {
   Amita,
@@ -52,20 +59,18 @@ export const viewport: Viewport = {
   ],
 };
 
-const siteUrl = "https://apnatva.dev";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "AP | Design-First Next.js Developer",
+    default: "AP | Full-Stack Developer & Designer",
     template: "%s | AP",
   },
 
-  icons: "/4.webp",
+  icons: DEFAULT_SOCIAL_IMAGE,
 
   description:
-    "AP is a design-first Next.js developer building portfolio sites, e-commerce stores, dashboards, and technical web experiences for freelance and contract clients.",
+    "Portfolio of AP, a full-stack developer and designer building web applications, APIs, automation workflows, and responsive digital experiences.",
 
   keywords: [
     "AP",
@@ -86,11 +91,11 @@ export const metadata: Metadata = {
     "GSAP developer",
   ],
 
-  authors: [{ name: "AP", url: siteUrl }],
-  creator: "AP",
-  publisher: "AP",
+  authors: [{ name: "Apnatva Singh Rawat", url: SITE_URL }],
+  creator: "Apnatva Singh Rawat",
+  publisher: "Apnatva Singh Rawat",
 
-  applicationName: "AP Portfolio",
+  applicationName: `${SITE_NAME} Portfolio`,
 
   alternates: {
     canonical: "/",
@@ -99,14 +104,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: siteUrl,
-    siteName: "AP",
-    title: "AP | Design-First Next.js Developer",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "AP | Full-Stack Developer & Designer",
     description:
-      "Portfolio of AP, a design-first developer creating Next.js websites, e-commerce stores, CMS-backed experiences, and visual web interfaces.",
+      "Portfolio of AP, a full-stack developer and designer building web applications, APIs, automation workflows, and responsive digital experiences.",
     images: [
       {
-        url: "/4.webp",
+        url: DEFAULT_SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: "AP design-first developer portfolio",
@@ -116,22 +121,11 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "AP | Design-First Next.js Developer",
+    title: "AP | Full-Stack Developer & Designer",
     description:
-      "Design-first Next.js developer for portfolio sites, e-commerce stores, CMS-backed websites, and freelance/contract web work.",
-    images: ["/4.webp"],
+      "Full-stack developer and designer building web applications, APIs, automation workflows, and responsive digital experiences.",
+    images: [DEFAULT_SOCIAL_IMAGE],
     creator: "@nattupi0",
-  },
-
-  other: {
-    image: `${siteUrl}/4.webp`,
-    thumbnail: `${siteUrl}/4.webp`,
-    "image:alt": "AP design-first developer portfolio",
-    "document:type": "website",
-    "document:language": "en-IN",
-    "document:scope":
-      "Portfolio, profile, services, writing, principles, and project discovery for AP.",
-    "document:owner": "AP",
   },
 
   robots: {
@@ -160,6 +154,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: displayModeBootstrapScript }} />
       </head>
       <body className={`mx-auto bg-background antialiased ${FONT_VARS}`}>
+        <JsonLd data={siteIdentityJsonLd} />
         <DisplayModeProvider>
           <DisplayModeShell>{children}</DisplayModeShell>
         </DisplayModeProvider>

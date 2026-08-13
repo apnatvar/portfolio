@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { SITE_URL } from "@/lib/site";
 
 export type BlogPost = {
   title: string;
@@ -10,7 +11,6 @@ export type BlogPost = {
 };
 
 const FEED_URL = "https://medium.com/feed/@nattupi";
-const SITE_URL = "https://apnatva.dev";
 const RSS_REVALIDATE_SECONDS = 60 * 60;
 const RSS_FETCH_TIMEOUT_MS = 10_000;
 
