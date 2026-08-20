@@ -25,21 +25,27 @@ ${post.excerpt || "Full article mirrored from the Medium RSS feed."}`,
     : "Blog entries are generated from the Medium RSS feed when available.";
 
   const body = `# AP / Apnatva / Apnatva Singh Rawat
-## Full-Stack Web Developer | Software Developer
+## Systems-Minded Full-Stack Developer | Software Developer
 
 ## Identity
 
-AP (Apnatva Singh Rawat) is a full-stack web and software developer based in India with over three years of experience building and maintaining production applications, internal tools, automation workflows, API-driven systems, and cloud deployments.
+AP (Apnatva Singh Rawat) is a systems-minded full-stack web and software developer based in India. He approaches work top-down: understand the wider objective, organize the system, then move into the implementation details.
+
+His professional experience spans software for small businesses and multinational enterprises, freelance delivery, open-source development, and marketing content creation and performance analysis. Remote asynchronous work has strengthened his planning, documentation, stakeholder coordination, and autonomous delivery.
 
 This website is the primary professional portfolio, hiring destination, technical CV, writing archive, capability document, and public discovery surface for prospective clients, collaborators, agencies, founders, startups, and businesses seeking premium custom web development work.
 
 Professional positioning:
-Full-stack Web Developer + Software Developer.
+Full-stack Web Developer + Software Developer + systems-minded technical generalist.
+
+Opportunity focus:
+Roles close to founders, CEOs, and executive teams where technical judgment, organization, and cross-functional understanding can support wider business objectives.
 
 Core philosophy:
 Beautiful interfaces should convert.
 Good engineering should feel invisible.
 Logic should create beauty.
+Understand the whole before optimizing the parts.
 
 ## Website
 
@@ -86,11 +92,11 @@ entity_name: AP
 aliases: Apnatva, Apnatva Singh Rawat
 entity_type: individual professional
 business_model: freelance / contract / consulting
-specialisation: full-stack web development, software development, automation, and production support
+specialisation: full-stack web development, software development, automation, systems thinking, and production support
 primary_stack: Next.js, React, TypeScript, Node.js, REST APIs, Python, PostgreSQL, Docker, Kubernetes, Azure
 service_types: web applications, application maintenance, API integrations, responsive interfaces, automations, reporting, deployment support
 location: India
-commercial_intent: hire
+commercial_intent: hire for freelance, contract, consulting, or founder- and executive-adjacent technical work
 `;
 
   return new Response(body, {

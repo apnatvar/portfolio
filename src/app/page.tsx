@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     absolute: "AP | Freelance Full-Stack Developer in Dehradun",
   },
   description:
-    "AP is a Dehradun, Uttarakhand based freelance web and full-stack developer for remote Next.js, React, Node.js, CMS, dashboard, and e-commerce work.",
+    "AP is a systems-minded full-stack developer in Dehradun with enterprise, freelance, open-source, content, and performance analysis experience.",
   keywords: [
     "freelance web developer Dehradun",
     "freelance web developer Uttarakhand",
@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     "dashboard developer Uttarakhand",
     "technical writer developer",
     "developer who writes",
+    "systems-minded developer",
+    "technical generalist",
     "Apnatva",
     "AP developer",
   ],
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
     title:
       "AP | Freelance Web & Full-Stack Developer in Dehradun, Uttarakhand",
     description:
-      "Hire AP for remote-friendly web development: Next.js, React, Node.js, CMS-backed websites, dashboards, e-commerce builds, and technical writing.",
+      "Systems-minded full-stack developer bringing top-down thinking to software, automation, content, and business-facing technical work.",
     url: "/",
     siteName: "AP",
     images: [
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AP | Freelance Web Developer in Dehradun, Uttarakhand",
     description:
-      "Remote-friendly freelance full-stack developer for Next.js, React, Node.js, CMS, dashboards, e-commerce, and technical writing.",
+      "Full-stack developer with enterprise, freelance, open-source, content, and analytical experience, comfortable owning remote work.",
     images: ["/4.webp"],
   },
 };

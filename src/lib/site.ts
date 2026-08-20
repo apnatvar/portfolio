@@ -23,6 +23,8 @@ export const siteIdentityJsonLd = {
       url: SITE_URL,
       image: `${SITE_URL}${DEFAULT_SOCIAL_IMAGE}`,
       jobTitle: "Full-stack Web Developer and Software Developer",
+      description:
+        "Systems-minded developer with experience across enterprise software, freelance delivery, open-source development, content creation, and performance analysis.",
       email: "mailto:rawat@apnatva.dev",
       sameAs: PROFILE_URLS,
       knowsAbout: [
@@ -33,6 +35,9 @@ export const siteIdentityJsonLd = {
         "API integration",
         "Web application development",
         "Software automation",
+        "Systems thinking",
+        "Technical strategy",
+        "Content performance analysis",
       ],
     },
     {

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   icons: DEFAULT_SOCIAL_IMAGE,
 
   description:
-    "Portfolio of AP, a full-stack developer and designer building web applications, APIs, automation workflows, and responsive digital experiences.",
+    "Portfolio of AP, a systems-minded full-stack developer combining software, design, automation, content, and analysis to solve business problems.",
 
   keywords: [
     "AP",
@@ -85,6 +85,8 @@ export const metadata: Metadata = {
     "portfolio website developer",
     "frontend developer",
     "full stack developer",
+    "systems-minded developer",
+    "technical generalist",
     "PayloadCMS developer",
     "Shadcn UI developer",
     "Tailwind CSS developer",
@@ -108,7 +110,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "AP | Full-Stack Developer & Designer",
     description:
-      "Portfolio of AP, a full-stack developer and designer building web applications, APIs, automation workflows, and responsive digital experiences.",
+      "Systems-minded full-stack developer with experience across enterprise software, freelance delivery, open source, content, and performance analysis.",
     images: [
       {
         url: DEFAULT_SOCIAL_IMAGE,
@@ -123,7 +125,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AP | Full-Stack Developer & Designer",
     description:
-      "Full-stack developer and designer building web applications, APIs, automation workflows, and responsive digital experiences.",
+      "Systems-minded developer combining software, design, automation, content, and analysis with a top-down approach.",
     images: [DEFAULT_SOCIAL_IMAGE],
     creator: "@nattupi0",
   },

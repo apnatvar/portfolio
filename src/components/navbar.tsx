@@ -89,10 +89,9 @@ function APSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
       <p className="text-xs md:text-sm">
-        I design interfaces for you with a sprinkle of personal innovation.
-        Specialised websites help you stand out better. You can sell products,
-        courses, templates, art, clothes, or use it as a platform to voice your
-        opinions and ideas.
+        I approach software from the top down: understand the wider objective,
+        organize the system, then build the details. My work combines full-stack
+        development, design, automation, and analytical thinking.
       </p>
     </div>
   );

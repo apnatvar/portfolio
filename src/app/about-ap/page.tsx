@@ -2,9 +2,9 @@ import { AboutRenderer } from "@/portfolio/about/about-renderer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About AP: Background, Experience & Skills",
+  title: "About AP: Systems, Software & Strategy",
   description:
-    "About AP: a design-first developer profile covering background, education, skills, services, and technical strengths across modern web projects.",
+    "Meet AP, a systems-minded polymath and full-stack developer with enterprise, freelance, open-source, content, and analytical experience.",
   keywords: [
     "about AP",
     "about Apnatva",
@@ -13,14 +13,16 @@ export const metadata: Metadata = {
     "frontend developer skills",
     "web developer education",
     "design-first web developer",
+    "systems-minded developer",
+    "technical generalist",
   ],
   alternates: {
     canonical: "/about-ap",
   },
   openGraph: {
-    title: "About AP | Developer Profile",
+    title: "About AP | Systems, Software & Strategy",
     description:
-      "Learn about AP's background, education, skills, services, and design-first approach to web development.",
+      "A top-down thinker combining full-stack development, system organization, open source, content, and performance analysis.",
     url: "/about-ap",
     images: [
       {
@@ -33,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About AP | Developer Profile",
+    title: "About AP | Systems, Software & Strategy",
     description:
-      "Developer profile for AP, covering background, education, skills, and web development services.",
+      "Systems-minded full-stack developer experienced across enterprise software, freelance work, open source, content, and analysis.",
     images: ["/4.webp"],
   },
 };

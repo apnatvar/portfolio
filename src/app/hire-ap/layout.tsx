@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Hire AP: Next.js & Full-Stack Development",
   description:
-    "Hire AP for design-first Next.js websites, e-commerce builds, dashboards, CMS-backed interfaces, and technical web experiences.",
+    "Work with AP, a self-directed full-stack developer who brings top-down systems thinking to software, automation, and business-facing technical work.",
   keywords: [
     "hire AP",
     "hire Apnatva",
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "e-commerce developer",
     "dashboard developer",
     "CMS website developer",
+    "autonomous full stack developer",
+    "developer for founders",
   ],
   alternates: {
     canonical: "/hire-ap",
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hire AP | Next.js Web Developer",
     description:
-      "Work with AP on design-first websites, stores, dashboards, CMS-backed pages, and technical frontend projects.",
+      "Work with a self-directed developer who can own delivery, organize complex systems, and collaborate closely with founders and executive teams.",
     url: "/hire-ap",
     images: [
       {
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hire AP | Next.js Web Developer",
     description:
-      "Hire AP for design-first Next.js, frontend, e-commerce, dashboard, and CMS-backed web work.",
+      "Top-down systems thinking, autonomous delivery, and full-stack execution for founders, teams, and growing businesses.",
     images: ["/4.webp"],
   },
 };

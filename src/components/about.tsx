@@ -190,18 +190,21 @@ export default function ProfileSplitSection() {
 
         <article className="flex min-h-0 flex-col bg-background px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
           <p className="text-sm leading-7 text-muted-foreground sm:text-base">
-            I am Apnatva, though most people call me AP. I am a full-stack web
-            and software developer with over three years of experience building
-            and maintaining production applications, internal tools, automation
-            workflows, and API-driven systems. My work spans responsive
-            interfaces, backend integrations, SEO, cloud deployment, reporting
-            automation, and production support. <br />
-            <br /> Outside work I run, train, read philosophy and psychology,
-            travel, take photographs, and write.
+            I am Apnatva, though most people call me AP. I am a systems-minded
+            full-stack web and software developer who works top-down: understand
+            the wider objective, organize the system, then move into the details
+            that make it work. My experience spans production software for small
+            businesses and multinational enterprises, freelance delivery,
+            open-source development, and marketing content and performance
+            analysis. <br />
+            <br /> I am self-driven and comfortable owning work in remote,
+            asynchronous environments. I also read and write about technology,
+            philosophy, and psychology.
             <br />
             <br />
-            If you are looking to hire a full-stack developer you can contact me
-            via{" "}
+            I am especially interested in opportunities close to founders, CEOs,
+            and executive teams, where technical judgment can support the bigger
+            picture. You can contact me via{" "}
             <span>
               <Link
                 href="/hire-ap"

@@ -15,11 +15,13 @@ export async function GET() {
         .join("\n")
     : "- Blog entries are generated from the Medium RSS feed when available.";
 
-  const body = `# AP (Apnatva) - Design-First Full Stack Web Developer
+  const body = `# AP (Apnatva) - Systems-Minded Full-Stack Developer
 
 ## Overview
 
-AP (Apnatva Singh Rawat) is a full-stack web and software developer with over three years of experience building production applications, internal tools, automations, API-driven systems, and cloud deployments.
+AP (Apnatva Singh Rawat) is a systems-minded full-stack web and software developer who works top-down: understand the wider objective, organize the system, then move into implementation details.
+
+His experience includes production software for small businesses and multinational enterprises, freelance delivery, open-source development, and marketing content creation and performance analysis. He is self-directed, comfortable owning work in remote asynchronous environments, and interested in roles close to founders, CEOs, and executive teams.
 
 This website serves as a professional portfolio, technical CV, writing archive, capability index, and hiring destination for prospective clients seeking freelance, contract, consulting, or project-based development work.
 
@@ -43,7 +45,7 @@ Next.js, React, TypeScript, Tailwind CSS, Shadcn UI, GSAP, Node.js, REST APIs, P
 
 ## Commercial Intent
 
-Hire / freelance / consulting / contract.
+Hire / freelance / consulting / contract / founder- or executive-adjacent technical work.
 `;
 
   return new Response(body, {
