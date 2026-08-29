@@ -1360,6 +1360,35 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
   color: var(--accent-foreground);
 }
 
+/* Portable Context is a standalone Swiss-style product pitch, independent of portfolio modes. */
+.portable-context-page {
+  --background: oklch(0.965 0.018 93);
+  --foreground: oklch(0.16 0.015 65);
+  --card: oklch(0.965 0.018 93);
+  --card-foreground: oklch(0.16 0.015 65);
+  --popover: oklch(0.965 0.018 93);
+  --popover-foreground: oklch(0.16 0.015 65);
+  --primary: oklch(0.61 0.225 30);
+  --primary-foreground: oklch(0.985 0.01 93);
+  --secondary: oklch(0.88 0.055 93);
+  --secondary-foreground: oklch(0.16 0.015 65);
+  --muted: oklch(0.9 0.025 93);
+  --muted-foreground: oklch(0.39 0.025 65);
+  --accent: oklch(0.61 0.225 30);
+  --accent-foreground: oklch(0.985 0.01 93);
+  --border: oklch(0.28 0.015 65);
+  --input: oklch(0.9 0.025 93);
+  --ring: oklch(0.61 0.225 30);
+  --radius: 0;
+  --tracking-normal: -0.01em;
+  cursor: auto;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+.portable-context-page [class*="rounded-"] {
+  border-radius: 0;
+}
+
 .themed-menu-trigger,
 .themed-menu-panel {
   border: 1px solid var(--border);

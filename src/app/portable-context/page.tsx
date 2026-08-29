@@ -109,6 +109,15 @@ const productionRequirements = [
   "Production infrastructure and security review",
 ] as const;
 
+const agentFlow = [
+  { icon: Bot, label: "AI agent" },
+  { icon: Network, label: "Profile MCP" },
+  { icon: ShieldCheck, label: "Context resolver" },
+] as const;
+
+const interactiveCardClass =
+  "shadow-none transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:-translate-y-1 hover:border-foreground hover:shadow-md";
+
 function SectionHeading({
   eyebrow,
   title,
@@ -148,7 +157,7 @@ export default function PortableContextPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="portable-context-page min-h-screen bg-background text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
@@ -174,9 +183,6 @@ export default function PortableContextPage() {
               className="hidden text-muted-foreground no-underline hover:text-foreground sm:inline"
             >
               Prototype
-            </Link>
-            <Link href="/" className="font-medium no-underline hover:underline">
-              AP portfolio
             </Link>
           </nav>
         </div>
@@ -211,7 +217,10 @@ export default function PortableContextPage() {
               </p>
             </div>
 
-            <div className="rounded-xl border bg-card p-4 shadow-sm sm:p-6" aria-label="Context resolution summary">
+            <div
+              className="rounded-xl border bg-card p-4 shadow-sm transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-foreground hover:shadow-md sm:p-6"
+              aria-label="Context resolution summary"
+            >
               <div className="flex items-center justify-between border-b pb-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
@@ -270,7 +279,10 @@ export default function PortableContextPage() {
                 "AI assistants and agents",
                 "Personal profile pages",
               ].map((item, index) => (
-                <div key={item} className="flex min-h-24 items-start gap-4 bg-card p-5">
+                <div
+                  key={item}
+                  className="flex min-h-24 items-start gap-4 bg-card p-5 transition-colors duration-200 hover:bg-secondary"
+                >
                   <span className="font-mono text-xs text-muted-foreground">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -291,7 +303,7 @@ export default function PortableContextPage() {
             <ol className="mt-12 grid gap-4 md:grid-cols-5">
               {modelSteps.map((step, index) => (
                 <li key={step.title} className="relative">
-                  <Card className="h-full shadow-none">
+                  <Card className={`h-full ${interactiveCardClass}`}>
                     <CardHeader>
                       <div className="mb-4 flex items-center justify-between">
                         <step.icon aria-hidden="true" className="size-5" />
@@ -321,7 +333,7 @@ export default function PortableContextPage() {
           />
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {visibilityLevels.map((item) => (
-              <Card key={item.level} className="shadow-none">
+              <Card key={item.level} className={interactiveCardClass}>
                 <CardHeader>
                   <item.icon aria-hidden="true" className="mb-5 size-6" />
                   <div className="flex flex-wrap items-center justify-between gap-2">
@@ -356,7 +368,7 @@ export default function PortableContextPage() {
             </div>
             <div className="rounded-xl border border-background/25 p-5 sm:p-8">
               <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center">
-                <div className="rounded-lg border border-background/25 p-4">
+                <div className="rounded-lg border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
                   <CircleUserRound aria-hidden="true" className="mx-auto size-7" />
                   <p className="mt-2 font-semibold">Person A</p>
                 </div>
@@ -364,7 +376,7 @@ export default function PortableContextPage() {
                   request
                   <ArrowRight aria-hidden="true" className="mx-auto mt-1 size-5" />
                 </div>
-                <div className="rounded-lg border border-background/25 p-4">
+                <div className="rounded-lg border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
                   <CircleUserRound aria-hidden="true" className="mx-auto size-7" />
                   <p className="mt-2 font-semibold">Person B</p>
                 </div>
@@ -394,18 +406,16 @@ export default function PortableContextPage() {
             />
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
-                {[
-                  [Bot, "AI agent"],
-                  [Network, "Profile MCP"],
-                  [ShieldCheck, "Context resolver"],
-                ].map(([Icon, label], index) => {
-                  const FlowIcon = Icon as typeof Bot;
+                {agentFlow.map((item, index) => {
+                  const FlowIcon = item.icon;
                   return (
-                    <div key={label as string} className="contents">
-                      <div className="rounded-xl border bg-card p-5 text-center">
+                    <div key={item.label} className="contents">
+                      <Card
+                        className={`flex min-h-28 items-center justify-center p-5 text-center ${interactiveCardClass}`}
+                      >
                         <FlowIcon aria-hidden="true" className="mx-auto size-6" />
-                        <p className="mt-3 text-sm font-semibold">{label as string}</p>
-                      </div>
+                        <p className="mt-3 text-sm font-semibold">{item.label}</p>
+                      </Card>
                       {index < 2 ? (
                         <ArrowRight
                           aria-hidden="true"
@@ -443,14 +453,14 @@ export default function PortableContextPage() {
               description="Portable Context sits beside login providers and profile products. Its concern is the structured, permissioned context that follows identity—not replacing authentication itself."
             />
             <div className="mt-12 grid gap-px overflow-hidden rounded-xl border bg-border lg:grid-cols-2">
-              <div className="bg-background p-6 sm:p-8">
+              <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
                 <Badge variant="secondary">Traditional identity</Badge>
                 <p className="mt-6 text-2xl font-semibold tracking-tight">“Who are you?”</p>
                 <p className="mt-4 leading-7 text-muted-foreground">
                   Establishes or verifies identity so a person can sign in and act as themselves.
                 </p>
               </div>
-              <div className="bg-background p-6 sm:p-8">
+              <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
                 <Badge>Portable context</Badge>
                 <p className="mt-6 text-2xl font-semibold tracking-tight">
                   “Who are you, what will you expose, and what may an authorized agent understand?”
@@ -474,7 +484,7 @@ export default function PortableContextPage() {
             description="The prototype is deliberately narrow: it demonstrates the access model end to end without presenting its current authentication and infrastructure as production-ready."
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <Card className="shadow-none">
+            <Card className={interactiveCardClass}>
               <CardHeader>
                 <Badge variant="secondary">Implemented</Badge>
                 <CardTitle className="mt-3 text-xl">What the prototype proves</CardTitle>
@@ -490,7 +500,7 @@ export default function PortableContextPage() {
                 </ul>
               </CardContent>
             </Card>
-            <Card className="shadow-none">
+            <Card className={interactiveCardClass}>
               <CardHeader>
                 <Badge variant="outline">Before production</Badge>
                 <CardTitle className="mt-3 text-xl">What still has to be built</CardTitle>
@@ -509,33 +519,31 @@ export default function PortableContextPage() {
           </div>
         </section>
 
-        <section className="border-t border-border/80">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-4 py-20 sm:px-6 sm:py-24 lg:flex-row lg:items-end lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                See the system
+        <footer className="border-t-4 border-foreground bg-foreground text-background">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:px-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-background/60">
+                Portable Context / Prototype 01
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-5xl">
-                Want a walkthrough of the working prototype?
+              <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-5xl">
+                Personal context with boundaries people and agents can understand.
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-                Review the profile model, visibility controls, connection handshake, central resolver,
-                and web/API/MCP outputs together.
-              </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
-              <Button asChild size="lg">
-                <Link href="/hire-ap">
-                  Request a walkthrough
-                  <ArrowRight aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
+            <div className="lg:text-right">
+              <p className="mb-5 text-sm leading-6 text-background/65">
+                Structured context. Explicit visibility. Relationship-aware access. One resolver
+                across web, API, and MCP.
+              </p>
+              <Badge
+                asChild
+                variant="outline"
+                className="border-background/50 px-3 py-1.5 text-background transition-colors duration-200 hover:bg-background hover:text-foreground"
+              >
                 <Link href="/">Meet the builder</Link>
-              </Button>
+              </Badge>
             </div>
           </div>
-        </section>
+        </footer>
       </div>
     </div>
   );
