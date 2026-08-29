@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blogs",
     "/links",
     "/tools",
+    "/portable-context",
     "/tools/developer-focus-planner",
     "/tools/decision-confidence-calculator",
   ].map((path) => ({ url: `${SITE_URL}${path}` }));
