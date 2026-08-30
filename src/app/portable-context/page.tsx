@@ -390,8 +390,9 @@ export default function PortableContextPage() {
                 description="With x402, agents can pay as they go for priced actions or premium context. Payment can happen as part of the agent request, without a subscription or separate checkout interrupting the conversation."
               />
               <p className="mt-5 max-w-3xl text-sm leading-6 text-muted-foreground">
-                Payment does not reveal a new context layer. It pays for an allowed product or
-                service after the same public, connected, and private choices have been applied.
+                Payment does not reveal a new context layer. It pays for an
+                allowed product or service after the same public, connected, and
+                private choices have been applied.
               </p>
             </div>
             <div className="grid gap-px overflow-hidden border bg-border sm:grid-cols-3">
@@ -416,9 +417,14 @@ export default function PortableContextPage() {
                   key={item.title}
                   className="bg-background p-5 transition-colors duration-200 hover:bg-secondary sm:p-6"
                 >
-                  <item.icon aria-hidden="true" className="size-6 text-primary" />
+                  <item.icon
+                    aria-hidden="true"
+                    className="size-6 text-primary"
+                  />
                   <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.copy}</p>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {item.copy}
+                  </p>
                 </div>
               ))}
             </div>
@@ -437,8 +443,12 @@ export default function PortableContextPage() {
                   <div key={title as string} className="contents">
                     <div className="flex min-h-28 flex-col items-center justify-center border p-4 text-center transition-colors duration-200 hover:bg-secondary">
                       <FlowIcon aria-hidden="true" className="size-5" />
-                      <p className="mt-3 text-sm font-semibold">{title as string}</p>
-                      <p className="mt-1 text-xs text-muted-foreground">{copy as string}</p>
+                      <p className="mt-3 text-sm font-semibold">
+                        {title as string}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {copy as string}
+                      </p>
                     </div>
                     {index < 3 ? (
                       <ArrowRight
@@ -453,9 +463,10 @@ export default function PortableContextPage() {
           </div>
 
           <p className="mt-5 max-w-4xl text-sm leading-6 text-muted-foreground">
-            A payment is not identity verification by itself. It can, however, create a verifiable
-            transaction record, support reputation signals, and make high-volume spam less
-            attractive when every request carries a cost and spend policies are enforced.
+            A payment is not identity verification by itself. It can, however,
+            create a verifiable transaction record, support reputation signals,
+            and make high-volume spam less attractive when every request carries
+            a cost and spend policies are enforced.
           </p>
         </section>
 
@@ -713,7 +724,7 @@ export default function PortableContextPage() {
               <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
                 <Badge>Trusted use</Badge>
                 <p className="mt-6 text-2xl font-semibold tracking-tight">
-                  Connecting shares more—not everything.
+                  Connecting to share information and ideas.
                 </p>
                 <p className="mt-4 leading-7 text-muted-foreground">
                   Approved people and their agents can use connected context.
