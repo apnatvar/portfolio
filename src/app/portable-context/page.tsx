@@ -102,9 +102,21 @@ const prototypeCapabilities = [
 ] as const;
 
 const agentFlow = [
-  { icon: CircleUserRound, label: "You approve", detail: "Sign in and choose access" },
-  { icon: Plug, label: "Secure connector", detail: "Authorization stays protected" },
-  { icon: ShieldCheck, label: "Portable Context", detail: "Applies your sharing choices" },
+  {
+    icon: CircleUserRound,
+    label: "You approve",
+    detail: "Sign in and choose access",
+  },
+  {
+    icon: Plug,
+    label: "Secure connector",
+    detail: "Authorization stays protected",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Portable Context",
+    detail: "Applies your sharing choices",
+  },
   { icon: Bot, label: "Your agent", detail: "Receives only useful context" },
 ] as const;
 
@@ -125,7 +137,9 @@ function SectionHeading({
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         {eyebrow}
       </p>
-      <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
+      <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        {title}
+      </h2>
       <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg">
         {description}
       </p>
@@ -164,7 +178,10 @@ export default function PortableContextPage() {
           >
             Portable Context
           </Link>
-          <nav className="flex items-center gap-4 text-sm" aria-label="Product navigation">
+          <nav
+            className="flex items-center gap-4 text-sm"
+            aria-label="Product navigation"
+          >
             <Link
               href="#product-model"
               className="hidden text-muted-foreground no-underline hover:text-foreground sm:inline"
@@ -187,12 +204,13 @@ export default function PortableContextPage() {
             <div>
               <Badge variant="outline">Functional prototype</Badge>
               <h1 className="mt-6 max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
-                Single Source of Truth for the agentic internet.
+                Single Source of Truth for The Agentic Internet.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                Portable Context is a user-controlled context layer for people and their agents.
-                Make information public for discovery, share richer context with approved
-                connections, and keep the rest truly private.
+                Portable Context is a user-controlled context layer for people
+                and their agents. Make information public for discovery, share
+                richer context with approved connections, and keep the rest
+                truly private.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg">
@@ -211,7 +229,8 @@ export default function PortableContextPage() {
                 </Button>
               </div>
               <p className="mt-5 text-sm text-muted-foreground">
-                A working product-model prototype—not a production identity platform.
+                A working product-model prototype—not a production identity
+                platform.
               </p>
             </div>
 
@@ -222,10 +241,15 @@ export default function PortableContextPage() {
               <div className="border border-primary bg-primary/5 p-4 sm:p-5">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <Globe2 aria-hidden="true" className="size-5 text-primary" />
+                    <Globe2
+                      aria-hidden="true"
+                      className="size-5 text-primary"
+                    />
                     <p className="font-semibold">Public</p>
                   </div>
-                  <span className="font-mono text-xs text-muted-foreground">discoverable</span>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    discoverable
+                  </span>
                 </div>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   Identity, capabilities, interests, goals, open to connect
@@ -236,7 +260,9 @@ export default function PortableContextPage() {
                       <UserRoundCheck aria-hidden="true" className="size-5" />
                       <p className="font-semibold">Connected</p>
                     </div>
-                    <span className="font-mono text-xs text-muted-foreground">approved people</span>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      approved people
+                    </span>
                   </div>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
                     Richer context for trusted people and their agents
@@ -247,7 +273,9 @@ export default function PortableContextPage() {
                         <LockKeyhole aria-hidden="true" className="size-5" />
                         <p className="font-semibold">Private</p>
                       </div>
-                      <span className="font-mono text-xs text-background/60">owner only</span>
+                      <span className="font-mono text-xs text-background/60">
+                        owner only
+                      </span>
                     </div>
                     <p className="mt-2 text-sm leading-6 text-background/70">
                       Held until the owner decides otherwise
@@ -256,8 +284,8 @@ export default function PortableContextPage() {
                 </div>
               </div>
               <p className="mt-4 text-sm font-medium">
-                Public for discovery. Connected for people you trust. Private until you decide
-                otherwise.
+                Public for discovery. Connected for people you trust. Private
+                until you decide otherwise.
               </p>
             </div>
           </div>
@@ -303,14 +331,16 @@ export default function PortableContextPage() {
                 Deterministic answers help the right people find you.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-background/70 sm:text-lg">
-                Instead of asking AI to infer who you are from scattered pages, Portable Context
-                gives it explicit, structured answers. You can clearly communicate your skills,
-                services, businesses, interests, and availability so relevant searches have a
+                Instead of asking AI to infer who you are from scattered pages,
+                Portable Context gives it explicit, structured answers. You can
+                clearly communicate your skills, services, businesses,
+                interests, and availability so relevant searches have a
                 dependable source to interpret.
               </p>
               <p className="mt-5 max-w-2xl text-sm leading-6 text-background/60">
-                An agent can match that public context to a customer&apos;s request, explain why it is
-                relevant, and present the result without forcing the customer to leave the chat.
+                An agent can match that public context to a customer&apos;s
+                request, explain why it is relevant, and present the result
+                without forcing the customer to leave the chat.
               </p>
             </div>
             <div className="border border-background/25 p-5 transition-colors duration-200 hover:bg-background/5 sm:p-8">
@@ -332,12 +362,15 @@ export default function PortableContextPage() {
                 />
                 <div className="bg-background p-5 text-foreground">
                   <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                    <Search aria-hidden="true" className="size-4 text-primary" />
+                    <Search
+                      aria-hidden="true"
+                      className="size-4 text-primary"
+                    />
                     Interpretable result
                   </div>
                   <p className="mt-5 text-sm leading-6">
-                    AI can find, understand, and present a relevant person or business directly in
-                    the conversation.
+                    AI can find, understand, and present a relevant person or
+                    business directly in the conversation.
                   </p>
                 </div>
               </div>
@@ -345,7 +378,10 @@ export default function PortableContextPage() {
           </div>
         </section>
 
-        <section id="product-model" className="scroll-mt-8 border-y border-border/80 bg-card/50">
+        <section
+          id="product-model"
+          className="scroll-mt-8 border-y border-border/80 bg-card/50"
+        >
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
             <SectionHeading
               eyebrow="The product model"
@@ -359,10 +395,16 @@ export default function PortableContextPage() {
                     <CardHeader>
                       <div className="mb-4 flex items-center justify-between">
                         <step.icon aria-hidden="true" className="size-5" />
-                        <span className="font-mono text-xs text-muted-foreground">0{index + 1}</span>
+                        <span className="font-mono text-xs text-muted-foreground">
+                          0{index + 1}
+                        </span>
                       </div>
-                      <CardTitle className="leading-snug">{step.title}</CardTitle>
-                      <CardDescription className="leading-6">{step.copy}</CardDescription>
+                      <CardTitle className="leading-snug">
+                        {step.title}
+                      </CardTitle>
+                      <CardDescription className="leading-6">
+                        {step.copy}
+                      </CardDescription>
                     </CardHeader>
                   </Card>
                   {index < modelSteps.length - 1 ? (
@@ -394,7 +436,9 @@ export default function PortableContextPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm leading-6 text-muted-foreground">{item.copy}</p>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {item.copy}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -431,7 +475,10 @@ export default function PortableContextPage() {
                   "Understand who is open to connecting",
                   "View intentionally public profile context",
                 ].map((feature) => (
-                  <div key={feature} className="border border-background/25 px-3 py-2.5">
+                  <div
+                    key={feature}
+                    className="border border-background/25 px-3 py-2.5"
+                  >
                     {feature}
                   </div>
                 ))}
@@ -453,27 +500,37 @@ export default function PortableContextPage() {
                 Bob and Alice, and their agents
               </h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-background/70 sm:text-lg">
-                Bob and Alice are mutually approved connections. When Alice chooses to use her agent
-                with Portable Context, it can understand Bob&apos;s public and connected context to help
-                them collaborate more effectively.
+                Bob and Alice are mutually approved connections. When Alice
+                chooses to use her agent with Portable Context, it can
+                understand Bob&apos;s public and connected context to help them
+                collaborate more effectively.
               </p>
               <p className="mt-5 text-sm text-background/60">
-                Bob&apos;s private context remains visible only to Bob and agents he explicitly
-                authorizes as himself.
+                Bob&apos;s private context remains visible only to Bob and
+                agents he explicitly authorizes as himself.
               </p>
             </div>
             <div className="border border-background/25 p-5 sm:p-8">
               <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center">
                 <div className="border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
-                  <CircleUserRound aria-hidden="true" className="mx-auto size-7" />
+                  <CircleUserRound
+                    aria-hidden="true"
+                    className="mx-auto size-7"
+                  />
                   <p className="mt-2 font-semibold">Bob</p>
                 </div>
                 <div className="text-xs text-background/60">
                   accepted
-                  <ArrowRight aria-hidden="true" className="mx-auto mt-1 size-5" />
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="mx-auto mt-1 size-5"
+                  />
                 </div>
                 <div className="border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
-                  <CircleUserRound aria-hidden="true" className="mx-auto size-7" />
+                  <CircleUserRound
+                    aria-hidden="true"
+                    className="mx-auto size-7"
+                  />
                   <p className="mt-2 font-semibold">Alice</p>
                 </div>
               </div>
@@ -481,7 +538,9 @@ export default function PortableContextPage() {
                 <div className="border border-background/25 p-3 text-center text-xs">
                   Alice approves her agent
                 </div>
-                <span className="text-center text-xl text-background/60">+</span>
+                <span className="text-center text-xl text-background/60">
+                  +
+                </span>
                 <div className="border border-background/25 p-3 text-center text-xs">
                   Bob and Alice are connected
                 </div>
@@ -489,14 +548,18 @@ export default function PortableContextPage() {
               <div className="flex items-center justify-center gap-3 bg-background px-4 py-3 text-center text-foreground">
                 <ShieldCheck aria-hidden="true" className="size-5 shrink-0" />
                 <span className="text-sm font-semibold">
-                  Alice&apos;s agent receives Bob&apos;s public + connected context
+                  Alice&apos;s agent receives Bob&apos;s public + connected
+                  context
                 </span>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="agent-context" className="scroll-mt-8 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <section
+          id="agent-context"
+          className="scroll-mt-8 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
+        >
           <SectionHeading
             eyebrow="Built for agents"
             title="The agent sees useful context—not the credential that unlocks it."
@@ -513,7 +576,9 @@ export default function PortableContextPage() {
                     >
                       <FlowIcon aria-hidden="true" className="mx-auto size-6" />
                       <p className="mt-3 text-sm font-semibold">{item.label}</p>
-                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{item.detail}</p>
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                        {item.detail}
+                      </p>
                     </Card>
                     {index < agentFlow.length - 1 ? (
                       <ArrowRight
@@ -529,15 +594,17 @@ export default function PortableContextPage() {
               <div className="bg-foreground p-6 text-background sm:p-8">
                 <h3 className="text-xl font-semibold">Simple for people</h3>
                 <p className="mt-4 text-sm leading-6 text-background/70">
-                  Add the connector, sign in, review the requested access, and return to your agent.
-                  No manual credential handling is part of the normal experience.
+                  Add the connector, sign in, review the requested access, and
+                  return to your agent. No manual credential handling is part of
+                  the normal experience.
                 </p>
               </div>
               <div className="bg-background p-6 sm:p-8">
                 <h3 className="text-xl font-semibold">Useful for agents</h3>
                 <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                  Agents can use approved profile information to help with real work. They receive
-                  context, not the credentials used to authorize it.
+                  Agents can use approved profile information to help with real
+                  work. They receive context, not the credentials used to
+                  authorize it.
                 </p>
               </div>
             </div>
@@ -554,9 +621,12 @@ export default function PortableContextPage() {
             <div className="mt-12 grid gap-px overflow-hidden rounded-xl border bg-border lg:grid-cols-2">
               <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
                 <Badge variant="secondary">Public discovery</Badge>
-                <p className="mt-6 text-2xl font-semibold tracking-tight">Public means public.</p>
+                <p className="mt-6 text-2xl font-semibold tracking-tight">
+                  Public means public.
+                </p>
                 <p className="mt-4 leading-7 text-muted-foreground">
-                  Discovery uses only information you deliberately placed in the public layer.
+                  Discovery uses only information you deliberately placed in the
+                  public layer.
                 </p>
               </div>
               <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
@@ -565,14 +635,18 @@ export default function PortableContextPage() {
                   Connecting shares more—not everything.
                 </p>
                 <p className="mt-4 leading-7 text-muted-foreground">
-                  Approved people and their agents can use connected context. Private remains yours.
+                  Approved people and their agents can use connected context.
+                  Private remains yours.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="prototype" className="scroll-mt-8 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <section
+          id="prototype"
+          className="scroll-mt-8 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
+        >
           <SectionHeading
             eyebrow="Working prototype"
             title="The core product experience is demonstrable today."
@@ -582,13 +656,21 @@ export default function PortableContextPage() {
             <Card className={interactiveCardClass}>
               <CardHeader>
                 <Badge variant="secondary">Implemented</Badge>
-                <CardTitle className="mt-3 text-xl">What the prototype proves</CardTitle>
+                <CardTitle className="mt-3 text-xl">
+                  What the prototype proves
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   {prototypeCapabilities.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6">
-                      <Check aria-hidden="true" className="mt-1 size-4 shrink-0" />
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-sm leading-6"
+                    >
+                      <Check
+                        aria-hidden="true"
+                        className="mt-1 size-4 shrink-0"
+                      />
                       {item}
                     </li>
                   ))}
@@ -610,8 +692,8 @@ export default function PortableContextPage() {
             </div>
             <div className="lg:text-right">
               <p className="mb-5 text-sm leading-6 text-background/65">
-                Public for discovery. Connected for people you trust. Private until you decide
-                otherwise.
+                Public for discovery. Connected for people you trust. Private
+                until you decide otherwise.
               </p>
               <Badge
                 asChild
