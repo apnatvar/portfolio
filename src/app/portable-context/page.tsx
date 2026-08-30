@@ -28,7 +28,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Portable Context — One Context Source",
+  title: "Portable Context — Single Source of Truth",
   description:
     "A reusable, user-controlled context profile with public, connected, and private layers for people and their agents.",
   alternates: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/portable-context",
-    title: "Portable Context — One Context Source",
+    title: "Portable Context — Single Source of Truth",
     description:
       "Make context public for discovery, share more with approved connections, and keep the rest truly private.",
   },
@@ -187,7 +187,7 @@ export default function PortableContextPage() {
             <div>
               <Badge variant="outline">Functional prototype</Badge>
               <h1 className="mt-6 max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
-                One profile for every agent. You decide what each relationship can understand.
+                Single Source of Truth for the agentic internet.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
                 Portable Context is a user-controlled context layer for people and their agents.
@@ -201,7 +201,12 @@ export default function PortableContextPage() {
                     <ArrowDown aria-hidden="true" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="portable-context-agent-cta"
+                >
                   <Link href="#agent-context">See the agent flow</Link>
                 </Button>
               </div>
@@ -270,7 +275,7 @@ export default function PortableContextPage() {
                 "Job and education applications",
                 "Professional communities",
                 "Clubs and local groups",
-                "SaaS applications",
+                "Owned Businesses",
                 "AI assistants and agents",
                 "Personal profile pages",
               ].map((item, index) => (
@@ -284,6 +289,58 @@ export default function PortableContextPage() {
                   <p className="font-medium leading-6">{item}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border/80 bg-foreground text-background">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20 lg:px-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-background/60">
+                AI search and discovery
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Deterministic answers help the right people find you.
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-background/70 sm:text-lg">
+                Instead of asking AI to infer who you are from scattered pages, Portable Context
+                gives it explicit, structured answers. You can clearly communicate your skills,
+                services, businesses, interests, and availability so relevant searches have a
+                dependable source to interpret.
+              </p>
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-background/60">
+                An agent can match that public context to a customer&apos;s request, explain why it is
+                relevant, and present the result without forcing the customer to leave the chat.
+              </p>
+            </div>
+            <div className="border border-background/25 p-5 transition-colors duration-200 hover:bg-background/5 sm:p-8">
+              <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
+                <div className="border border-background/25 p-5">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-background/60">
+                    <Globe2 aria-hidden="true" className="size-4" />
+                    Explicit public context
+                  </div>
+                  <ul className="mt-5 space-y-3 text-sm">
+                    <li>Skills and capabilities</li>
+                    <li>Services and businesses</li>
+                    <li>Goals and availability</li>
+                  </ul>
+                </div>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="mx-auto size-5 rotate-90 text-background/60 sm:rotate-0"
+                />
+                <div className="bg-background p-5 text-foreground">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    <Search aria-hidden="true" className="size-4 text-primary" />
+                    Interpretable result
+                  </div>
+                  <p className="mt-5 text-sm leading-6">
+                    AI can find, understand, and present a relevant person or business directly in
+                    the conversation.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

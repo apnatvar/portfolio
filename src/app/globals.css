@@ -1389,6 +1389,12 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
   border-radius: 0;
 }
 
+.portable-context-page .portable-context-agent-cta:hover,
+.portable-context-page .portable-context-agent-cta:focus-visible {
+  background: var(--foreground);
+  color: var(--background);
+}
+
 .themed-menu-trigger,
 .themed-menu-panel {
   border: 1px solid var(--border);
