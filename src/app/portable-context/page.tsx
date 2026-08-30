@@ -17,28 +17,32 @@ import {
   CircleUserRound,
   Database,
   Eye,
+  Globe2,
   Handshake,
+  KeyRound,
   LockKeyhole,
-  Network,
+  Plug,
+  Search,
   ShieldCheck,
   UserRoundCheck,
+  Vault,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Portable Context — One Profile for the Agentic Internet",
+  title: "Portable Context — Maintain Your Context Once",
   description:
-    "A user-controlled, portable personal context layer for people, applications, AI assistants, and agents.",
+    "A reusable, user-controlled context profile with public, connected, and private layers for people and their agents.",
   alternates: {
     canonical: "/portable-context",
   },
   openGraph: {
     type: "website",
     url: "/portable-context",
-    title: "Portable Context — One Profile for the Agentic Internet",
+    title: "Portable Context — Maintain Your Context Once",
     description:
-      "Store structured personal context once, choose who may access it, and expose the same authorized representation through web, API, and MCP.",
+      "Make context public for discovery, share more with approved connections, and keep the rest truly private.",
   },
 };
 
@@ -51,7 +55,7 @@ const modelSteps = [
   {
     icon: Eye,
     title: "Choose visibility",
-    copy: "Set every section to public, connections, or private. Additional facts can have their own visibility.",
+    copy: "Set every section to public, connected, or private. Additional facts can have their own visibility.",
   },
   {
     icon: Handshake,
@@ -66,7 +70,7 @@ const modelSteps = [
   {
     icon: Braces,
     title: "Use authorized context",
-    copy: "People, applications, and agents consume the same filtered representation through web, JSON API, or MCP.",
+    copy: "People, applications, and agents consume the same authorized representation through web, API, or MCP.",
   },
 ] as const;
 
@@ -74,45 +78,50 @@ const visibilityLevels = [
   {
     icon: Eye,
     level: "Public",
-    audience: "Anyone",
-    copy: "The profile owner has deliberately made this context available without a relationship.",
+    audience: "Discoverable by anyone",
+    copy: "Intentionally public identity, interests, capabilities, goals, and open-to-connect status. Visible on profiles and searchable through the platform MCP.",
   },
   {
     icon: UserRoundCheck,
-    level: "Connections",
-    audience: "Accepted two-way connections",
-    copy: "Public context plus sections intentionally shared with established connections.",
+    level: "Connected",
+    audience: "Approved relationships",
+    copy: "Richer personal context shared with mutually approved people and agents acting on their behalf. The database currently names this level `connections`.",
   },
   {
     icon: LockKeyhole,
     level: "Private",
     audience: "Owner only",
-    copy: "Never included for anonymous visitors, unrelated users, connections, or their agents.",
+    copy: "A holding space for context the owner may share later. Never exposed merely because someone is connected.",
   },
 ] as const;
 
 const prototypeCapabilities = [
-  "Structured personal profiles",
-  "Section and per-fact visibility",
-  "Connection requests and two-way acceptance",
-  "A centralized context resolver",
-  "Public profile and normalized JSON API",
-  "Profile-specific MCP endpoints",
+  "Data-rich fictional Alpha, Beta, and Gamma profiles",
+  "Public, connected, and private data on every profile",
+  "Accepted Alpha–Gamma and pending Beta→Alpha relationships",
+  "Public web profiles and a normalized context API",
+  "Per-profile MCP servers at /profile/{username}/mcp",
+  "Public discovery MCP at /platform/mcp",
+  "One visibility resolver across web, API, and MCP",
+  "Boundary test canaries and development bearer tokens",
 ] as const;
 
 const productionRequirements = [
-  "OAuth and scoped application grants",
+  "OAuth 2.1 authorization-code flow with PKCE",
+  "Granular scopes and clear consent screens",
+  "Encrypted per-user credential storage",
+  "Short-lived, audience-bound access tokens",
   "Expiration, rotation, and reliable revocation",
-  "Audit logs and access history",
-  "Stronger sensitive-data controls",
-  "Export and data portability",
-  "Production infrastructure and security review",
+  "Audit history and stronger sensitive-data controls",
+  "Export, portability, and production infrastructure",
+  "Independent security and privacy review",
 ] as const;
 
 const agentFlow = [
-  { icon: Bot, label: "AI agent" },
-  { icon: Network, label: "Profile MCP" },
-  { icon: ShieldCheck, label: "Context resolver" },
+  { icon: CircleUserRound, label: "Human consent", detail: "Login + approve scopes" },
+  { icon: Plug, label: "Secure connector", detail: "Credentials stay in host" },
+  { icon: ShieldCheck, label: "Context resolver", detail: "Identity + scope + relationship" },
+  { icon: Bot, label: "Agent result", detail: "Filtered context only" },
 ] as const;
 
 const interactiveCardClass =
@@ -194,12 +203,12 @@ export default function PortableContextPage() {
             <div>
               <Badge variant="outline">Functional prototype</Badge>
               <h1 className="mt-6 max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
-                One profile for the agentic internet.
+                One profile for every agent. You decide what each relationship can understand.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                Portable Context lets a person maintain structured personal context once, decide
-                what people, applications, and agents may access, and expose one consistently
-                filtered representation across every interface.
+                Portable Context is a user-controlled context layer for people and their agents.
+                Make information public for discovery, share richer context with approved
+                connections, and keep the rest truly private.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg">
@@ -218,47 +227,49 @@ export default function PortableContextPage() {
             </div>
 
             <div
-              className="rounded-xl border bg-card p-4 shadow-sm transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-foreground hover:shadow-md sm:p-6"
-              aria-label="Context resolution summary"
+              className="border bg-card p-4 shadow-sm transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-primary hover:shadow-md sm:p-6"
+              aria-label="Public, connected, and private context layers"
             >
-              <div className="flex items-center justify-between border-b pb-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                    Profile context
-                  </p>
-                  <p className="mt-1 font-mono text-sm">@demo_alpha</p>
-                </div>
-                <Badge variant="secondary">access: connection</Badge>
-              </div>
-              <div className="space-y-3 py-5">
-                {[
-                  ["Identity", "public"],
-                  ["Education", "public"],
-                  ["Professional", "connections"],
-                  ["Goals", "connections"],
-                  ["Private reminder", "withheld"],
-                ].map(([label, access]) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between gap-3 rounded-md border bg-background px-3 py-2.5 text-sm"
-                  >
-                    <span>{label}</span>
-                    <span
-                      className={
-                        access === "withheld"
-                          ? "text-muted-foreground line-through"
-                          : "font-mono text-xs text-muted-foreground"
-                      }
-                    >
-                      {access}
-                    </span>
+              <div className="border border-primary bg-primary/5 p-4 sm:p-5">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <Globe2 aria-hidden="true" className="size-5 text-primary" />
+                    <p className="font-semibold">Public</p>
                   </div>
-                ))}
+                  <span className="font-mono text-xs text-muted-foreground">discoverable</span>
+                </div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Identity, capabilities, interests, goals, open to connect
+                </p>
+                <div className="mt-4 border border-foreground bg-secondary p-4 sm:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <UserRoundCheck aria-hidden="true" className="size-5" />
+                      <p className="font-semibold">Connected</p>
+                    </div>
+                    <span className="font-mono text-xs text-muted-foreground">approved people</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Richer context for trusted people and their agents
+                  </p>
+                  <div className="mt-4 bg-foreground p-4 text-background sm:p-5">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        <LockKeyhole aria-hidden="true" className="size-5" />
+                        <p className="font-semibold">Private</p>
+                      </div>
+                      <span className="font-mono text-xs text-background/60">owner only</span>
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-background/70">
+                      Held until the owner decides otherwise
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2 border-t pt-4 text-sm text-muted-foreground">
-                <ShieldCheck aria-hidden="true" className="size-4" />
-                Private context stays private.
-              </div>
+              <p className="mt-4 text-sm font-medium">
+                Public for discovery. Connected for people you trust. Private until you decide
+                otherwise.
+              </p>
             </div>
           </div>
         </section>
@@ -267,8 +278,8 @@ export default function PortableContextPage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="The problem"
-              title="Your context is everywhere except under your control."
-              description="The same biography, education, experience, interests, goals, and preferences are repeatedly recreated across disconnected systems. Each copy becomes another version to maintain and another access decision the user cannot clearly see."
+              title="Stop explaining yourself from scratch."
+              description="People repeatedly explain who they are, what they do, what they need, and how they prefer to work. Portable Context keeps that information structured and reusable, without treating every part of a person as public data."
             />
             <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
               {[
@@ -328,8 +339,8 @@ export default function PortableContextPage() {
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <SectionHeading
             eyebrow="User-controlled access"
-            title="Three levels with plain meanings."
-            description="The owner chooses how every profile section is exposed. Accepting a connection expands access only to connection-visible context; private information remains owner-only."
+            title="Three understandable context layers."
+            description="Public for discovery. Connected for people you trust. Private until you decide otherwise. Every profile area has an explicit boundary, and a connection never turns private context into shared context."
           />
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {visibilityLevels.map((item) => (
@@ -349,6 +360,48 @@ export default function PortableContextPage() {
           </div>
         </section>
 
+        <section className="border-y border-border/80 bg-card/50">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20 lg:px-8">
+            <div>
+              <SectionHeading
+                eyebrow="Public discovery"
+                title="Find people through what they intentionally share."
+                description="The platform-wide MCP searches public profiles and capabilities across the network. It never widens its boundary for an authenticated requester: connected and private information cannot appear in discovery results."
+              />
+              <div className="mt-7 flex flex-wrap gap-2">
+                <Badge variant="outline">Public identity</Badge>
+                <Badge variant="outline">Capabilities</Badge>
+                <Badge variant="outline">Interests</Badge>
+                <Badge variant="outline">Goals</Badge>
+                <Badge variant="outline">Open to connect</Badge>
+              </div>
+            </div>
+            <div className="overflow-hidden border bg-foreground text-background transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div className="flex items-center justify-between border-b border-background/20 px-4 py-3 text-xs text-background/60">
+                <span className="flex items-center gap-2">
+                  <Search aria-hidden="true" className="size-4" />
+                  Platform discovery MCP
+                </span>
+                <code>/platform/mcp</code>
+              </div>
+              <div className="space-y-3 p-5 font-mono text-sm">
+                {[
+                  "search_public_profiles",
+                  "count_public_profiles",
+                  "get_public_profile",
+                ].map((tool) => (
+                  <div key={tool} className="border border-background/25 px-3 py-2.5">
+                    {tool}
+                  </div>
+                ))}
+              </div>
+              <p className="border-t border-background/20 px-5 py-4 text-sm leading-6 text-background/65">
+                Authorization does not expand search beyond intentionally public context.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="border-y border-border/80 bg-foreground text-background">
           <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-8">
             <div>
@@ -356,123 +409,153 @@ export default function PortableContextPage() {
                 The handshake
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-                A relationship changes access—not ownership.
+                Alpha and Gamma share more because both conditions are true.
               </h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-background/70 sm:text-lg">
-                One person sends a connection request. The other accepts. The resulting relationship
-                is symmetric, but it grants only the context marked for connections.
+                Gamma&apos;s agent authenticates as Gamma and requests Alpha&apos;s profile. Portable
+                Context confirms both the granted permission and the accepted Alpha–Gamma
+                relationship before returning Alpha&apos;s public and connected layers.
               </p>
               <p className="mt-5 text-sm text-background/60">
-                “Handshake” describes the consent flow; it is not a claim of TCP semantics.
+                Alpha&apos;s private layer is available only to an agent explicitly authorized as
+                Alpha.
               </p>
             </div>
-            <div className="rounded-xl border border-background/25 p-5 sm:p-8">
+            <div className="border border-background/25 p-5 sm:p-8">
               <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center">
-                <div className="rounded-lg border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
+                <div className="border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
                   <CircleUserRound aria-hidden="true" className="mx-auto size-7" />
-                  <p className="mt-2 font-semibold">Person A</p>
+                  <p className="mt-2 font-semibold">Alpha</p>
                 </div>
                 <div className="text-xs text-background/60">
-                  request
+                  accepted
                   <ArrowRight aria-hidden="true" className="mx-auto mt-1 size-5" />
                 </div>
-                <div className="rounded-lg border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
+                <div className="border border-background/25 p-4 transition-colors duration-200 hover:bg-background/10">
                   <CircleUserRound aria-hidden="true" className="mx-auto size-7" />
-                  <p className="mt-2 font-semibold">Person B</p>
+                  <p className="mt-2 font-semibold">Gamma</p>
                 </div>
               </div>
-              <div className="my-5 flex items-center gap-3 text-xs text-background/60">
-                <span className="h-px flex-1 bg-background/25" />
-                B accepts
-                <span className="h-px flex-1 bg-background/25" />
+              <div className="my-5 grid gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
+                <div className="border border-background/25 p-3 text-center text-xs">
+                  OAuth scope to read connected profiles
+                </div>
+                <span className="text-center text-xl text-background/60">+</span>
+                <div className="border border-background/25 p-3 text-center text-xs">
+                  Accepted Alpha–Gamma relationship
+                </div>
               </div>
-              <div className="flex items-center justify-center gap-3 rounded-lg bg-background px-4 py-3 text-foreground">
-                <CircleUserRound aria-hidden="true" className="size-5" />
-                <ArrowRight aria-hidden="true" className="size-4" />
-                <ArrowRight aria-hidden="true" className="size-4 rotate-180" />
-                <CircleUserRound aria-hidden="true" className="size-5" />
-                <span className="ml-2 text-sm font-semibold">Connected</span>
+              <div className="flex items-center justify-center gap-3 bg-background px-4 py-3 text-center text-foreground">
+                <ShieldCheck aria-hidden="true" className="size-5 shrink-0" />
+                <span className="text-sm font-semibold">
+                  Gamma&apos;s agent receives Alpha&apos;s public + connected context
+                </span>
               </div>
             </div>
           </div>
         </section>
 
         <section id="agent-context" className="scroll-mt-8 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
-            <SectionHeading
-              eyebrow="Agent-readable context"
-              title="A profile can be an interface, not just a webpage."
-              description="Each profile in the prototype exposes its own MCP endpoint. The endpoint identifies the requester, checks the relationship, calls the central resolver, and returns authorized structured context."
-            />
-            <div className="space-y-4">
-              <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
+          <SectionHeading
+            eyebrow="Built for agents"
+            title="The agent sees useful context—not the credential that unlocks it."
+            description="In normal use, a person adds Portable Context as a connector in their preferred agent host. Login, consent, and OAuth happen in a secure browser flow outside the model conversation. The host stores credentials and silently authorizes later tool calls."
+          />
+          <div className="mt-12 space-y-6">
+              <div className="grid gap-3 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] lg:items-center">
                 {agentFlow.map((item, index) => {
                   const FlowIcon = item.icon;
                   return (
                     <div key={item.label} className="contents">
                       <Card
-                        className={`flex min-h-28 items-center justify-center p-5 text-center ${interactiveCardClass}`}
+                        className={`flex min-h-36 items-center justify-center p-5 text-center ${interactiveCardClass}`}
                       >
                         <FlowIcon aria-hidden="true" className="mx-auto size-6" />
                         <p className="mt-3 text-sm font-semibold">{item.label}</p>
+                        <p className="mt-1 text-xs leading-5 text-muted-foreground">{item.detail}</p>
                       </Card>
-                      {index < 2 ? (
+                      {index < agentFlow.length - 1 ? (
                         <ArrowRight
                           aria-hidden="true"
-                          className="mx-auto size-5 rotate-90 text-muted-foreground sm:rotate-0"
+                          className="mx-auto size-5 rotate-90 text-muted-foreground lg:rotate-0"
                         />
                       ) : null}
                     </div>
                   );
                 })}
               </div>
-              <div className="overflow-hidden rounded-xl border bg-foreground text-background">
-                <div className="flex items-center justify-between border-b border-background/20 px-4 py-3 text-xs text-background/60">
-                  <span>Authorized response</span>
-                  <span className="font-mono">application/json</span>
+              <div className="grid gap-px overflow-hidden border bg-border lg:grid-cols-2">
+                <div className="bg-foreground p-6 text-background sm:p-8">
+                  <div className="flex items-center gap-3">
+                    <Vault aria-hidden="true" className="size-6" />
+                    <h3 className="text-xl font-semibold">Inside the secure host</h3>
+                  </div>
+                  <ul className="mt-6 space-y-3 text-sm leading-6 text-background/70">
+                    <li>OAuth authorization-code flow with PKCE</li>
+                    <li>Refresh credentials in an encrypted vault or OS keychain</li>
+                    <li>Short-lived access token attached silently to tool calls</li>
+                  </ul>
                 </div>
-                <pre className="overflow-x-auto p-5 text-sm leading-7"><code>{`{
-  "profile": {},
-  "accessLevel": "connection"
-}`}</code></pre>
+                <div className="bg-background p-6 sm:p-8">
+                  <div className="flex items-center gap-3">
+                    <KeyRound aria-hidden="true" className="size-6 text-primary" />
+                    <h3 className="text-xl font-semibold">Inside the model conversation</h3>
+                  </div>
+                  <ul className="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
+                    <li>Authorized profile information returned by tools</li>
+                    <li>No passwords, authorization codes, access tokens, or refresh tokens</li>
+                    <li>No manual token copying during normal use</li>
+                  </ul>
+                </div>
               </div>
-              <p className="text-sm leading-6 text-muted-foreground">
-                Anonymous agents receive public context. An identified accepted connection can
-                receive connection-visible context. Private context remains unavailable. The current
-                prototype uses simple bearer tokens—not production OAuth.
+              <p className="max-w-4xl text-sm leading-6 text-muted-foreground">
+                An <code>.env</code> file is a development analogy, not a production credential
+                strategy. Production credentials belong in an encrypted, per-user credential store.
+                Portable Context then checks requester identity, granted scope, and relationship
+                before returning only the permitted layer.
               </p>
-            </div>
           </div>
         </section>
 
         <section className="border-y border-border/80 bg-card/50">
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
             <SectionHeading
-              eyebrow="The distinction"
-              title="Identity verifies a person. Context defines what can be understood."
-              description="Portable Context sits beside login providers and profile products. Its concern is the structured, permissioned context that follows identity—not replacing authentication itself."
+              eyebrow="One security boundary"
+              title="The same resolver protects every interface."
+              description="The public webpage, normalized JSON API, and per-profile MCP all ask one centralized resolver what the requester may receive. Interface code does not get to invent its own visibility rules."
             />
             <div className="mt-12 grid gap-px overflow-hidden rounded-xl border bg-border lg:grid-cols-2">
               <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
-                <Badge variant="secondary">Traditional identity</Badge>
-                <p className="mt-6 text-2xl font-semibold tracking-tight">“Who are you?”</p>
-                <p className="mt-4 leading-7 text-muted-foreground">
-                  Establishes or verifies identity so a person can sign in and act as themselves.
-                </p>
+                <Badge variant="secondary">Interfaces</Badge>
+                <p className="mt-6 font-mono text-sm">/profile/{`{username}`}/mcp</p>
+                <ul className="mt-5 space-y-3 text-sm leading-6 text-muted-foreground">
+                  <li>Public web profile</li>
+                  <li>Normalized context API</li>
+                  <li>Read-only, per-profile MCP tools</li>
+                </ul>
               </div>
               <div className="bg-background p-6 transition-colors duration-200 hover:bg-secondary sm:p-8">
-                <Badge>Portable context</Badge>
-                <p className="mt-6 text-2xl font-semibold tracking-tight">
-                  “Who are you, what will you expose, and what may an authorized agent understand?”
-                </p>
-                <p className="mt-4 leading-7 text-muted-foreground">
-                  Resolves structured personal context according to explicit visibility and relationships.
-                </p>
+                <Badge>Resolved result</Badge>
+                <ul className="mt-6 space-y-4 text-sm leading-6">
+                  <li className="flex items-start justify-between gap-4 border-b pb-3">
+                    <span>Anonymous or unrelated</span>
+                    <span className="font-mono text-xs text-muted-foreground">public</span>
+                  </li>
+                  <li className="flex items-start justify-between gap-4 border-b pb-3">
+                    <span>Accepted connection</span>
+                    <span className="font-mono text-xs text-muted-foreground">public + connected</span>
+                  </li>
+                  <li className="flex items-start justify-between gap-4">
+                    <span>Profile owner</span>
+                    <span className="font-mono text-xs text-muted-foreground">all three layers</span>
+                  </li>
+                </ul>
               </div>
             </div>
             <p className="mt-6 max-w-4xl text-sm leading-6 text-muted-foreground">
-              It is not a social network, Google login replacement, professional-profile clone,
-              password manager, or a store-everything system for unrestricted AI access.
+              Portable Context is not a password manager, cryptographic identity network, or fully
+              decentralized identity protocol. It is a permissioned context layer that works beside
+              identity and authentication systems.
             </p>
           </div>
         </section>
@@ -480,8 +563,8 @@ export default function PortableContextPage() {
         <section id="prototype" className="scroll-mt-8 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <SectionHeading
             eyebrow="Prototype boundaries"
-            title="The core model works. Production trust requires more."
-            description="The prototype is deliberately narrow: it demonstrates the access model end to end without presenting its current authentication and infrastructure as production-ready."
+            title="A credible prototype with an explicit production boundary."
+            description="The current system proves structured context, discovery, relationships, and visibility enforcement end to end. Its manually generated pcx_… bearer tokens exist for development and MCP Inspector testing—not as the intended customer experience."
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <Card className={interactiveCardClass}>
@@ -517,6 +600,14 @@ export default function PortableContextPage() {
               </CardContent>
             </Card>
           </div>
+          <div className="mt-6 flex items-start gap-3 border border-primary bg-primary/5 p-4 text-sm leading-6">
+            <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
+            <p>
+              Production should replace prototype tokens with OAuth 2.1, PKCE, secure credential
+              storage, granular scopes, consent, revocation, and audit history. None of those are
+              presented here as already implemented.
+            </p>
+          </div>
         </section>
 
         <footer className="border-t-4 border-foreground bg-foreground text-background">
@@ -526,13 +617,13 @@ export default function PortableContextPage() {
                 Portable Context / Prototype 01
               </p>
               <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-5xl">
-                Personal context with boundaries people and agents can understand.
+                Maintain your context once. Decide who can understand what.
               </h2>
             </div>
             <div className="lg:text-right">
               <p className="mb-5 text-sm leading-6 text-background/65">
-                Structured context. Explicit visibility. Relationship-aware access. One resolver
-                across web, API, and MCP.
+                Public for discovery. Connected for people you trust. Private until you decide
+                otherwise.
               </p>
               <Badge
                 asChild
