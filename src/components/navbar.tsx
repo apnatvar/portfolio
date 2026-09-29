@@ -97,12 +97,12 @@ function APSubComponent() {
   );
 }
 
-function BlogsSubComponent() {
+function ServicesSubComponent() {
   return (
-    <div className="flex flex-col items-center justify-center max-w-2xl">
+    <div className="flex max-w-2xl flex-col items-center justify-center">
       <p className="text-xs md:text-sm">
-        I write a daily blog covering technology, philosophy, running &
-        training, psychology, and personal anecdotes.
+        Next.js development, web automation, and full-stack product delivery
+        for founders and teams.
       </p>
     </div>
   );
@@ -120,14 +120,14 @@ const navItems: NavItem[] = [
     SubComponent: WorkSubComponent,
   },
   {
+    label: "Services",
+    href: "/services",
+    SubComponent: ServicesSubComponent,
+  },
+  {
     label: "About",
     href: "/about-ap",
     SubComponent: APSubComponent,
-  },
-  {
-    label: "Blogs",
-    href: "/blogs",
-    SubComponent: BlogsSubComponent,
   },
 ];
 

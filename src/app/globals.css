@@ -252,274 +252,6 @@ html[data-display-mode="swiss"] .display-mode-prompt-action {
   text-transform: uppercase;
 }
 
-/* Blogs: document-first layouts for Resume and Swiss modes. */
-.resume-blogs,
-.swiss-blogs,
-.resume-blog-detail,
-.swiss-blog-detail {
-  min-height: 100svh;
-  padding: 2.25rem clamp(1rem, 3vw, 3rem) 7rem;
-}
-
-.resume-blogs,
-.resume-blog-detail {
-  max-width: 76rem;
-  margin-inline: auto;
-}
-
-.resume-blogs > header > div,
-.swiss-blogs > header > div {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--foreground);
-  padding-bottom: 0.6rem;
-  font-size: 0.7rem;
-  font-weight: 750;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
-
-.resume-blogs > header h1 {
-  margin-top: 4.5rem;
-  font-size: clamp(3.2rem, 8vw, 7.5rem);
-  font-weight: 640;
-  line-height: 0.9;
-  letter-spacing: -0.065em;
-}
-
-.resume-blogs > header p {
-  max-width: 38rem;
-  margin-top: 1.4rem;
-  color: var(--muted-foreground);
-  line-height: 1.6;
-}
-
-.resume-blogs main {
-  margin-top: 5rem;
-  border-top: 1px solid var(--foreground);
-}
-
-.resume-blogs main article {
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr) auto;
-  gap: 1rem;
-  align-items: center;
-  border-bottom: 1px solid var(--border);
-  padding: 1.4rem 0;
-}
-
-.resume-blogs article > span,
-.resume-blogs time {
-  color: var(--muted-foreground);
-  font-size: 0.72rem;
-  font-weight: 650;
-}
-
-.resume-blogs article h2 {
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  font-weight: 650;
-  letter-spacing: -0.025em;
-}
-
-.resume-blogs article time {
-  display: block;
-  margin-top: 0.35rem;
-}
-
-.blogs-mode-links {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.resume-blogs .blogs-mode-links a,
-.resume-blog-detail article > nav a {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.55rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 680;
-}
-
-.resume-blogs .blogs-mode-links a:hover,
-.resume-blogs .blogs-mode-links a:focus-visible,
-.resume-blog-detail article > nav a:hover,
-.resume-blog-detail article > nav a:focus-visible {
-  border-color: var(--foreground);
-  background: var(--secondary);
-}
-
-.swiss-blogs {
-  padding-top: 1.25rem;
-}
-
-.swiss-blogs > header h1 {
-  margin-top: 4rem;
-  font-size: clamp(6rem, 18vw, 18rem);
-  font-weight: 840;
-  line-height: 0.72;
-  letter-spacing: -0.09em;
-  text-transform: uppercase;
-}
-
-.swiss-blogs > header p {
-  width: min(34rem, 42vw);
-  margin: 3.5rem 0 0 auto;
-  border-left: 0.6rem solid var(--accent);
-  padding-left: 1rem;
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
-  font-weight: 580;
-  line-height: 1.35;
-}
-
-.swiss-blogs main {
-  margin-top: 5rem;
-  border-top: 4px solid var(--foreground);
-}
-
-.swiss-blogs main article {
-  display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr) auto;
-  gap: 1rem;
-  align-items: center;
-  border-bottom: 1px solid var(--foreground);
-  padding: 1.6rem 0;
-}
-
-.swiss-blogs article > span {
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 850;
-}
-
-.swiss-blogs article h2 {
-  max-width: 54rem;
-  font-size: clamp(1.55rem, 3vw, 3.4rem);
-  font-weight: 790;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-}
-
-.swiss-blogs article time {
-  display: block;
-  margin-top: 0.6rem;
-  font-size: 0.68rem;
-  font-weight: 680;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.swiss-blogs .blogs-mode-links a {
-  display: block;
-  min-width: 9rem;
-  border-bottom: 1px solid var(--foreground);
-  padding: 0.45rem 0;
-  font-size: 0.72rem;
-  font-weight: 780;
-  text-transform: uppercase;
-}
-
-.swiss-blogs .blogs-mode-links a:hover,
-.swiss-blogs .blogs-mode-links a:focus-visible {
-  color: var(--accent);
-}
-
-.blogs-empty {
-  padding: 3rem 0;
-  color: var(--muted-foreground);
-}
-
-.resume-blog-detail > article,
-.swiss-blog-detail > article {
-  margin-inline: auto;
-}
-
-.resume-blog-detail > article {
-  max-width: 54rem;
-}
-
-.resume-blog-detail article > nav,
-.swiss-blog-detail article > nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.resume-blog-detail header {
-  margin-top: 5rem;
-  border-bottom: 1px solid var(--foreground);
-  padding-bottom: 2.5rem;
-}
-
-.resume-blog-detail header > span,
-.resume-blog-detail time {
-  color: var(--muted-foreground);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.resume-blog-detail h1 {
-  margin: 1rem 0 2rem;
-  font-size: clamp(2.6rem, 7vw, 6rem);
-  font-weight: 650;
-  line-height: 0.96;
-  letter-spacing: -0.055em;
-}
-
-.resume-blog-detail .blog-content,
-.swiss-blog-detail .blog-content {
-  margin-top: 3rem;
-}
-
-.swiss-blog-detail > article {
-  max-width: 88rem;
-}
-
-.swiss-blog-detail article > nav {
-  border-bottom: 3px solid var(--foreground);
-  padding-bottom: 0.6rem;
-  font-size: 0.72rem;
-  font-weight: 780;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.swiss-blog-detail header {
-  display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr) 9rem;
-  gap: 1rem;
-  align-items: start;
-  border-bottom: 1px solid var(--foreground);
-  padding: 4rem 0;
-}
-
-.swiss-blog-detail header > span,
-.swiss-blog-detail time {
-  font-size: 0.68rem;
-  font-weight: 780;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.swiss-blog-detail header > span {
-  color: var(--accent);
-}
-
-.swiss-blog-detail h1 {
-  font-size: clamp(3.4rem, 8vw, 8rem);
-  font-weight: 820;
-  line-height: 0.83;
-  letter-spacing: -0.07em;
-  text-transform: uppercase;
-}
-
-.swiss-blog-detail .blog-content {
-  max-width: 52rem;
-  margin-left: 5rem;
-}
-
 /* Hire: normal-flow, mode-specific presentation without changing the form logic. */
 .hire-mode {
   display: grid;
@@ -621,67 +353,6 @@ html[data-display-mode="swiss"] .display-mode-prompt-action {
 }
 
 @media (max-width: 767px) {
-  .resume-blogs,
-  .swiss-blogs,
-  .resume-blog-detail,
-  .swiss-blog-detail {
-    padding-top: 1rem;
-  }
-
-  .resume-blogs > header h1,
-  .swiss-blogs > header h1 {
-    margin-top: 3rem;
-    font-size: clamp(4rem, 24vw, 7rem);
-    overflow-wrap: anywhere;
-  }
-
-  .swiss-blogs > header p {
-    width: 100%;
-    margin-top: 2.5rem;
-  }
-
-  .resume-blogs main,
-  .swiss-blogs main {
-    margin-top: 3.5rem;
-  }
-
-  .resume-blogs main article,
-  .swiss-blogs main article {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .resume-blogs .blogs-mode-links,
-  .swiss-blogs .blogs-mode-links {
-    grid-column: 2;
-    flex-wrap: wrap;
-    margin-top: 0.25rem;
-  }
-
-  .swiss-blogs .blogs-mode-links a {
-    min-width: 0;
-  }
-
-  .resume-blog-detail header,
-  .swiss-blog-detail header {
-    margin-top: 3rem;
-  }
-
-  .swiss-blog-detail header {
-    display: block;
-    padding: 2.5rem 0;
-  }
-
-  .swiss-blog-detail h1 {
-    margin: 1rem 0 2rem;
-    overflow-wrap: anywhere;
-    font-size: clamp(2.8rem, 14vw, 5rem);
-  }
-
-  .swiss-blog-detail .blog-content {
-    margin-left: 0;
-  }
-
   .hire-mode {
     grid-template-columns: 1fr;
     padding-top: 2rem;
@@ -724,8 +395,6 @@ html[data-display-mode="resume"] :is(
   .resume-contact-links a,
   .resume-about-header nav a,
   .resume-about-links a,
-  .resume-blogs .blogs-mode-links a,
-  .resume-blog-detail article > nav a,
   .hire-mode--resume button,
   .hire-mode--resume a
 ),
@@ -736,8 +405,6 @@ html[data-display-mode="swiss"] :is(
   .swiss-project-links a,
   .swiss-contact a,
   .swiss-about-links a,
-  .swiss-blogs .blogs-mode-links a,
-  .swiss-blog-detail article > nav a,
   .hire-mode--swiss button,
   .hire-mode--swiss a
 ) {
@@ -755,16 +422,14 @@ html[data-display-mode="resume"] :is(
   .resume-project,
   .resume-timeline article,
   .resume-about-timeline article,
-  .resume-about-education article,
-  .resume-blogs main article
+  .resume-about-education article
 ),
 html[data-display-mode="swiss"] :is(
   .swiss-role-grid article,
   .swiss-project-list article,
   .swiss-experience article,
   .swiss-about-history article,
-  .swiss-about-education article,
-  .swiss-blogs main article
+  .swiss-about-education article
 ) {
   position: relative;
   isolation: isolate;
@@ -778,16 +443,14 @@ html[data-display-mode="resume"] :is(
   .resume-project,
   .resume-timeline article,
   .resume-about-timeline article,
-  .resume-about-education article,
-  .resume-blogs main article
+  .resume-about-education article
 )::before,
 html[data-display-mode="swiss"] :is(
   .swiss-role-grid article,
   .swiss-project-list article,
   .swiss-experience article,
   .swiss-about-history article,
-  .swiss-about-education article,
-  .swiss-blogs main article
+  .swiss-about-education article
 )::before {
   position: absolute;
   z-index: -1;
@@ -803,16 +466,14 @@ html[data-display-mode="resume"] :is(
   .resume-project,
   .resume-timeline article,
   .resume-about-timeline article,
-  .resume-about-education article,
-  .resume-blogs main article
+  .resume-about-education article
 ) > *,
 html[data-display-mode="swiss"] :is(
   .swiss-role-grid article,
   .swiss-project-list article,
   .swiss-experience article,
   .swiss-about-history article,
-  .swiss-about-education article,
-  .swiss-blogs main article
+  .swiss-about-education article
 ) > * {
   position: relative;
   z-index: 1;
@@ -822,16 +483,14 @@ html[data-display-mode="resume"] :is(
   .resume-project-heading h3,
   .resume-timeline p,
   .resume-about-timeline p,
-  .resume-about-education h3,
-  .resume-blogs article h2
+  .resume-about-education h3
 ),
 html[data-display-mode="swiss"] :is(
   .swiss-role-grid h2,
   .swiss-project-title h3,
   .swiss-experience p,
   .swiss-about-history article p,
-  .swiss-about-education article h2,
-  .swiss-blogs article h2
+  .swiss-about-education article h2
 ) {
   transition:
     color var(--interaction-fast) ease,
@@ -865,16 +524,14 @@ html[data-display-mode="swiss"] :is(
     .resume-project,
     .resume-timeline article,
     .resume-about-timeline article,
-    .resume-about-education article,
-    .resume-blogs main article
+    .resume-about-education article
   ):is(:hover, :focus-within),
   html[data-display-mode="swiss"] :is(
     .swiss-role-grid article,
     .swiss-project-list article,
     .swiss-experience article,
     .swiss-about-history article,
-    .swiss-about-education article,
-    .swiss-blogs main article
+    .swiss-about-education article
   ):is(:hover, :focus-within) {
     border-color: var(--foreground);
     color: var(--background);
@@ -884,16 +541,14 @@ html[data-display-mode="swiss"] :is(
     .resume-project,
     .resume-timeline article,
     .resume-about-timeline article,
-    .resume-about-education article,
-    .resume-blogs main article
+    .resume-about-education article
   ):is(:hover, :focus-within)::before,
   html[data-display-mode="swiss"] :is(
     .swiss-role-grid article,
     .swiss-project-list article,
     .swiss-experience article,
     .swiss-about-history article,
-    .swiss-about-education article,
-    .swiss-blogs main article
+    .swiss-about-education article
   ):is(:hover, :focus-within)::before {
     transform: scaleX(1);
     transform-origin: left center;
@@ -903,16 +558,14 @@ html[data-display-mode="swiss"] :is(
     .resume-project,
     .resume-timeline article,
     .resume-about-timeline article,
-    .resume-about-education article,
-    .resume-blogs main article
+    .resume-about-education article
   ):is(:hover, :focus-within) :is(time, li, p, span),
   html[data-display-mode="swiss"] :is(
     .swiss-role-grid article,
     .swiss-project-list article,
     .swiss-experience article,
     .swiss-about-history article,
-    .swiss-about-education article,
-    .swiss-blogs main article
+    .swiss-about-education article
   ):is(:hover, :focus-within) :is(time, li, p) {
     color: color-mix(in oklab, var(--background) 82%, var(--accent));
   }
@@ -921,16 +574,14 @@ html[data-display-mode="swiss"] :is(
     .resume-project,
     .resume-timeline article,
     .resume-about-timeline article,
-    .resume-about-education article,
-    .resume-blogs main article
+    .resume-about-education article
   ):is(:hover, :focus-within) :is(h2, h3),
   html[data-display-mode="swiss"] :is(
     .swiss-role-grid article,
     .swiss-project-list article,
     .swiss-experience article,
     .swiss-about-history article,
-    .swiss-about-education article,
-    .swiss-blogs main article
+    .swiss-about-education article
   ):is(:hover, :focus-within) :is(h2, h3) {
     color: var(--background);
     letter-spacing: -0.055em;
@@ -941,16 +592,8 @@ html[data-display-mode="swiss"] :is(
     font-size: 1.38rem;
   }
 
-  html[data-display-mode="resume"] .resume-blogs main article:is(:hover, :focus-within) h2 {
-    font-size: clamp(1.3rem, 2.15vw, 2rem);
-  }
-
   html[data-display-mode="swiss"] .swiss-project-list article:is(:hover, :focus-within) .swiss-project-title h3 {
     font-size: clamp(2.2rem, 5.3vw, 5.3rem);
-  }
-
-  html[data-display-mode="swiss"] .swiss-blogs main article:is(:hover, :focus-within) h2 {
-    font-size: clamp(1.7rem, 3.2vw, 3.7rem);
   }
 
   html[data-display-mode="swiss"] :is(
@@ -958,8 +601,7 @@ html[data-display-mode="swiss"] :is(
     .swiss-project-list article,
     .swiss-experience article,
     .swiss-about-history article,
-    .swiss-about-education article,
-    .swiss-blogs main article
+    .swiss-about-education article
   ):is(:hover, :focus-within) > :is(span, .swiss-project-title > span) {
     color: var(--accent);
   }
@@ -969,8 +611,6 @@ html[data-display-mode="swiss"] :is(
     .resume-contact-links a,
     .resume-about-header nav a,
     .resume-about-links a,
-    .resume-blogs .blogs-mode-links a,
-    .resume-blog-detail article > nav a,
     .themed-menu-trigger
   ):is(:hover, :focus-visible) {
     border-color: var(--foreground);
@@ -985,8 +625,6 @@ html[data-display-mode="swiss"] :is(
     .swiss-project-links a,
     .swiss-contact a,
     .swiss-about-links a,
-    .swiss-blogs .blogs-mode-links a,
-    .swiss-blog-detail article > nav a,
     .themed-menu-trigger
   ):is(:hover, :focus-visible) {
     border-color: var(--accent);
@@ -1095,102 +733,578 @@ html[data-display-mode="swiss"] :is(
   }
 }
 
-.blog-content {
+/* Intent-focused service pages */
+.service-page {
+  min-height: 100svh;
+  overflow: hidden;
   color: var(--foreground);
-  font-size: 1.0625rem;
-  line-height: 1.85;
 }
 
-.blog-content > * + * {
-  margin-top: 1.35rem;
+.service-page main {
+  width: min(100% - 2rem, 88rem);
+  margin-inline: auto;
 }
 
-.blog-content h1,
-.blog-content h2,
-.blog-content h3,
-.blog-content h4 {
-  color: var(--foreground);
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.15;
-  margin-top: 2.5rem;
+.service-hero {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 0 5rem;
 }
 
-.blog-content h1 {
-  font-size: 2.5rem;
+.service-hero-meta,
+.service-section-heading {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--foreground);
+  padding-bottom: 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.blog-content h2 {
-  font-size: 2rem;
+.service-hero-meta {
+  grid-template-columns: 1fr auto;
 }
 
-.blog-content h3 {
+.service-eyebrow {
+  margin-top: clamp(3rem, 8vw, 7rem);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 780;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.service-hero h1 {
+  max-width: 14ch;
+  margin-top: 1rem;
+  font-size: clamp(3.6rem, 9vw, 9rem);
+  font-weight: 650;
+  line-height: 0.88;
+  letter-spacing: -0.072em;
+  text-wrap: balance;
+}
+
+.service-hero-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: end;
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  padding-left: min(22vw, 20rem);
+}
+
+.service-hero-summary > p {
+  max-width: 44rem;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.service-primary-cta {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+  padding: 0.8rem 1.15rem;
+  font-size: 0.8rem;
+  font-weight: 720;
+  white-space: nowrap;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.service-primary-cta:hover,
+.service-primary-cta:focus-visible {
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(-0.15rem);
+}
+
+.service-primary-cta svg,
+.service-related svg,
+.service-index-list article > a svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.service-pricing {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  border-block: 1px solid var(--foreground);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.service-pricing > div:first-child > p:first-child {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.service-pricing > div:first-child > p:last-child,
+.service-pricing > p {
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.service-pricing dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-pricing dl > div {
+  border-left: 1px solid var(--border);
+  padding-left: clamp(1rem, 3vw, 2.5rem);
+}
+
+.service-pricing dt {
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.service-pricing dd {
+  margin-top: 0.7rem;
+}
+
+.service-pricing dd span {
+  display: block;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 650;
+  line-height: 0.85;
+  letter-spacing: -0.065em;
+}
+
+.service-pricing dd small {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.service-pricing > p {
+  grid-column: 2;
+  max-width: 42rem;
+}
+
+.service-section {
+  border-top: 1px solid var(--foreground);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.service-section-heading h2 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.service-fit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  padding-top: 3rem;
+}
+
+.service-fit-grid > p {
+  font-size: clamp(1.7rem, 4vw, 4rem);
+  font-weight: 620;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.service-fit-grid ul {
+  border-top: 1px solid var(--border);
+}
+
+.service-fit-grid li {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0;
+  line-height: 1.55;
+}
+
+.service-fit-grid li svg {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.25rem;
+  color: var(--accent);
+}
+
+.service-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.service-card-grid article {
+  min-height: 24rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 2);
+  padding: 1.4rem;
+  background: var(--card);
+}
+
+.service-card-grid article > span,
+.service-process li > span {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.service-card-grid h2 {
+  max-width: 10ch;
+  margin-top: 6rem;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.service-card-grid p {
+  margin-top: 1.5rem;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+
+.service-process {
+  padding-top: 2rem;
+}
+
+.service-process li {
+  display: grid;
+  grid-template-columns: 4rem minmax(12rem, 0.75fr) minmax(0, 1fr);
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 1.7rem 0;
+}
+
+.service-process h2 {
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.service-process p {
+  max-width: 46rem;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+
+.service-capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1.2rem;
+  padding-top: 3rem;
+}
+
+.service-capabilities span {
+  font-size: clamp(1.8rem, 5vw, 5rem);
+  font-weight: 650;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.service-capabilities span:nth-child(3n) {
+  color: var(--accent);
+  font-size: clamp(1.3rem, 3.5vw, 3.4rem);
+}
+
+.service-faqs {
+  padding-top: 2rem;
+}
+
+.service-faqs details {
+  border-bottom: 1px solid var(--border);
+}
+
+.service-faqs summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 620;
+  letter-spacing: -0.025em;
+}
+
+.service-faqs summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-faqs summary::after {
+  content: "+";
+  color: var(--accent);
   font-size: 1.5rem;
 }
 
-.blog-content a {
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+.service-faqs details[open] summary::after {
+  content: "−";
 }
 
-.blog-content blockquote {
-  border-left: 1px solid var(--border);
+.service-faqs details p {
+  max-width: 52rem;
+  padding: 0 0 1.5rem;
   color: var(--muted-foreground);
-  font-size: 1.25rem;
-  line-height: 1.6;
-  padding-left: 1.25rem;
+  line-height: 1.7;
 }
 
-.blog-content ul,
-.blog-content ol {
+.service-related > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: 2rem;
+}
+
+.service-related a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+  font-size: clamp(1.35rem, 3vw, 2.8rem);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+}
+
+.service-related a:nth-child(odd) {
+  border-right: 1px solid var(--border);
+  padding-right: 1.5rem;
+}
+
+.service-related a:nth-child(even) {
   padding-left: 1.5rem;
 }
 
-.blog-content ul {
-  list-style: disc;
+.service-closing {
+  min-height: 75svh;
+  padding: clamp(5rem, 12vw, 10rem) 0;
 }
 
-.blog-content ol {
-  list-style: decimal;
+.service-closing > p {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 780;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.blog-content img {
-  border-radius: var(--radius);
-  height: auto;
-  margin-inline: auto;
-  max-width: 100%;
+.service-closing h2 {
+  max-width: 12ch;
+  margin-top: 1rem;
+  font-size: clamp(3.2rem, 8vw, 8rem);
+  font-weight: 650;
+  line-height: 0.88;
+  letter-spacing: -0.07em;
 }
 
-.blog-content figure {
-  margin-inline: 0;
+.service-closing > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 3rem;
 }
 
-.blog-content figcaption {
+.service-closing > div > a:last-child {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.service-index-list > div {
+  padding-top: 1rem;
+}
+
+.service-index-list article {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+}
+
+.service-index-list article > span {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.service-index-list h2 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 650;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.service-index-list article p {
+  max-width: 48rem;
+  margin-top: 1rem;
   color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.5;
-  text-align: center;
+  line-height: 1.6;
 }
 
-.blog-content pre {
-  background: var(--card);
-  border: 1px solid var(--border);
+.service-index-list article > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+html[data-display-mode="resume"] .service-page main {
+  width: min(100% - 2rem, 76rem);
+}
+
+html[data-display-mode="resume"] .service-hero {
+  min-height: auto;
+  padding: 4rem 0 6rem;
+}
+
+html[data-display-mode="resume"] .service-hero h1,
+html[data-display-mode="resume"] .service-closing h2 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+}
+
+html[data-display-mode="resume"] .service-card-grid article {
+  min-height: 20rem;
   border-radius: var(--radius);
-  overflow-x: auto;
-  padding: 1rem;
 }
 
-.blog-content code {
-  background: var(--card);
-  border-radius: calc(var(--radius) - 4px);
-  font-size: 0.92em;
-  padding: 0.1rem 0.3rem;
+html[data-display-mode="swiss"] .service-hero-meta,
+html[data-display-mode="swiss"] .service-section-heading,
+html[data-display-mode="swiss"] .service-section {
+  border-top-width: 3px;
 }
 
-.blog-content pre code {
+html[data-display-mode="swiss"] .service-hero h1,
+html[data-display-mode="swiss"] .service-closing h2,
+html[data-display-mode="swiss"] .service-index-list h2 {
+  max-width: none;
+  font-weight: 830;
+  text-transform: uppercase;
+}
+
+html[data-display-mode="swiss"] .service-hero h1 {
+  font-size: clamp(4.5rem, 11vw, 11rem);
+  line-height: 0.76;
+}
+
+html[data-display-mode="swiss"] .service-card-grid article {
+  border-color: var(--foreground);
+  border-radius: 0;
   background: transparent;
-  padding: 0;
+}
+
+html[data-display-mode="swiss"] .service-primary-cta {
+  border-radius: 0;
+}
+
+html[data-display-mode="swiss"] .service-pricing {
+  border-block-width: 3px;
+}
+
+html[data-display-mode="swiss"] .service-pricing dd span {
+  font-weight: 840;
+}
+
+html[data-display-mode="swiss"] .service-capabilities span {
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .service-hero {
+    min-height: auto;
+    padding: 6rem 0 4rem;
+  }
+
+  .service-hero h1,
+  html[data-display-mode="swiss"] .service-hero h1 {
+    font-size: clamp(3.4rem, 17vw, 6rem);
+    overflow-wrap: anywhere;
+  }
+
+  .service-hero-summary,
+  .service-fit-grid,
+  .service-pricing {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+
+  .service-pricing dl {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .service-pricing dl > div {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 0 0;
+  }
+
+  .service-pricing > p {
+    grid-column: 1;
+  }
+
+  .service-primary-cta {
+    width: 100%;
+  }
+
+  .service-card-grid,
+  .service-related > div {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card-grid article {
+    min-height: auto;
+  }
+
+  .service-card-grid h2 {
+    margin-top: 3rem;
+  }
+
+  .service-process li,
+  .service-index-list article {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .service-process p,
+  .service-index-list article > a {
+    grid-column: 2;
+  }
+
+  .service-related a:nth-child(odd),
+  .service-related a:nth-child(even) {
+    border-right: 0;
+    padding-inline: 0;
+  }
+
+  .service-closing {
+    min-height: auto;
+  }
 }
 
 @media print {

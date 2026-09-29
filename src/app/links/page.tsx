@@ -23,7 +23,6 @@ const personalProfileUrls = [
   "https://www.cal.eu/apnatva",
   "https://www.linkedin.com/in/apnatva-singh-rawat",
   "https://github.com/apnatvar",
-  "https://medium.com/@nattupi",
   "https://music.apple.com/profile/nattupi",
   "https://www.chess.com/member/nattupi",
   "https://www.instagram.com/nattupi/",
@@ -79,8 +78,8 @@ const linkGroups: LinkGroup[] = [
     ],
   },
   {
-    title: "Work & Writing",
-    description: "Professional history, code, and published writing.",
+    title: "Work",
+    description: "Professional history and code.",
     links: [
       {
         label: "LinkedIn",
@@ -92,12 +91,6 @@ const linkGroups: LinkGroup[] = [
         label: "GitHub",
         value: "apnatvar",
         href: "https://github.com/apnatvar",
-        relation: "me",
-      },
-      {
-        label: "Medium",
-        value: "@nattupi",
-        href: "https://medium.com/@nattupi",
         relation: "me",
       },
     ],

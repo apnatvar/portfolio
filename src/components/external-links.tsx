@@ -16,12 +16,6 @@ type LinkItem = {
 
 const linkItems: LinkItem[] = [
   {
-    href: "https://medium.com/@nattupi",
-    title: "Medium",
-    reason: "Blogs",
-    description: "Daily blogs on technology, philosophy, and more.",
-  },
-  {
     href: "https://github.com/apnatvar",
     title: "Github",
     reason: "Code",

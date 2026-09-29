@@ -18,16 +18,15 @@ type FooterLink = {
 const sitemapLinks: FooterLink[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/#work" },
+  { label: "Services", href: "/services" },
   { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
-  { label: "Blogs", href: "/blogs" },
   { label: "Tools", href: "/tools" },
   { label: "Links", href: "/links" },
   { label: "Samples", href: "https://samples.apnatva.dev" },
 ];
 
 const importantLinks: FooterLink[] = [
-  { label: "Medium", href: "https://medium.com/@nattupi" },
   { label: "GitHub", href: "https://github.com/apnatvar" },
   {
     label: "LinkedIn",

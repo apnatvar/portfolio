@@ -8,7 +8,6 @@ export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const PROFILE_URLS = [
   "https://www.linkedin.com/in/apnatva-singh-rawat/",
   "https://github.com/apnatvar",
-  "https://medium.com/@nattupi",
   "https://www.instagram.com/nattupi/",
 ] as const;
 

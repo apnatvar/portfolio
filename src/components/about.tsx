@@ -52,7 +52,6 @@ const LINK_GROUPS = [
     label: "Resume",
     href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
   },
-  { label: "Medium", href: "https://medium.com/@nattupi" },
   { label: "Instagram", href: "https://instagram.com/nattupi/" },
 ];
 
@@ -190,21 +189,20 @@ export default function ProfileSplitSection() {
 
         <article className="flex min-h-0 flex-col bg-background px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
           <p className="text-sm leading-7 text-muted-foreground sm:text-base">
-            I am Apnatva, though most people call me AP. I am a systems-minded
-            full-stack web and software developer who works top-down: understand
-            the wider objective, organize the system, then move into the details
-            that make it work. My experience spans production software for small
-            businesses and multinational enterprises, freelance delivery,
-            open-source development, and marketing content and performance
-            analysis. <br />
-            <br /> I am self-driven and comfortable owning work in remote,
-            asynchronous environments. I also read and write about technology,
+            I&apos;m Apnatva; most people call me AP. I build websites and
+            software. I like getting to the problem behind a brief, then
+            working through the details people use every day. I&apos;ve worked
+            on web apps, internal tools, automation, and cloud systems for small
+            businesses and enterprise teams. SEO and content strategy have
+            taught me to think about what happens after a site goes live. <br />
+            <br /> I&apos;m used to working remotely and asynchronously. I write
+            down decisions, keep people updated, and take responsibility for
+            shipping. Outside work, I read and write about technology,
             philosophy, and psychology.
             <br />
             <br />
-            I am especially interested in opportunities close to founders, CEOs,
-            and executive teams, where technical judgment can support the bigger
-            picture. You can contact me via{" "}
+            I enjoy working closely with founders and teams where I can
+            understand the whole product. You can contact me via{" "}
             <span>
               <Link
                 href="/hire-ap"

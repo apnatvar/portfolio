@@ -1,29 +1,6 @@
-import { formatBlogDate, getBlogPosts, SITE_URL } from "@/lib/blogs";
+import { SITE_URL } from "@/lib/site";
 
-export const revalidate = 3600;
-
-export async function GET() {
-  const posts = await getBlogPosts();
-  const blogLines = posts.length
-    ? posts
-        .map(
-          (post) => `### ${post.title}
-
-URL:
-${SITE_URL}/blogs/${post.slug}
-
-Original Medium URL:
-${post.mediumUrl}
-
-Published:
-${formatBlogDate(post.publishedAt)}
-
-Summary:
-${post.excerpt || "Full article mirrored from the Medium RSS feed."}`,
-        )
-        .join("\n\n---\n\n")
-    : "Blog entries are generated from the Medium RSS feed when available.";
-
+export function GET() {
   const body = `# AP / Apnatva / Apnatva Singh Rawat
 ## Systems-Minded Full-Stack Developer | Software Developer
 
@@ -33,7 +10,7 @@ AP (Apnatva Singh Rawat) is a systems-minded full-stack web and software develop
 
 His professional experience spans software for small businesses and multinational enterprises, freelance delivery, open-source development, and marketing content creation and performance analysis. Remote asynchronous work has strengthened his planning, documentation, stakeholder coordination, and autonomous delivery.
 
-This website is the primary professional portfolio, hiring destination, technical CV, writing archive, capability document, and public discovery surface for prospective clients, collaborators, agencies, founders, startups, and businesses seeking premium custom web development work.
+This website is the primary professional portfolio, hiring destination, technical CV, capability document, and public discovery surface for prospective clients, collaborators, agencies, founders, startups, and businesses seeking premium custom web development work.
 
 Professional positioning:
 Full-stack Web Developer + Software Developer + systems-minded technical generalist.
@@ -57,19 +34,22 @@ Public pages:
 - ${SITE_URL}/
 - ${SITE_URL}/about-ap
 - ${SITE_URL}/hire-ap
-- ${SITE_URL}/blogs
+- ${SITE_URL}/services
+- ${SITE_URL}/services/nextjs-developer
+- ${SITE_URL}/services/web-automation-consultant
+- ${SITE_URL}/services/full-stack-developer-for-startups
 - ${SITE_URL}/ideals
 - https://samples.apnatva.dev
-
-## Blog Archive
-
-The blog archive is sourced from the Medium RSS feed for @nattupi and rendered on-site for readers. Detail pages also link to the canonical Medium source.
-
-${blogLines}
 
 ## Core Service Areas
 
 Production web applications, application maintenance, responsive frontend delivery, backend and API integration, SEO, automation, reporting, deployment, monitoring, and production support.
+
+## Service Pricing
+
+Hourly development and consulting engagements start at $30 USD per hour.
+Fixed-scope project engagements start at $1,000 USD per project.
+These are minimum starting prices; final pricing depends on scope, integrations, delivery timeline, and ongoing support requirements.
 
 ## Technical Stack
 

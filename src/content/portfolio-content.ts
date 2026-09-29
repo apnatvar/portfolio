@@ -51,86 +51,159 @@ export type PortfolioContent = {
  */
 export const portfolioContent: PortfolioContent = {
   hero: {
-    greeting: "Hello",
+    greeting: "Hey, I am",
     shortName: "I am A P",
     name: "Apnatva Singh Rawat",
     roles: [
-      { title: "Full-stack Developer", description: "Production systems shaped from business context through delivery." },
-      { title: "Software Developer", description: "API-driven systems, automation, and reliable execution." },
-      { title: "Designer", description: "Clear interfaces guided by the wider user and business journey." },
+      {
+        title: "Full-stack Developer",
+        description:
+          "From the first brief to a working product.",
+      },
+      {
+        title: "Software Developer",
+        description: "APIs, automation, and the parts that keep things running.",
+      },
+      {
+        title: "Designer",
+        description:
+          "Interfaces that make complex tasks easier to use.",
+      },
     ],
   },
   profile: {
     paragraphs: [
-      "I am Apnatva, though most people call me AP. I am a systems-minded full-stack web and software developer who works top-down: understand the wider objective, organize the system, then move into the details that make it work.",
-      "My experience spans production software for small businesses and multinational enterprises, freelance delivery, open-source development, and marketing content creation and performance analysis. I build web applications, internal tools, automation workflows, API-driven systems, and cloud deployments.",
-      "I am self-driven and comfortable with ownership. Remote, asynchronous work has strengthened how I plan, document, coordinate with stakeholders, and deliver dependable output with autonomy.",
-      "I read and write about technology, philosophy, and psychology, and I am especially interested in opportunities close to founders, CEOs, and executive teams where technical judgment can support the bigger picture.",
+      "I'm Apnatva, though most people call me AP. I build websites and software, starting with the problem behind the brief and working through to the details people use every day.",
+      "I've worked on web apps, internal tools, automation, and cloud systems for small businesses and enterprise teams. SEO, content strategy, and performance analysis are part of that work too; a site needs to be found and understood as well as built.",
+      "I'm used to remote, asynchronous work. I plan in writing, keep people updated, and take responsibility for getting things shipped.",
+      "Outside work, I read and write about technology, philosophy, and psychology. I enjoy working closely with founders and teams where I can understand the whole product, not just my part of it.",
     ],
-    education: ["BEng Computer Engineering, First Class Honours, TCD", "BA Arts, TCD"],
+    education: [
+      "BEng Computer Engineering, First Class Honours, TCD",
+      "BA Arts, TCD",
+    ],
   },
   projects: [
     {
-      title: "Open Workout",
-      links: [{ label: "Code", href: "https://github.com/apnatvar/open-workout" }],
+      title: "Forme",
+      links: [
+        { label: "Code", href: "https://github.com/apnatvar/open-workout" },
+      ],
       points: [
-        "Open-source workout builder for gym trainers, personal trainers, and other fitness professionals.",
-        "Makes it simple to design structured workouts with AI and share to clients.",
-        "Includes an MCP server that makes its workout-building capabilities available to compatible AI clients.",
-        "Built as a lightweight, self-hostable foundation that can be adapted to different coaching workflows.",
+        "Forme is an open-source workout planner and tracker that keeps your data in your browser.",
+        "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
+        "JSON import and export make it easy to move or back up your data.",
+        "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
+      ],
+    },
+    {
+      title: "Brownsmith Dynamics",
+      links: [{ label: "Website", href: "https://brownsmithdynamics.com" }],
+      points: [
+        "Built the website frontend, with pages for services, products, guides, and articles.",
+        "Organized navigation and internal links so visitors can find related content and search engines can crawl it.",
       ],
     },
     {
       title: "ELZA International",
       links: [
         { label: "Website", href: "https://elza.co.in/" },
-        { label: "Case Study", href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf" },
+        {
+          label: "Case Study",
+          href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
+        },
       ],
       points: [
-        "Performance, SEO, Asset Optimisation, and Responsive Design were treated as core requirements.",
-        "Design for a minimal content-first aesthetic with limitations around animations and design.",
-        "Varied section-level colour compositions were made from a limited brand palette to avoid a templated feel.",
+        "Built a responsive, content-first site around a limited brand palette.",
+        "Optimized assets and page structure with performance and SEO in mind.",
+        "Used colour changes between sections to give long pages some rhythm without relying on animation.",
       ],
     },
     {
       title: "Autonomous Urban Mobility",
       links: [
-        { label: "Code", href: "https://github.com/apnatvar/adaptive-traffic-control/" },
-        { label: "Thesis", href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf" },
+        {
+          label: "Code",
+          href: "https://github.com/apnatvar/adaptive-traffic-control/",
+        },
+        {
+          label: "Thesis",
+          href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
+        },
       ],
       points: [
-        "Final year thesis on adaptive traffic optimization using satellite intelligence over hardware-heavy conventional methods.",
-        "Proof-of-concept for a licensable B2B optimization engine for smart mobility and navigation ecosystems.",
-        "Highly scalable, designed to reduce deployment cost, maintenance overhead, and operational complexity for autonomous systems.",
+        "Final-year thesis exploring adaptive traffic control using satellite traffic data.",
+        "Built a proof of concept aimed at reducing the need for roadside hardware.",
+        "Focused on deployment cost and the work needed to maintain a traffic control system.",
       ],
     },
     {
       title: "Excel Automation",
-      links: [{ label: "Code", href: "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py" }],
+      links: [
+        {
+          label: "Code",
+          href: "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py",
+        },
+      ],
       points: [
-        "Developed a Python-based Windows standalone application to automate consolidation of financial data with over $10M in yearly transactions.",
-        "Reduced processing time to consolidate Excel tabular data from 5 days to ~17 minutes, generating 11 reports to save auditors hours in analysing and providing valuable insights as quickly as possible.",
+        "Built a standalone Windows app in Python to consolidate financial data covering more than $10M in annual transactions.",
+        "Cut a five-day reporting job to about 17 minutes and generated 11 reports for auditors.",
       ],
     },
     {
       title: "Chattybot",
       links: [{ label: "Code", href: "https://github.com/apnatvar/chattybot" }],
       points: [
-        "Self-hostable, multi-tenant website chatbot with an embeddable customer-facing widget.",
-        "Uses tenant-specific pages and product catalogues to answer questions and surface useful product or contact links.",
-        "Includes encrypted per-site credentials, resilient fallback responses, and a production-focused Docker deployment workflow.",
+        "Built a self-hostable, multi-tenant chatbot with a widget websites can embed.",
+        "It uses each site's pages and product catalogue to answer questions and point people to relevant links.",
+        "Added encrypted site credentials, fallback replies, and a Docker deployment setup.",
       ],
     },
   ],
   capabilities: {
-    services: ["web applications", "application maintenance", "API integration", "SEO", "automations", "data reporting", "deployment", "production support", "responsive UI"],
-    technologies: ["next.js", "react", "typescript", "node.js", "rest apis", "python", "postgresql", "docker", "kubernetes", "azure", "tailwind", "gsap"],
+    services: [
+      "web applications",
+      "application maintenance",
+      "API integration",
+      "SEO",
+      "automations",
+      "data reporting",
+      "deployment",
+      "production support",
+      "responsive UI",
+    ],
+    technologies: [
+      "next.js",
+      "react",
+      "typescript",
+      "node.js",
+      "rest apis",
+      "python",
+      "postgresql",
+      "docker",
+      "kubernetes",
+      "azure",
+      "tailwind",
+      "gsap",
+    ],
   },
   experience: [
-    { year: "Sep 2024 - Present", text: "Full-stack Web Developer at Brownsmith Dynamics, building and maintaining production websites, catalogues, internal tools, API integrations, automations, and deployment workflows." },
-    { year: "Jun 2025 - May 2026", text: "Content & Branding at Motilal Oswal Financial Services, analysing engagement and user journeys and producing stakeholder reporting and UX-led content strategy." },
-    { year: "May 2023 - Jul 2024", text: "Junior Cloud Engineer at Avaya, maintaining a multi-region Kubernetes application composed of 16 Dockerised Go and Java microservices on Azure." },
-    { year: "May 2022 - Aug 2022", text: "Software Developer at Mount Technics Consultancy, creating an automated Python and Selenium data pipeline that reduced manual intervention by 95%." },
+    {
+      year: "Sep 2024 - Present",
+      text: "Full-stack Web Developer at Brownsmith Dynamics, building and maintaining production websites, catalogues, internal tools, API integrations, automations, and deployment workflows.",
+    },
+    {
+      year: "Jun 2025 - May 2026",
+      text: "Content & Branding at Motilal Oswal Financial Services, analysing engagement and user journeys and producing stakeholder reporting and UX-led content strategy.",
+    },
+    {
+      year: "May 2023 - Jul 2024",
+      text: "Junior Cloud Engineer at Avaya, maintaining a multi-region Kubernetes application composed of 16 Dockerised Go and Java microservices on Azure.",
+    },
+    {
+      year: "May 2022 - Aug 2022",
+      text: "Software Developer at Mount Technics Consultancy, creating an automated Python and Selenium data pipeline that reduced manual intervention by 95%.",
+    },
   ],
   educationDetails: [
     {
@@ -154,10 +227,15 @@ export const portfolioContent: PortfolioContent = {
   ],
   profileLinks: [
     { label: "Portfolio", href: "/" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/apnatva-singh-rawat/" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
+    },
     { label: "GitHub", href: "https://github.com/apnatvar" },
-    { label: "Resume", href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf" },
-    { label: "Medium", href: "https://medium.com/@nattupi" },
+    {
+      label: "Resume",
+      href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
+    },
     { label: "Instagram", href: "https://instagram.com/nattupi/" },
   ],
   contact: {
@@ -166,9 +244,14 @@ export const portfolioContent: PortfolioContent = {
     booking: "https://cal.eu/apnatva/15min",
     links: [
       { label: "GitHub", href: "https://github.com/apnatvar" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/apnatva-singh-rawat/" },
-      { label: "Medium", href: "https://medium.com/@nattupi" },
-      { label: "Resume", href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
+      },
+      {
+        label: "Resume",
+        href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
+      },
     ],
   },
   imagery: {

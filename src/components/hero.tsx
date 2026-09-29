@@ -170,7 +170,7 @@ export default function HeroGridReveal() {
           data-word-reveal
           className="col-start-1 col-span-3 row-start-7 text-base text-muted-foreground md:col-start-4 md:col-span-2 md:row-start-3 md:row-span-2 md:text-lg"
         >
-          <SplitWords text="Interfaces shaped by the bigger picture." />
+          <SplitWords text="Clear interfaces for real people and real tasks." />
         </span>
 
         <span
@@ -185,7 +185,7 @@ export default function HeroGridReveal() {
           data-word-reveal
           className="col-start-1 col-span-3 row-start-10 text-base text-muted-foreground md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2 md:text-lg"
         >
-          <SplitWords text="Systems that turn strategy into working software." />
+          <SplitWords text="Websites and tools that work beyond the demo." />
         </span>
 
         <span
@@ -200,7 +200,7 @@ export default function HeroGridReveal() {
           data-word-reveal
           className="col-start-1 col-span-3 row-start-13 text-base text-muted-foreground md:col-start-2 md:col-span-2 md:row-start-5 md:row-span-2 md:text-lg"
         >
-          <SplitWords text="Ideas made clear, useful, and measurable." />
+          <SplitWords text="I write to make technical ideas easier to use." />
         </span>
 
         <div

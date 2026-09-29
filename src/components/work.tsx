@@ -22,7 +22,7 @@ type WorkItem = {
 
 const workItems: WorkItem[] = [
   {
-    title: "Open Workout",
+    title: "Forme",
     image: "/ap-icon.svg",
     links: [
       {
@@ -31,10 +31,19 @@ const workItems: WorkItem[] = [
       },
     ],
     points: [
-      "Open-source workout builder for gym trainers, personal trainers, and other fitness professionals.",
-      "Makes it simple to design structured workouts with AI and share to clients.",
-      "Includes an MCP server that makes its workout-building capabilities available to compatible AI clients.",
-      "Built as a lightweight, self-hostable foundation that can be adapted to different coaching workflows.",
+      "Forme is an open-source workout planner and tracker that keeps your data in your browser.",
+      "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
+      "JSON import and export make it easy to move or back up your data.",
+      "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
+    ],
+  },
+  {
+    title: "Brownsmith Dynamics",
+    image: "/ap-icon.svg",
+    links: [{ label: "Website", href: "https://brownsmithdynamics.com" }],
+    points: [
+      "Built the website frontend, with pages for services, products, guides, and articles.",
+      "Organized navigation and internal links so visitors can find related content and search engines can crawl it.",
     ],
   },
   {
@@ -48,9 +57,9 @@ const workItems: WorkItem[] = [
       },
     ],
     points: [
-      "Performance, SEO, Asset Optimisation, and Responsive Design were treated as core requirements.",
-      "Design for a minimal content-first aesthetic with limitations around animations and design.",
-      "Varied section-level colour compositions were made from a limited brand palette to avoid a templated feel.",
+      "Built a responsive, content-first site around a limited brand palette.",
+      "Optimized assets and page structure with performance and SEO in mind.",
+      "Used colour changes between sections to give long pages some rhythm without relying on animation.",
     ],
   },
   {
@@ -67,9 +76,9 @@ const workItems: WorkItem[] = [
       },
     ],
     points: [
-      "Final year thesis on adaptive traffic optimization using satellite intelligence over hardware-heavy conventional methods.",
-      "Proof-of-concept for a licensable B2B optimization engine for smart mobility and navigation ecosystems.",
-      "Highly scalable, designed to reduce deployment cost, maintenance overhead, and operational complexity for autonomous systems.",
+      "Final-year thesis exploring adaptive traffic control using satellite traffic data.",
+      "Built a proof of concept aimed at reducing the need for roadside hardware.",
+      "Focused on deployment cost and the work needed to maintain a traffic control system.",
     ],
   },
   {
@@ -82,8 +91,8 @@ const workItems: WorkItem[] = [
       },
     ],
     points: [
-      "Developed a Python-based Windows standalone application to automate consolidation of financial data with over $10M in yearly transactions.",
-      "Reduced processing time to consolidate Excel tabular data from 5 days to ~17 minutes, generating 11 reports to save auditors hours in analysing and providing valuable insights as quickly as possible.",
+      "Built a standalone Windows app in Python to consolidate financial data covering more than $10M in annual transactions.",
+      "Cut a five-day reporting job to about 17 minutes and generated 11 reports for auditors.",
     ],
   },
   {
@@ -96,9 +105,9 @@ const workItems: WorkItem[] = [
       },
     ],
     points: [
-      "Self-hostable, multi-tenant website chatbot with an embeddable customer-facing widget.",
-      "Uses tenant-specific pages and product catalogues to answer questions and surface useful product or contact links.",
-      "Includes encrypted per-site credentials, resilient fallback responses, and a production-focused Docker deployment workflow.",
+      "Built a self-hostable, multi-tenant chatbot with a widget websites can embed.",
+      "It uses each site's pages and product catalogue to answer questions and point people to relevant links.",
+      "Added encrypted site credentials, fallback replies, and a Docker deployment setup.",
     ],
   },
   // {

@@ -4,7 +4,6 @@ export const WORDS = [
   "Excel Automations",
   "Web Design",
   "Copywriting",
-  "Blog and Press releases",
   "Full-stack Development",
   "Content Management",
   "Content Strategy",
