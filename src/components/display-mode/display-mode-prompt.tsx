@@ -35,7 +35,6 @@ export function DisplayModePrompt() {
   return (
     <aside
       className="display-mode-prompt fixed bottom-[4.75rem] left-4 z-[54] w-[min(22rem,calc(100vw-2rem))] border bg-background p-4 shadow-xl md:bottom-[5.5rem] md:left-6"
-      role="dialog"
       aria-label="Try another portfolio display mode"
     >
       <button

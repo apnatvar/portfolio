@@ -36,6 +36,7 @@ const manufacturingConsent = Manufacturing_Consent({
   display: "swap",
   variable: "--font-manufacturing-consent",
   fallback: ["system-ui", "arial"],
+  adjustFontFallback: false,
 });
 
 const amita = Amita({
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     template: "%s | AP",
   },
 
-  icons: DEFAULT_SOCIAL_IMAGE,
+  icons: { icon: "/ap-icon.svg" },
 
   description:
     "Portfolio of AP, a systems-minded full-stack developer combining software, design, automation, content, and analysis to solve business problems.",

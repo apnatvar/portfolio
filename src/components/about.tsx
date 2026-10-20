@@ -4,11 +4,11 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
+import { portfolioContent } from "@/content/portfolio-content";
 import { cn } from "@/lib/utils";
 
 const CAROUSEL_IMAGES = [
@@ -22,39 +22,6 @@ const CAROUSEL_IMAGES = [
   "/8.webp",
 ];
 
-const TIMELINE_ITEMS = [
-  {
-    year: "Sep 2024 - Present",
-    text: "Full-stack Web Developer at Brownsmith Dynamics.",
-  },
-  {
-    year: "Jun 2025 - May 2026",
-    text: "Content & Branding at Motilal Oswal Financial Services.",
-  },
-  {
-    year: "May 2023 - Jul 2024",
-    text: "Junior Cloud Engineer at Avaya, working with Kubernetes, Docker, and Azure.",
-  },
-  {
-    year: "May 2022 - Aug 2022",
-    text: "Software Developer at Mount Technics Consultancy.",
-  },
-];
-
-const LINK_GROUPS = [
-  { label: "Portfolio", href: "/" },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
-  },
-  { label: "GitHub", href: "https://github.com/apnatvar" },
-  {
-    label: "Resume",
-    href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
-  },
-  { label: "Instagram", href: "https://instagram.com/nattupi/" },
-];
-
 export default function ProfileSplitSection() {
   const { mode } = useDisplayMode();
   const autoplay = React.useRef(
@@ -62,7 +29,7 @@ export default function ProfileSplitSection() {
       delay: 4200,
       stopOnMouseEnter: true,
       stopOnInteraction: false,
-      playOnInit: true,
+      playOnInit: false,
     }),
   );
 
@@ -103,10 +70,32 @@ export default function ProfileSplitSection() {
     };
   }, [emblaApi]);
 
+  React.useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoplayPlugin = autoplay.current;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncAutoplay = () => {
+      if (mode === "creative" && !motionPreference.matches) {
+        autoplayPlugin.play();
+      } else {
+        autoplayPlugin.stop();
+      }
+    };
+
+    syncAutoplay();
+    motionPreference.addEventListener("change", syncAutoplay);
+
+    return () => {
+      motionPreference.removeEventListener("change", syncAutoplay);
+      autoplayPlugin.stop();
+    };
+  }, [emblaApi, mode]);
+
   return (
-    <section className="h-[200svh] md:h-[100svh]">
-      <div className="grid h-full grid-cols-1 grid-rows-[100svh_100svh] md:grid-cols-2 md:grid-rows-1">
-        <article className="relative min-h-0 overflow-hidden">
+    <section id="profile" data-first-section className="h-auto md:min-h-[100svh]">
+      <div className="grid h-auto grid-cols-1 grid-rows-[minmax(70svh,auto)_auto] md:min-h-[100svh] md:grid-cols-2 md:grid-rows-1">
+        <article className="relative min-h-[70svh] overflow-hidden md:min-h-0">
           <div className="h-full overflow-hidden" ref={emblaRef}>
             <div className="flex h-full">
               {CAROUSEL_IMAGES.map((src, index) => (
@@ -131,17 +120,18 @@ export default function ProfileSplitSection() {
 
           <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-6 px-4 pb-5 pt-10 sm:px-6 sm:pb-6 md:px-8 md:pb-8">
             <div className="max-w-xl">
-              <p className="font-amita text-xl font-medium tracking-[1] text-foreground">
+              <p lang="hi" className="font-amita text-xl font-medium tracking-[1] text-background">
                 अपनत्व सिंह रावत
               </p>
 
-              <h2 className="font-italianno text-background mt-2 text-5xl md:text-7xl">
+              <h1 className="font-italianno text-background mt-2 text-5xl md:text-7xl">
                 Apnatva Singh Rawat
-              </h2>
+              </h1>
 
               <div className="mt-4 flex flex-col gap-1 text-sm text-muted sm:text-base">
-                <p>BEng Computer Engineering, First Class Honours, TCD</p>
-                <p>BA Arts, TCD</p>
+                {portfolioContent.profile.education.map((item) => (
+                  <p key={item}>{item}</p>
+                ))}
               </div>
             </div>
 
@@ -187,41 +177,21 @@ export default function ProfileSplitSection() {
           </div>
         </article>
 
-        <article className="flex min-h-0 flex-col bg-background px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
-          <p className="text-sm leading-7 text-muted-foreground sm:text-base">
-            I&apos;m Apnatva; most people call me AP. I build websites and
-            software. I like getting to the problem behind a brief, then
-            working through the details people use every day. I&apos;ve worked
-            on web apps, internal tools, automation, and cloud systems for small
-            businesses and enterprise teams. SEO and content strategy have
-            taught me to think about what happens after a site goes live. <br />
-            <br /> I&apos;m used to working remotely and asynchronously. I write
-            down decisions, keep people updated, and take responsibility for
-            shipping. Outside work, I read and write about technology,
-            philosophy, and psychology.
-            <br />
-            <br />
-            I enjoy working closely with founders and teams where I can
-            understand the whole product. You can contact me via{" "}
-            <span>
-              <Link
-                href="/hire-ap"
-                className="underline underline-offset-2 hover:text-foreground"
-              >
-                this page
-              </Link>
-            </span>{" "}
-            or just contact me on my socials directly.
-          </p>
+        <article className="flex flex-col bg-background px-4 py-5 sm:px-6 sm:py-6 md:min-h-0 md:px-8 md:py-8">
+          <div className="space-y-3 text-sm leading-7 text-muted-foreground sm:text-base">
+            {portfolioContent.profile.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
 
-          <div className="mt-5 grid min-h-0 flex-1 grid-cols-1 gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-            <div className="min-h-0 space-y-3">
-              {TIMELINE_ITEMS.map((item) => (
+          <div className="mt-5 grid grid-cols-1 gap-8 md:min-h-0 md:flex-1 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+            <div id="history" className="min-h-0 space-y-3">
+              {portfolioContent.experience.map((item) => (
                 <section
                   key={item.year}
                   className="border-l border-border pl-4 sm:pl-5"
                 >
-                  <p className="text-xs font-semibold tracking-[0.22em] text-primary">
+                <p className="break-words text-xs font-semibold tracking-[0.22em] text-primary">
                     {item.year}
                   </p>
                   <p className="mt-2 text-sm leading-7 text-foreground/85 sm:text-base">
@@ -232,7 +202,7 @@ export default function ProfileSplitSection() {
             </div>
 
             <div className="flex flex-col items-start gap-2">
-              {LINK_GROUPS.map((link) => (
+              {portfolioContent.profileLinks.map((link) => (
                 <Button
                   key={link.label}
                   asChild

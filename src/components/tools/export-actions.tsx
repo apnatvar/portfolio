@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Copy, Download, FileJson, Printer } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ExportActionsProps = {
   disabled?: boolean;
@@ -32,11 +32,21 @@ export function ExportActions({
   filename,
 }: ExportActionsProps) {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState("");
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (resetTimer.current) clearTimeout(resetTimer.current); }, []);
 
   async function copyResult() {
-    await navigator.clipboard.writeText(plainText);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1800);
+    setCopyError("");
+    try {
+      await navigator.clipboard.writeText(plainText);
+      setCopied(true);
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+      setCopyError("Clipboard access is unavailable. Download Markdown or JSON to save your result.");
+    }
   }
 
   return (
@@ -66,6 +76,7 @@ export function ExportActions({
       <span className="sr-only" aria-live="polite">
         {copied ? "Result copied to clipboard" : ""}
       </span>
+      {copyError ? <p role="status" className="w-full text-sm">{copyError}</p> : null}
     </div>
   );
 }

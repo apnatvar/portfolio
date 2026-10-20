@@ -7,133 +7,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "./ui/button";
+import { portfolioContent } from "@/content/portfolio-content";
+import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
+import { useNearViewport } from "@/lib/use-near-viewport";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-type WorkItem = {
-  title: string;
-  image: string;
-  links: {
-    label: string;
-    href: string;
-  }[];
-  points: string[];
-};
-
-const workItems: WorkItem[] = [
-  {
-    title: "Forme",
-    image: "/ap-icon.svg",
-    links: [
-      {
-        label: "Code",
-        href: "https://github.com/apnatvar/open-workout",
-      },
-    ],
-    points: [
-      "Forme is an open-source workout planner and tracker that keeps your data in your browser.",
-      "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
-      "JSON import and export make it easy to move or back up your data.",
-      "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
-    ],
-  },
-  {
-    title: "Brownsmith Dynamics",
-    image: "/ap-icon.svg",
-    links: [{ label: "Website", href: "https://brownsmithdynamics.com" }],
-    points: [
-      "Built the website frontend, with pages for services, products, guides, and articles.",
-      "Organized navigation and internal links so visitors can find related content and search engines can crawl it.",
-    ],
-  },
-  {
-    title: "ELZA International",
-    image: "/ap-icon.svg",
-    links: [
-      { label: "Website", href: "https://elza.co.in/" },
-      {
-        label: "Case Study",
-        href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
-      },
-    ],
-    points: [
-      "Built a responsive, content-first site around a limited brand palette.",
-      "Optimized assets and page structure with performance and SEO in mind.",
-      "Used colour changes between sections to give long pages some rhythm without relying on animation.",
-    ],
-  },
-  {
-    title: "Autonomous Urban Mobility",
-    image: "/ap-icon.svg",
-    links: [
-      {
-        label: "Code",
-        href: "https://github.com/apnatvar/adaptive-traffic-control/",
-      },
-      {
-        label: "Thesis",
-        href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
-      },
-    ],
-    points: [
-      "Final-year thesis exploring adaptive traffic control using satellite traffic data.",
-      "Built a proof of concept aimed at reducing the need for roadside hardware.",
-      "Focused on deployment cost and the work needed to maintain a traffic control system.",
-    ],
-  },
-  {
-    title: "Excel Automation",
-    image: "/ap-icon.svg",
-    links: [
-      {
-        label: "Code",
-        href: "https://github.com/apnatvar/deliveredProjects/blob/main/ConsolidateExcel.py",
-      },
-    ],
-    points: [
-      "Built a standalone Windows app in Python to consolidate financial data covering more than $10M in annual transactions.",
-      "Cut a five-day reporting job to about 17 minutes and generated 11 reports for auditors.",
-    ],
-  },
-  {
-    title: "Chattybot",
-    image: "/ap-icon.svg",
-    links: [
-      {
-        label: "Code",
-        href: "https://github.com/apnatvar/chattybot",
-      },
-    ],
-    points: [
-      "Built a self-hostable, multi-tenant chatbot with a widget websites can embed.",
-      "It uses each site's pages and product catalogue to answer questions and point people to relevant links.",
-      "Added encrypted site credentials, fallback replies, and a Docker deployment setup.",
-    ],
-  },
-  // {
-  //   title: "Haneri Electricals",
-  //   image: "/ap-icon.svg",
-  //   links: [
-  //     { label: "Storefront", href: "#" },
-  //     { label: "CMS", href: "#" },
-  //   ],
-  //   points: [
-  //     "A lightweight, product-centric website designed to showcase brand catalog with a content management system.",
-  //     "Developed an interactive 3D model viewer for users to closely understand the products.",
-  //     "Architected a PayloadCMS content model for models, color variants, media assets, and internal cross-subdomain navigation links.",
-  //   ],
-  // },
-];
+const workItems = portfolioContent.projects.map((project) => ({
+  ...project,
+  image: "/ap-icon.svg",
+}));
 
 export default function WorkHorizontalScrollSection() {
+  const { setMode } = useDisplayMode();
   const sectionRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const horizontalScrollRef = useRef<ScrollTrigger | null>(null);
+  const isNearViewport = useNearViewport(sectionRef);
 
   useGSAP(
     () => {
+      if (!isNearViewport) return;
+
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 768px)", () => {
+      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 768px)", () => {
         const section = sectionRef.current;
         const track = trackRef.current;
 
@@ -149,17 +47,17 @@ export default function WorkHorizontalScrollSection() {
         gsap.set(titleChars, {
           yPercent: 120,
           rotateX: -90,
-          opacity: 0,
+          autoAlpha: 0,
           transformOrigin: "50% 50% -80",
         });
 
         gsap.set(projectLabels, {
-          opacity: 0,
+          autoAlpha: 0,
           xPercent: -60,
         });
 
         gsap.set(flyItems, {
-          opacity: 0,
+          autoAlpha: 0,
           y: 80,
           scale: 0.92,
           rotate: -2,
@@ -184,11 +82,12 @@ export default function WorkHorizontalScrollSection() {
           x: () => -horizontalDistance,
           ease: "none",
         });
+        horizontalScrollRef.current = tl.scrollTrigger ?? null;
 
         gsap.to(titleChars, {
           yPercent: 0,
           rotateX: 0,
-          opacity: 1,
+          autoAlpha: 1,
           stagger: 0.06,
           ease: "power4.out",
           scrollTrigger: {
@@ -201,7 +100,7 @@ export default function WorkHorizontalScrollSection() {
 
         gsap.to(".work-title-word", {
           scale: 0.22,
-          opacity: 0.1,
+          autoAlpha: 0.1,
           letterSpacing: "0.25em",
           ease: "power3.inOut",
           scrollTrigger: {
@@ -214,7 +113,7 @@ export default function WorkHorizontalScrollSection() {
 
         projectLabels.forEach((label) => {
           gsap.to(label, {
-            opacity: 1,
+            autoAlpha: 1,
             xPercent: 0,
             ease: "power3.out",
             scrollTrigger: {
@@ -231,7 +130,7 @@ export default function WorkHorizontalScrollSection() {
           const items = panel.querySelectorAll(".work-fly");
 
           gsap.to(items, {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             scale: 1,
             rotate: 0,
@@ -246,44 +145,56 @@ export default function WorkHorizontalScrollSection() {
             },
           });
         });
-
+        return () => { horizontalScrollRef.current = null; };
       });
 
-      mm.add("(max-width: 767px)", () => {
-        gsap.fromTo(
-          ".work-fly",
+      mm.add("(prefers-reduced-motion: no-preference) and (max-width: 767px)", () => {
+        gsap.utils.toArray<HTMLElement>(".work-fly").forEach((item) => gsap.fromTo(
+          item,
           {
-            opacity: 0,
+            autoAlpha: 0,
             y: 64,
             scale: 0.96,
           },
           {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             scale: 1,
-            stagger: 0.08,
+            duration: 0.45,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 70%",
-              end: "bottom 40%",
-              scrub: 1,
+              trigger: item,
+              start: "top 95%",
+              once: true,
             },
           },
-        );
+        ));
       });
+
+      ScrollTrigger.refresh();
 
       return () => {
         mm.revert();
       };
     },
-    { scope: sectionRef },
+    { scope: sectionRef, dependencies: [isNearViewport], revertOnUpdate: true },
   );
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-dvh overflow-hidden max-md:max-w-dvw"
+      id="work"
+      onFocusCapture={(event) => {
+        const target = event.target as HTMLElement;
+        const trigger = horizontalScrollRef.current;
+        const track = trackRef.current;
+        if (!trigger || !track || !target.closest("article")) return;
+        const x = Number(gsap.getProperty(track, "x"));
+        const top = Math.min(trigger.end, Math.max(trigger.start, trigger.start + target.getBoundingClientRect().left - x - window.innerWidth / 2));
+        trigger.scroll(top);
+        trigger.animation?.progress((top - trigger.start) / (trigger.end - trigger.start));
+      }}
+      className="work-section relative min-h-dvh overflow-hidden max-md:max-w-dvw motion-reduce:overflow-visible"
     >
       <div
         ref={trackRef}
@@ -291,13 +202,16 @@ export default function WorkHorizontalScrollSection() {
           flex min-h-dvh flex-col
           md:h-dvh md:flex-row md:flex-nowrap
           will-change-transform transform-gpu
+          motion-reduce:md:h-auto motion-reduce:md:flex-col motion-reduce:md:transform-none motion-reduce:md:will-change-auto
         "
       >
-        <div className="work-panel flex h-dvh w-full shrink-0 items-center justify-center md:w-dvw">
-          <h2 className="work-title-word flex overflow-hidden leading-none tracking-tight text-[150px] py-8">
+        <div className="work-panel flex h-dvh w-full shrink-0 flex-col items-center justify-center md:w-dvw">
+          <Button className="work-reader-toggle" variant="outline" onClick={() => setMode("resume")}>Read all projects in Resume mode</Button>
+          <h2 aria-label="Selected work" className="work-title-word flex overflow-hidden leading-none tracking-tight text-[150px] py-8">
             {"Work".split("").map((char, index) => (
               <span
                 key={index}
+                aria-hidden="true"
                 className="work-title-char inline-block font-italianno text-foreground"
               >
                 {char}
@@ -305,7 +219,6 @@ export default function WorkHorizontalScrollSection() {
             ))}
           </h2>
         </div>
-        <div id="work" />
         {workItems.map((item) => (
           <article
             key={item.title}
@@ -313,17 +226,19 @@ export default function WorkHorizontalScrollSection() {
               work-panel grid min-h-dvh w-full shrink-0 items-center
               px-4 py-12
               md:h-dvh md:w-[200dvw] md:grid-cols-2 md:px-0 md:py-0
+              motion-reduce:md:h-auto motion-reduce:md:min-h-0 motion-reduce:md:w-full
             "
           >
-            <div className="flex min-h-[45dvh] items-center justify-center md:h-dvh md:w-dvw">
-              <p className="work-project-label text-7xl max-md:text-center md:text-[130px] text-foreground font-italianno">
+            <div className="flex min-h-[45dvh] items-center justify-center md:h-dvh md:w-dvw motion-reduce:md:min-h-[24vh] motion-reduce:md:h-auto motion-reduce:md:w-full">
+              <h3 className="work-project-label text-[clamp(2.5rem,10vw,4.5rem)] max-md:text-center max-md:break-words md:text-[130px] text-foreground font-italianno">
                 {item.title}
-              </p>
+              </h3>
             </div>
 
-            <div className="h-dvh w-full md:w-dvw">
+            <div className="h-dvh w-full md:w-dvw motion-reduce:md:h-auto motion-reduce:md:w-full">
               <div
                 className="
+                  work-card-grid
                   grid h-full w-full
                   grid-cols-[repeat(6,minmax(0,1fr))]
                   grid-rows-[repeat(14,minmax(0,1fr))]
@@ -331,6 +246,7 @@ export default function WorkHorizontalScrollSection() {
                   md:grid-cols-[repeat(14,minmax(0,1fr))]
                   md:grid-rows-[repeat(11,minmax(0,1fr))]
                   md:gap-4 md:p-8
+                  motion-reduce:md:h-auto motion-reduce:md:grid-cols-1 motion-reduce:md:grid-rows-[auto_auto_auto] motion-reduce:md:gap-4
                 "
               >
                 <div
@@ -339,14 +255,15 @@ export default function WorkHorizontalScrollSection() {
                     col-start-1 col-span-6 row-start-2 row-span-10
                     md:col-start-3 md:col-span-10
                     md:row-start-2 md:row-span-8
+                    motion-reduce:hidden
                   "
                 >
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt=""
                     fill
                     sizes="100vw"
-                    className="object-cover blur-md scale-110 opacity-70"
+                    className="object-cover blur-md scale-110 opacity-70 motion-reduce:hidden"
                   />
                 </div>
 
@@ -357,11 +274,13 @@ export default function WorkHorizontalScrollSection() {
 
                     md:col-start-2 md:col-span-4
                     md:row-start-3 md:row-span-3
+                    motion-reduce:md:col-start-1 motion-reduce:md:col-span-1 motion-reduce:md:row-auto
                   "
                 >
-                  <h2 className="mt-2 text-3xl italic tracking-tight md:text-5xl">
+                  <p className="mt-2 text-3xl italic tracking-tight md:text-5xl">
                     {item.title}
-                  </h2>
+                  </p>
+                  {item.category ? <p className="mt-2 text-sm text-muted-foreground">{item.category}</p> : null}
                 </div>
 
                 <div
@@ -370,15 +289,17 @@ export default function WorkHorizontalScrollSection() {
                     col-start-1 col-span-3 row-start-2 row-span-4
                     md:col-start-4 md:col-span-2
                     md:row-start-8 md:row-span-4
+                    motion-reduce:md:col-start-1 motion-reduce:md:col-span-1 motion-reduce:md:row-auto
                   "
                 >
                   <div className="flex flex-col items-start">
                     {item.links.map((link) => (
-                      <Button key={link.label} variant={"link"}>
+                      <Button key={link.label} variant="link" asChild>
                         <Link
                           href={link.href}
                           className="text-base text-muted-foreground"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           {link.label}
                         </Link>
@@ -393,6 +314,7 @@ export default function WorkHorizontalScrollSection() {
                     col-start-2 col-span-5 row-start-6 row-span-8
                     md:col-start-7 md:col-span-7
                     md:row-start-6 md:row-span-5
+                    motion-reduce:md:col-start-1 motion-reduce:md:col-span-1 motion-reduce:md:row-auto
                   "
                 >
                   <ol className="list-disc list-inside pl-5 text-sm md:text-lg space-y-4">

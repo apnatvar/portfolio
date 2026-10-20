@@ -9,7 +9,7 @@ import {
   getServicePage,
   servicePages,
 } from "@/content/service-pages";
-import { PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
+import { DEFAULT_SOCIAL_IMAGE, PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
 
 type ServiceRouteProps = {
   params: Promise<{ slug: string }>;
@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: ServiceRouteProps): Promise<M
       title: `${service.shortTitle} | AP`,
       description: pricedDescription,
       url: path,
-      images: [],
+      images: [DEFAULT_SOCIAL_IMAGE],
     },
     twitter: {
       card: "summary",
       title: `${service.shortTitle} | AP`,
       description: pricedDescription,
-      images: [],
+      images: [DEFAULT_SOCIAL_IMAGE],
     },
   };
 }

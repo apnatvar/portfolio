@@ -12,7 +12,9 @@
 
 # testing
 /coverage
+/.audit-artifacts/
 /.tool-tests/
+/.qa-results/
 
 # local implementation notes and visual-regression references
 /docs/

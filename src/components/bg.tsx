@@ -24,6 +24,8 @@ export function ScrollRibbonBackground({
 
     if (!root || !ribbonOne || !ribbonTwo) return;
 
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const ctx = gsap.context(() => {
       gsap.set([ribbonOne, ribbonTwo], {
         transformOrigin: "50% 50%",
@@ -73,6 +75,8 @@ export function ScrollRibbonBackground({
     }, root);
 
     return () => ctx.revert();
+    });
+    return () => media.revert();
   }, []);
 
   return (

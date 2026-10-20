@@ -39,6 +39,11 @@ Public pages:
 - ${SITE_URL}/services/web-automation-consultant
 - ${SITE_URL}/services/full-stack-developer-for-startups
 - ${SITE_URL}/ideals
+- ${SITE_URL}/links
+- ${SITE_URL}/tools
+- ${SITE_URL}/tools/developer-focus-planner
+- ${SITE_URL}/tools/decision-confidence-calculator
+- ${SITE_URL}/portable-context
 - https://samples.apnatva.dev
 
 ## Core Service Areas

@@ -10,6 +10,9 @@ export function SwissPortfolio({ content }: { content: PortfolioContent }) {
       <ThemedMenu />
       <header className="swiss-hero">
         <div className="swiss-kicker"><span>AP—2026</span><span>DEHRADUN / INDIA</span></div>
+        <nav aria-label="Portfolio sections" className="col-span-full mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm underline underline-offset-4">
+          <a href="#work">Selected work</a><a href="#experience">Experience</a><Link href="/tools">Tools</Link><Link href="/links">Links</Link><Link href="/hire-ap">Contact AP</Link>
+        </nav>
         <p className="swiss-hello">{content.hero.greeting}</p>
         <h1>{content.hero.name}</h1>
         <div className="swiss-role-grid">
@@ -27,7 +30,7 @@ export function SwissPortfolio({ content }: { content: PortfolioContent }) {
         </figure>
       </header>
 
-      <main>
+      <div className="portfolio-sections">
         <section className="swiss-profile" id="profile">
           <SwissLabel index="01" title="Profile" />
           <div className="swiss-profile-copy">
@@ -45,7 +48,7 @@ export function SwissPortfolio({ content }: { content: PortfolioContent }) {
               <article key={project.title}>
                 <div className="swiss-project-title">
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{project.title}</h3>
+                  <div><h3>{project.title}</h3>{project.category ? <p className="mt-3 text-sm">{project.category}</p> : null}</div>
                 </div>
                 <ul>{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
                 <div className="swiss-project-links">
@@ -85,7 +88,7 @@ export function SwissPortfolio({ content }: { content: PortfolioContent }) {
             {content.contact.links.map((link) => <Link key={link.label} href={link.href} target="_blank">{link.label}</Link>)}
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

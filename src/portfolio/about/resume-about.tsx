@@ -23,7 +23,7 @@ export function ResumeAbout({ content }: { content: PortfolioContent }) {
         </nav>
       </header>
 
-      <main>
+      <div className="portfolio-sections">
         <section id="profile" className="resume-about-profile">
           <div className="resume-about-section-label"><span>01</span><h2>Profile</h2></div>
           <div className="resume-about-copy">
@@ -68,7 +68,7 @@ export function ResumeAbout({ content }: { content: PortfolioContent }) {
           <div className="resume-about-section-label"><span>05</span><h2>Links</h2></div>
           <div>{content.profileLinks.map((link) => <Link key={link.label} href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined}>{link.label} ↗</Link>)}</div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

@@ -10,10 +10,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScrollProvider({
   children,
+  enabled = true,
 }: {
   children: React.ReactNode;
+  enabled?: boolean;
 }) {
   useEffect(() => {
+    if (!enabled) return;
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const lenis = new Lenis({
       smoothWheel: true,
       wheelMultiplier: 1.1,
@@ -29,13 +34,14 @@ export default function SmoothScrollProvider({
     };
 
     gsap.ticker.add(update, false, true);
-    gsap.ticker.lagSmoothing(0);
 
     return () => {
       gsap.ticker.remove(update);
       lenis.destroy();
     };
-  }, []);
+    });
+    return () => media.revert();
+  }, [enabled]);
 
   return <div className="smooth-scroll-container">{children}</div>;
 }

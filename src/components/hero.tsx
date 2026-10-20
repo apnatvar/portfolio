@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { portfolioContent } from "@/content/portfolio-content";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Code2, Keyboard, PenLine } from "lucide-react";
@@ -12,9 +13,11 @@ gsap.registerPlugin(ScrollTrigger);
 function SplitLetters({ text }: { text: string }) {
   return (
     <span className="inline-flex flex-wrap items-center justify-center">
+      <span className="sr-only">{text}</span>
       {text.split("").map((char, index) => (
         <span
           key={`${char}-${index}`}
+          aria-hidden="true"
           className="reveal-letter inline-block text-muted-foreground"
         >
           {char === " " ? "\u00A0" : char}
@@ -27,8 +30,9 @@ function SplitLetters({ text }: { text: string }) {
 function SplitWords({ text }: { text: string }) {
   return (
     <span className="inline-flex flex-wrap justify-center gap-x-1 gap-y-1">
+      <span className="sr-only">{text}</span>
       {text.split(" ").map((word, index) => (
-        <span key={`${word}-${index}`} className="reveal-word inline-block">
+        <span aria-hidden="true" key={`${word}-${index}`} className="reveal-word inline-block">
           {word}
         </span>
       ))}
@@ -43,6 +47,8 @@ export default function HeroGridReveal() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const ctx = gsap.context(() => {
       const largeItems = gsap.utils.toArray<HTMLElement>("[data-large-reveal]");
       const supportItems =
@@ -132,13 +138,28 @@ export default function HeroGridReveal() {
     }, section);
 
     return () => ctx.revert();
+    });
+    return () => media.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative mx-auto w-full max-w-7xl px-4 py-24 md:px-8 md:py-32"
+      id="profile"
+      data-first-section
+      className="creative-hero relative mx-auto w-full max-w-7xl px-4 pb-24 pt-28 md:px-8 md:pb-32"
     >
+      <header className="mx-auto mb-16 max-w-3xl text-center">
+        <h1 className="font-manrope text-3xl leading-tight md:text-5xl">{portfolioContent.hero.name}</h1>
+        <p className="mt-4 text-lg">Full-stack developer building websites, APIs and automation.</p>
+        <nav aria-label="Explore the portfolio" className="mt-6 flex flex-wrap justify-center gap-3">
+          <Button asChild><Link href="/#work">Selected work</Link></Button>
+          <Button asChild variant="secondary"><Link href="/hire-ap">Contact AP</Link></Button>
+          <Button asChild variant="outline"><Link href="#experience">Experience</Link></Button>
+          <Button asChild variant="outline"><Link href="/tools">Tools</Link></Button>
+          <Button asChild variant="outline"><Link href="/links">Links</Link></Button>
+        </nav>
+      </header>
       <div className="flex flex-col gap-y-8 items-center justify-center md:grid text-center md:grid-cols-5 md:auto-rows-[minmax(110px,_auto)] md:gap-y-8">
         <span className="font-italianno col-start-1 col-span-3 row-start-1 max-md:row-span-2 leading-none md:col-start-1 md:col-span-5 md:row-start-1 text-[160px] transition-all hover:tracking-widest duration-500">
           Hello
@@ -216,12 +237,12 @@ export default function HeroGridReveal() {
         </div>
 
         <div className="col-start-1 col-span-3 row-start-16 flex justify-center gap-3 md:col-start-3 md:col-span-1 md:row-start-6 md:justify-between">
-          <Button data-button-reveal variant="default">
+          <Button asChild data-button-reveal variant="default">
             <Link href={"/hire-ap"} className="hover:opacity-80">
               Hire AP
             </Link>
           </Button>
-          <Button data-button-reveal variant="secondary">
+          <Button asChild data-button-reveal variant="secondary">
             <Link href={"/#work"} className="hover:opacity-80">
               Work
             </Link>

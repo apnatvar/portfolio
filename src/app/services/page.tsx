@@ -9,7 +9,7 @@ import {
   SERVICE_PRICING,
   servicePages,
 } from "@/content/service-pages";
-import { SITE_URL, WEBSITE_ID } from "@/lib/site";
+import { DEFAULT_SOCIAL_IMAGE, SITE_URL, WEBSITE_ID } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Development & Automation Services",
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     description:
       "Next.js, automation, and full-stack services from $30/hour or $1,000 per project.",
     url: "/services",
-    images: [],
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary",
     title: "Development & Automation Services | AP",
     description:
       "Next.js, automation, and full-stack services from $30/hour or $1,000 per project.",
-    images: [],
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
 };
 
@@ -79,7 +79,7 @@ export default function ServicesPage() {
     <div className="services-index service-page">
       <JsonLd data={jsonLd} />
       <MorphingNav />
-      <main>
+      <div className="page-sections">
         <section className="service-hero" data-first-section>
           <div className="service-hero-meta">
             <span>AP / Services</span>
@@ -110,7 +110,7 @@ export default function ServicesPage() {
                   <h2>{service.shortTitle}</h2>
                   <p>{service.description}</p>
                 </div>
-                <Link href={`/services/${service.slug}`} aria-label={`Explore ${service.shortTitle}`}>
+                <Link href={`/services/${service.slug}`} aria-label={`Explore service: ${service.shortTitle}`}>
                   <span>Explore service</span>
                   <MoveUpRight aria-hidden="true" />
                 </Link>
@@ -118,7 +118,7 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
-      </main>
+      </div>
       <div id="page-end-sentinel" aria-hidden="true" />
     </div>
   );

@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import type { ComponentType } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +47,6 @@ const subNavItemsWork: SubNavItem[] = [
     label: "Elza",
     href: "https://github.com/apnatvar/apnatvar/blob/main/Elza%20Case%20Study.pdf",
   },
-  { label: "Haneri Catalog", href: "" },
   {
     label: "Urban Mobility",
     href: "https://github.com/apnatvar/adaptive-traffic-control/blob/main/Thesis.pdf",
@@ -58,8 +57,8 @@ function HireAPSubComponent() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl items-center">
       {subNavItemsHireMe.map((item) => (
-        <Button key={item.label} variant={"link"}>
-          <Link href={item.href} target="_blank">
+        <Button asChild key={item.label} variant={"link"}>
+          <Link href={item.href}>
             {item.label}
           </Link>
         </Button>
@@ -74,8 +73,8 @@ function WorkSubComponent() {
       <h3 className="text-center text-base md:text-lg">Full Case Study</h3>{" "}
       <div className="flex flex-wrap items-center justify-center md:flex-nowrap md:gap-12 md:py-4">
         {subNavItemsWork.map((item) => (
-          <Button key={item.label} variant={"link"}>
-            <Link href={item.href} target="_blank">
+          <Button asChild key={item.label} variant={"link"}>
+            <Link href={item.href} target={item.href.startsWith("https:") ? "_blank" : undefined} rel="noreferrer">
               {item.label}
             </Link>
           </Button>
@@ -140,15 +139,19 @@ export function MorphingNav() {
 function CreativeMorphingNav() {
   const navRef = useRef<HTMLDivElement | null>(null);
   const pillRef = useRef<HTMLDivElement | null>(null);
-  const fullMenuRef = useRef<HTMLDivElement | null>(null);
+  const fullMenuRef = useRef<HTMLDialogElement | null>(null);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   useGSAP(() => {
     if (!navRef.current || !pillRef.current) return;
 
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const nav = navRef.current;
     const pill = pillRef.current;
+    if (!nav || !pill) return;
 
     gsap.set(pill, {
       borderRadius: 999,
@@ -161,6 +164,7 @@ function CreativeMorphingNav() {
         end: "+=40%",
         scrub: true,
         invalidateOnRefresh: true,
+        onUpdate: (self) => setCollapsed(self.progress > 0.5),
       },
     });
 
@@ -215,6 +219,9 @@ function CreativeMorphingNav() {
         },
         0.5,
       );
+    return () => setCollapsed(false);
+    });
+    return () => media.revert();
   }, []);
 
   useGSAP(() => {
@@ -222,46 +229,31 @@ function CreativeMorphingNav() {
 
     const fullMenu = fullMenuRef.current;
     const nav = navRef.current;
+    if (isOpen && !fullMenu.open) fullMenu.showModal();
 
     const navRect = nav.getBoundingClientRect();
 
     const originX = navRect.left + navRect.width / 2;
     const originY = navRect.top + navRect.height / 2;
 
-    gsap.to(fullMenu, {
+    const animation = gsap.to(fullMenu, {
       clipPath: isOpen
         ? `circle(150% at ${originX}px ${originY}px)`
         : `circle(0px at ${originX}px ${originY}px)`,
       autoAlpha: isOpen ? 1 : 0,
       pointerEvents: isOpen ? "auto" : "none",
-      duration: isOpen ? 0.95 : 0.7,
+      duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : isOpen ? 0.95 : 0.7,
       ease: isOpen ? "power3.out" : "power3.inOut",
+      onComplete: () => { if (!isOpen) fullMenu.close(); },
     });
+    return () => { animation.kill(); };
   }, [isOpen]);
-
-  useEffect(() => {
-    const sentinel = document.getElementById("page-end-sentinel");
-    if (!sentinel) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsOpen(entry.isIntersecting);
-      },
-      {
-        root: null,
-        threshold: 0.6,
-      },
-    );
-
-    observer.observe(sentinel);
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <>
       <nav
         ref={navRef}
+        aria-label="Primary navigation"
         className="fixed top-0 z-50 mx-auto w-full px-4 py-4 md:px-8 max-w-dvw"
       >
         <div
@@ -275,7 +267,9 @@ function CreativeMorphingNav() {
               variant="link"
               size="default"
               data-nav-link
-              className="text-foreground text-base"
+              tabIndex={collapsed ? -1 : 0}
+              aria-hidden={collapsed}
+              className="px-2 text-foreground text-sm md:text-base"
             >
               <Link href={item.href}>{item.label}</Link>
             </Button>
@@ -285,6 +279,10 @@ function CreativeMorphingNav() {
             type="button"
             data-burger
             aria-label="Open menu"
+            aria-expanded={isOpen}
+            aria-controls="creative-navigation"
+            tabIndex={collapsed ? 0 : -1}
+            aria-hidden={!collapsed}
             onClick={() => setIsOpen(true)}
             className="pointer-events-none absolute inset-0 grid place-items-center opacity-0 bg-background rounded-full"
           >
@@ -293,14 +291,18 @@ function CreativeMorphingNav() {
         </div>
       </nav>
 
-      <div
+      <dialog
+        id="creative-navigation"
         ref={fullMenuRef}
-        className="fixed inset-0 z-[60] invisible bg-background/95 opacity-0 backdrop-blur-md min-h-1/2 max-h-dvh max-w-dvw"
+        aria-label="Portfolio navigation"
+        onClick={(event) => { if ((event.target as HTMLElement).closest("a")) setIsOpen(false); }}
+        onCancel={(event) => { event.preventDefault(); setIsOpen(false); }}
+        className="fixed inset-0 z-[60] m-0 h-dvh w-dvw max-h-none max-w-none overflow-y-auto border-0 bg-background/95 p-0 text-foreground opacity-0 backdrop-blur-md"
         style={{
           clipPath: "circle(0px at calc(100% - 52px) calc(100% - 52px))",
         }}
       >
-        <div className="flex h-full flex-col px-12 py-8">
+        <div className="flex min-h-full flex-col px-4 py-16 md:px-12 md:py-8">
           <div className="grid flex-1 place-items-center">
             <div className="flex flex-col items-center gap-4 text-4xl font-medium">
               {navItems.map((item) => (
@@ -320,7 +322,11 @@ function CreativeMorphingNav() {
               ))}
             </div>
           </div>
-          <div className="absolute right-12 bottom-12">
+          <div className="mt-6 flex justify-center gap-6">
+            <Link href="/tools" onClick={() => setIsOpen(false)}>Tools</Link>
+            <Link href="/links" onClick={() => setIsOpen(false)}>Links</Link>
+          </div>
+          <div className="absolute right-4 top-4">
             <Button
               type="button"
               variant="ghost"
@@ -332,7 +338,7 @@ function CreativeMorphingNav() {
             </Button>
           </div>
         </div>
-      </div>
+      </dialog>
     </>
   );
 }

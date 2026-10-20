@@ -3,7 +3,9 @@
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, Sparkles } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useId, useState } from "react";
+
+import { portfolioContent } from "@/content/portfolio-content";
 
 type CollegeCardProps = {
   title: string;
@@ -13,6 +15,7 @@ type CollegeCardProps = {
 
 function CollegeCard({ title, imageSrc, points }: CollegeCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const detailsId = useId();
 
   return (
     <article className="relative h-full min-h-0 overflow-hidden">
@@ -27,10 +30,10 @@ function CollegeCard({ title, imageSrc, points }: CollegeCardProps) {
 
       <div
         className={cn(
-          "absolute inset-x-0 bottom-0 flex flex-col justify-end bg-gradient-to-t px-4 pb-5 pt-16 text-white transition-all duration-500 ease-out sm:px-6 sm:pb-6 md:px-8 md:pb-8",
+          "absolute inset-x-0 bottom-0 flex max-h-full flex-col overflow-y-auto overscroll-contain bg-gradient-to-t px-4 pb-5 pt-16 text-white transition-all duration-500 ease-out motion-reduce:transition-none sm:px-6 sm:pb-6 md:px-8 md:pb-8",
           expanded
-            ? "top-0 from-black/90 via-black/65 to-transparent"
-            : "top-[60%] from-black/90 via-black/55 to-transparent",
+            ? "top-0 justify-start from-black/90 via-black/65 to-transparent"
+            : "top-[60%] justify-end from-black/90 via-black/55 to-transparent",
         )}
       >
         <div className="max-w-xl">
@@ -41,8 +44,9 @@ function CollegeCard({ title, imageSrc, points }: CollegeCardProps) {
           <button
             type="button"
             onClick={() => setExpanded((prev) => !prev)}
-            className="group mt-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-sm font-medium text-muted backdrop-blur-sm transition-all duration-300 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"
+            className="group mt-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-sm font-medium text-muted backdrop-blur-sm transition-all duration-300 motion-reduce:transition-none hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"
             aria-expanded={expanded}
+            aria-controls={detailsId}
             aria-label={
               expanded ? `See less about ${title}` : `See more about ${title}`
             }
@@ -58,28 +62,26 @@ function CollegeCard({ title, imageSrc, points }: CollegeCardProps) {
           </button>
 
           <div
-            className={cn(
-              "grid transition-all duration-500 ease-out",
-              expanded
-                ? "mt-5 grid-rows-[1fr] opacity-100"
-                : "mt-0 grid-rows-[0fr] opacity-0",
-            )}
+            id={detailsId}
+            role="region"
+            aria-label={`${title} education details`}
+            tabIndex={0}
+            hidden={!expanded}
+            className="mt-5 max-h-[60svh] min-h-0 overflow-y-auto overscroll-contain focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
           >
-            <div className="overflow-hidden">
-              <ul className="space-y-3 pr-2 pt-1">
-                {points.map((point) => (
-                  <li
-                    key={point}
-                    className="flex items-start gap-3 text-sm leading-6 text-white/90 sm:text-base"
-                  >
-                    <span className="mt-1 shrink-0 text-white">
-                      <Sparkles className="size-4" />
-                    </span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="space-y-3 pr-2 pt-1">
+              {points.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-3 text-sm leading-6 text-white/90 sm:text-base"
+                >
+                  <span className="mt-1 shrink-0 text-white">
+                    <Sparkles className="size-4" />
+                  </span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -88,31 +90,18 @@ function CollegeCard({ title, imageSrc, points }: CollegeCardProps) {
 }
 
 export default function CollegeSplitSection() {
-  const colleges = [
-    {
-      title: "Trinity College Dublin",
-      imageSrc: "/tcd.webp",
-      points: [
-        "Bachelor of Engineering in Computer Engineering, First Class Honours (1:1), October 2023.",
-        "Wrote a thesis on the use of satellite based traffic information to automate congestion prevention without relying heavily on hardware.",
-        "Worked with Formula Trinity in developing an autonomous RC-sized car for racing.",
-        "Graduated with an honourary Bachelor of Arts.",
-        "Focussed on developing Neural Network based autonomous machines for automated, ethical decision making.",
-        "Certifications include FreeCodeCamp Machine Learning, Automate the Boring Stuff, and Google Data Analytics.",
-      ],
-    },
-    {
-      title: "St. George's College",
-      imageSrc: "/sgc.webp",
-      points: [
-        "Graduated with a 92% overall score in the Indian School Certificate Examinations.",
-        "Exceptional grades in Mathematics and Computer Science.",
-      ],
-    },
-  ];
+  const collegeImages: Record<string, string> = {
+    "Trinity College Dublin": "/tcd.webp",
+    "St. George's College": "/sgc.webp",
+  };
+  const colleges = portfolioContent.educationDetails.map((college) => ({
+    title: college.institution,
+    imageSrc: collegeImages[college.institution] ?? "/tcd.webp",
+    points: college.points,
+  }));
 
   return (
-    <section className="h-[200svh] md:h-[100svh]">
+    <section id="education" className="h-[200svh] md:h-[100svh]">
       <div className="grid h-full grid-cols-1 grid-rows-2 overflow-hidden md:grid-cols-2 md:grid-rows-1">
         {colleges.map((college) => (
           <div key={college.title} className="min-h-0">

@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
+import { useNearViewport } from "@/lib/use-near-viewport";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,11 +55,16 @@ function SplitLetters({ text }: { text: string }) {
 
 export default function ShaderLinksSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const isNearViewport = useNearViewport(sectionRef);
 
   useLayoutEffect(() => {
+    if (!isNearViewport) return;
+
     const section = sectionRef.current;
     if (!section) return;
 
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>(".link-card");
 
@@ -173,19 +179,23 @@ export default function ShaderLinksSection() {
     }, section);
 
     return () => ctx.revert();
-  }, []);
+    });
+    ScrollTrigger.refresh();
+    return () => media.revert();
+  }, [isNearViewport]);
 
   return (
-    <section ref={sectionRef} className="px-4 bg-foreground">
+    <section ref={sectionRef} className="professional-links px-4 bg-foreground">
       <div className="relative py-8">
         {linkItems.map((item, index) => (
           <Link
             key={index}
             href={item.href}
+            aria-label={`${item.title} ${item.reason} ${item.description}`}
             target="_blank"
-            className="link-card w-full overflow-hidden rounded-[2rem]  text-black"
+            className="link-card block w-full overflow-hidden rounded-[2rem]  text-black"
           >
-            <div className="flex w-full justify-between leading-none font-italianno text-6xl md:text-9xl px-12 md:px-16 pt-8 text-background">
+            <div className="flex w-full justify-between leading-none font-italianno text-5xl md:text-9xl px-3 md:px-16 pt-8 text-background">
               <h3 className="title-text transition-all hover:tracking-widest duration-500">
                 <SplitLetters text={item.title} />
               </h3>

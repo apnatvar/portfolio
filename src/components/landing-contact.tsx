@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { HireAP } from "./hire";
+import { useNearViewport } from "@/lib/use-near-viewport";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,23 +71,36 @@ const navItems: NavItem[] = [
 
 export function WordCarousel({ words, direction }: WordCarouselProps) {
   const { mode } = useDisplayMode();
+  const [reducedMotion, setReducedMotion] = useState<boolean | null>(null);
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
   const autoScroll = useMemo(
-    () => mode === "creative" ? AutoScroll({
+    () => mode === "creative" && reducedMotion === false ? AutoScroll({
         direction,
         speed: 0.6,
         startDelay: 0,
         playOnInit: true,
-        stopOnInteraction: false,
-        stopOnMouseEnter: false,
-        stopOnFocusIn: false,
+        stopOnInteraction: true,
+        stopOnMouseEnter: true,
+        stopOnFocusIn: true,
       }) : null,
-    [direction, mode],
+    [direction, mode, reducedMotion],
   );
 
   const [api, setApi] = useState<CarouselApi>();
 
   useEffect(() => {
-    if (!api || !autoScroll) return;
+    if (!api) return;
+    if (!autoScroll) {
+      api.plugins().autoScroll?.stop();
+      return;
+    }
 
     const timeout = window.setTimeout(() => {
       api.reInit();
@@ -97,7 +111,7 @@ export function WordCarousel({ words, direction }: WordCarouselProps) {
   }, [api, autoScroll]);
 
   return (
-    <div className="relative w-full min-w-0 overflow-hidden">
+    <div aria-hidden="true" className="relative w-full min-w-0 overflow-hidden">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
 
@@ -128,69 +142,81 @@ export function WordCarousel({ words, direction }: WordCarouselProps) {
 export default function ContactSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
+  const isNearViewport = useNearViewport(sectionRef);
 
   useLayoutEffect(() => {
+    if (!isNearViewport) return;
+
+    let revertMedia: () => void = () => {};
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const image = imageRef.current;
       if (!section || !image) return;
 
-      const mm = gsap.matchMedia();
-      mm.add(
-        {
-          isDesktop: "(min-width: 800px)",
-        },
-        (context) => {
-          const isDesktop = context.conditions as gsap.Conditions;
-          gsap.set(image, { scale: 3.45 });
-          gsap.set(".reveal-once", { autoAlpha: 0, y: 24 });
-          gsap.set(".word-carousels", { autoAlpha: 0, y: 32 });
+      const motionMm = gsap.matchMedia();
+      revertMedia = () => motionMm.revert();
+      motionMm.add("(prefers-reduced-motion: no-preference)", () => {
+        const responsiveMm = gsap.matchMedia();
+        responsiveMm.add(
+          { isDesktop: "(min-width: 800px)" },
+          (context) => {
+            const isDesktop = Boolean(context.conditions?.isDesktop);
+            gsap.set(image, { scale: 3.45 });
+            gsap.set(".reveal-once", { autoAlpha: 0, y: 24 });
+            gsap.set(".word-carousels", { autoAlpha: 0, y: 32 });
 
-          gsap.to(image, {
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
+            gsap.to(image, {
+              scale: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top bottom",
+                end: isDesktop ? "top 30%" : "top 60%",
+                scrub: true,
+              },
+            });
+
+            ScrollTrigger.create({
               trigger: section,
               start: "top bottom",
-              end: isDesktop ? "top 30%" : "top 60%",
+              end: "top 50%",
               scrub: true,
-            },
-          });
+              onUpdate: (self) => {
+                if (self.progress < 0.8) return;
 
-          ScrollTrigger.create({
-            trigger: section,
-            start: "top bottom",
-            end: "top 50%",
-            scrub: true,
-            onUpdate: (self) => {
-              if (self.progress < 0.8) return;
+                gsap.to(".reveal-once", {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: 0.45,
+                  stagger: 0.06,
+                  overwrite: "auto",
+                });
 
-              gsap.to(".reveal-once", {
-                autoAlpha: 1,
-                y: 0,
-                duration: 0.45,
-                stagger: 0.06,
-                overwrite: "auto",
-              });
-
-              gsap.to(".word-carousels", {
-                autoAlpha: 1,
-                y: 0,
-                duration: 0.55,
-                overwrite: "auto",
-              });
-            },
-          });
-        },
-      );
+                gsap.to(".word-carousels", {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: 0.55,
+                  overwrite: "auto",
+                });
+              },
+            });
+          },
+        );
+        return () => responsiveMm.revert();
+      });
+      ScrollTrigger.refresh();
     }, sectionRef);
 
-    return () => ctx.revert();
-  }, []);
+    return () => {
+      revertMedia();
+      ctx.revert();
+    };
+  }, [isNearViewport]);
 
   return (
     <section
       ref={sectionRef}
+      id="contact"
       className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-24"
     >
       <div className="word-carousels flex w-full">
@@ -205,7 +231,7 @@ export default function ContactSection() {
               asChild
               className="reveal-once text-base"
             >
-              <Link href={item.href} target="_blank">
+              <Link href={item.href}>
                 {item.label}
               </Link>
             </Button>
@@ -225,7 +251,6 @@ export default function ContactSection() {
               width={200}
               height={200}
               className="rounded-full object-cover aspect-square"
-              priority
             />
           </div>
 

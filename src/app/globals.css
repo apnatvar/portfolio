@@ -15,6 +15,7 @@
   --muted: oklch(0.8662 0.0304 75.8);
   --muted-foreground: oklch(0.4621 0.032 58.04);
   --accent: oklch(0.6215 0.0588 66.91);
+  --accent-text: var(--muted-foreground);
   --accent-foreground: oklch(0.2368 0.0264 54.13);
   --destructive: oklch(0.5701 0.135 28.52);
   --destructive-foreground: oklch(0.9601 0.025 77.66);
@@ -115,6 +116,32 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  padding: 0.75rem 1rem;
+  background: var(--background);
+  color: var(--foreground);
+  border: 2px solid currentColor;
+}
+.skip-link:focus { transform: translateY(0); }
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+:where(section[id], h1, h2, h3) { scroll-margin-top: 6rem; }
+.work-fly:focus-within { opacity: 1 !important; visibility: visible !important; }
+@media (prefers-reduced-motion: reduce) {
+  .professional-links .link-card { position: relative; margin-block: 1rem; }
+  .professional-links .link-letter { will-change: auto; }
+}
+@media (max-width: 767px) {
+  .creative-hero .reveal-letter { font-size: clamp(3.5rem, 12vw, 6rem); }
 }
 body {
   -webkit-font-smoothing: antialiased;
@@ -603,7 +630,7 @@ html[data-display-mode="swiss"] :is(
     .swiss-about-history article,
     .swiss-about-education article
   ):is(:hover, :focus-within) > :is(span, .swiss-project-title > span) {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   html[data-display-mode="resume"] :is(
@@ -707,13 +734,13 @@ html[data-display-mode="swiss"] :is(
     transform: skewX(-5deg) scale(1.08);
   }
 
-  html[data-display-mode="swiss"] :is(.swiss-section-label, .swiss-about main > section > header):hover h2 {
-    color: var(--accent);
+  html[data-display-mode="swiss"] :is(.swiss-section-label, .swiss-about .portfolio-sections > section > header):hover h2 {
+    color: var(--accent-text);
     letter-spacing: 0.22em;
     transform: skewX(-7deg) translateX(0.35rem);
   }
 
-  html[data-display-mode="swiss"] :is(.swiss-section-label h2, .swiss-about main > section > header h2) {
+  html[data-display-mode="swiss"] :is(.swiss-section-label h2, .swiss-about .portfolio-sections > section > header h2) {
     transition:
       color var(--interaction-fast) ease,
       transform var(--interaction-slow) var(--interaction-ease),
@@ -740,7 +767,7 @@ html[data-display-mode="swiss"] :is(
   color: var(--foreground);
 }
 
-.service-page main {
+.service-page .page-sections {
   width: min(100% - 2rem, 88rem);
   margin-inline: auto;
 }
@@ -773,7 +800,7 @@ html[data-display-mode="swiss"] :is(
 
 .service-eyebrow {
   margin-top: clamp(3rem, 8vw, 7rem);
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.75rem;
   font-weight: 780;
   letter-spacing: 0.15em;
@@ -843,7 +870,7 @@ html[data-display-mode="swiss"] :is(
 }
 
 .service-pricing > div:first-child > p:first-child {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -940,7 +967,7 @@ html[data-display-mode="swiss"] :is(
   width: 1rem;
   height: 1rem;
   margin-top: 0.25rem;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .service-card-grid {
@@ -960,7 +987,7 @@ html[data-display-mode="swiss"] :is(
 
 .service-card-grid article > span,
 .service-process li > span {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.7rem;
   font-weight: 800;
 }
@@ -1021,7 +1048,7 @@ html[data-display-mode="swiss"] :is(
 }
 
 .service-capabilities span:nth-child(3n) {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: clamp(1.3rem, 3.5vw, 3.4rem);
 }
 
@@ -1052,7 +1079,7 @@ html[data-display-mode="swiss"] :is(
 
 .service-faqs summary::after {
   content: "+";
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 1.5rem;
 }
 
@@ -1100,7 +1127,7 @@ html[data-display-mode="swiss"] :is(
 }
 
 .service-closing > p {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.75rem;
   font-weight: 780;
   letter-spacing: 0.14em;
@@ -1144,7 +1171,7 @@ html[data-display-mode="swiss"] :is(
 }
 
 .service-index-list article > span {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.7rem;
   font-weight: 800;
 }
@@ -1174,7 +1201,7 @@ html[data-display-mode="swiss"] :is(
   text-transform: uppercase;
 }
 
-html[data-display-mode="resume"] .service-page main {
+html[data-display-mode="resume"] .service-page .page-sections {
   width: min(100% - 2rem, 76rem);
 }
 
@@ -1395,17 +1422,17 @@ html[data-display-mode="swiss"] {
   --card-foreground: oklch(0.16 0.015 65);
   --popover: oklch(0.965 0.018 93);
   --popover-foreground: oklch(0.16 0.015 65);
-  --primary: oklch(0.61 0.225 30);
+  --primary: oklch(0.55 0.205 30);
   --primary-foreground: oklch(0.985 0.01 93);
   --secondary: oklch(0.88 0.055 93);
   --secondary-foreground: oklch(0.16 0.015 65);
   --muted: oklch(0.9 0.025 93);
   --muted-foreground: oklch(0.39 0.025 65);
-  --accent: oklch(0.61 0.225 30);
+  --accent: oklch(0.55 0.205 30);
   --accent-foreground: oklch(0.985 0.01 93);
   --border: oklch(0.28 0.015 65);
   --input: oklch(0.9 0.025 93);
-  --ring: oklch(0.61 0.225 30);
+  --ring: oklch(0.55 0.205 30);
   --radius: 0;
   --tracking-normal: -0.01em;
 }
@@ -1482,17 +1509,17 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
   --card-foreground: oklch(0.16 0.015 65);
   --popover: oklch(0.965 0.018 93);
   --popover-foreground: oklch(0.16 0.015 65);
-  --primary: oklch(0.61 0.225 30);
+  --primary: oklch(0.55 0.205 30);
   --primary-foreground: oklch(0.985 0.01 93);
   --secondary: oklch(0.88 0.055 93);
   --secondary-foreground: oklch(0.16 0.015 65);
   --muted: oklch(0.9 0.025 93);
   --muted-foreground: oklch(0.39 0.025 65);
-  --accent: oklch(0.61 0.225 30);
+  --accent: oklch(0.55 0.205 30);
   --accent-foreground: oklch(0.985 0.01 93);
   --border: oklch(0.28 0.015 65);
   --input: oklch(0.9 0.025 93);
-  --ring: oklch(0.61 0.225 30);
+  --ring: oklch(0.55 0.205 30);
   --radius: 0;
   --tracking-normal: -0.01em;
   cursor: auto;
@@ -1564,7 +1591,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 }
 
 .themed-menu-panel li > span {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.7rem;
   font-weight: 700;
 }
@@ -1725,6 +1752,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 
 .resume-project-heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
@@ -1732,6 +1760,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 
 .resume-project-heading h3 { font-size: 1.25rem; font-weight: 650; }
 .resume-project-heading div { display: flex; gap: 0.8rem; }
+.resume-project-heading .resume-project-name { display: block; min-width: 0; flex: 1 1 12rem; }
 .resume-project ul { margin-top: 0.8rem; padding-left: 1rem; color: var(--muted-foreground); font-size: 0.9rem; line-height: 1.65; list-style: square; }
 .resume-project li + li { margin-top: 0.25rem; }
 
@@ -1750,15 +1779,15 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 
 /* Swiss grid-chaos renderer */
 .swiss-portfolio { overflow: hidden; color: var(--foreground); }
-.swiss-hero, .swiss-portfolio main > section { width: min(100% - 2rem, 92rem); margin-inline: auto; }
+.swiss-hero, .swiss-portfolio .portfolio-sections > section { width: min(100% - 2rem, 92rem); margin-inline: auto; }
 .swiss-hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); padding: 1rem 0 8rem; }
 .swiss-kicker { grid-column: 1 / -1; display: flex; justify-content: space-between; border-top: 3px solid var(--foreground); padding-top: 0.45rem; font-size: 0.7rem; font-weight: 750; letter-spacing: 0.12em; }
-.swiss-hello { grid-column: 1 / 5; margin-top: 5rem; color: var(--accent); font-size: clamp(4rem, 12vw, 11rem); font-weight: 800; line-height: 0.7; letter-spacing: -0.08em; transform: rotate(-3deg); transform-origin: left; }
+.swiss-hello { grid-column: 1 / 5; margin-top: 5rem; color: var(--accent-text); font-size: clamp(4rem, 12vw, 11rem); font-weight: 800; line-height: 0.7; letter-spacing: -0.08em; transform: rotate(-3deg); transform-origin: left; }
 .swiss-hero > h1 { position: relative; z-index: 2; grid-column: 3 / -1; margin-top: 2rem; font-size: clamp(5.5rem, 15vw, 14rem); font-weight: 800; line-height: 0.71; letter-spacing: -0.09em; text-transform: uppercase; }
 .swiss-role-grid { position: relative; z-index: 3; grid-column: 1 / 8; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 4rem; background: var(--background); border-block: 2px solid var(--foreground); }
 .swiss-role-grid article { padding: 0.85rem; border-right: 1px solid var(--foreground); }
 .swiss-role-grid article:last-child { border-right: 0; }
-.swiss-role-grid span, .swiss-project-title > span { color: var(--accent); font-size: 0.7rem; font-weight: 800; }
+.swiss-role-grid span, .swiss-project-title > span { color: var(--accent-text); font-size: 0.7rem; font-weight: 800; }
 .swiss-role-grid h2 { margin-top: 1rem; font-size: clamp(1.3rem, 3vw, 2.6rem); font-weight: 750; letter-spacing: -0.05em; }
 .swiss-role-grid p { margin-top: 1.8rem; font-size: 0.78rem; line-height: 1.5; }
 .swiss-hero-image { position: relative; grid-column: 7 / -1; min-height: 29rem; margin-top: -7rem; }
@@ -1766,13 +1795,13 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 .swiss-hero-image::after { content: ""; position: absolute; inset: 0; background: color-mix(in oklab, var(--accent) 38%, transparent); mix-blend-mode: multiply; }
 .swiss-hero-image figcaption { position: absolute; right: -0.25rem; bottom: -1.5rem; z-index: 2; background: var(--foreground); color: var(--background); padding: 0.45rem 0.65rem; font-size: 0.7rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
 
-.swiss-portfolio main > section { padding: 5rem 0 8rem; border-top: 3px solid var(--foreground); }
+.swiss-portfolio .portfolio-sections > section { padding: 5rem 0 8rem; border-top: 3px solid var(--foreground); }
 .swiss-section-label { display: grid; grid-template-columns: 4rem 1fr auto; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--foreground); padding-bottom: 0.5rem; font-size: 0.72rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.12em; }
 .swiss-section-label h2 { font-size: 0.72rem; font-weight: 750; }
 .swiss-profile-copy { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; padding-top: 2rem; }
 .swiss-profile-copy p { grid-column: 8 / -1; font-size: 0.9rem; line-height: 1.65; }
 .swiss-profile-copy .swiss-profile-lead { grid-column: 1 / 9; font-size: clamp(2.1rem, 5vw, 5.3rem); font-weight: 720; line-height: 0.98; letter-spacing: -0.055em; }
-.swiss-education { display: flex; justify-content: space-between; gap: 2rem; margin-top: 5rem; padding-left: 33.333%; color: var(--accent); font-size: 0.8rem; font-weight: 750; text-transform: uppercase; }
+.swiss-education { display: flex; justify-content: space-between; gap: 2rem; margin-top: 5rem; padding-left: 33.333%; color: var(--accent-text); font-size: 0.8rem; font-weight: 750; text-transform: uppercase; }
 
 .swiss-project-list article { display: grid; grid-template-columns: 5fr 5fr 2fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--foreground); }
 .swiss-project-title { display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; }
@@ -1785,14 +1814,14 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 .swiss-word-field { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1.1rem; padding-top: 3rem; }
 .swiss-word-field span { font-size: clamp(2rem, 6vw, 6.5rem); font-weight: 760; line-height: 0.92; letter-spacing: -0.065em; text-transform: uppercase; }
 .swiss-word-field span:nth-child(3n) { font-size: clamp(1.4rem, 4vw, 4.4rem); }
-.swiss-word-field .is-accent { color: var(--accent); transform: rotate(-2deg); }
+.swiss-word-field .is-accent { color: var(--accent-text); transform: rotate(-2deg); }
 
 .swiss-experience article { display: grid; grid-template-columns: 4rem 7rem 1fr; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--foreground); }
-.swiss-experience article > span { color: var(--accent); font-size: 0.7rem; font-weight: 800; }
+.swiss-experience article > span { color: var(--accent-text); font-size: 0.7rem; font-weight: 800; }
 .swiss-experience time { font-size: 1.3rem; font-weight: 750; }
 .swiss-experience p { max-width: 52rem; font-size: clamp(1.25rem, 2.5vw, 2.6rem); line-height: 1.1; letter-spacing: -0.035em; }
 
-.swiss-contact > p { margin-top: 3rem; color: var(--accent); font-size: 0.78rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.12em; }
+.swiss-contact > p { margin-top: 3rem; color: var(--accent-text); font-size: 0.78rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.12em; }
 .swiss-email { display: block; margin-top: 0.6rem; font-size: clamp(2.4rem, 9vw, 9rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.075em; text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.08em; }
 .swiss-contact > div { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.8rem 1.5rem; margin-top: 4rem; font-size: 0.78rem; font-weight: 750; text-transform: uppercase; }
 
@@ -2029,7 +2058,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 }
 
 .swiss-about-header,
-.swiss-about main > section {
+.swiss-about .portfolio-sections > section {
   width: min(100% - 2rem, 92rem);
   margin-inline: auto;
 }
@@ -2054,7 +2083,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 .swiss-about-header > p {
   grid-column: 1 / 6;
   margin-top: 4.5rem;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: clamp(4rem, 11vw, 10rem);
   font-weight: 820;
   line-height: 0.72;
@@ -2093,7 +2122,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 }
 
 .swiss-about-roles span::first-letter {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .swiss-about-header figure {
@@ -2130,12 +2159,12 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
   text-transform: uppercase;
 }
 
-.swiss-about main > section {
+.swiss-about .portfolio-sections > section {
   border-top: 3px solid var(--foreground);
   padding: 5rem 0 7rem;
 }
 
-.swiss-about main > section > header {
+.swiss-about .portfolio-sections > section > header {
   display: grid;
   grid-template-columns: 4rem 1fr auto;
   gap: 1rem;
@@ -2148,7 +2177,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
   text-transform: uppercase;
 }
 
-.swiss-about main > section > header h2 {
+.swiss-about .portfolio-sections > section > header h2 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -2184,7 +2213,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 
 .swiss-about-history article > span,
 .swiss-about-education article > span {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.68rem;
   font-weight: 820;
 }
@@ -2247,7 +2276,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 }
 
 .swiss-about-skills > div span.is-accent {
-  color: var(--accent);
+  color: var(--accent-text);
   transform: rotate(-2deg);
 }
 
@@ -2279,7 +2308,7 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
 }
 
 .swiss-about-links a span {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.68rem;
   letter-spacing: 0;
 }
@@ -2381,4 +2410,10 @@ html[data-display-mode="swiss"] .display-mode-option.is-active {
     border-right: 0;
     padding-inline: 0;
   }
+}
+
+html[data-display-mode="resume"], html[data-display-mode="swiss"] { --accent-text: var(--accent); }
+html[data-display-mode] .display-mode-option:not(.is-active):hover {
+  background: var(--muted);
+  color: var(--foreground);
 }

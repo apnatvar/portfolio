@@ -46,6 +46,7 @@ export function HireAP({
   const rootRef = useRef<HTMLElement | null>(null);
   const wordsRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const submissionLockRef = useRef(false);
 
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -95,7 +96,7 @@ export function HireAP({
 
     const media = gsap.matchMedia();
     media.add(
-      "(min-width: 768px)",
+      "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
       () => {
         if (!wordsRef.current) return;
 
@@ -164,6 +165,10 @@ export function HireAP({
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    // State updates are asynchronous, so a ref prevents two submits in the same
+    // event turn from sending duplicate requests.
+    if (submissionLockRef.current) return;
+
     setEmailTouched(true);
     setMessageTouched(true);
 
@@ -178,6 +183,7 @@ export function HireAP({
     }
 
     try {
+      submissionLockRef.current = true;
       setIsSubmitting(true);
 
       const res = await fetch("/api/hire-ap", {
@@ -214,6 +220,7 @@ export function HireAP({
 
       openDialog("error", "Submission failed", description);
     } finally {
+      submissionLockRef.current = false;
       setIsSubmitting(false);
     }
   }
@@ -225,7 +232,7 @@ export function HireAP({
         className={cn(
           isAlternative
             ? `hire-mode hire-mode--${presentation}`
-            : "mx-auto grid max-md:grid-rows-6 grid-cols-1 w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-8 h-svh",
+            : "mx-auto grid grid-cols-1 w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-8",
           !isAlternative && (landing ? "md:max-w-4xl" : "md:grid-cols-2"),
         )}
       >
@@ -234,13 +241,18 @@ export function HireAP({
             <span>{presentation === "swiss" ? "CONTACT—AP" : "Hire Me"}</span>
             <h1>Describe your requirement.</h1>
           </header>
+        ) : !landing ? (
+          <header className="md:col-span-2" data-first-section>
+            <h1 className="text-4xl md:text-5xl">Describe your requirement.</h1>
+            <p className="mt-4 text-muted-foreground">Send a project enquiry, email directly or book a call.</p>
+          </header>
         ) : null}
         <form
           onSubmit={handleSubmit}
           noValidate
           className={cn(
             "flex flex-col justify-between gap-5 border border-border bg-background p-4 md:p-8",
-            isAlternative ? "hire-mode-form" : "rounded-3xl shadow-sm max-md:row-start-2 max-md:row-span-3",
+            isAlternative ? "hire-mode-form" : "rounded-3xl shadow-sm",
           )}
         >
           {landing ? (
@@ -279,10 +291,14 @@ export function HireAP({
           )}
 
           <div className="space-y-2">
+            <label htmlFor="hire-email" className="sr-only">Your email address</label>
             <Input
+              id="hire-email"
               type="email"
               inputMode="email"
               autoComplete="email"
+              required
+              aria-describedby={emailTouched && !emailIsValid ? "hire-email-error" : undefined}
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -298,14 +314,19 @@ export function HireAP({
             />
 
             {emailTouched && !emailIsValid ? (
-              <p className="text-sm text-destructive">
+              <p id="hire-email-error" className="text-sm text-destructive">
                 Enter a valid email address.
               </p>
             ) : null}
           </div>
 
           <div className="space-y-2">
+            <label htmlFor="hire-message" className="sr-only">Your message</label>
             <Textarea
+              id="hire-message"
+              required
+              maxLength={MAX_MESSAGE_LENGTH}
+              aria-describedby="hire-message-help"
               ref={textareaRef}
               value={message}
               placeholder="Write your message"
@@ -325,7 +346,7 @@ export function HireAP({
               )}
             />
 
-            <div className="flex justify-between gap-3 text-xs text-muted-foreground">
+            <div id="hire-message-help" className="flex justify-between gap-3 text-xs text-muted-foreground">
               <span>
                 {messageTouched && !messageIsValid
                   ? "Message cannot be empty."
@@ -349,7 +370,7 @@ export function HireAP({
         {landing ? (
           <></>
         ) : (
-          <div className={isAlternative ? "hire-mode-capabilities" : "relative hidden h-full overflow-hidden rounded-3xl border border-border bg-muted/20 md:block"}>
+          <div aria-hidden={isAlternative ? undefined : true} className={isAlternative ? "hire-mode-capabilities" : "relative hidden min-h-80 h-full overflow-hidden rounded-3xl border border-border bg-muted/20 md:block motion-reduce:hidden"}>
             {!isAlternative ? <div className="absolute inset-0 bg-gradient-to-br from-transparent via-muted/30 to-transparent" /> : null}
 
             <div

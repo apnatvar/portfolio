@@ -1,40 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AP Portfolio
 
-## Browser tools
+This is the Next.js portfolio for AP (Apnatva Singh Rawat). The `/tools` area contains browser-only tools for planning focused development work and evaluating decision readiness. Rules and exports live in [`src/lib/tools`](src/lib/tools), with deterministic checks in [`tests/tools-logic.test.ts`](tests/tools-logic.test.ts).
 
-The `/tools` area includes a client-only Developer Focus Planner and Decision Confidence Calculator. Architecture, deterministic rules, exports, and verification steps are documented in [`docs/browser-tools.md`](docs/browser-tools.md).
+## Browser QA
 
-## Getting Started
+Install dependencies and Chromium once, then run the public-site browser checks:
 
-First, run the development server:
+```bash
+npm ci
+npx playwright install chromium
+npm run qa:browser
+```
+
+Playwright starts the development server on `http://127.0.0.1:3000` if needed. The suite checks public routes and their metadata, internal links, horizontal overflow at 320, 375, 390, 768, and 1440 pixels, the three display modes, keyboard navigation, mocked hire-form responses, both browser tools, and WCAG 2.2 AA axe rules. It captures the home page in all three display modes at 390px and 1440px, and stores browser artifacts in the ignored `.qa-results/` directory. The hire form API is intercepted in the browser, so QA never submits a real message. API validation checks send malformed requests only, which are rejected before external submission.
+
+To check a production build, start the server in one terminal:
+
+```bash
+npm run build
+node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3000
+```
+
+Then run the suite in a second PowerShell terminal:
+
+```powershell
+$env:PLAYWRIGHT_BASE_URL = "http://127.0.0.1:3000"
+npm run qa:browser
+```
+
+To check a deployed or already-running site, set `PLAYWRIGHT_BASE_URL` and run the same command. For example, in PowerShell:
+
+```powershell
+$env:PLAYWRIGHT_BASE_URL = "https://example.com"
+npm run qa:browser
+```
+
+## Lighthouse profiling
+
+Use the production server described above, then run the representative mobile and desktop reports in a second terminal:
+
+```bash
+npm run qa:lighthouse
+```
+
+Set `PLAYWRIGHT_BASE_URL` to profile a deployed or already-running site. Lighthouse reports and metric summaries are written to `.qa-results/lighthouse/`.
+Set `LIGHTHOUSE_PAGES=home` to profile only the homepage after changes limited to that route.
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run typecheck
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

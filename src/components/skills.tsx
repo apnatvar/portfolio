@@ -47,7 +47,8 @@ export default function SkillsExplosionSection() {
 
     if (!section || !grid || !prompt || items.length === 0) return;
 
-    const ctx = gsap.context(() => {
+    const media = gsap.matchMedia(section);
+    media.add("(prefers-reduced-motion: no-preference)", () => {
       const setupItemsAtCenter = () => {
         const gridRect = grid.getBoundingClientRect();
         const gridCenterX = gridRect.left + gridRect.width / 2;
@@ -119,23 +120,24 @@ export default function SkillsExplosionSection() {
         scrub: true,
         invalidateOnRefresh: true,
       });
-    }, section);
+    });
 
-    return () => ctx.revert();
+    return () => media.revert();
   }, [mode]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-svh overflow-hidden bg-background"
+      id="skills"
+      className="relative h-svh overflow-hidden bg-background motion-reduce:min-h-[40rem]"
     >
-      <div className="relative mx-auto flex h-full w-full max-w-7xl items-center justify-center px-4 py-6 sm:px-6 md:px-8">
+      <div className="relative mx-auto flex h-full w-full max-w-7xl items-center justify-center px-4 py-6 sm:px-6 md:px-8 motion-reduce:pt-24">
         <p
           ref={promptRef}
-          className="font-italianno pointer-events-none absolute inset-x-0 top-1/2 z-20 -translate-y-1/2 text-center text-3xl text-muted-foreground uppercase sm:text-8xl"
+          className="font-italianno pointer-events-none absolute inset-x-0 top-1/2 z-20 -translate-y-1/2 text-center text-3xl text-muted-foreground uppercase sm:text-8xl motion-reduce:top-4 motion-reduce:translate-y-0 motion-reduce:text-2xl"
         >
-          <span className="text-9xl">T</span>ech{" "}
-          <span className="text-9xl">S</span>kills <br />
+          <span className="text-9xl motion-reduce:text-4xl">T</span>ech{" "}
+          <span className="text-9xl motion-reduce:text-4xl">S</span>kills <br className="motion-reduce:hidden" />
         </p>
 
         <div

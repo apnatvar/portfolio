@@ -9,8 +9,17 @@ type HireApnatvaPayload = {
 };
 
 export async function POST(req: Request) {
+  let body: HireApnatvaPayload;
   try {
-    const body = (await req.json()) as HireApnatvaPayload;
+    const parsed: unknown = await req.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return NextResponse.json({ success: false, message: "Invalid request body." }, { status: 400 });
+    }
+    body = parsed as HireApnatvaPayload;
+  } catch {
+    return NextResponse.json({ success: false, message: "Invalid JSON." }, { status: 400 });
+  }
+  try {
 
     const email = typeof body.email === "string" ? body.email.trim() : "";
     const message = typeof body.message === "string" ? body.message.trim() : "";
@@ -39,7 +48,6 @@ export async function POST(req: Request) {
     const formAction = process.env.GOOGLE_FORM_ACTION;
     const emailEntryName = process.env.GOOGLE_FORM_EMAIL_ENTRY;
     const messageEntryName = process.env.GOOGLE_FORM_MESSAGE_ENTRY;
-    console.log(formAction);
     if (!formAction || !emailEntryName || !messageEntryName) {
       return NextResponse.json(
         { success: false, message: "Server form configuration is missing." },
@@ -50,8 +58,6 @@ export async function POST(req: Request) {
     const formData = new URLSearchParams();
     formData.append(emailEntryName, email);
     formData.append(messageEntryName, message);
-    console.log(formData);
-
     const googleResponse = await fetch(formAction, {
       method: "POST",
       headers: {
@@ -60,6 +66,7 @@ export async function POST(req: Request) {
       body: formData.toString(),
       cache: "no-store",
       redirect: "follow",
+      signal: AbortSignal.timeout(10000),
     });
 
     if (!googleResponse.ok) {
@@ -74,8 +81,10 @@ export async function POST(req: Request) {
       message: "Your message was submitted successfully.",
     });
   } catch (e: unknown) {
-    const message = e instanceof Error ? e.message : "Unexpected server error.";
-
-    return NextResponse.json({ success: false, message }, { status: 500 });
+    console.error("Hire form submission failed.", e);
+    return NextResponse.json(
+      { success: false, message: "Unexpected server error." },
+      { status: 500 },
+    );
   }
 }

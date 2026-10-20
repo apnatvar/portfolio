@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import { useNearViewport } from "@/lib/use-near-viewport";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,14 +13,19 @@ export default function LessIsMoreTransition() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const textRef = useRef<HTMLHeadingElement | null>(null);
   const circleRef = useRef<HTMLDivElement | null>(null);
+  const isNearViewport = useNearViewport(sectionRef);
 
   useLayoutEffect(() => {
+    if (!isNearViewport) return;
+
     const section = sectionRef.current;
     const text = textRef.current;
     const circle = circleRef.current;
 
     if (!section || !text || !circle) return;
 
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const ctx = gsap.context(() => {
       gsap.set(circle, {
         scale: 0,
@@ -73,7 +79,10 @@ export default function LessIsMoreTransition() {
     }, section);
 
     return () => ctx.revert();
-  }, []);
+    });
+    ScrollTrigger.refresh();
+    return () => media.revert();
+  }, [isNearViewport]);
 
   return (
     <>

@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SITE_URL } from "@/lib/site";
+import { DEFAULT_SOCIAL_IMAGE, SITE_URL } from "@/lib/site";
 import {
   ArrowDown,
   ArrowRight,
@@ -41,8 +41,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "/portable-context",
     title: "Portable Context — Single Source of Truth",
+    images: [DEFAULT_SOCIAL_IMAGE],
     description:
       "Make context public for discovery, share more with approved connections, and keep the rest truly private.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portable Context — Single Source of Truth",
+    description: "A working prototype of structured profiles, discovery and controlled context sharing.",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
 };
 

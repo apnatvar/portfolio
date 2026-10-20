@@ -31,9 +31,11 @@ export function ResumePortfolio({ content }: { content: PortfolioContent }) {
           ["Experience", "experience"],
           ["Contact", "contact"],
         ].map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
+        <Link href="/tools">Tools</Link>
+        <Link href="/links">Links</Link>
       </nav>
 
-      <main>
+      <div className="portfolio-sections">
         <section id="profile" className="resume-section resume-profile">
           <SectionHeading index="01" title="Profile" />
           <div className="resume-section-body resume-profile-grid">
@@ -55,7 +57,8 @@ export function ResumePortfolio({ content }: { content: PortfolioContent }) {
             {content.projects.map((project) => (
               <article key={project.title} className="resume-project">
                 <div className="resume-project-heading">
-                  <h3>{project.title}</h3>
+                  <div className="resume-project-name"><h3>{project.title}</h3>
+                  {project.category ? <p className="text-sm text-muted-foreground">{project.category}</p> : null}</div>
                   <div>{project.links.map((link) => <Link key={link.label} href={link.href} target="_blank">{link.label}</Link>)}</div>
                 </div>
                 <ul>{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
@@ -94,7 +97,7 @@ export function ResumePortfolio({ content }: { content: PortfolioContent }) {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

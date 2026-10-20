@@ -21,6 +21,10 @@ This website serves as a professional portfolio, technical CV, capability index,
 - ${SITE_URL}/services/web-automation-consultant
 - ${SITE_URL}/services/full-stack-developer-for-startups
 - ${SITE_URL}/ideals
+- ${SITE_URL}/tools - Browser-only Developer Focus Planner and Decision Confidence Calculator.
+- ${SITE_URL}/tools/developer-focus-planner
+- ${SITE_URL}/tools/decision-confidence-calculator
+- ${SITE_URL}/portable-context - Working prototype of user-controlled context sharing.
 - ${SITE_URL}/links - First-party directory of Apnatva's self-verified official accounts, properties, and contact channels. Brownsmith Dynamics is the technology firm founded by Apnatva.
 - https://samples.apnatva.dev
 

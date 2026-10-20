@@ -22,7 +22,7 @@ export function SwissAbout({ content }: { content: PortfolioContent }) {
         </figure>
       </header>
 
-      <main>
+      <div className="portfolio-sections">
         <section className="swiss-about-profile" id="profile">
           <SwissAboutLabel number="01" title="Profile" />
           <div>
@@ -57,7 +57,7 @@ export function SwissAbout({ content }: { content: PortfolioContent }) {
           <SwissAboutLabel number="05" title="Links" />
           <div>{content.profileLinks.map((link, index) => <Link key={link.label} href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined}><span>0{index + 1}</span>{link.label} ↗</Link>)}</div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

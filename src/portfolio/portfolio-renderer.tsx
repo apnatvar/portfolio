@@ -7,9 +7,7 @@ import { portfolioContent } from "@/content/portfolio-content";
 import { ResumePortfolio } from "./resume/resume-portfolio";
 import { SwissPortfolio } from "./swiss/swiss-portfolio";
 
-const CreativePortfolio = dynamic(() => import("./creative/creative-portfolio"), {
-  ssr: false,
-});
+const CreativePortfolio = dynamic(() => import("./creative/creative-portfolio"));
 
 export function PortfolioRenderer() {
   const { mode } = useDisplayMode();

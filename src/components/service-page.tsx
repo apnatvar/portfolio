@@ -18,7 +18,7 @@ export function ServicePage({
     <div className="service-page">
       <MorphingNav />
 
-      <main>
+      <div className="page-sections">
         <section className="service-hero" data-first-section>
           <div className="service-hero-meta">
             <span>AP / Services</span>
@@ -120,7 +120,7 @@ export function ServicePage({
             <a href="mailto:rawat@apnatva.dev">rawat@apnatva.dev</a>
           </div>
         </section>
-      </main>
+      </div>
 
       <div id="page-end-sentinel" aria-hidden="true" />
     </div>

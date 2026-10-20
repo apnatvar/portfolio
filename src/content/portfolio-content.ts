@@ -5,6 +5,7 @@ export type PortfolioLink = {
 
 export type ProjectContent = {
   title: string;
+  category?: "Open source" | "Research prototype";
   links: PortfolioLink[];
   points: string[];
 };
@@ -44,10 +45,7 @@ export type PortfolioContent = {
 };
 
 /**
- * SYNCHRONIZATION NOTE:
- * This is an intentionally duplicated, normalized copy of content currently
- * embedded in the creative homepage/about components. The creative renderer
- * remains the source of truth so its markup and behavior do not change.
+ * Shared portfolio copy used by the resume, Swiss, and creative renderers.
  */
 export const portfolioContent: PortfolioContent = {
   hero: {
@@ -86,6 +84,7 @@ export const portfolioContent: PortfolioContent = {
   projects: [
     {
       title: "Forme",
+      category: "Open source",
       links: [
         { label: "Code", href: "https://github.com/apnatvar/open-workout" },
       ],
@@ -121,6 +120,7 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       title: "Autonomous Urban Mobility",
+      category: "Research prototype",
       links: [
         {
           label: "Code",

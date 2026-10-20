@@ -40,7 +40,7 @@ export function DisplayModeSwitcher() {
             aria-label={`${label} display mode`}
             onClick={() => setMode(optionMode)}
             className={cn(
-              "display-mode-option inline-flex min-h-9 items-center gap-1.5 rounded-full px-2.5 text-xs font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:px-3",
+              "display-mode-option inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-2.5 text-xs font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:px-3",
               active && "is-active",
             )}
           >

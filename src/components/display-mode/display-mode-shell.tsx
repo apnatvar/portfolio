@@ -8,31 +8,26 @@ import { useDisplayMode } from "./display-mode-provider";
 import { usePathname } from "next/navigation";
 
 export function DisplayModeShell({ children }: { children: React.ReactNode }) {
-  const { mode, ready } = useDisplayMode();
+  const { mode } = useDisplayMode();
   const pathname = usePathname();
 
   if (pathname === "/portable-context") {
-    return <main className="font-manrope">{children}</main>;
-  }
-
-  if (!ready) {
-    return <div className="min-h-dvh bg-background" aria-hidden="true" />;
+    return <main id="main-content" tabIndex={-1} className="font-manrope">{children}</main>;
   }
 
   const content = (
-    <main className="font-narrow">
-      {children}
+    <>
+      <main id="main-content" tabIndex={-1} className="font-narrow">
+        {children}
+      </main>
       <SiteFooter />
-    </main>
+    </>
   );
 
   return (
     <>
-      {mode === "creative" ? (
-        <SmoothScrollProvider>{content}</SmoothScrollProvider>
-      ) : (
-        content
-      )}
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <SmoothScrollProvider enabled={mode === "creative"}>{content}</SmoothScrollProvider>
       <DisplayModePrompt />
       <DisplayModeSwitcher />
     </>

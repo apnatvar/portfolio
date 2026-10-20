@@ -631,7 +631,7 @@ const PRINCIPLE_SECTIONS: PrincipleSection[] = [
 
 export default function CarnegiePrinciples() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <AnimatedBackground />
 
       <section className="relative z-10">
@@ -639,7 +639,7 @@ export default function CarnegiePrinciples() {
           <header className="mx-auto w-full max-w-4xl">
             <Card className="border-white/40 bg-white/30 shadow-2xl backdrop-blur-2xl">
               <CardContent className="px-6 py-8 md:px-10 md:py-10">
-                <div className="flex flex-col gap-4 text-center"></div>
+                <div className="flex flex-col gap-4 text-center"><h1 className="text-3xl md:text-5xl">Reading notes & principles</h1><p>A personal collection of ideas about communication, work and decision-making.</p></div>
               </CardContent>
             </Card>
           </header>
@@ -650,7 +650,7 @@ export default function CarnegiePrinciples() {
                 <Card className="h-full border-white/40 bg-white/30 shadow-2xl backdrop-blur-2xl">
                   <CardHeader className="pb-4">
                     <CardTitle className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                      {section.title}
+                      <h2>{section.title}</h2>
                     </CardTitle>
                   </CardHeader>
 
@@ -678,7 +678,7 @@ export default function CarnegiePrinciples() {
           </section>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

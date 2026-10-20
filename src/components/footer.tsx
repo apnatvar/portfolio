@@ -23,6 +23,7 @@ const sitemapLinks: FooterLink[] = [
   { label: "About", href: "/about-ap" },
   { label: "Tools", href: "/tools" },
   { label: "Links", href: "/links" },
+  { label: "Reading notes", href: "/ideals" },
   { label: "Samples", href: "https://samples.apnatva.dev" },
 ];
 
@@ -79,7 +80,7 @@ function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
   return (
     <div className="flex flex-col items-center gap-2">
       <h3
-        id="socials"
+        id={title === "Socials" ? "socials" : undefined}
         className="text-lg font-medium tracking-tight text-background"
       >
         {title}

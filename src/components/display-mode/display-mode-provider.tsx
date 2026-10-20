@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 
@@ -39,6 +40,7 @@ export const displayModeBootstrapScript = `
 export function DisplayModeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setModeState] = useState<DisplayMode>("creative");
   const [ready, setReady] = useState(false);
+  const pendingScrollRestore = useRef<{ id: string | null; top: number; y: number } | null>(null);
 
   useEffect(() => {
     const bootstrappedMode = document.documentElement.dataset.displayMode ?? null;
@@ -47,15 +49,45 @@ export function DisplayModeProvider({ children }: { children: React.ReactNode })
   }, []);
 
   const setMode = useCallback((nextMode: DisplayMode) => {
+    if (nextMode === mode) return;
+
+    const hashId = window.location.hash.slice(1);
+    const viewportCenter = document.elementFromPoint(
+      window.innerWidth / 2,
+      window.innerHeight / 2,
+    );
+    const landmark = viewportCenter?.closest<HTMLElement>("section[id], #history");
+    const hashAnchor = hashId ? document.getElementById(hashId) : null;
+    const hashBounds = hashAnchor?.getBoundingClientRect();
+    const visibleHashAnchor = hashBounds && hashBounds.top < window.innerHeight && hashBounds.bottom > 0 ? hashAnchor : null;
+    const anchor = window.scrollY < 80 ? null : landmark ?? visibleHashAnchor;
+
+    pendingScrollRestore.current = {
+      id: anchor?.id ?? null,
+      top: anchor?.getBoundingClientRect().top ?? 0,
+      y: window.scrollY,
+    };
     document.documentElement.dataset.displayMode = nextMode;
     try {
       window.localStorage.setItem(STORAGE_KEY, nextMode);
     } catch {
       // The visual mode still works when storage is unavailable.
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     setModeState(nextMode);
-  }, []);
+  }, [mode]);
+
+  useEffect(() => {
+    const savedPosition = pendingScrollRestore.current;
+    if (!savedPosition) return;
+
+    pendingScrollRestore.current = null;
+    const anchor = savedPosition.id ? document.getElementById(savedPosition.id) : null;
+    const top = anchor
+      ? window.scrollY + anchor.getBoundingClientRect().top - savedPosition.top
+      : savedPosition.y;
+
+    window.scrollTo({ top, left: 0, behavior: "auto" });
+  }, [mode]);
 
   useEffect(() => {
     if (!ready) return;
