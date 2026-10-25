@@ -100,22 +100,22 @@ export function ScrollRibbonBackground({
           >
             <stop
               offset="0%"
-              stopColor="hsl(var(--foreground))"
+              stopColor="var(--foreground)"
               stopOpacity="0.08"
             />
             <stop
               offset="35%"
-              stopColor="hsl(var(--foreground))"
+              stopColor="var(--foreground)"
               stopOpacity="0.22"
             />
             <stop
               offset="70%"
-              stopColor="hsl(var(--foreground))"
+              stopColor="var(--foreground)"
               stopOpacity="0.12"
             />
             <stop
               offset="100%"
-              stopColor="hsl(var(--foreground))"
+              stopColor="var(--foreground)"
               stopOpacity="0.05"
             />
           </linearGradient>
@@ -129,17 +129,17 @@ export function ScrollRibbonBackground({
           >
             <stop
               offset="0%"
-              stopColor="hsl(var(--background))"
+              stopColor="var(--background)"
               stopOpacity="0.4"
             />
             <stop
               offset="50%"
-              stopColor="hsl(var(--foreground))"
+              stopColor="var(--foreground)"
               stopOpacity="0.18"
             />
             <stop
               offset="100%"
-              stopColor="hsl(var(--background))"
+              stopColor="var(--background)"
               stopOpacity="0.24"
             />
           </linearGradient>
@@ -154,7 +154,7 @@ export function ScrollRibbonBackground({
           d="M -120 560 C 180 360, 280 140, 560 240 C 840 340, 780 660, 1120 500 C 1380 380, 1500 140, 1780 260"
           fill="none"
           stroke="url(#ribbon-gradient)"
-          strokeWidth="92"
+          strokeWidth="1.5"
           strokeLinecap="round"
           opacity="0.85"
         />
@@ -164,7 +164,7 @@ export function ScrollRibbonBackground({
           d="M -160 840 C 160 600, 400 900, 660 620 C 860 400, 1080 520, 1240 740 C 1420 980, 1600 700, 1780 600"
           fill="none"
           stroke="url(#ribbon-gradient)"
-          strokeWidth="42"
+          strokeWidth="0.8"
           strokeLinecap="round"
           opacity="0.55"
         />

@@ -1,7 +1,6 @@
 "use client";
 
 import gsap from "gsap";
-import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 
@@ -31,15 +30,12 @@ const SKILLS: SkillItem[] = [
 ];
 
 export default function SkillsExplosionSection() {
-  const { mode } = useDisplayMode();
   const sectionRef = useRef<HTMLElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const promptRef = useRef<HTMLParagraphElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useLayoutEffect(() => {
-    if (mode !== "creative") return;
-
     const section = sectionRef.current;
     const grid = gridRef.current;
     const prompt = promptRef.current;
@@ -123,7 +119,7 @@ export default function SkillsExplosionSection() {
     });
 
     return () => media.revert();
-  }, [mode]);
+  }, []);
 
   return (
     <section

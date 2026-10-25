@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import { DisplayModeProvider, displayModeBootstrapScript } from "@/components/display-mode/display-mode-provider";
+import "@/app/atelier.css";
 import { DisplayModeShell } from "@/components/display-mode/display-mode-shell";
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -67,16 +67,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "AP | Next.js Technical SEO Engineer",
+    default: "AP | Design, code & a little curiosity",
     template: "%s | AP",
   },
 
   icons: { icon: "/ap-icon.svg" },
 
   description:
-    "Technical SEO engineering for Next.js and TypeScript: audits, implementation, programmatic SEO, AI-assisted automation, and performance. India-based, remote worldwide.",
+    "Websites, useful little tools, and the independent creative work of Apnatva Singh Rawat. Based in India.",
 
-  keywords: ["Next.js technical SEO", "Technical SEO Engineer", "Programmatic SEO", "SEO automation", "Web performance"],
+  keywords: ["Apnatva Singh Rawat", "AP", "Creative developer", "Web design", "Independent designer"],
 
   authors: [{ name: "Apnatva Singh Rawat", url: SITE_URL }],
   creator: "Apnatva Singh Rawat",
@@ -93,24 +93,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "AP | Next.js Technical SEO Engineer",
+    title: "AP | Design, code & a little curiosity",
     description:
-      "Technical SEO, programmatic SEO, automation, and performance engineering for Next.js websites.",
+      "Websites, useful little tools, and the independent creative work of Apnatva Singh Rawat.",
     images: [
       {
         url: DEFAULT_SOCIAL_IMAGE,
         width: 1200,
         height: 630,
-        alt: "AP — Technical SEO, engineered for Next.js",
+        alt: "AP — Design, code & a little curiosity",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AP | Next.js Technical SEO Engineer",
+    title: "AP | Design, code & a little curiosity",
     description:
-      "India-based Next.js Technical SEO Engineer available for remote projects worldwide.",
+      "The independent creative work of Apnatva Singh Rawat. Design, development, and writing.",
     images: [DEFAULT_SOCIAL_IMAGE],
     creator: "@nattupi0",
   },
@@ -137,14 +137,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-display-mode="creative" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: displayModeBootstrapScript }} />
-      </head>
       <body className={`mx-auto bg-background antialiased ${FONT_VARS}`}>
         <JsonLd data={siteIdentityJsonLd} />
-        <DisplayModeProvider>
-          <DisplayModeShell>{children}</DisplayModeShell>
-        </DisplayModeProvider>
+        <DisplayModeShell>{children}</DisplayModeShell>
       </body>
     </html>
   );

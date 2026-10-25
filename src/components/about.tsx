@@ -7,7 +7,6 @@ import Image from "next/image";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import { portfolioContent } from "@/content/portfolio-content";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +22,6 @@ const CAROUSEL_IMAGES = [
 ];
 
 export default function ProfileSplitSection() {
-  const { mode } = useDisplayMode();
   const autoplay = React.useRef(
     Autoplay({
       delay: 4200,
@@ -40,7 +38,7 @@ export default function ProfileSplitSection() {
       skipSnaps: false,
       duration: 28,
     },
-    mode === "creative" ? [autoplay.current] : [],
+    [autoplay.current],
   );
 
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -76,7 +74,7 @@ export default function ProfileSplitSection() {
     const autoplayPlugin = autoplay.current;
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const syncAutoplay = () => {
-      if (mode === "creative" && !motionPreference.matches) {
+      if (!motionPreference.matches) {
         autoplayPlugin.play();
       } else {
         autoplayPlugin.stop();
@@ -90,7 +88,7 @@ export default function ProfileSplitSection() {
       motionPreference.removeEventListener("change", syncAutoplay);
       autoplayPlugin.stop();
     };
-  }, [emblaApi, mode]);
+  }, [emblaApi]);
 
   return (
     <section id="profile" data-first-section className="h-auto md:min-h-[100svh]">

@@ -38,43 +38,38 @@ export type PortfolioContent = {
     booking: string;
     links: PortfolioLink[];
   };
-  imagery: {
-    resume: { src: string; alt: string };
-    swiss: { src: string; alt: string };
-  };
 };
 
 /**
- * Shared portfolio copy used by the resume, Swiss, and creative renderers.
+ * Content for the creative portfolio.
  */
 export const portfolioContent: PortfolioContent = {
   hero: {
-    greeting: "Hey, I am",
-    shortName: "I am A P",
+    greeting: "Hello, I’m",
+    shortName: "I’m AP",
     name: "Apnatva Singh Rawat",
     roles: [
       {
-        title: "Next.js Technical SEO Engineer",
+        title: "Designer, developer, writer",
         description:
-          "Technical SEO and programmatic SEO systems built with Next.js and TypeScript.",
+          "I make thoughtful things for the web, from the words and shape of an idea to the details that make it work.",
       },
       {
-        title: "AI-assisted Automation",
-        description: "Practical automation and performance improvements for production websites.",
+        title: "Web developer",
+        description: "I build useful websites and small tools, and care about how they feel to use.",
       },
       {
-        title: "Web Product Engineer",
+        title: "Writer",
         description:
-          "Interfaces and technical foundations that make complex tasks easier to use.",
+          "I write about the ideas I keep turning over: technology, philosophy, and psychology.",
       },
     ],
   },
   profile: {
     paragraphs: [
-      "I'm Apnatva, though most people call me AP. I specialise in technical SEO for Next.js and TypeScript sites, including programmatic SEO, AI-assisted automation, and web performance.",
-      "My work spans websites, internal tools, automation, and cloud systems for small businesses and enterprise teams. I connect search requirements to the implementation: crawlable architecture, useful structured content, and efficient pages.",
-      "I'm based in India and work remotely with teams worldwide. I plan in writing, keep people updated, and take responsibility for getting things shipped.",
-      "Outside work, I read and write about technology, philosophy, and psychology. I enjoy working closely with founders and teams where I can understand the whole product, not just my part of it.",
+      "I’m Apnatva Singh Rawat. Most people call me AP. I design and build for the web, and write when an idea stays with me long enough.",
+      "I like work that lets me move between the shape of a thing and the details underneath it: a page, a product, a bit of software that makes an ordinary task easier.",
+      "I’m based in India. Away from a screen, I’m usually reading, writing, or following a question a little further than I meant to.",
     ],
     education: [
       "BEng Computer Engineering, First Class Honours, TCD",
@@ -87,8 +82,8 @@ export const portfolioContent: PortfolioContent = {
       category: "SEO Engineering",
       links: [{ label: "Website", href: "https://brownsmithdynamics.com" }],
       points: [
-        "Built the website frontend, with pages for services, products, guides, and articles.",
-        "Organized navigation and internal links so visitors can find related content and search engines can crawl it.",
+        "Built the site across its service, product, guide, and article pages.",
+        "Gave the catalogue and editorial content a clear way to sit together.",
       ],
     },
     {
@@ -102,9 +97,9 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "Built a responsive, content-first site around a limited brand palette.",
-        "Optimized assets and page structure with performance and SEO in mind.",
-        "Used colour changes between sections to give long pages some rhythm without relying on animation.",
+        "Built a responsive site around a restrained palette and the company’s content.",
+        "Kept the pages light and quick to load.",
+        "Used shifts in colour to give long pages a little rhythm.",
       ],
     },
     {
@@ -114,10 +109,10 @@ export const portfolioContent: PortfolioContent = {
         { label: "Code", href: "https://github.com/apnatvar/open-workout" },
       ],
       points: [
-        "Forme is an open-source workout planner and tracker that keeps your data in your browser.",
-        "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
-        "JSON import and export make it easy to move or back up your data.",
-        "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
+        "An open-source workout planner that keeps its data in your browser.",
+        "Put together a session, log it, then share or print the plan. No account needed.",
+        "Import and export your data as JSON.",
+        "There’s also a companion plugin and local MCP server for AI clients that can build sessions from the exercise library.",
       ],
     },
     {
@@ -134,9 +129,8 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "Final-year thesis exploring adaptive traffic control using satellite traffic data.",
-        "Built a proof of concept aimed at reducing the need for roadside hardware.",
-        "Focused on deployment cost and the work needed to maintain a traffic control system.",
+        "My final-year thesis: a prototype for adaptive traffic control using satellite traffic data.",
+        "The idea was to reduce reliance on roadside hardware and make deployment easier to maintain.",
       ],
     },
     {
@@ -149,7 +143,7 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "Built a standalone Windows app in Python to consolidate financial data and generate reports for auditors.",
+        "A small Windows app in Python that consolidates financial data into reports for auditors.",
       ],
     },
     {
@@ -157,9 +151,9 @@ export const portfolioContent: PortfolioContent = {
       category: "Automation",
       links: [{ label: "Code", href: "https://github.com/apnatvar/chattybot" }],
       points: [
-        "Built a self-hostable, multi-tenant chatbot with a widget websites can embed.",
-        "It uses each site's pages and product catalogue to answer questions and point people to relevant links.",
-        "Added encrypted site credentials, fallback replies, and a Docker deployment setup.",
+        "A chatbot that can be hosted on your own infrastructure and added to a website as a widget.",
+        "It uses a site’s pages and product catalogue to answer questions and point visitors to useful links.",
+        "Includes encrypted site credentials, fallback replies, and a Docker setup.",
       ],
     },
   ],
@@ -235,10 +229,6 @@ export const portfolioContent: PortfolioContent = {
       href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
     },
     { label: "GitHub", href: "https://github.com/apnatvar" },
-    {
-      label: "Resume",
-      href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
-    },
     { label: "Instagram", href: "https://instagram.com/nattupi/" },
   ],
   contact: {
@@ -251,20 +241,6 @@ export const portfolioContent: PortfolioContent = {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
       },
-      {
-        label: "Resume",
-        href: "https://github.com/apnatvar/apnatvar/blob/main/ApnatvaCV.pdf",
-      },
     ],
-  },
-  imagery: {
-    resume: {
-      src: "/6.webp",
-      alt: "AP seated beside a gallery wall",
-    },
-    swiss: {
-      src: "/3.webp",
-      alt: "AP in a neon-lit city street at night",
-    },
   },
 };

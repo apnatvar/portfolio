@@ -1,156 +1,37 @@
-"use client";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-const workedWith = [
-  "Avaya LLC",
-  "Haneri Electricals Ltd.",
-  "Elza International Ltd.",
-  "Motilal Oswal Financial Services Ltd.",
-  "and more...",
-];
-
-type FooterLink = {
-  label: string;
-  href: string;
-};
-
-const sitemapLinks: FooterLink[] = [
-  { label: "Home", href: "/" },
+const navigation = [
   { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "Tools", href: "/tools" },
-  { label: "Writing", href: "/writing" },
-  { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
-  { label: "Links", href: "/links" },
-  { label: "Reading notes", href: "/ideals" },
-  { label: "Samples", href: "https://samples.apnatva.dev" },
+  { label: "Contact", href: "/#contact" },
 ];
 
-const importantLinks: FooterLink[] = [
-  { label: "GitHub", href: "https://github.com/apnatvar" },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/apnatva-singh-rawat/",
-  },
-];
-
-const socialLinks: FooterLink[] = [
+const socials = [
   { label: "Instagram", href: "https://instagram.com/nattupi/" },
-  { label: "Chess.com", href: "https://www.chess.com/member/nattupi" },
-  { label: "Reddit", href: "https://www.reddit.com/user/apnatva-dev/" },
-  { label: "Benable", href: "https://benable.com/apnatva" },
-  { label: "Apple Music", href: "https://music.apple.com/profile/nattupi" },
+  { label: "GitHub", href: "https://github.com/apnatvar" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/apnatva-singh-rawat/" },
 ];
-
-type FooterLinkGroupProps = {
-  title: string;
-  links: FooterLink[];
-};
-
-function getAnimationVars(index: number) {
-  const delay = -((index * 1.37) % 6.4);
-  const duration = 5.5 + ((index * 0.73) % 3.2);
-
-  return {
-    "--footer-link-delay": `${delay}s`,
-    "--footer-link-duration": `${duration}s`,
-  } as React.CSSProperties;
-}
-
-function WorkedWith() {
-  return (
-    <div className="flex justify-center text-left md:justify-end md:text-right">
-      <div className="flex flex-col max-md:text-center gap-1">
-        <h3 className="text-3xl font-medium tracking-tight text-background">
-          Worked With
-        </h3>
-
-        {workedWith.map((item) => (
-          <p key={item} className="text-sm text-muted md:text-base">
-            {item}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <h3
-        id={title === "Socials" ? "socials" : undefined}
-        className="text-lg font-medium tracking-tight text-background"
-      >
-        {title}
-      </h3>
-
-      <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
-        {links.map((link, index) => (
-          <Button
-            key={link.label}
-            variant="link"
-            asChild
-            className="px-2 text-muted decoration-muted-foreground"
-          >
-            <Link
-              href={link.href}
-              prefetch={false}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              className="footer-animated-link"
-              style={getAnimationVars(index)}
-            >
-              {link.label}
-            </Link>
-          </Button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Sitemap() {
-  return <FooterLinkGroup title="Sitemap" links={sitemapLinks} />;
-}
-
-function ImportantLinks() {
-  return <FooterLinkGroup title="Important Links" links={importantLinks} />;
-}
-
-function Socials() {
-  return <FooterLinkGroup title="Socials" links={socialLinks} />;
-}
 
 export function SiteFooter() {
   return (
-    <footer className="w-full px-4 py-12 md:px-6 md:py-16 bg-foreground">
-      <section className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-10 md:gap-8">
-        <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-start md:justify-between md:gap-4">
-          <h2 className="max-w-3xl text-center text-base leading-relaxed tracking-tight md:basis-1/2 md:text-left md:text-lg text-muted">
-            <span className="block text-5xl font-medium md:inline md:text-7xl text-background font-italianno">
-              Hi Again!
-            </span>{" "}
-            I help teams make Next.js websites easier to crawl, faster to use,
-            and better organised for search. Based in India and working
-            remotely worldwide.{" "}
-            <span className="inline-block text-background md:text-2xl">
-              Technical SEO, automation, and web performance.
-            </span>
-          </h2>
-
-          <div className="md:basis-1/3">
-            <WorkedWith />
-          </div>
-        </div>
-
-        <div className="grid w-full gap-8 md:gap-4">
-          <Sitemap />
-          <ImportantLinks />
-          <Socials />
-        </div>
-      </section>
+    <footer className="w-full bg-foreground px-6 py-10 text-background md:px-10">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <p className="font-italianno text-6xl leading-none md:text-8xl">See you around.</p>
+        <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+          {navigation.map((item) => (
+            <Link key={item.label} href={item.href} className="hover:text-background">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <nav id="socials" aria-label="Social links" className="flex gap-x-4 text-sm text-muted">
+          {socials.map((item) => (
+            <Link key={item.label} href={item.href} target="_blank" rel="noreferrer" className="hover:text-background">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </footer>
   );
 }

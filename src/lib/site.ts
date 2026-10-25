@@ -21,9 +21,9 @@ export const siteIdentityJsonLd = {
       alternateName: ["AP", "Apnatva"],
       url: SITE_URL,
       image: `${SITE_URL}/4.webp`,
-      jobTitle: "Next.js Technical SEO Engineer",
+      jobTitle: "Independent designer and developer",
       description:
-        "India-based engineer building, optimising, and automating technical SEO infrastructure for Next.js and TypeScript websites, remotely worldwide.",
+        "Apnatva Singh Rawat designs and builds websites, small tools, and software. Based in India, working independently as AP.",
       email: "mailto:rawat@apnatva.dev",
       sameAs: PROFILE_URLS,
       knowsAbout: [

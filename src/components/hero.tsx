@@ -1,254 +1,47 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { portfolioContent } from "@/content/portfolio-content";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Code2, Keyboard, PenLine } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function SplitLetters({ text }: { text: string }) {
-  return (
-    <span className="inline-flex flex-wrap items-center justify-center">
-      <span className="sr-only">{text}</span>
-      {text.split("").map((char, index) => (
-        <span
-          key={`${char}-${index}`}
-          aria-hidden="true"
-          className="reveal-letter inline-block text-muted-foreground"
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
-    </span>
-  );
-}
-
-function SplitWords({ text }: { text: string }) {
-  return (
-    <span className="inline-flex flex-wrap justify-center gap-x-1 gap-y-1">
-      <span className="sr-only">{text}</span>
-      {text.split(" ").map((word, index) => (
-        <span aria-hidden="true" key={`${word}-${index}`} className="reveal-word inline-block">
-          {word}
-        </span>
-      ))}
-    </span>
-  );
-}
-
 export default function HeroGridReveal() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-
+  const root = useRef<HTMLElement>(null);
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
-    const ctx = gsap.context(() => {
-      const largeItems = gsap.utils.toArray<HTMLElement>("[data-large-reveal]");
-      const supportItems =
-        gsap.utils.toArray<HTMLElement>("[data-word-reveal]");
-      const buttons = gsap.utils.toArray<HTMLElement>("[data-button-reveal]");
-
-      largeItems.forEach((item) => {
-        const letters = item.querySelectorAll<HTMLElement>(".reveal-letter");
-
-        gsap.fromTo(
-          letters,
-          {
-            color: "var(--muted-foreground)",
-            opacity: 0.25,
-            yPercent: 18,
-            rotateX: -35,
-            filter: "blur(6px)",
-          },
-          {
-            color: "var(--foreground)",
-            opacity: 1,
-            yPercent: 0,
-            rotateX: 0,
-            filter: "blur(0px)",
-            ease: "none",
-            stagger: {
-              each: 0.035,
-              from: "start",
-            },
-            scrollTrigger: {
-              trigger: item,
-              start: "top 88%",
-              end: "bottom 45%",
-              scrub: 0.8,
-            },
-          },
-        );
-      });
-
-      supportItems.forEach((item) => {
-        const words = item.querySelectorAll<HTMLElement>(".reveal-word");
-
-        gsap.fromTo(
-          words,
-          {
-            opacity: 0,
-            y: 18,
-            filter: "blur(8px)",
-          },
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            ease: "power2.out",
-            stagger: 0.06,
-            scrollTrigger: {
-              trigger: item,
-              start: "top 80%",
-              end: "bottom 60%",
-              scrub: 0.6,
-            },
-          },
-        );
-      });
-
-      gsap.fromTo(
-        buttons,
-        {
-          opacity: 0,
-          y: 20,
-          scale: 0.96,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          stagger: 0.12,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: buttons[0],
-            start: "top 92%",
-            end: "top 70%",
-            scrub: 0.5,
-          },
-        },
-      );
-    }, section);
-
-    return () => ctx.revert();
+      const ctx = gsap.context(() => {
+        gsap.from(".hero-entrance", { y: 38, opacity: 0, stagger: 0.12, duration: 1.1, ease: "power3.out" });
+        gsap.to(".hero-line-one", { xPercent: -12, rotate: -5, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 1 } });
+        gsap.to(".hero-line-two", { xPercent: 13, rotate: 4, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 1.3 } });
+        gsap.to(".hero-orbit", { rotation: 170, y: 100, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 1.5 } });
+        gsap.to(".hero-footnote", { y: -65, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 0.7 } });
+        gsap.to(".hero-portrait", { y: -90, rotate: 3, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 1.2 } });
+        gsap.fromTo(".hero-rule", { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom 70%", scrub: true } });
+      }, root);
+      return () => ctx.revert();
     });
     return () => media.revert();
   }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      id="profile"
-      data-first-section
-      className="creative-hero relative mx-auto w-full max-w-7xl px-4 pb-24 pt-28 md:px-8 md:pb-32"
-    >
-      <header className="mx-auto mb-16 max-w-3xl text-center">
-        <h1 className="font-manrope text-3xl leading-tight md:text-5xl">{portfolioContent.hero.name}</h1>
-        <p className="mt-4 text-lg">Next.js Technical SEO Engineer specialising in TypeScript, programmatic SEO, AI-assisted automation, and web performance. Based in India, working remotely worldwide.</p>
-        <nav aria-label="Explore the portfolio" className="mt-6 flex flex-wrap justify-center gap-3">
-          <Button asChild><Link href="/work">Selected work</Link></Button>
-          <Button asChild variant="secondary"><Link href="/hire-ap">Contact AP</Link></Button>
-          <Button asChild variant="outline"><Link href="#experience">Experience</Link></Button>
-          <Button asChild variant="outline"><Link href="/tools">Tools</Link></Button>
-          <Button asChild variant="outline"><Link href="/links">Links</Link></Button>
-        </nav>
-      </header>
-      <div className="flex flex-col gap-y-8 items-center justify-center md:grid text-center md:grid-cols-5 md:auto-rows-[minmax(110px,_auto)] md:gap-y-8">
-        <span className="font-italianno col-start-1 col-span-3 row-start-1 max-md:row-span-2 leading-none md:col-start-1 md:col-span-5 md:row-start-1 text-[160px] transition-all hover:tracking-widest duration-500">
-          Hello
-        </span>
-
-        <span
-          data-large-reveal
-          className="font-italianno col-start-1 col-span-3 row-start-3 text-8xl max-md:row-span-2 leading-none md:col-start-2 md:col-span-2 md:row-start-2 md:text-9xl transition-all hover:tracking-wide duration-500"
-        >
-          <SplitLetters text="I am A P" />
-        </span>
-
-        <span
-          data-word-reveal
-          className="col-start-1 col-span-3 row-start-4 text-center text-base uppercase tracking-[0.22em] text-muted-foreground md:col-start-4 md:col-span-1 md:row-start-2 md:text-left md:text-base"
-        >
-          <SplitWords text="Apnatva Singh Rawat" />
-        </span>
-
-        <span
-          data-large-reveal
-          className="font-italianno col-start-1 col-span-3 row-start-5 max-md:row-span-2 flex items-center justify-center gap-3 text-8xl leading-none md:col-start-3 md:col-span-3 md:row-start-3 md:text-9xl transition-all hover:tracking-widest duration-500"
-        >
-          <Keyboard className="size-10 shrink-0 md:size-20" />
-          <SplitLetters text="SEO Engineer" />
-        </span>
-
-        <span
-          data-word-reveal
-          className="col-start-1 col-span-3 row-start-7 text-base text-muted-foreground md:col-start-4 md:col-span-2 md:row-start-3 md:row-span-2 md:text-lg"
-        >
-          <SplitWords text="Technical SEO systems for Next.js and TypeScript websites." />
-        </span>
-
-        <span
-          data-large-reveal
-          className="font-italianno col-start-1 col-span-3 max-md:row-span-2 row-start-8 flex items-center justify-center gap-3 text-8xl leading-none md:col-start-1 md:col-span-3 md:row-start-4 md:text-9xl transition-all hover:tracking-widest duration-500"
-        >
-          <SplitLetters text="Automation" />
-          <Code2 className="size-10 shrink-0 md:size-20" />
-        </span>
-
-        <span
-          data-word-reveal
-          className="col-start-1 col-span-3 row-start-10 text-base text-muted-foreground md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2 md:text-lg"
-        >
-          <SplitWords text="Programmatic SEO, AI-assisted workflows, and web performance." />
-        </span>
-
-        <span
-          data-large-reveal
-          className="font-italianno col-start-1 col-span-3 max-md:row-span-2 row-start-11 flex items-center justify-center gap-3 text-8xl leading-none md:col-start-2 md:col-span-3 md:row-start-5 md:text-9xl transition-all hover:tracking-widest duration-500"
-        >
-          <PenLine className="size-10 shrink-0 md:size-20" />
-          <SplitLetters text="Engineer" />
-        </span>
-
-        <span
-          data-word-reveal
-          className="col-start-1 col-span-3 row-start-13 text-base text-muted-foreground md:col-start-2 md:col-span-2 md:row-start-5 md:row-span-2 md:text-lg"
-        >
-          <SplitWords text="I write to make technical ideas easier to use." />
-        </span>
-
-        <div
-          data-word-reveal
-          className="grid grid-cols-2 justify-center gap-8 text-sm text-muted-foreground md:col-start-1 md:col-span-1 md:row-start-1 md:row-span-4 md:flex md:flex-col md:gap-8 md:text-left md:text-base"
-        >
-          <SplitWords text="SEO" />
-          <SplitWords text="Content Management Systems" />
-          <SplitWords text="Dashboards" />
-          <SplitWords text="Hosting" />
-          <SplitWords text="Automations" />
-          <SplitWords text="Maintenance" />
-        </div>
-
-        <div className="col-start-1 col-span-3 row-start-16 flex justify-center gap-3 md:col-start-3 md:col-span-1 md:row-start-6 md:justify-between">
-          <Button asChild data-button-reveal variant="default">
-            <Link href={"/hire-ap"} className="hover:opacity-80">
-              Hire AP
-            </Link>
-          </Button>
-          <Button asChild data-button-reveal variant="secondary">
-            <Link href={"/work"} className="hover:opacity-80">
-              Work
-            </Link>
-          </Button>
-        </div>
+    <section ref={root} id="profile" data-first-section className="atelier-hero">
+      <div className="hero-topline hero-entrance"><span>Apnatva Singh Rawat</span><span>Independent designer & developer / India</span></div>
+      <div className="hero-composition">
+        <p className="hero-aside hero-entrance">Hello, I’m AP.<br />I make things for the web.</p>
+        <figure className="hero-portrait hero-entrance">
+          <div className="portrait-mount"><Image src="/6.webp" alt="AP sitting beside a wall of design prints" width={300} height={400} sizes="(max-width: 899px) 140px, 220px" priority /><span className="portrait-cross portrait-cross-one" aria-hidden="true">+</span><span className="portrait-cross portrait-cross-two" aria-hidden="true">+</span></div>
+          <figcaption>A face to put to the initials.</figcaption>
+        </figure>
+        <h1 aria-label="A little particular." className="atelier-title hero-entrance"><span className="hero-line-one">A little</span>{" "}<span className="hero-line-two">particular.</span></h1>
+        <div className="hero-orbit" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="46" /><circle cx="60" cy="60" r="28" /><path d="M60 0V120M0 60H120M13 13L107 107M13 107L107 13M20 20H100V100H20ZM60 14L100 84H20Z" /><path d="M13 60A47 47 0 0 1 60 13" strokeWidth="2" /></svg><span>fig. i / a small study</span></div>
+        <div className="hero-footnote hero-entrance"><span className="atelier-label">A note on the work</span><p>A good website has a feeling to it. The type, the pauses, the way a button answers back. I like figuring out what that feeling should be. Then writing the code.</p><Link href="#work" className="atelier-link">Take a look around <ArrowUpRight size={17} /></Link></div>
       </div>
+      <div className="hero-bottom hero-entrance"><a href="#studio">A few things, made with care <ArrowDown size={15} /></a><span>Design / Development / Writing</span></div>
+      <div className="hero-rule" />
     </section>
   );
 }

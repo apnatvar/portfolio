@@ -1,7 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test as baseTest, type Page } from "@playwright/test";
-import { mkdir } from "node:fs/promises";
-import { join } from "node:path";
 
 const test = baseTest;
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? `http://127.0.0.1:${process.env.PLAYWRIGHT_PORT ?? "3000"}`;
@@ -35,7 +33,6 @@ const routes = [
 ];
 
 const viewportWidths = [320, 375, 390, 768, 1440];
-const modes = ["creative", "resume", "swiss"] as const;
 const noindexRoutes = new Set(["/test"]);
 
 test("public routes do not report console errors", async ({ page }) => {
@@ -120,89 +117,64 @@ test.describe("public routes", () => {
       for (const width of viewportWidths) await expectNoHorizontalOverflow(page, width);
 
       if (!noindexRoutes.has(path)) {
-        const modesToAudit = path === "/portable-context" ? ["creative"] as const : modes;
-        for (const mode of modesToAudit) {
-          const button = page.getByRole("button", { name: `${mode[0].toUpperCase()}${mode.slice(1)} display mode` });
-          if (path !== "/portable-context") {
-            await button.click();
-            await expect(page.locator("html")).toHaveAttribute("data-display-mode", mode);
-          }
-          const accessibility = await new AxeBuilder({ page })
-            .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
-            .analyze();
-          expect(accessibility.violations, `${path} in ${mode} mode has axe accessibility violations`).toEqual([]);
-        }
+        const accessibility = await new AxeBuilder({ page })
+          .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
+          .analyze();
+        expect(accessibility.violations, `${path} has axe accessibility violations`).toEqual([]);
       }
     });
   }
 });
 
-for (const path of ["/", "/about-ap", "/hire-ap"]) {
-  test(`${path} supports each display mode at every viewport width`, async ({ page }) => {
-    test.setTimeout(60_000);
-    await page.goto(path);
-    for (const width of viewportWidths) {
-      await page.setViewportSize({ width, height: 900 });
-      for (const mode of modes) {
-        const button = page.getByRole("button", { name: `${mode[0].toUpperCase()}${mode.slice(1)} display mode` });
-        await button.focus();
-        await page.keyboard.press("Enter");
-        await expect(page.locator("html")).toHaveAttribute("data-display-mode", mode);
-        await expect(button).toHaveAttribute("aria-pressed", "true");
-        await expectNoHorizontalOverflow(page, width);
-      }
-    }
-  });
-}
-
-test("captures homepage screenshots for every mode at mobile and desktop widths", async ({ page }) => {
-  await mkdir(join(process.cwd(), ".qa-results", "screenshots"), { recursive: true });
+test("creative home keeps its typography and project links at desktop and mobile widths", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => localStorage.setItem("ap-portfolio-display-mode", "resume"));
   await page.goto("/");
-  for (const mode of modes) {
-    await page.getByRole("button", { name: `${mode[0].toUpperCase()}${mode.slice(1)} display mode` }).click();
-    for (const width of [390, 1440]) {
-      await page.setViewportSize({ width, height: 900 });
-      await page.evaluate(() => window.scrollTo(0, 0));
-      await page.mouse.move(0, 0);
-      await page.screenshot({ path: join(process.cwd(), ".qa-results", "screenshots", `home-${mode}-${width}.png`) });
+
+  await expect(page.locator("html")).toHaveAttribute("data-display-mode", "creative");
+  await page.evaluate(() => localStorage.setItem("ap-portfolio-display-mode", "swiss"));
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-display-mode", "creative");
+  await expect(page.getByRole("heading", { name: "A little particular." })).toBeVisible();
+  await expect(page.getByRole("img", { name: "AP sitting beside a wall of design prints" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /display mode/i })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /resume mode/i })).toHaveCount(0);
+  await expect(page.locator("#work .project-name").first()).toBeVisible();
+  const headingFont = await page.locator("#work .project-name").first().evaluate((element) => getComputedStyle(element).fontFamily);
+  expect(headingFont).toContain("Italianno");
+
+  for (const width of [390, 1440]) {
+    await expectNoHorizontalOverflow(page, width);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.screenshot({ path: `.qa-results/creative-home-${width}.png` });
+    const projectLinks = page.locator("#work .project-links a");
+    expect(await projectLinks.count()).toBeGreaterThan(0);
+    for (const link of await projectLinks.all()) await expect(link).toBeVisible();
+    await projectLinks.first().focus();
+    await expect(projectLinks.first()).toBeFocused();
+    if (width === 1440) {
+      await page.locator("#studio").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: ".qa-results/creative-studio-1440.png" });
+      await page.locator("#contact").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: ".qa-results/creative-contact-1440.png" });
     }
   }
 });
 
-test("display mode persists across reloads and switches preserve the current route and work anchor", async ({ page }) => {
-  await page.goto("/about-ap");
-  await page.getByRole("button", { name: "Swiss display mode" }).click();
-  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
-  await expect(page).toHaveURL(/\/about-ap$/);
-  await page.reload();
-  await expect(page.locator("html")).toHaveAttribute("data-display-mode", "swiss");
-
-  await page.goto("/#work");
-  await page.getByRole("button", { name: "Resume display mode" }).click();
-  await expect(page).toHaveURL(/\/#work$/);
-  await expect(page.locator("#work")).toBeAttached();
-});
-
 test("navigation can be opened with the keyboard", async ({ page }) => {
   await page.goto("/about-ap");
-  const resume = page.getByRole("button", { name: "Resume display mode" });
-  await resume.focus();
-  await page.keyboard.press("Enter");
-  await expect(page.locator("html")).toHaveAttribute("data-display-mode", "resume");
-  const openMenu = page.getByRole("button", { name: "Open menu" });
-  await openMenu.focus();
-  await page.keyboard.press("Enter");
-  await expect(page.getByRole("navigation", { name: "Portfolio navigation" })).toBeVisible();
-  await page.keyboard.press("Escape");
-  await expect(page.getByRole("button", { name: "Open menu" })).toHaveAttribute("aria-expanded", "false");
+  const workLink = page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Work", exact: true });
+  await workLink.focus();
+  await expect(workLink).toBeFocused();
+  await expect(workLink).toHaveAttribute("href", "/#work");
 });
 
 test("creative native navigation opens and closes with the keyboard at normal motion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("/about-ap");
+  await page.goto("/");
   await page.mouse.wheel(0, 500);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.locator("#studio").scrollIntoViewIfNeeded();
   const openMenu = page.locator('[data-burger]');
   await expect(openMenu).toHaveAttribute("aria-hidden", "false");
   await openMenu.focus();
@@ -211,18 +183,23 @@ test("creative native navigation opens and closes with the keyboard at normal mo
   await expect.poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open)).toBe(true);
   await page.keyboard.press("Escape");
   await expect.poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open)).toBe(false);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: ".qa-results/creative-home-motion.png" });
 });
 
-test("engineering home has readable work content and links to the complete work page", async ({ page }) => {
+test("creative gallery follows the scroll and keeps focused project links in view", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Technical SEO, engineered for Next.js." })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Engineering evidence/ })).toBeVisible();
-  await page.getByRole("link", { name: /View technical work/ }).click();
-  await expect(page).toHaveURL(/\/work$/);
-  await expect(page.getByRole("heading", { name: "Evidence before promises." })).toBeVisible();
-  for (const project of ["Brownsmith Dynamics", "ELZA International", "Forme", "Autonomous Urban Mobility", "Excel Automation", "Chattybot"]) {
-    await expect(page.getByRole("heading", { name: project, exact: true })).toBeVisible();
-  }
+  await page.locator("#work").scrollIntoViewIfNeeded();
+  const lastLink = page.locator("#work .project-links a").last();
+  await lastLink.focus();
+  await expect(lastLink).toBeFocused();
+  await expect.poll(() => lastLink.evaluate(element => {
+    const bounds = element.getBoundingClientRect();
+    return bounds.left >= 0 && bounds.right <= window.innerWidth;
+  })).toBe(true);
+  await page.screenshot({ path: ".qa-results/creative-gallery-motion.png" });
 });
 
 test("metadata checker reports valid and invalid markup without a network request", async ({ page }) => {
@@ -254,20 +231,15 @@ test("metadata checker reports invalid canonical and JSON-LD separately", async 
   await expect(page.locator("li").filter({ hasText: "Canonical URL" })).toHaveClass(/border-red-500/);
 });
 
-test("200% text resizing remains usable on key routes in every display mode", async ({ page }) => {
+test("200% text resizing remains usable on key routes", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1440, height: 900 });
   for (const path of ["/", "/hire-ap", "/tools"]) {
     await page.goto(path);
     await page.addStyleTag({ content: "html { font-size: 200% !important; }" });
-    for (const mode of modes) {
-      const modeButton = page.getByRole("button", { name: `${mode[0].toUpperCase()}${mode.slice(1)} display mode` });
-      await modeButton.click();
-      await expect(page.locator("html")).toHaveAttribute("data-display-mode", mode);
-      await expect(page.getByRole("heading", { level: 1 }).first()).toBeVisible();
-      await expect(modeButton).toBeVisible();
-      await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(1441);
-    }
+    await expect(page.getByRole("heading", { level: 1 }).first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /display mode/i })).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(1441);
   }
 });
 
@@ -284,7 +256,7 @@ test("homepage content and metadata are present in server HTML without JavaScrip
   expect(html).toContain("Apnatva Singh Rawat");
   expect(html).toContain('rel="canonical"');
   expect(html).toContain('name="description"');
-  await expect(page.getByRole("heading", { name: "Technical SEO, engineered for Next.js.", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "A little particular.", level: 1 })).toBeVisible();
   expect(errors).toEqual([]);
   await context.close();
 });
@@ -362,17 +334,6 @@ test("hire API rejects honeypot, cross-origin, and oversized requests before sub
     data: { email: "qa@example.com", message: "x".repeat(17_000) },
   });
   expect(oversized.status()).toBe(413);
-});
-
-test("hire form values survive display mode changes", async ({ page }) => {
-  await page.goto("/hire-ap");
-  await page.getByLabel("Your email address").fill("qa@example.com");
-  await page.getByLabel("Your message").fill("Keep this draft while changing display modes.");
-  for (const mode of ["Resume", "Swiss", "Creative"]) {
-    await page.getByRole("button", { name: `${mode} display mode` }).click();
-    await expect(page.getByLabel("Your email address")).toHaveValue("qa@example.com");
-    await expect(page.getByLabel("Your message")).toHaveValue("Keep this draft while changing display modes.");
-  }
 });
 
 test("browser tools calculate results and report unavailable clipboard access", async ({ page }) => {

@@ -1,9 +1,7 @@
-import Link from "next/link";
-import { EngineeringNav } from "@/components/engineering-home";
-import { JsonLd } from "@/components/json-ld";
-import { portfolioContent } from "@/content/portfolio-content";
-import { breadcrumbs, pageMetadata } from "@/lib/metadata";
-export const metadata = pageMetadata("Technical work & projects", "Web architecture, performance-conscious delivery, local-first products, and automation projects by AP. Implementation evidence with clear limits on SEO outcome claims.", "/work");
+import WorkHorizontalScrollSection from "@/components/work";
+import { MorphingNav } from "@/components/navbar";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata("A few things I have made", "Websites, small tools, and experiments by Apnatva Singh Rawat.", "/work");
 export default function WorkPage() {
- return <div className="engineering-page"><EngineeringNav /><JsonLd data={breadcrumbs([{name:"Home",path:"/"},{name:"Work",path:"/work"}])} /><header className="engineering-closing"><p className="engineering-eyebrow">Selected engineering work</p><h1 className="text-4xl md:text-6xl">Evidence before promises.</h1><p className="mt-6">These projects show web delivery, content organisation, automation, and product engineering. Descriptions reflect existing project records, not independent SEO outcome audits. Client source repositories and field measurements are not available here.</p></header><div className="engineering-grid">{portfolioContent.projects.map(project => <article key={project.title}><p className="engineering-eyebrow">{project.category ?? "Web engineering"}</p><h2 className="mb-4 text-2xl">{project.title}</h2><ul className="space-y-3 mb-6">{project.points.map(point => <li key={point}>{point}</li>)}</ul><div className="engineering-links">{project.links.map(link => <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div></article>)}</div><section className="engineering-closing"><h2>Apply the engineering to your search infrastructure.</h2><p>For rendering, metadata, crawlability, and URL architecture, explore <Link className="underline" href="/services/technical-seo">Next.js technical SEO engineering</Link>. For repeatable workflows, explore <Link className="underline" href="/services/seo-automation">SEO automation</Link>.</p><div className="engineering-actions"><Link className="engineering-button" href="/hire-ap">Discuss a project ↗</Link><Link href="/writing">Read implementation guides →</Link></div></section></div>;
+  return <div className="atelier-page"><MorphingNav /><header className="work-page-intro"><span className="atelier-label">The work, collected</span><h1>A few things I’ve made.</h1><p>Some for clients. Some because I wanted them to exist.</p></header><WorkHorizontalScrollSection /></div>;
 }

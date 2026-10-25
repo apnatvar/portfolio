@@ -9,14 +9,9 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
-import gsap from "gsap";
 import {
   CircleAlert,
   CircleCheckBig,
-  Mail,
-  MessageCircle,
-  PhoneCallIcon,
   Send,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -24,15 +19,6 @@ import { useEffect, useRef, useState } from "react";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MESSAGE_LENGTH = 1200;
 const MAX_TEXTAREA_HEIGHT = 220;
-const HIRE_WORDS = [
-  "Technical SEO",
-  "Programmatic SEO",
-  "Next.js",
-  "TypeScript",
-  "Web Performance",
-  "AI-assisted Automation",
-];
-
 type ApiResponse = {
   success: boolean;
   message: string;
@@ -42,16 +28,7 @@ function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function HireAP({
-  landing,
-  presentation = "creative",
-}: {
-  landing: boolean;
-  presentation?: "creative" | "resume" | "swiss";
-}) {
-  const { mode } = useDisplayMode();
-  const rootRef = useRef<HTMLElement | null>(null);
-  const wordsRef = useRef<HTMLDivElement | null>(null);
+export function HireAP() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const submissionLockRef = useRef(false);
 
@@ -78,7 +55,6 @@ export function HireAP({
   const emailIsValid = EMAIL_REGEX.test(email.trim());
   const messageIsValid = message.trim().length > 0;
   const formIsValid = emailIsValid && messageIsValid && !isSubmitting;
-  const isAlternative = !landing && presentation !== "creative";
 
   function openDialog(
     type: "success" | "error",
@@ -98,77 +74,6 @@ export function HireAP({
     el.style.overflowY =
       el.scrollHeight > MAX_TEXTAREA_HEIGHT ? "auto" : "hidden";
   }, [message]);
-
-  useEffect(() => {
-    if (mode !== "creative") return;
-
-    const media = gsap.matchMedia();
-    media.add(
-      "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
-      () => {
-        if (!wordsRef.current) return;
-
-        const words = gsap.utils.toArray<HTMLElement>(
-          wordsRef.current.querySelectorAll("[data-word]"),
-        );
-
-        gsap.set(words, {
-          autoAlpha: 0,
-          x: 0,
-          y: 0,
-          skewX: 0,
-          skewY: 0,
-        });
-
-        const tl = gsap.timeline({
-          repeat: -1,
-          defaults: { ease: "power3.out" },
-        });
-
-        words.forEach((word, index) => {
-          const fromX = index % 2 === 0 ? 80 : -80;
-          const fromY = index % 3 === 0 ? -32 : 32;
-          const toX = index % 2 === 0 ? -90 : 90;
-          const toY = index % 3 === 0 ? 36 : -36;
-
-          tl.fromTo(
-            word,
-            {
-              autoAlpha: 0,
-              x: fromX,
-              y: fromY,
-              skewX: index % 2 === 0 ? -18 : 18,
-              skewY: index % 2 === 0 ? -7 : 7,
-            },
-            {
-              autoAlpha: 1,
-              x: 0,
-              y: 0,
-              skewX: 0,
-              skewY: 0,
-              duration: 0.42,
-            },
-          )
-            .to(word, {
-              autoAlpha: 1,
-              duration: 0.65,
-            })
-            .to(word, {
-              autoAlpha: 0,
-              x: toX,
-              y: toY,
-              skewX: index % 2 === 0 ? 20 : -20,
-              skewY: index % 2 === 0 ? 8 : -8,
-              duration: 0.34,
-              ease: "power3.in",
-            });
-        });
-      },
-      { scope: rootRef },
-    );
-
-    return () => media.revert();
-  }, [mode]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -238,31 +143,18 @@ export function HireAP({
   return (
     <>
       <section
-        ref={rootRef}
-        className={cn(
-          isAlternative
-            ? `hire-mode hire-mode--${presentation}`
-            : "mx-auto grid grid-cols-1 w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-8",
-          !isAlternative && (landing ? "md:max-w-4xl" : "md:grid-cols-2"),
-        )}
+        className="mx-auto grid w-full max-w-3xl gap-8 px-6 py-16 md:px-10 md:py-24"
       >
-        {isAlternative ? (
-          <header className="hire-mode-header">
-            <span>{presentation === "swiss" ? "CONTACT—AP" : "Hire Me"}</span>
-            <h1>Describe your requirement.</h1>
-          </header>
-        ) : !landing ? (
-          <header className="md:col-span-2" data-first-section>
-            <h1 className="text-4xl md:text-5xl">Describe your requirement.</h1>
-            <p className="mt-4 text-muted-foreground">For technical SEO, include the site URL, your goal or issue, relevant search or performance evidence, and any platform or delivery constraints. You can also email directly or book a call.</p>
-          </header>
-        ) : null}
+        <header data-first-section className="space-y-3">
+          <h1 className="font-italianno text-7xl leading-none md:text-9xl">Let’s make something good.</h1>
+          <p className="max-w-xl text-muted-foreground md:text-lg">Tell me a little about your web or design idea, and how I can help.</p>
+        </header>
         <form
           onSubmit={handleSubmit}
           noValidate
           className={cn(
             "flex flex-col justify-between gap-5 border border-border bg-background p-4 md:p-8",
-            isAlternative ? "hire-mode-form" : "rounded-3xl shadow-sm",
+            "rounded-3xl shadow-sm",
           )}
         >
           <div
@@ -280,41 +172,6 @@ export function HireAP({
               autoComplete="off"
             />
           </div>
-          {landing ? (
-            <></>
-          ) : (
-            <div className="flex flex-wrap gap-3">
-              <Button asChild className={isAlternative ? "hire-mode-button" : "rounded-full"}>
-                <a href="mailto:rawat@apnatva.dev">
-                  <Mail className="mr-2 size-4" />
-                  Mail
-                </a>
-              </Button>
-
-              <Button asChild variant="secondary" className={isAlternative ? "hire-mode-button" : "rounded-full"}>
-                <a
-                  href="https://wa.me/918791414856"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <MessageCircle className="mr-2 size-4" />
-                  WhatsApp
-                </a>
-              </Button>
-
-              <Button asChild variant="secondary" className={isAlternative ? "hire-mode-button" : "rounded-full"}>
-                <a
-                  href="https://cal.eu/apnatva/15min"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <PhoneCallIcon className="mr-2 size-4" />
-                  Book a Call
-                </a>
-              </Button>
-            </div>
-          )}
-
           <div className="space-y-2">
             <label htmlFor="hire-email" className="sr-only">Your email address</label>
             <Input
@@ -331,7 +188,7 @@ export function HireAP({
               aria-invalid={emailTouched && !emailIsValid}
               className={cn(
                 "h-12",
-                isAlternative ? "rounded-[var(--radius)]" : "rounded-2xl",
+                "rounded-2xl",
                 emailTouched &&
                   !emailIsValid &&
                   "border-destructive focus-visible:ring-destructive/30",
@@ -354,7 +211,7 @@ export function HireAP({
               aria-describedby="hire-message-help"
               ref={textareaRef}
               value={message}
-              placeholder="Write your message"
+              placeholder="What are you thinking of making?"
               onBlur={() => setMessageTouched(true)}
               onChange={(e) => {
                 if (e.target.value.length <= MAX_MESSAGE_LENGTH) {
@@ -364,7 +221,7 @@ export function HireAP({
               aria-invalid={messageTouched && !messageIsValid}
               className={cn(
                 "min-h-[120px] resize-none leading-6",
-                isAlternative ? "rounded-[var(--radius)]" : "rounded-2xl",
+                "rounded-2xl",
                 messageTouched &&
                   !messageIsValid &&
                   "border-destructive focus-visible:ring-destructive/30",
@@ -375,7 +232,7 @@ export function HireAP({
               <span>
                 {messageTouched && !messageIsValid
                   ? "Message cannot be empty."
-                  : "Describe your requirement."}
+                  : "A few details are plenty to start."}
               </span>
               <span>
                 {message.length}/{MAX_MESSAGE_LENGTH}
@@ -386,34 +243,12 @@ export function HireAP({
           <Button
             type="submit"
             disabled={!formIsValid}
-            className={cn("h-12", isAlternative ? "rounded-[var(--radius)]" : "rounded-2xl")}
+            className="h-12 rounded-2xl"
           >
             <Send className="mr-2 size-4" />
             {isSubmitting ? "Submitting..." : "Submit"}
           </Button>
         </form>
-        {landing ? (
-          <></>
-        ) : (
-          <div aria-hidden={isAlternative ? undefined : true} className={isAlternative ? "hire-mode-capabilities" : "relative hidden min-h-80 h-full overflow-hidden rounded-3xl border border-border bg-muted/20 md:block motion-reduce:hidden"}>
-            {!isAlternative ? <div className="absolute inset-0 bg-gradient-to-br from-transparent via-muted/30 to-transparent" /> : null}
-
-            <div
-              ref={wordsRef}
-              className={isAlternative ? "hire-mode-words" : "relative flex h-full items-center justify-center"}
-            >
-              {HIRE_WORDS.map((word) => (
-                <span
-                  key={word}
-                  data-word
-                  className={isAlternative ? "hire-mode-word" : "pointer-events-none whitespace-nowrap text-4xl font-semibold uppercase text-foreground/90 lg:text-4xl w-full absolute text-center"}
-                >
-                  {word}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="sm:max-w-md">

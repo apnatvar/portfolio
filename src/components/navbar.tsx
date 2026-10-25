@@ -1,8 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
-import { ThemedMenu } from "@/components/themed-menu";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -88,63 +86,21 @@ function APSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
       <p className="text-xs md:text-sm">
-        India-based Next.js Technical SEO Engineer specialising in programmatic
-        SEO, AI-assisted automation, and web performance for remote teams worldwide.
-      </p>
-    </div>
-  );
-}
-
-function ServicesSubComponent() {
-  return (
-    <div className="flex max-w-2xl flex-col items-center justify-center">
-      <p className="text-xs md:text-sm">
-        Technical SEO, programmatic SEO, TypeScript implementation, AI-assisted
-        automation, and performance work for Next.js websites.
+        Design, code, and the occasional detour. Based in
+        India, usually somewhere between a sketch and an open code editor.
       </p>
     </div>
   );
 }
 
 const navItems: NavItem[] = [
-  {
-    label: "Hire Me",
-    href: "/hire-ap",
-    SubComponent: HireAPSubComponent,
-  },
-  {
-    label: "Work",
-    href: "/work",
-    SubComponent: WorkSubComponent,
-  },
-  {
-    label: "Services",
-    href: "/services",
-    SubComponent: ServicesSubComponent,
-  },
-  {
-    label: "About",
-    href: "/about-ap",
-    SubComponent: APSubComponent,
-  },
-  {
-    label: "Tools",
-    href: "/tools",
-    SubComponent: ServicesSubComponent,
-  },
-  {
-    label: "Writing",
-    href: "/writing",
-    SubComponent: ServicesSubComponent,
-  },
+  { label: "Work", href: "/#work", SubComponent: WorkSubComponent },
+  { label: "About", href: "/about-ap", SubComponent: APSubComponent },
+  { label: "Say hello", href: "/#contact", SubComponent: HireAPSubComponent },
 ];
-
 export function MorphingNav() {
-  const { mode } = useDisplayMode();
-
-  return mode === "creative" ? <CreativeMorphingNav /> : <ThemedMenu />;
+  return <CreativeMorphingNav />;
 }
-
 function CreativeMorphingNav() {
   const navRef = useRef<HTMLDivElement | null>(null);
   const pillRef = useRef<HTMLDivElement | null>(null);
@@ -267,7 +223,7 @@ function CreativeMorphingNav() {
       >
         <div
           ref={pillRef}
-          className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between bg-background"
+          className="mx-auto flex h-14 w-full max-w-sm items-center justify-around rounded-full border border-foreground/15 bg-background/90 px-5 backdrop-blur-md"
         >
           {navItems.map((item) => (
             <Button
@@ -331,11 +287,7 @@ function CreativeMorphingNav() {
               ))}
             </div>
           </div>
-          <div className="mt-6 flex justify-center gap-6">
-            <Link href="/tools" onClick={() => setIsOpen(false)}>Tools</Link>
-            <Link href="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
-            <Link href="/links" onClick={() => setIsOpen(false)}>Links</Link>
-          </div>
+
           <div className="absolute right-4 top-4">
             <Button
               type="button"
