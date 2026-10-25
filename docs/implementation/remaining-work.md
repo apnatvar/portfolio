@@ -1,0 +1,10 @@
+# Remaining owner work
+
+1. Review local changes and deploy through the site's existing hosting workflow. This task does not deploy or commit. Verify canonical-host HTTP/HTTPS and www redirects on hosting; source checks alone cannot establish production routing.
+2. Verify Search Console ownership and submit `https://apnatva.dev/sitemap.xml` after deployment. Inspect representative new service, guide, work and tool URLs; review Google-selected canonicals and indexing over time. No authenticated Search Console data was available.
+3. Confirm the existing deployment's three server-side Google Form settings and perform an owner-controlled real receipt check. Automated QA intercepts valid submissions and checks only invalid requests against the real local API. Configure hosting-level rate limits if spam requires them; honeypot/origin/body guards are basic controls, not a distributed abuse service.
+4. Decide whether GA4 and/or Microsoft Clarity are needed, then configure privacy/consent policy and non-personal conversion events. No analytics trackers or invented credentials were added. Search Console, Bing Webmaster Tools and field Web Vitals require owner access and an observation window.
+5. Review project descriptions against client-approved source or case studies before adding stronger architecture or outcome claims. There are no independent ranking, traffic, revenue or performance result claims here.
+6. Update LinkedIn, GitHub profile bio, booking description and other external profiles to match the new professional identity. No external messages/profile changes were authorized or performed.
+7. Use the resource backlog for future SEO agent skills. No public skill download or source repository is currently claimed. Expand content with measured repository examples as evidence becomes available.
+8. Monitor current production pages after release for field LCP/INP/CLS and conversion signals. Lab-only measurements and local first-load estimates cannot certify field Core Web Vitals.

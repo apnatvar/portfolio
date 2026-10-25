@@ -104,6 +104,8 @@ export default function DecisionConfidenceCalculatorPage() {
             <Link className="underline underline-offset-4" href="/tools/developer-focus-planner">Developer Focus Planner</Link>
             <Link className="underline underline-offset-4" href="/hire-ap">Web development services</Link>
             <Link className="underline underline-offset-4" href="/about-ap">About AP</Link>
+            <Link className="underline underline-offset-4" href="/services/seo-automation">SEO automation service</Link>
+            <Link className="underline underline-offset-4" href="/writing">Technical SEO field guides</Link>
           </div>
         </nav>
       </section>

@@ -1,25 +1,25 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, BrainCircuit, TimerReset } from "lucide-react";
+import { ArrowRight, BrainCircuit, CodeXml, TimerReset } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Developer and Decision Tools | AP" },
+  title: { absolute: "Technical SEO & Developer Tools | AP" },
   description:
-    "Free browser-based tools for planning focused development work and evaluating decision readiness. No accounts, uploads or data storage.",
+    "Check pasted HTML metadata and plan development work with free browser-local tools. No account or upload required.",
   alternates: { canonical: "/tools" },
   openGraph: {
-    title: "Free Developer and Decision Tools | AP",
+    title: "Technical SEO & Developer Tools | AP",
     description:
-      "Plan focused development work and evaluate decision readiness with private browser-based tools.",
+      "Inspect HTML metadata and plan development work with browser-local utilities.",
     url: "/tools",
     images: ["/4.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Developer and Decision Tools | AP",
+    title: "Technical SEO & Developer Tools | AP",
     description:
-      "Private, browser-based tools for focused work and clearer decisions.",
+      "HTML metadata checks and focused development planning, locally in your browser.",
     images: ["/4.webp"],
   },
   robots: { index: true, follow: true },
@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 
 const tools = [
   {
+    category: "Plan",
     href: "/tools/developer-focus-planner",
     title: "Developer Focus Planner",
     description:
@@ -34,11 +35,19 @@ const tools = [
     icon: TimerReset,
   },
   {
+    category: "Plan",
     href: "/tools/decision-confidence-calculator",
     title: "Decision Confidence Calculator",
     description:
       "Score evidence, risk, urgency and reversibility to choose a sensible next move.",
     icon: BrainCircuit,
+  },
+  {
+    category: "Check",
+    href: "/tools/metadata-checker",
+    title: "HTML Metadata Checker",
+    description: "Inspect pasted HTML locally for title, description, canonical syntax, robots meta, H1s and parseable JSON-LD.",
+    icon: CodeXml,
   },
 ];
 
@@ -52,15 +61,17 @@ export default function ToolsPage() {
         Useful tools, without an account.
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-        Two deterministic tools for structuring focused work and assessing whether a decision is ready. Everything stays in this browser tab.
+        Browser-based helpers for planning focused work, reviewing a decision framework, and checking selected HTML markup. Each tool explains its scope and limitations.
       </p>
 
-      <section className="mt-10 grid gap-4 md:grid-cols-2" aria-label="Available tools">
-        {tools.map(({ href, title, description, icon: Icon }) => (
+      {["Plan", "Check"].map((category) => <section key={category} className="mt-10" aria-label={`${category} tools`}>
+        <h2 className="mb-4 text-xl font-medium">{category}</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+        {tools.filter((tool) => tool.category === category).map(({ href, title, description, icon: Icon }) => (
           <Card key={href} className="group transition-colors hover:border-foreground/40">
             <CardHeader>
               <Icon aria-hidden="true" className="mb-5 size-8 text-muted-foreground" />
-              <CardTitle className="text-2xl font-medium"><h2>{title}</h2></CardTitle>
+              <CardTitle className="text-2xl font-medium"><h3>{title}</h3></CardTitle>
               <CardDescription className="max-w-md leading-6">{description}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -73,7 +84,8 @@ export default function ToolsPage() {
             </CardContent>
           </Card>
         ))}
-      </section>
+        </div>
+      </section>)}
     </div>
   );
 }

@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { WORDS } from "@/lib/words";
 import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import gsap from "gsap";
 import {
@@ -25,6 +24,14 @@ import { useEffect, useRef, useState } from "react";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MESSAGE_LENGTH = 1200;
 const MAX_TEXTAREA_HEIGHT = 220;
+const HIRE_WORDS = [
+  "Technical SEO",
+  "Programmatic SEO",
+  "Next.js",
+  "TypeScript",
+  "Web Performance",
+  "AI-assisted Automation",
+];
 
 type ApiResponse = {
   success: boolean;
@@ -50,6 +57,7 @@ export function HireAP({
 
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [website, setWebsite] = useState("");
 
   const [emailTouched, setEmailTouched] = useState(false);
   const [messageTouched, setMessageTouched] = useState(false);
@@ -194,6 +202,7 @@ export function HireAP({
         body: JSON.stringify({
           email: email.trim(),
           message: message.trim(),
+          website,
         }),
       });
 
@@ -210,6 +219,7 @@ export function HireAP({
 
       setEmail("");
       setMessage("");
+      setWebsite("");
       setEmailTouched(false);
       setMessageTouched(false);
 
@@ -244,7 +254,7 @@ export function HireAP({
         ) : !landing ? (
           <header className="md:col-span-2" data-first-section>
             <h1 className="text-4xl md:text-5xl">Describe your requirement.</h1>
-            <p className="mt-4 text-muted-foreground">Send a project enquiry, email directly or book a call.</p>
+            <p className="mt-4 text-muted-foreground">For technical SEO, include the site URL, your goal or issue, relevant search or performance evidence, and any platform or delivery constraints. You can also email directly or book a call.</p>
           </header>
         ) : null}
         <form
@@ -255,6 +265,21 @@ export function HireAP({
             isAlternative ? "hire-mode-form" : "rounded-3xl shadow-sm",
           )}
         >
+          <div
+            aria-hidden="true"
+            className="absolute -left-[10000px] h-px w-px overflow-hidden"
+          >
+            <label htmlFor="hire-website">Leave this field empty</label>
+            <input
+              id="hire-website"
+              name="website"
+              type="text"
+              value={website}
+              onChange={(event) => setWebsite(event.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           {landing ? (
             <></>
           ) : (
@@ -377,7 +402,7 @@ export function HireAP({
               ref={wordsRef}
               className={isAlternative ? "hire-mode-words" : "relative flex h-full items-center justify-center"}
             >
-              {WORDS.map((word) => (
+              {HIRE_WORDS.map((word) => (
                 <span
                   key={word}
                   data-word

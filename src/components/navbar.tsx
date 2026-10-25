@@ -88,9 +88,8 @@ function APSubComponent() {
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl">
       <p className="text-xs md:text-sm">
-        I approach software from the top down: understand the wider objective,
-        organize the system, then build the details. My work combines full-stack
-        development, design, automation, and analytical thinking.
+        India-based Next.js Technical SEO Engineer specialising in programmatic
+        SEO, AI-assisted automation, and web performance for remote teams worldwide.
       </p>
     </div>
   );
@@ -100,8 +99,8 @@ function ServicesSubComponent() {
   return (
     <div className="flex max-w-2xl flex-col items-center justify-center">
       <p className="text-xs md:text-sm">
-        Next.js development, web automation, and full-stack product delivery
-        for founders and teams.
+        Technical SEO, programmatic SEO, TypeScript implementation, AI-assisted
+        automation, and performance work for Next.js websites.
       </p>
     </div>
   );
@@ -115,7 +114,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "Work",
-    href: "/#work",
+    href: "/work",
     SubComponent: WorkSubComponent,
   },
   {
@@ -127,6 +126,16 @@ const navItems: NavItem[] = [
     label: "About",
     href: "/about-ap",
     SubComponent: APSubComponent,
+  },
+  {
+    label: "Tools",
+    href: "/tools",
+    SubComponent: ServicesSubComponent,
+  },
+  {
+    label: "Writing",
+    href: "/writing",
+    SubComponent: ServicesSubComponent,
   },
 ];
 
@@ -324,6 +333,7 @@ function CreativeMorphingNav() {
           </div>
           <div className="mt-6 flex justify-center gap-6">
             <Link href="/tools" onClick={() => setIsOpen(false)}>Tools</Link>
+            <Link href="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
             <Link href="/links" onClick={() => setIsOpen(false)}>Links</Link>
           </div>
           <div className="absolute right-4 top-4">

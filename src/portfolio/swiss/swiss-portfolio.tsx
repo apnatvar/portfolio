@@ -11,7 +11,7 @@ export function SwissPortfolio({ content }: { content: PortfolioContent }) {
       <header className="swiss-hero">
         <div className="swiss-kicker"><span>AP—2026</span><span>DEHRADUN / INDIA</span></div>
         <nav aria-label="Portfolio sections" className="col-span-full mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm underline underline-offset-4">
-          <a href="#work">Selected work</a><a href="#experience">Experience</a><Link href="/tools">Tools</Link><Link href="/links">Links</Link><Link href="/hire-ap">Contact AP</Link>
+          <a href="#work">Selected work</a><a href="#experience">Experience</a><Link href="/work">Work</Link><Link href="/services">Services</Link><Link href="/tools">Tools</Link><Link href="/writing">Writing</Link><Link href="/links">Links</Link><Link href="/hire-ap">Contact AP</Link>
         </nav>
         <p className="swiss-hello">{content.hero.greeting}</p>
         <h1>{content.hero.name}</h1>
@@ -81,7 +81,7 @@ export function SwissPortfolio({ content }: { content: PortfolioContent }) {
 
         <section className="swiss-contact" id="contact">
           <SwissLabel index="05" title="Contact" />
-          <p>Always ready for an adventure.</p>
+          <p>Need technical SEO for a Next.js site? Share the URL, goal, evidence, and constraints.</p>
           <a className="swiss-email" href={`mailto:${content.contact.email}`}>{content.contact.email}</a>
           <div>
             <a href={content.contact.booking} target="_blank" rel="noreferrer">Book a Call</a>

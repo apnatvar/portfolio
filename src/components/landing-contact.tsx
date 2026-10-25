@@ -61,12 +61,15 @@ const navItems: NavItem[] = [
   },
   {
     label: "Work",
-    href: "#work",
+    href: "/work",
   },
   {
     label: "About",
     href: "/about-ap",
   },
+  { label: "Services", href: "/services" },
+  { label: "Tools", href: "/tools" },
+  { label: "Writing", href: "/writing" },
 ];
 
 export function WordCarousel({ words, direction }: WordCarouselProps) {
@@ -247,7 +250,7 @@ export default function ContactSection() {
           <div ref={imageRef}>
             <Image
               src="/4.webp"
-              alt="Apnatva Singh Rawat Designer/Developer/Writer"
+              alt="Apnatva Singh Rawat, Next.js Technical SEO Engineer"
               width={200}
               height={200}
               className="rounded-full object-cover aspect-square"

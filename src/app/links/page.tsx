@@ -40,7 +40,7 @@ const brownsmithDynamicsUrls = [
 const linkGroups: LinkGroup[] = [
   {
     title: "Primary",
-    description: "Developer Website.",
+    description: "Portfolio of an India-based Next.js Technical SEO Engineer working remotely worldwide.",
     links: [
       {
         label: "Personal Website",
@@ -174,9 +174,11 @@ export const metadata: Metadata = {
     absolute: "Official Links for Apnatva | AP",
   },
   description:
-    "The official, self-verified directory of websites, profiles, accounts, contact details, and properties owned or controlled by Apnatva, founder of Brownsmith Dynamics.",
+    "Official links and contact details for Apnatva Singh Rawat, an India-based Next.js Technical SEO Engineer specialising in programmatic SEO, AI-assisted automation, and web performance.",
   keywords: [
     "Apnatva official links",
+    "Next.js Technical SEO Engineer",
+    "programmatic SEO India",
     "Apnatva verified profiles",
     "Apnatva Singh Rawat",
     "AP official website",
@@ -192,7 +194,7 @@ export const metadata: Metadata = {
     type: "profile",
     title: "Official Links for Apnatva",
     description:
-      "A self-verified directory of Apnatva's official profiles, properties, contact details, and Brownsmith Dynamics links.",
+      "Official profiles and contact details for Apnatva, a Next.js Technical SEO Engineer based in India and working remotely worldwide.",
     url: "/links",
     siteName: "AP",
     images: [
@@ -208,7 +210,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Official Links for Apnatva",
     description:
-      "Apnatva's official, self-verified profiles, properties, contact details, and Brownsmith Dynamics links.",
+      "Official profiles and contact details for Apnatva, a Next.js Technical SEO Engineer based in India and working remotely worldwide.",
     images: ["/4.webp"],
   },
 };
@@ -224,7 +226,13 @@ const structuredData = {
       description:
         "The official directory of online identities, properties, and contact channels maintained by Apnatva.",
       mainEntity: {
+        "@type": "Person",
         "@id": PERSON_ID,
+        name: "Apnatva Singh Rawat",
+        jobTitle: "Next.js Technical SEO Engineer",
+        description:
+          "India-based engineer specialising in technical SEO, programmatic SEO, AI-assisted automation, and web performance for remote teams worldwide.",
+        url: SITE_URL,
       },
       isPartOf: { "@id": WEBSITE_ID },
       about: [

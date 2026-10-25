@@ -105,7 +105,7 @@ export default function ProfileSplitSection() {
                 >
                   <Image
                     src={src}
-                    alt={`Apnatva Singh Rawat Designer/Developer/Writer ${index + 1}`}
+                    alt={`Apnatva Singh Rawat, Next.js Technical SEO Engineer, image ${index + 1}`}
                     fill
                     priority={index === 0}
                     className="object-cover"

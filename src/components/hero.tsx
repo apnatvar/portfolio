@@ -151,9 +151,9 @@ export default function HeroGridReveal() {
     >
       <header className="mx-auto mb-16 max-w-3xl text-center">
         <h1 className="font-manrope text-3xl leading-tight md:text-5xl">{portfolioContent.hero.name}</h1>
-        <p className="mt-4 text-lg">Full-stack developer building websites, APIs and automation.</p>
+        <p className="mt-4 text-lg">Next.js Technical SEO Engineer specialising in TypeScript, programmatic SEO, AI-assisted automation, and web performance. Based in India, working remotely worldwide.</p>
         <nav aria-label="Explore the portfolio" className="mt-6 flex flex-wrap justify-center gap-3">
-          <Button asChild><Link href="/#work">Selected work</Link></Button>
+          <Button asChild><Link href="/work">Selected work</Link></Button>
           <Button asChild variant="secondary"><Link href="/hire-ap">Contact AP</Link></Button>
           <Button asChild variant="outline"><Link href="#experience">Experience</Link></Button>
           <Button asChild variant="outline"><Link href="/tools">Tools</Link></Button>
@@ -184,21 +184,21 @@ export default function HeroGridReveal() {
           className="font-italianno col-start-1 col-span-3 row-start-5 max-md:row-span-2 flex items-center justify-center gap-3 text-8xl leading-none md:col-start-3 md:col-span-3 md:row-start-3 md:text-9xl transition-all hover:tracking-widest duration-500"
         >
           <Keyboard className="size-10 shrink-0 md:size-20" />
-          <SplitLetters text="Designer" />
+          <SplitLetters text="SEO Engineer" />
         </span>
 
         <span
           data-word-reveal
           className="col-start-1 col-span-3 row-start-7 text-base text-muted-foreground md:col-start-4 md:col-span-2 md:row-start-3 md:row-span-2 md:text-lg"
         >
-          <SplitWords text="Clear interfaces for real people and real tasks." />
+          <SplitWords text="Technical SEO systems for Next.js and TypeScript websites." />
         </span>
 
         <span
           data-large-reveal
           className="font-italianno col-start-1 col-span-3 max-md:row-span-2 row-start-8 flex items-center justify-center gap-3 text-8xl leading-none md:col-start-1 md:col-span-3 md:row-start-4 md:text-9xl transition-all hover:tracking-widest duration-500"
         >
-          <SplitLetters text="Developer" />
+          <SplitLetters text="Automation" />
           <Code2 className="size-10 shrink-0 md:size-20" />
         </span>
 
@@ -206,7 +206,7 @@ export default function HeroGridReveal() {
           data-word-reveal
           className="col-start-1 col-span-3 row-start-10 text-base text-muted-foreground md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2 md:text-lg"
         >
-          <SplitWords text="Websites and tools that work beyond the demo." />
+          <SplitWords text="Programmatic SEO, AI-assisted workflows, and web performance." />
         </span>
 
         <span
@@ -214,7 +214,7 @@ export default function HeroGridReveal() {
           className="font-italianno col-start-1 col-span-3 max-md:row-span-2 row-start-11 flex items-center justify-center gap-3 text-8xl leading-none md:col-start-2 md:col-span-3 md:row-start-5 md:text-9xl transition-all hover:tracking-widest duration-500"
         >
           <PenLine className="size-10 shrink-0 md:size-20" />
-          <SplitLetters text="Writer" />
+          <SplitLetters text="Engineer" />
         </span>
 
         <span
@@ -243,7 +243,7 @@ export default function HeroGridReveal() {
             </Link>
           </Button>
           <Button asChild data-button-reveal variant="secondary">
-            <Link href={"/#work"} className="hover:opacity-80">
+            <Link href={"/work"} className="hover:opacity-80">
               Work
             </Link>
           </Button>

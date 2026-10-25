@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test:tools": "tsc -p tsconfig.tools-tests.json && node .tool-tests/tests/tools-logic.test.js",
     "qa:browser": "playwright test",
-    "qa:lighthouse": "node scripts/measure-performance.mjs"
+    "qa:lighthouse": "node scripts/measure-performance.mjs",
+    "qa:seo": "node scripts/validate-seo.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

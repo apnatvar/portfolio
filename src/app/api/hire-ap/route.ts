@@ -4,14 +4,40 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MESSAGE_LENGTH = 1200;
 
 type HireApnatvaPayload = {
+  website?: unknown;
   email?: unknown;
   message?: unknown;
 };
 
 export async function POST(req: Request) {
+  const origin = req.headers.get("origin");
+  if (origin && origin !== new URL(req.url).origin && origin !== "https://apnatva.dev") {
+    return NextResponse.json({ success: false, message: "Request origin is not allowed." }, { status: 403 });
+  }
+  if (Number(req.headers.get("content-length")) > 16384) {
+    return NextResponse.json({ success: false, message: "Request is too large." }, { status: 413 });
+  }
   let body: HireApnatvaPayload;
   try {
-    const parsed: unknown = await req.json();
+    const reader = req.body?.getReader();
+    const chunks: Uint8Array[] = [];
+    let bytes = 0;
+    if (reader) {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        bytes += value.byteLength;
+        if (bytes > 16384) {
+          await reader.cancel();
+          return NextResponse.json({ success: false, message: "Request is too large." }, { status: 413 });
+        }
+        chunks.push(value);
+      }
+    }
+    const merged = new Uint8Array(bytes);
+    let offset = 0;
+    for (const chunk of chunks) { merged.set(chunk, offset); offset += chunk.byteLength; }
+    const parsed: unknown = JSON.parse(new TextDecoder().decode(merged));
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
       return NextResponse.json({ success: false, message: "Invalid request body." }, { status: 400 });
     }
@@ -21,6 +47,9 @@ export async function POST(req: Request) {
   }
   try {
 
+    if (body.website !== undefined && body.website !== "") {
+      return NextResponse.json({ success: false, message: "Submission could not be accepted." }, { status: 400 });
+    }
     const email = typeof body.email === "string" ? body.email.trim() : "";
     const message = typeof body.message === "string" ? body.message.trim() : "";
 

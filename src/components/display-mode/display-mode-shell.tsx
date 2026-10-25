@@ -1,9 +1,9 @@
 "use client";
 
-import SmoothScrollProvider from "@/components/smooth-scroll";
+import dynamic from "next/dynamic";
+const SmoothScrollProvider = dynamic(() => import("@/components/smooth-scroll"));
 import { SiteFooter } from "@/components/footer";
 import { DisplayModeSwitcher } from "./display-mode-switcher";
-import { DisplayModePrompt } from "./display-mode-prompt";
 import { useDisplayMode } from "./display-mode-provider";
 import { usePathname } from "next/navigation";
 
@@ -27,8 +27,7 @@ export function DisplayModeShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <SmoothScrollProvider enabled={mode === "creative"}>{content}</SmoothScrollProvider>
-      <DisplayModePrompt />
+      {["/about-ap", "/hire-ap"].includes(pathname) ? <SmoothScrollProvider enabled={mode === "creative"}>{content}</SmoothScrollProvider> : content}
       <DisplayModeSwitcher />
     </>
   );

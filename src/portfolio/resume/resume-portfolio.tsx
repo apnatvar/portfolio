@@ -31,7 +31,10 @@ export function ResumePortfolio({ content }: { content: PortfolioContent }) {
           ["Experience", "experience"],
           ["Contact", "contact"],
         ].map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
+        <Link href="/work">Work</Link>
+        <Link href="/services">Services</Link>
         <Link href="/tools">Tools</Link>
+        <Link href="/writing">Writing</Link>
         <Link href="/links">Links</Link>
       </nav>
 
@@ -90,7 +93,7 @@ export function ResumePortfolio({ content }: { content: PortfolioContent }) {
         <section id="contact" className="resume-section resume-contact">
           <SectionHeading index="05" title="Contact" />
           <div className="resume-section-body">
-            <h2>Always ready for an adventure.</h2>
+            <h2>Need technical SEO for a Next.js site? Tell me about your goals and constraints.</h2>
             <div className="resume-contact-links">
               <a href={`mailto:${content.contact.email}`}>{content.contact.email}</a>
               {content.contact.links.map((link) => <Link key={link.label} href={link.href} target="_blank">{link.label}</Link>)}

@@ -1,0 +1,87 @@
+# Significant files changed
+
+- `src/components/engineering-home.tsx`, `src/app/page.tsx`, `src/app/globals.css`, and `src/portfolio/portfolio-renderer.tsx`: specialist server-rendered homepage and alternate display handling.
+- `src/content/portfolio-content.ts`, About/Hire metadata and components, navigation/footer, resume/Swiss renderers: consistent professional identity, preserved project history and international contact.
+- `src/content/service-pages.ts`, `src/app/services/`, `src/components/service-page.tsx`: four distinct specialist services plus retained legacy routes, schema and contextual resources.
+- `src/content/writing.ts`, `src/app/writing/`, `src/app/work/`, `src/app/tools/`, `src/components/tools/metadata-checker.tsx`: three practical guides, project index, local metadata checker and existing-tool crosslinks.
+- `src/app/layout.tsx`, `src/lib/site.ts`, `src/lib/metadata.ts`, `src/lib/routes.ts`, sitemap, machine-summary routes, and `src/app/opengraph-image.tsx`: metadata, entity identity, canonical discovery and generated social artwork.
+- `src/components/display-mode/display-mode-shell.tsx`, `src/components/hire.tsx`, `src/app/api/hire-ap/route.ts`: restrained global runtime, stable draft handling and contact safeguards.
+- `scripts/validate-seo.mjs`, `tests/portfolio.spec.ts`, `package.json`, `.github/workflows/quality.yml`: deterministic SEO checks, expanded browser regression and CI.
+- `README.md`, `.gitignore`, `docs/strategy/`, `docs/brand/`, `docs/seo/`, `docs/implementation/`: implementation, evidence, maintenance and roadmap documentation.
+
+No dependency versions changed. No commit or deployment was made. Generated browser/Lighthouse artifacts remain ignored.
+
+## Complete working-tree file inventory
+
+- `.github/workflows/quality.yml`
+- `.gitignore`
+- `README.md`
+- `docs/brand/claims-and-evidence.md`
+- `docs/brand/messaging.md`
+- `docs/brand/portfolio-guidelines.md`
+- `docs/brand/writing-style.md`
+- `docs/implementation/change-log.md`
+- `docs/implementation/plan.md`
+- `docs/implementation/remaining-work.md`
+- `docs/implementation/resource-backlog.md`
+- `docs/implementation/validation-results.md`
+- `docs/seo/analytics.md`
+- `docs/seo/internal-linking.md`
+- `docs/seo/metadata-strategy.md`
+- `docs/seo/performance-baseline.md`
+- `docs/seo/programmatic-seo.md`
+- `docs/seo/seo-validation.md`
+- `docs/seo/structured-data.md`
+- `docs/seo/technical-audit.md`
+- `docs/strategy/content-strategy.md`
+- `docs/strategy/global-growth-roadmap.md`
+- `docs/strategy/information-architecture.md`
+- `docs/strategy/keyword-strategy.md`
+- `docs/strategy/positioning.md`
+- `docs/strategy/target-audience.md`
+- `package.json`
+- `scripts/validate-seo.mjs`
+- `src/app/about-ap/page.tsx`
+- `src/app/api/hire-ap/route.ts`
+- `src/app/globals.css`
+- `src/app/hire-ap/layout.tsx`
+- `src/app/layout.tsx`
+- `src/app/links/page.tsx`
+- `src/app/llms-full.txt/route.ts`
+- `src/app/llms.txt/route.ts`
+- `src/app/opengraph-image.tsx`
+- `src/app/page.tsx`
+- `src/app/services/[slug]/page.tsx`
+- `src/app/services/page.tsx`
+- `src/app/sitemap.ts`
+- `src/app/tools/decision-confidence-calculator/page.tsx`
+- `src/app/tools/developer-focus-planner/page.tsx`
+- `src/app/tools/metadata-checker/page.tsx`
+- `src/app/tools/page.tsx`
+- `src/app/work/page.tsx`
+- `src/app/writing/[slug]/page.tsx`
+- `src/app/writing/page.tsx`
+- `src/components/about.tsx`
+- `src/components/display-mode/display-mode-shell.tsx`
+- `src/components/engineering-home.tsx`
+- `src/components/footer.tsx`
+- `src/components/hero.tsx`
+- `src/components/hire.tsx`
+- `src/components/landing-contact.tsx`
+- `src/components/navbar.tsx`
+- `src/components/service-page.tsx`
+- `src/components/services.tsx`
+- `src/components/themed-menu.tsx`
+- `src/components/tools/metadata-checker.tsx`
+- `src/content/portfolio-content.ts`
+- `src/content/service-pages.ts`
+- `src/content/writing.ts`
+- `src/lib/machine-overview.ts`
+- `src/lib/metadata.ts`
+- `src/lib/routes.ts`
+- `src/lib/site.ts`
+- `src/portfolio/hire/creative-hire.tsx`
+- `src/portfolio/portfolio-renderer.tsx`
+- `src/portfolio/resume/resume-portfolio.tsx`
+- `src/portfolio/swiss/swiss-portfolio.tsx`
+- `tests/portfolio.spec.ts`

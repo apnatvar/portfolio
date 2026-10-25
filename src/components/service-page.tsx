@@ -2,10 +2,7 @@ import { ArrowRight, Check, MoveUpRight } from "lucide-react";
 import Link from "next/link";
 
 import { MorphingNav } from "@/components/navbar";
-import {
-  SERVICE_PRICING,
-  type ServicePageContent,
-} from "@/content/service-pages";
+import type { ServicePageContent } from "@/content/service-pages";
 
 export function ServicePage({
   service,
@@ -33,8 +30,6 @@ export function ServicePage({
             </Link>
           </div>
         </section>
-
-        <ServicePricing />
 
         <section className="service-section service-fit" id="fit">
           <ServiceSectionHeading number="01" title="A good fit when" />
@@ -110,6 +105,22 @@ export function ServicePage({
           </div>
         </section>
 
+        <section className="service-section service-related" aria-label="More resources">
+          <ServiceSectionHeading number="07" title="More resources" />
+          <div>
+            {service.resources?.map((resource) => (
+              <Link key={resource.href} href={resource.href}>
+                <span>{resource.title}</span>
+                <MoveUpRight aria-hidden="true" />
+              </Link>
+            ))}
+            <Link href="/work"><span>Selected work</span><MoveUpRight aria-hidden="true" /></Link>
+            <Link href="/tools"><span>Tools</span><MoveUpRight aria-hidden="true" /></Link>
+            <Link href="/writing"><span>Writing guides</span><MoveUpRight aria-hidden="true" /></Link>
+            <Link href="/hire-ap"><span>Hire AP</span><MoveUpRight aria-hidden="true" /></Link>
+          </div>
+        </section>
+
         <section className="service-closing">
           <p>Have a defined brief, or just a stubborn problem?</p>
           <h2>Let&apos;s work out the right next move.</h2>
@@ -124,37 +135,6 @@ export function ServicePage({
 
       <div id="page-end-sentinel" aria-hidden="true" />
     </div>
-  );
-}
-
-export function ServicePricing() {
-  return (
-    <section className="service-pricing" aria-labelledby="service-pricing-title">
-      <div>
-        <p id="service-pricing-title">Minimum pricing</p>
-        <p>Clear starting points before we scope the details.</p>
-      </div>
-      <dl>
-        <div>
-          <dt>Hourly work</dt>
-          <dd>
-            <span>${SERVICE_PRICING.hourlyMinimum}</span>
-            <small>USD / hour minimum</small>
-          </dd>
-        </div>
-        <div>
-          <dt>Project work</dt>
-          <dd>
-            <span>${SERVICE_PRICING.projectMinimum.toLocaleString("en-US")}+</span>
-            <small>USD per project</small>
-          </dd>
-        </div>
-      </dl>
-      <p>
-        Final pricing depends on scope, integrations, delivery timeline, and
-        ongoing support requirements.
-      </p>
-    </section>
   );
 }
 

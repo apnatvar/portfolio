@@ -2,27 +2,28 @@ import { AboutRenderer } from "@/portfolio/about/about-renderer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About AP: Systems, Software & Strategy",
+  title: "About AP | Next.js Technical SEO Engineer",
   description:
-    "Meet AP, a systems-minded polymath and full-stack developer with enterprise, freelance, open-source, content, and analytical experience.",
+    "Meet AP, an India-based Next.js Technical SEO Engineer specialising in TypeScript, programmatic SEO, AI-assisted automation, and web performance for remote teams worldwide.",
   keywords: [
     "about AP",
     "about Apnatva",
     "AP developer profile",
-    "Next.js developer profile",
-    "frontend developer skills",
+    "Next.js technical SEO engineer",
+    "programmatic SEO developer",
+    "TypeScript SEO",
+    "AI-assisted automation",
+    "web performance engineer",
     "web developer education",
-    "design-first web developer",
-    "systems-minded developer",
-    "technical generalist",
+    "remote SEO engineer India",
   ],
   alternates: {
     canonical: "/about-ap",
   },
   openGraph: {
-    title: "About AP | Systems, Software & Strategy",
+    title: "About AP | Next.js Technical SEO Engineer",
     description:
-      "A top-down thinker combining full-stack development, system organization, open source, content, and performance analysis.",
+      "An India-based engineer specialising in technical and programmatic SEO for Next.js and TypeScript websites, working remotely worldwide.",
     url: "/about-ap",
     images: [
       {
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About AP | Systems, Software & Strategy",
+    title: "About AP | Next.js Technical SEO Engineer",
     description:
-      "Systems-minded full-stack developer experienced across enterprise software, freelance work, open source, content, and analysis.",
+      "Next.js Technical SEO Engineer specialising in programmatic SEO, AI-assisted automation, and web performance. Based in India, working remotely worldwide.",
     images: ["/4.webp"],
   },
 };

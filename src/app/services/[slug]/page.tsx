@@ -4,9 +4,8 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { ServicePage } from "@/components/service-page";
 import {
-  SERVICE_PRICING,
-  SERVICE_PRICING_SUMMARY,
   getServicePage,
+  primaryServicePages,
   servicePages,
 } from "@/content/service-pages";
 import { DEFAULT_SOCIAL_IMAGE, PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
@@ -27,30 +26,26 @@ export async function generateMetadata({ params }: ServiceRouteProps): Promise<M
 
   const path = `/services/${service.slug}`;
 
-  const pricedDescription = `${service.description} ${SERVICE_PRICING_SUMMARY}`;
-
   return {
     title: service.shortTitle,
-    description: pricedDescription,
+    description: service.description,
     keywords: [
       service.shortTitle,
-      `${service.shortTitle} rates`,
-      `${service.shortTitle} pricing`,
-      "$30 per hour developer",
-      "projects from $1000",
+      `${service.shortTitle} consulting`,
+      `${service.shortTitle} implementation`,
     ],
     alternates: { canonical: path },
     openGraph: {
       type: "website",
       title: `${service.shortTitle} | AP`,
-      description: pricedDescription,
+      description: service.description,
       url: path,
       images: [DEFAULT_SOCIAL_IMAGE],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${service.shortTitle} | AP`,
-      description: pricedDescription,
+      description: service.description,
       images: [DEFAULT_SOCIAL_IMAGE],
     },
   };
@@ -88,28 +83,6 @@ export default async function ServiceRoute({ params }: ServiceRouteProps) {
           "@type": "ServiceChannel",
           serviceUrl: `${SITE_URL}/hire-ap`,
         },
-        offers: [
-          {
-            "@type": "Offer",
-            name: "Hourly engagement",
-            price: SERVICE_PRICING.hourlyMinimum,
-            priceCurrency: SERVICE_PRICING.currency,
-            description: "Minimum hourly rate.",
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
-              price: SERVICE_PRICING.hourlyMinimum,
-              priceCurrency: SERVICE_PRICING.currency,
-              unitCode: "HUR",
-            },
-          },
-          {
-            "@type": "Offer",
-            name: "Project engagement",
-            price: SERVICE_PRICING.projectMinimum,
-            priceCurrency: SERVICE_PRICING.currency,
-            description: "Fixed-scope projects start at this price.",
-          },
-        ],
       },
       {
         "@type": "BreadcrumbList",
@@ -127,7 +100,7 @@ export default async function ServiceRoute({ params }: ServiceRouteProps) {
       <JsonLd data={jsonLd} />
       <ServicePage
         service={service}
-        relatedServices={servicePages.filter((item) => item.slug !== service.slug)}
+        relatedServices={primaryServicePages.filter((item) => item.slug !== service.slug)}
       />
     </>
   );

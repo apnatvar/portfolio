@@ -1,6 +1,6 @@
 export const SITE_URL = "https://apnatva.dev";
 export const SITE_NAME = "AP";
-export const DEFAULT_SOCIAL_IMAGE = "/4.webp";
+export const DEFAULT_SOCIAL_IMAGE = "/opengraph-image";
 
 export const PERSON_ID = `${SITE_URL}/#apnatva`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -20,10 +20,10 @@ export const siteIdentityJsonLd = {
       name: "Apnatva Singh Rawat",
       alternateName: ["AP", "Apnatva"],
       url: SITE_URL,
-      image: `${SITE_URL}${DEFAULT_SOCIAL_IMAGE}`,
-      jobTitle: "Full-stack Web Developer and Software Developer",
+      image: `${SITE_URL}/4.webp`,
+      jobTitle: "Next.js Technical SEO Engineer",
       description:
-        "Systems-minded developer with experience across enterprise software, freelance delivery, open-source development, content creation, and performance analysis.",
+        "India-based engineer building, optimising, and automating technical SEO infrastructure for Next.js and TypeScript websites, remotely worldwide.",
       email: "mailto:rawat@apnatva.dev",
       sameAs: PROFILE_URLS,
       knowsAbout: [
@@ -37,6 +37,7 @@ export const siteIdentityJsonLd = {
         "Systems thinking",
         "Technical strategy",
         "Content performance analysis",
+        "Technical SEO", "Programmatic SEO", "Core Web Vitals", "SEO automation",
       ],
     },
     {

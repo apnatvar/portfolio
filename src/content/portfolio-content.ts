@@ -5,7 +5,7 @@ export type PortfolioLink = {
 
 export type ProjectContent = {
   title: string;
-  category?: "Open source" | "Research prototype";
+  category?: "SEO Engineering" | "Web Performance" | "Automation" | "Product Engineering" | "Research prototype" | "Open source";
   links: PortfolioLink[];
   points: string[];
 };
@@ -54,26 +54,26 @@ export const portfolioContent: PortfolioContent = {
     name: "Apnatva Singh Rawat",
     roles: [
       {
-        title: "Full-stack Developer",
+        title: "Next.js Technical SEO Engineer",
         description:
-          "From the first brief to a working product.",
+          "Technical SEO and programmatic SEO systems built with Next.js and TypeScript.",
       },
       {
-        title: "Software Developer",
-        description: "APIs, automation, and the parts that keep things running.",
+        title: "AI-assisted Automation",
+        description: "Practical automation and performance improvements for production websites.",
       },
       {
-        title: "Designer",
+        title: "Web Product Engineer",
         description:
-          "Interfaces that make complex tasks easier to use.",
+          "Interfaces and technical foundations that make complex tasks easier to use.",
       },
     ],
   },
   profile: {
     paragraphs: [
-      "I'm Apnatva, though most people call me AP. I build websites and software, starting with the problem behind the brief and working through to the details people use every day.",
-      "I've worked on web apps, internal tools, automation, and cloud systems for small businesses and enterprise teams. SEO, content strategy, and performance analysis are part of that work too; a site needs to be found and understood as well as built.",
-      "I'm used to remote, asynchronous work. I plan in writing, keep people updated, and take responsibility for getting things shipped.",
+      "I'm Apnatva, though most people call me AP. I specialise in technical SEO for Next.js and TypeScript sites, including programmatic SEO, AI-assisted automation, and web performance.",
+      "My work spans websites, internal tools, automation, and cloud systems for small businesses and enterprise teams. I connect search requirements to the implementation: crawlable architecture, useful structured content, and efficient pages.",
+      "I'm based in India and work remotely with teams worldwide. I plan in writing, keep people updated, and take responsibility for getting things shipped.",
       "Outside work, I read and write about technology, philosophy, and psychology. I enjoy working closely with founders and teams where I can understand the whole product, not just my part of it.",
     ],
     education: [
@@ -83,20 +83,8 @@ export const portfolioContent: PortfolioContent = {
   },
   projects: [
     {
-      title: "Forme",
-      category: "Open source",
-      links: [
-        { label: "Code", href: "https://github.com/apnatvar/open-workout" },
-      ],
-      points: [
-        "Forme is an open-source workout planner and tracker that keeps your data in your browser.",
-        "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
-        "JSON import and export make it easy to move or back up your data.",
-        "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
-      ],
-    },
-    {
       title: "Brownsmith Dynamics",
+      category: "SEO Engineering",
       links: [{ label: "Website", href: "https://brownsmithdynamics.com" }],
       points: [
         "Built the website frontend, with pages for services, products, guides, and articles.",
@@ -105,6 +93,7 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       title: "ELZA International",
+      category: "Web Performance",
       links: [
         { label: "Website", href: "https://elza.co.in/" },
         {
@@ -116,6 +105,19 @@ export const portfolioContent: PortfolioContent = {
         "Built a responsive, content-first site around a limited brand palette.",
         "Optimized assets and page structure with performance and SEO in mind.",
         "Used colour changes between sections to give long pages some rhythm without relying on animation.",
+      ],
+    },
+    {
+      title: "Forme",
+      category: "Product Engineering",
+      links: [
+        { label: "Code", href: "https://github.com/apnatvar/open-workout" },
+      ],
+      points: [
+        "Forme is an open-source workout planner and tracker that keeps your data in your browser.",
+        "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
+        "JSON import and export make it easy to move or back up your data.",
+        "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
       ],
     },
     {
@@ -139,6 +141,7 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       title: "Excel Automation",
+      category: "Automation",
       links: [
         {
           label: "Code",
@@ -146,12 +149,12 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "Built a standalone Windows app in Python to consolidate financial data covering more than $10M in annual transactions.",
-        "Cut a five-day reporting job to about 17 minutes and generated 11 reports for auditors.",
+        "Built a standalone Windows app in Python to consolidate financial data and generate reports for auditors.",
       ],
     },
     {
       title: "Chattybot",
+      category: "Automation",
       links: [{ label: "Code", href: "https://github.com/apnatvar/chattybot" }],
       points: [
         "Built a self-hostable, multi-tenant chatbot with a widget websites can embed.",
@@ -162,15 +165,15 @@ export const portfolioContent: PortfolioContent = {
   ],
   capabilities: {
     services: [
-      "web applications",
-      "application maintenance",
+      "Next.js technical SEO",
+      "programmatic SEO",
+      "AI-assisted workflow automation",
+      "web performance",
+      "structured content and metadata",
+      "technical audits and implementation",
+      "TypeScript product engineering",
       "API integration",
-      "SEO",
-      "automations",
-      "data reporting",
-      "deployment",
-      "production support",
-      "responsive UI",
+      "deployment and maintenance",
     ],
     technologies: [
       "next.js",
@@ -190,7 +193,7 @@ export const portfolioContent: PortfolioContent = {
   experience: [
     {
       year: "Sep 2024 - Present",
-      text: "Full-stack Web Developer at Brownsmith Dynamics, building and maintaining production websites, catalogues, internal tools, API integrations, automations, and deployment workflows.",
+      text: "Web Developer at Brownsmith Dynamics, building and maintaining production websites, catalogues, internal tools, API integrations, automations, and deployment workflows.",
     },
     {
       year: "Jun 2025 - May 2026",
@@ -202,7 +205,7 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       year: "May 2022 - Aug 2022",
-      text: "Software Developer at Mount Technics Consultancy, creating an automated Python and Selenium data pipeline that reduced manual intervention by 95%.",
+      text: "Software Developer at Mount Technics Consultancy, creating a Python and Selenium data pipeline to automate data collection.",
     },
   ],
   educationDetails: [

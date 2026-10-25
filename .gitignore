@@ -18,6 +18,14 @@
 
 # local implementation notes and visual-regression references
 /docs/
+!/docs/
+/docs/*
+!/docs/strategy/
+!/docs/strategy/*.md
+!/docs/brand/
+!/docs/brand/*.md
+!/docs/seo/
+!/docs/seo/*.md
 
 # next.js
 /.next/
@@ -47,3 +55,9 @@ yarn-error.log*
 next-env.d.ts
 
 src/app/(ts-version)/test/*
+
+# Public implementation and SEO documentation
+!/docs/seo/
+!/docs/seo/*.md
+!/docs/implementation/
+!/docs/implementation/*.md

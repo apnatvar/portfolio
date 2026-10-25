@@ -2,43 +2,42 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Hire AP: Next.js & Full-Stack Development",
+  title: "Hire AP | Next.js Technical SEO Engineer",
   description:
-    "Work with AP, a self-directed full-stack developer who brings top-down systems thinking to software, automation, and business-facing technical work.",
+    "Hire AP, an India-based Next.js Technical SEO Engineer specialising in TypeScript, programmatic SEO, AI-assisted automation, and web performance for remote teams worldwide.",
   keywords: [
     "hire AP",
     "hire Apnatva",
     "hire Next.js developer",
-    "freelance web developer",
-    "contract frontend developer",
-    "e-commerce developer",
-    "dashboard developer",
-    "CMS website developer",
-    "autonomous full stack developer",
-    "developer for founders",
+    "Next.js Technical SEO Engineer",
+    "programmatic SEO consultant",
+    "TypeScript SEO implementation",
+    "AI-assisted SEO automation",
+    "Next.js web performance",
+    "remote technical SEO India",
   ],
   alternates: {
     canonical: "/hire-ap",
   },
   openGraph: {
-    title: "Hire AP | Next.js Web Developer",
+    title: "Hire AP | Next.js Technical SEO Engineer",
     description:
-      "Work with a self-directed developer who can own delivery, organize complex systems, and collaborate closely with founders and executive teams.",
+      "Technical and programmatic SEO for Next.js and TypeScript sites, with AI-assisted automation and web performance work. Based in India, working remotely worldwide.",
     url: "/hire-ap",
     images: [
       {
         url: "/4.webp",
         width: 1200,
         height: 630,
-        alt: "Hire AP for design-first Next.js web development",
+        alt: "Hire AP for Next.js technical SEO engineering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hire AP | Next.js Web Developer",
+    title: "Hire AP | Next.js Technical SEO Engineer",
     description:
-      "Top-down systems thinking, autonomous delivery, and full-stack execution for founders, teams, and growing businesses.",
+      "Next.js technical SEO, programmatic SEO, automation, and web performance for remote teams worldwide.",
     images: ["/4.webp"],
   },
 };

@@ -1,0 +1,26 @@
+name: Website quality
+on:
+  push:
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:tools
+      - run: npm run build
+      - run: npm run typecheck
+      - name: Check rendered SEO output
+        run: |
+          npm run start > /tmp/portfolio-server.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then break; fi
+            sleep 1
+          done
+          npm run qa:seo

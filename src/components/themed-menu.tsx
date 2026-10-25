@@ -8,10 +8,11 @@ import { useDisplayMode } from "@/components/display-mode/display-mode-provider"
 
 const menuItems = [
   { label: "Hire Me", href: "/hire-ap" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about-ap" },
   { label: "Tools", href: "/tools" },
+  { label: "Writing", href: "/writing" },
+  { label: "About", href: "/about-ap" },
   { label: "Links", href: "/links" },
 ];
 

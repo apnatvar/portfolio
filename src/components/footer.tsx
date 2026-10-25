@@ -17,11 +17,12 @@ type FooterLink = {
 
 const sitemapLinks: FooterLink[] = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
+  { label: "Tools", href: "/tools" },
+  { label: "Writing", href: "/writing" },
   { label: "Hire Me", href: "/hire-ap" },
   { label: "About", href: "/about-ap" },
-  { label: "Tools", href: "/tools" },
   { label: "Links", href: "/links" },
   { label: "Reading notes", href: "/ideals" },
   { label: "Samples", href: "https://samples.apnatva.dev" },
@@ -131,12 +132,11 @@ export function SiteFooter() {
             <span className="block text-5xl font-medium md:inline md:text-7xl text-background font-italianno">
               Hi Again!
             </span>{" "}
-            In an increasingly online world, information is power. If you can
-            control what you want to share, you have already won half the
-            battle. Websites are a great way of getting yourself or your brand
-            out there.{" "}
+            I help teams make Next.js websites easier to crawl, faster to use,
+            and better organised for search. Based in India and working
+            remotely worldwide.{" "}
             <span className="inline-block text-background md:text-2xl">
-              Always ready for an adventure.
+              Technical SEO, automation, and web performance.
             </span>
           </h2>
 

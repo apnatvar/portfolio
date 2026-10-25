@@ -1,6 +1,5 @@
 "use client";
 
-import { WORDS } from "@/lib/words";
 import { useDisplayMode } from "@/components/display-mode/display-mode-provider";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
@@ -19,9 +18,19 @@ type InfinitePinnedWordsProps = {
 const VISIBLE_RADIUS = 4;
 const STEP_PX = 72;
 const ANIMATION_DURATION = 0.55;
+const SEO_CAPABILITIES = [
+  "Technical SEO",
+  "Programmatic SEO",
+  "Next.js",
+  "TypeScript",
+  "Web Performance",
+  "AI-assisted Automation",
+  "Structured Data",
+  "Technical Audits",
+];
 
 export default function InfinitePinnedWords({
-  words = WORDS,
+  words = SEO_CAPABILITIES,
   sideLabelLeft = "Home",
   sideLabelRight = "Hire me",
 }: InfinitePinnedWordsProps) {

@@ -104,6 +104,8 @@ export default function DeveloperFocusPlannerPage() {
             <Link className="underline underline-offset-4" href="/tools/decision-confidence-calculator">Decision Confidence Calculator</Link>
             <Link className="underline underline-offset-4" href="/hire-ap">Web development services</Link>
             <Link className="underline underline-offset-4" href="/about-ap">About AP</Link>
+            <Link className="underline underline-offset-4" href="/services/seo-automation">SEO automation service</Link>
+            <Link className="underline underline-offset-4" href="/writing">Technical SEO field guides</Link>
           </div>
         </nav>
       </section>

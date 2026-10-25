@@ -53,3 +53,17 @@ npm run dev
 npm run lint
 npm run typecheck
 ```
+
+## Specialist site architecture
+
+The homepage defaults to a server-rendered technical SEO introduction. Resume and Swiss modes preserve alternate personal portfolio views. Four primary services cover technical SEO (including Next.js implementation), programmatic SEO, SEO automation, and Core Web Vitals. Existing development service URLs remain functional. `/work` preserves all six projects; `/writing` contains three practical guides sourced from official documentation; `/tools/metadata-checker` inspects pasted HTML locally. No public SEO agent skill downloads are claimed.
+
+Shared content: `src/content/portfolio-content.ts`, `src/content/service-pages.ts`, and `src/content/writing.ts`. Add indexable route paths to `src/lib/routes.ts`; sitemap and discovery summaries derive from shared content. Metadata helpers live in `src/lib/metadata.ts`; global identity lives in `src/lib/site.ts`. Generated social artwork is served at `/opengraph-image`.
+
+## Deterministic SEO QA and CI
+
+After building and starting a production server, run `npm run qa:seo` (set `SEO_BASE_URL` if using a port other than 3000). This verifies sitemap coverage, unique titles/descriptions, canonical consistency, indexability, initial H1/main landmarks, JSON-LD syntax, internal links/fragments, robots, machine summaries, and unknown-route 404s. It does not prove indexing, ranking, schema eligibility, or field performance. CI in `.github/workflows/quality.yml` runs lint, tool tests, build, types and rendered SEO checks. Browser accessibility and performance profiling are explicit separate commands.
+
+The contact API keeps Google Form credentials server-only (`GOOGLE_FORM_ACTION`, `GOOGLE_FORM_EMAIL_ENTRY`, `GOOGLE_FORM_MESSAGE_ENTRY`). Provide them through deployment secrets; never expose them through `NEXT_PUBLIC_` variables. Requests reject a filled honeypot, disallowed supplied origins and bodies over 16KiB. These controls do not replace deployment-level rate limits. Local QA mocks successful submissions and never sends synthetic enquiries to the external form.
+
+Strategy, evidence policy, technical audit, measurement limitations, roadmap and implementation results are in `docs/`. The earlier `PORTFOLIO-AUDIT.md` is a historical record from 20 October, not a statement of current production performance. No analytics or tracking scripts were added. Search Console ownership, live submissions, third-party account changes and field monitoring need owner access.

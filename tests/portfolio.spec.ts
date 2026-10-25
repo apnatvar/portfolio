@@ -12,14 +12,24 @@ const routes = [
   "/about-ap",
   "/hire-ap",
   "/services",
+  "/services/technical-seo",
+  "/services/programmatic-seo",
+  "/services/seo-automation",
+  "/services/core-web-vitals",
   "/services/nextjs-developer",
   "/services/web-automation-consultant",
   "/services/full-stack-developer-for-startups",
   "/ideals",
   "/links",
   "/tools",
+  "/tools/metadata-checker",
   "/tools/developer-focus-planner",
   "/tools/decision-confidence-calculator",
+  "/work",
+  "/writing",
+  "/writing/nextjs-technical-seo-checklist",
+  "/writing/programmatic-seo-quality-gates",
+  "/writing/nextjs-performance-workflow",
   "/portable-context",
   "/test",
 ];
@@ -203,16 +213,45 @@ test("creative native navigation opens and closes with the keyboard at normal mo
   await expect.poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open)).toBe(false);
 });
 
-test("creative work initializes on approach and offers a readable project list", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.setViewportSize({ width: 1440, height: 900 });
+test("engineering home has readable work content and links to the complete work page", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Selected work", exact: true }).click();
-  await expect.poll(() => page.locator("#work").evaluate((section) => section.parentElement?.classList.contains("pin-spacer"))).toBe(true);
-  await page.getByRole("button", { name: "Read all projects in Resume mode" }).click();
-  await expect(page.locator("html")).toHaveAttribute("data-display-mode", "resume");
-  await expect(page.getByRole("heading", { name: "Forme", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Chattybot", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Technical SEO, engineered for Next.js." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Engineering evidence/ })).toBeVisible();
+  await page.getByRole("link", { name: /View technical work/ }).click();
+  await expect(page).toHaveURL(/\/work$/);
+  await expect(page.getByRole("heading", { name: "Evidence before promises." })).toBeVisible();
+  for (const project of ["Brownsmith Dynamics", "ELZA International", "Forme", "Autonomous Urban Mobility", "Excel Automation", "Chattybot"]) {
+    await expect(page.getByRole("heading", { name: project, exact: true })).toBeVisible();
+  }
+});
+
+test("metadata checker reports valid and invalid markup without a network request", async ({ page }) => {
+  let requests = 0;
+  page.on("request", () => { requests++; });
+  await page.goto("/tools/metadata-checker");
+  const textarea = page.getByLabel("HTML source");
+  await textarea.fill('<!doctype html><html><head><title>Example</title><meta name="description" content="Useful description"><link rel="canonical" href="https://example.com/page"><script type="application/ld+json">{"@type":"Thing"}</script></head><body><h1>Example</h1></body></html>');
+  const beforeCheck = requests;
+  await page.getByRole("button", { name: "Check HTML" }).click();
+  await expect(page.getByText("https://example.com/page", { exact: true })).toBeVisible();
+  await expect(page.getByText("1 of 1 script parse as JSON")).toBeVisible();
+  await expect(page.locator("li").filter({ hasText: "Canonical URL" })).toHaveClass(/border-emerald-500/);
+  expect(requests).toBe(beforeCheck);
+
+  await textarea.fill('<html><head><link rel="canonical" href="/relative"><script type="application/ld+json">{broken}</script></head><body></body></html>');
+  await page.getByRole("button", { name: "Check HTML" }).click();
+  await expect(page.getByText("/relative", { exact: true })).toBeVisible();
+  await expect(page.getByText("0 of 1 script parse as JSON")).toBeVisible();
+  await expect(page.locator("li").filter({ hasText: "Canonical URL" })).toHaveClass(/border-red-500/);
+});
+
+test("metadata checker reports invalid canonical and JSON-LD separately", async ({ page }) => {
+  await page.goto("/tools/metadata-checker");
+  await page.getByLabel("HTML source").fill('<link rel="canonical" href="javascript:alert(1)"><script type="application/ld+json">{invalid}</script>');
+  await page.getByRole("button", { name: "Check HTML" }).click();
+  await expect(page.getByText("javascript:alert(1)", { exact: true })).toBeVisible();
+  await expect(page.getByText("0 of 1 script parse as JSON")).toBeVisible();
+  await expect(page.locator("li").filter({ hasText: "Canonical URL" })).toHaveClass(/border-red-500/);
 });
 
 test("200% text resizing remains usable on key routes in every display mode", async ({ page }) => {
@@ -245,7 +284,7 @@ test("homepage content and metadata are present in server HTML without JavaScrip
   expect(html).toContain("Apnatva Singh Rawat");
   expect(html).toContain('rel="canonical"');
   expect(html).toContain('name="description"');
-  await expect(page.getByRole("heading", { name: "Apnatva Singh Rawat", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Technical SEO, engineered for Next.js.", level: 1 })).toBeVisible();
   expect(errors).toEqual([]);
   await context.close();
 });
@@ -306,6 +345,23 @@ test("hire API rejects malformed requests before any external submission", async
     expect(response.status()).toBe(400);
     expect(await response.json()).toMatchObject({ success: false, message });
   }
+});
+
+test("hire API rejects honeypot, cross-origin, and oversized requests before submission", async ({ request }) => {
+  const basePayload = { email: "qa@example.com", message: "Automated validation request." };
+  const honeypot = await request.post("/api/hire-ap", { data: { ...basePayload, website: "https://spam.example" } });
+  expect(honeypot.status()).toBe(400);
+
+  const crossOrigin = await request.post("/api/hire-ap", {
+    data: basePayload,
+    headers: { Origin: "https://untrusted.example" },
+  });
+  expect(crossOrigin.status()).toBe(403);
+
+  const oversized = await request.post("/api/hire-ap", {
+    data: { email: "qa@example.com", message: "x".repeat(17_000) },
+  });
+  expect(oversized.status()).toBe(413);
 });
 
 test("hire form values survive display mode changes", async ({ page }) => {

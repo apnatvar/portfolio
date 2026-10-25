@@ -24,6 +24,7 @@ const manrope = Manrope({
 });
 
 const italianno = Italianno({
+  preload: false,
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
@@ -31,6 +32,7 @@ const italianno = Italianno({
 });
 
 const manufacturingConsent = Manufacturing_Consent({
+  preload: false,
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
@@ -40,6 +42,7 @@ const manufacturingConsent = Manufacturing_Consent({
 });
 
 const amita = Amita({
+  preload: false,
   subsets: ["devanagari"],
   weight: ["700"],
   display: "swap",
@@ -64,35 +67,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "AP | Full-Stack Developer & Designer",
+    default: "AP | Next.js Technical SEO Engineer",
     template: "%s | AP",
   },
 
   icons: { icon: "/ap-icon.svg" },
 
   description:
-    "Portfolio of AP, a systems-minded full-stack developer combining software, design, automation, content, and analysis to solve business problems.",
+    "Technical SEO engineering for Next.js and TypeScript: audits, implementation, programmatic SEO, AI-assisted automation, and performance. India-based, remote worldwide.",
 
-  keywords: [
-    "AP",
-    "Apnatva",
-    "Next.js developer",
-    "Node.js developer",
-    "web designer developer",
-    "design first developer",
-    "freelance web developer India",
-    "contract Next.js developer",
-    "e-commerce store developer",
-    "portfolio website developer",
-    "frontend developer",
-    "full stack developer",
-    "systems-minded developer",
-    "technical generalist",
-    "PayloadCMS developer",
-    "Shadcn UI developer",
-    "Tailwind CSS developer",
-    "GSAP developer",
-  ],
+  keywords: ["Next.js technical SEO", "Technical SEO Engineer", "Programmatic SEO", "SEO automation", "Web performance"],
 
   authors: [{ name: "Apnatva Singh Rawat", url: SITE_URL }],
   creator: "Apnatva Singh Rawat",
@@ -109,24 +93,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "AP | Full-Stack Developer & Designer",
+    title: "AP | Next.js Technical SEO Engineer",
     description:
-      "Systems-minded full-stack developer with experience across enterprise software, freelance delivery, open source, content, and performance analysis.",
+      "Technical SEO, programmatic SEO, automation, and performance engineering for Next.js websites.",
     images: [
       {
         url: DEFAULT_SOCIAL_IMAGE,
         width: 1200,
         height: 630,
-        alt: "AP design-first developer portfolio",
+        alt: "AP — Technical SEO, engineered for Next.js",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AP | Full-Stack Developer & Designer",
+    title: "AP | Next.js Technical SEO Engineer",
     description:
-      "Systems-minded developer combining software, design, automation, content, and analysis with a top-down approach.",
+      "India-based Next.js Technical SEO Engineer available for remote projects worldwide.",
     images: [DEFAULT_SOCIAL_IMAGE],
     creator: "@nattupi0",
   },
