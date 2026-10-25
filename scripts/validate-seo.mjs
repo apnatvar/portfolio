@@ -52,7 +52,7 @@ for (const url of urls) {
 const robots = await get('/robots.txt');
 assert(robots.status === 200 && robots.html.includes(`${canonicalOrigin}/sitemap.xml`), 'robots sitemap declaration');
 for (const path of ['/llms.txt', '/llms-full.txt']) {
-  const response = await get(path); assert(response.status === 200 && response.html.includes('Next.js Technical SEO Engineer'), `${path}: identity/availability`);
+  const response = await get(path); assert(response.status === 200 && response.html.includes('Front-end Developer, Designer & Technical SEO'), `${path}: identity/availability`);
   for (const match of response.html.matchAll(/https:\/\/apnatva\.dev(\/[^\s)\]]*)?/g)) {
     const response = await get(match[1] || '/'); assert(response.status === 200, `${path}: broken discovery URL ${match[0]}`);
   }

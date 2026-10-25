@@ -5,7 +5,6 @@ export function CreativeHire() {
   return (
     <>
       <MorphingNav />
-      <div className="h-24" />
       <HireAP />
     </>
   );

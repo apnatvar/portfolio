@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_EMAIL_LENGTH = 254;
 const MAX_MESSAGE_LENGTH = 1200;
+const DISALLOWED_MESSAGE_CONTROLS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/;
 
 type HireApnatvaPayload = {
   website?: unknown;
@@ -45,75 +47,85 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ success: false, message: "Invalid JSON." }, { status: 400 });
   }
+  if (body.website !== undefined && body.website !== "") {
+    return NextResponse.json({ success: false, message: "Submission could not be accepted." }, { status: 400 });
+  }
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const message = typeof body.message === "string" ? body.message.trim() : "";
+
+  if (!email || email.length > MAX_EMAIL_LENGTH || !EMAIL_REGEX.test(email)) {
+    return NextResponse.json(
+      { success: false, message: "Invalid email address." },
+      { status: 400 },
+    );
+  }
+
+  if (!message) {
+    return NextResponse.json(
+      { success: false, message: "Message is required." },
+      { status: 400 },
+    );
+  }
+
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    return NextResponse.json(
+      { success: false, message: "Message is too long." },
+      { status: 400 },
+    );
+  }
+
+  if (DISALLOWED_MESSAGE_CONTROLS.test(message)) {
+    return NextResponse.json(
+      { success: false, message: "Message contains unsupported control characters." },
+      { status: 400 },
+    );
+  }
+
+  const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!botToken || !chatId) {
+    return NextResponse.json(
+      { success: false, message: "The contact form is temporarily unavailable. Please try again later." },
+      { status: 500 },
+    );
+  }
+
+  const text = `New portfolio message\n\nFrom: ${email}\n\n${message}`;
   try {
-
-    if (body.website !== undefined && body.website !== "") {
-      return NextResponse.json({ success: false, message: "Submission could not be accepted." }, { status: 400 });
-    }
-    const email = typeof body.email === "string" ? body.email.trim() : "";
-    const message = typeof body.message === "string" ? body.message.trim() : "";
-
-    if (!EMAIL_REGEX.test(email)) {
-      return NextResponse.json(
-        { success: false, message: "Invalid email address." },
-        { status: 400 },
-      );
-    }
-
-    if (!message) {
-      return NextResponse.json(
-        { success: false, message: "Message is required." },
-        { status: 400 },
-      );
-    }
-
-    if (message.length > MAX_MESSAGE_LENGTH) {
-      return NextResponse.json(
-        { success: false, message: "Message is too long." },
-        { status: 400 },
-      );
-    }
-
-    const formAction = process.env.GOOGLE_FORM_ACTION;
-    const emailEntryName = process.env.GOOGLE_FORM_EMAIL_ENTRY;
-    const messageEntryName = process.env.GOOGLE_FORM_MESSAGE_ENTRY;
-    if (!formAction || !emailEntryName || !messageEntryName) {
-      return NextResponse.json(
-        { success: false, message: "Server form configuration is missing." },
-        { status: 500 },
-      );
-    }
-
-    const formData = new URLSearchParams();
-    formData.append(emailEntryName, email);
-    formData.append(messageEntryName, message);
-    const googleResponse = await fetch(formAction, {
+    const telegramResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formData.toString(),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        link_preview_options: { is_disabled: true },
+      }),
       cache: "no-store",
-      redirect: "follow",
       signal: AbortSignal.timeout(10000),
     });
 
-    if (!googleResponse.ok) {
+    let telegramResult: { ok?: unknown };
+    try {
+      telegramResult = await telegramResponse.json() as { ok?: unknown };
+    } catch {
       return NextResponse.json(
-        { success: false, message: "Google Form submission failed." },
+        { success: false, message: "We couldn't deliver your message. Please try again shortly." },
         { status: 502 },
       );
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Your message was submitted successfully.",
-    });
-  } catch (e: unknown) {
-    console.error("Hire form submission failed.", e);
+    if (!telegramResponse.ok || telegramResult.ok !== true) {
+      return NextResponse.json(
+        { success: false, message: "We couldn't deliver your message. Please try again shortly." },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({ success: true, message: "Your message was sent successfully." });
+  } catch {
     return NextResponse.json(
-      { success: false, message: "Unexpected server error." },
-      { status: 500 },
+      { success: false, message: "We couldn't deliver your message. Please try again shortly." },
+      { status: 502 },
     );
   }
 }

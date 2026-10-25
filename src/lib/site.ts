@@ -21,12 +21,15 @@ export const siteIdentityJsonLd = {
       alternateName: ["AP", "Apnatva"],
       url: SITE_URL,
       image: `${SITE_URL}/4.webp`,
-      jobTitle: "Independent designer and developer",
+      jobTitle: "Front-end developer and designer",
       description:
-        "Apnatva Singh Rawat designs and builds websites, small tools, and software. Based in India, working independently as AP.",
+        "Apnatva Singh Rawat designs and develops React and Next.js front-ends, with technical SEO and web performance as part of the implementation. Based in India, working independently as AP.",
       email: "mailto:rawat@apnatva.dev",
       sameAs: PROFILE_URLS,
       knowsAbout: [
+        "Front-end development",
+        "Interface design",
+        "Web accessibility",
         "Next.js",
         "React",
         "TypeScript",

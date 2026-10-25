@@ -40,7 +40,7 @@ const brownsmithDynamicsUrls = [
 const linkGroups: LinkGroup[] = [
   {
     title: "Primary",
-    description: "Portfolio of an India-based Next.js Technical SEO Engineer working remotely worldwide.",
+    description: "Portfolio of an India-based front-end developer and designer working with React, Next.js, and technical SEO.",
     links: [
       {
         label: "Personal Website",
@@ -174,7 +174,7 @@ export const metadata: Metadata = {
     absolute: "Official Links for Apnatva | AP",
   },
   description:
-    "Official links and contact details for Apnatva Singh Rawat, an India-based Next.js Technical SEO Engineer specialising in programmatic SEO, AI-assisted automation, and web performance.",
+    "Official profiles, project links, and contact details for Apnatva Singh Rawat, an India-based front-end developer and designer focused on technical SEO.",
   keywords: [
     "Apnatva official links",
     "Next.js Technical SEO Engineer",

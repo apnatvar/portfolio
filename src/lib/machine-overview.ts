@@ -3,9 +3,13 @@ import { primaryServicePages } from "@/content/service-pages";
 import { guides } from "@/content/writing";
 import { SITE_URL } from "@/lib/site";
 export function machineOverview() {
- return `# AP / Apnatva Singh Rawat — Next.js Technical SEO Engineer
+ return `# AP / Apnatva Singh Rawat — Front-end Developer, Designer & Technical SEO
 
-> India-based freelance engineer specialising in Next.js, TypeScript, technical SEO, programmatic SEO, AI-assisted SEO automation, and web performance. Available for remote projects worldwide.
+> India-based front-end developer and designer working with React, Next.js, and TypeScript. Technical SEO, accessibility, and web performance are part of the implementation. Available for remote projects worldwide.
+
+## Working practice
+- [Front-end design and development](${SITE_URL}/front-end): responsive interfaces, component architecture, accessible interaction, rendering, and performance.
+- [Technical SEO](${SITE_URL}/seo): crawlability, metadata, canonicals, structured data, internal linking, and programmatic page quality.
 
 ## Services
 ${primaryServicePages.map(s => `- [${s.shortTitle}](${SITE_URL}/services/${s.slug}): ${s.description}`).join("\n")}
@@ -30,6 +34,6 @@ ${guides.map(g => `- [${g.title}](${SITE_URL}/writing/${g.slug}): ${g.descriptio
 - [Reading notes](${SITE_URL}/ideals): personal reading notes, separate from technical guides.
 - [Portable Context](${SITE_URL}/portable-context): a working prototype of user-controlled context sharing.
 
-No public downloadable SEO agent skills are currently published. llms.txt is an optional discovery convention and does not guarantee rankings or AI citations.
+Public workflow library: https://github.com/apnatvar/web-development-and-online-marketing-skills — reusable web-development, Next.js optimization, and technical SEO skills and documentation. llms.txt is an optional discovery convention and does not guarantee rankings or AI citations.
 `;
 }

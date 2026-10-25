@@ -19,7 +19,7 @@ export function ToolClosingNote({
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-background/60">
         A clearer next step
       </p>
-      <h2 className="mt-3 max-w-4xl font-italianno text-5xl leading-none transition-all duration-500 hover:tracking-wide sm:text-7xl">
+      <h2 className="mt-3 max-w-4xl font-italianno text-5xl leading-none transition-all duration-500 sm:text-7xl">
         {title}
       </h2>
       <div className="mt-5 max-w-3xl space-y-4 text-sm leading-7 text-background/75 sm:text-base">

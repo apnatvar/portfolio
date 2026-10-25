@@ -40,10 +40,25 @@ export default function WorkHorizontalScrollSection() {
     trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
     trigger.animation?.progress(progress);
   }}>
-    <div className="work-heading"><h2>Some things I’ve made.</h2><span className="atelier-label">02 / Selected work</span></div>
+    <div className="work-heading"><h2>Some things I’ve made.</h2><span className="atelier-label">03 / Selected work</span></div>
     <div ref={track} className="project-track">{projects.map((project, i) => <article className={`project-panel project-palette-${i % 4}`} key={project.title}>
       <div className="project-art" aria-label={`Typographic study for ${project.title}`} role="img"><span className="project-art-index">AP / {String(i + 1).padStart(2, "0")}</span><div className="project-specimen" aria-hidden="true"><span>{["Bd.", "Elza", "Forme", "↗", "Σ", "Hello.", "Aa", "{ }", "↔"][i % 9]}</span><i /></div><span className="project-art-caption">{project.category ?? "An experiment"}</span></div>
-      <div className="project-details"><div className="project-number">({String(i + 1).padStart(2, "0")})</div><h3 className="project-name">{project.title}</h3><p>{project.points[0]}</p><div className="project-links">{project.links.map(link => <a href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label} <ArrowUpRight size={16} /></a>)}</div></div>
+      <div className="project-details">
+        <div className="project-number">({String(i + 1).padStart(2, "0")})</div>
+        <h3 className="project-name">{project.title}</h3>
+        <ul className="project-summary-points">
+          {project.points.slice(0, 2).map((point) => <li key={point}>{point}</li>)}
+        </ul>
+        {project.points.length > 2 ? (
+          <details className="project-implementation-notes">
+            <summary>Implementation notes</summary>
+            <ul className="project-implementation-list max-h-28 overflow-y-auto">
+              {project.points.slice(2).map((point) => <li key={point}>{point}</li>)}
+            </ul>
+          </details>
+        ) : null}
+        <div className="project-links">{project.links.map(link => <a href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label} <ArrowUpRight size={16} /></a>)}</div>
+      </div>
     </article>)}</div>
     <div className="work-progress" aria-hidden="true"><div className="work-progress-fill" /></div>
     <noscript><style>{`.project-track { flex-direction: column !important; transform: none !important; }.atelier-work { height: auto !important; }.project-panel { width: 100% !important; min-height: 0 !important; }`}</style></noscript>

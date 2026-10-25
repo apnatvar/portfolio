@@ -27,8 +27,8 @@ export function StudioNotes() {
     <svg className="studio-scribble" viewBox="0 0 400 100" fill="none" aria-hidden="true"><path className="studio-loop" d="M5 65C60 10 310 0 380 45S180 110 90 65 250 10 390 75" stroke="currentColor" strokeWidth="1.5" /></svg>
     <div className="studio-notes">
       <div className="studio-note-copy">
-        <p className="studio-note">I’m happiest when I can follow an idea all the way through. From the first scrappy layout to the strange little bug that only turns up on a phone.</p>
-        <p className="studio-note">Some days that means a website. Others, a workout tracker, a script that saves someone an afternoon, or a sentence that finally says what it means.</p>
+        <p className="studio-note">I’m happiest when I can follow an idea all the way through. From the first scrappy layout to the React components, the responsive details, and the strange little bug that only turns up on a phone.</p>
+        <p className="studio-note">My work sits between front-end development, interface design, and technical SEO. A useful page needs a considered layout, a sound implementation, and a way for people to reach it. I like being responsible for how those pieces fit.</p>
         <span className="studio-note studio-signature">Always a work in progress,<br /><span>AP</span></span>
       </div>
       <figure className="journal-photo">

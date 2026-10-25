@@ -1,7 +1,9 @@
 import "@/app/globals.css";
 import "@/app/atelier.css";
+import "@/app/message-bar.css";
 import { DisplayModeShell } from "@/components/display-mode/display-mode-shell";
 import { JsonLd } from "@/components/json-ld";
+import { NotebookCursor } from "@/components/notebook-cursor";
 import {
   DEFAULT_SOCIAL_IMAGE,
   SITE_NAME,
@@ -13,7 +15,6 @@ import {
   Amita,
   Italianno,
   Manrope,
-  Manufacturing_Consent,
 } from "next/font/google";
 
 const manrope = Manrope({
@@ -24,21 +25,10 @@ const manrope = Manrope({
 });
 
 const italianno = Italianno({
-  preload: false,
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
   variable: "--font-italianno",
-});
-
-const manufacturingConsent = Manufacturing_Consent({
-  preload: false,
-  subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-  variable: "--font-manufacturing-consent",
-  fallback: ["system-ui", "arial"],
-  adjustFontFallback: false,
 });
 
 const amita = Amita({
@@ -51,32 +41,28 @@ const amita = Amita({
 
 const FONT_VARS = [
   amita.variable,
-  manufacturingConsent.variable,
   italianno.variable,
   manrope.variable,
 ].join(" ");
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#060010" },
-    { media: "(prefers-color-scheme: dark)", color: "#060010" },
-  ],
+  themeColor: "#e8d8b7",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "AP | Design, code & a little curiosity",
+    default: "AP | Front-end Development & Technical SEO",
     template: "%s | AP",
   },
 
   icons: { icon: "/ap-icon.svg" },
 
   description:
-    "Websites, useful little tools, and the independent creative work of Apnatva Singh Rawat. Based in India.",
+    "Front-end development and interface design with React, Next.js, and TypeScript. Technical SEO, accessible interaction, and web performance by Apnatva Singh Rawat.",
 
-  keywords: ["Apnatva Singh Rawat", "AP", "Creative developer", "Web design", "Independent designer"],
+  keywords: ["Apnatva Singh Rawat", "Front-end developer", "React developer", "Next.js developer", "Web design", "Technical SEO"],
 
   authors: [{ name: "Apnatva Singh Rawat", url: SITE_URL }],
   creator: "Apnatva Singh Rawat",
@@ -93,24 +79,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "AP | Design, code & a little curiosity",
+    title: "AP | Front-end Development & Technical SEO",
     description:
-      "Websites, useful little tools, and the independent creative work of Apnatva Singh Rawat.",
+      "Front-end development, interface design, and technical SEO by Apnatva Singh Rawat.",
     images: [
       {
         url: DEFAULT_SOCIAL_IMAGE,
         width: 1200,
         height: 630,
-        alt: "AP — Design, code & a little curiosity",
+        alt: "AP — Front-end development, design, and technical SEO",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AP | Design, code & a little curiosity",
+    title: "AP | Front-end Development & Technical SEO",
     description:
-      "The independent creative work of Apnatva Singh Rawat. Design, development, and writing.",
+      "React and Next.js front-ends, interface design, and technical SEO. The independent work of Apnatva Singh Rawat.",
     images: [DEFAULT_SOCIAL_IMAGE],
     creator: "@nattupi0",
   },
@@ -136,9 +122,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-display-mode="creative" suppressHydrationWarning>
+    <html lang="en" data-display-mode="creative">
       <body className={`mx-auto bg-background antialiased ${FONT_VARS}`}>
         <JsonLd data={siteIdentityJsonLd} />
+        <NotebookCursor />
         <DisplayModeShell>{children}</DisplayModeShell>
       </body>
     </html>

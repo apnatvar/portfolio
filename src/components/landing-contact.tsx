@@ -85,10 +85,10 @@ export default function ContactSection() {
     >
       <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] md:gap-20">
         <div className="max-w-3xl">
-          <span className="atelier-label">03 / Leave a note</span>
+          <span className="atelier-label">06 / Leave a note</span>
           <h2 className="reveal-once mt-8 font-italianno text-7xl leading-none md:text-9xl">Have a thought?</h2>
           <p className="reveal-once mt-5 max-w-xl text-base font-normal leading-relaxed md:text-xl">
-            I’m always glad to hear what you’re working on.
+            A new front-end, a site that needs attention, or an SEO problem that leads back to the code. Tell me what you’re working on.
           </p>
           <div className="reveal-once mt-8 flex flex-col items-start gap-3 text-base md:text-lg">
             <Link className="underline decoration-muted-foreground underline-offset-4 hover:decoration-foreground" href="mailto:rawat@apnatva.dev">rawat@apnatva.dev</Link>

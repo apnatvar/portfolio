@@ -50,13 +50,13 @@ export const portfolioContent: PortfolioContent = {
     name: "Apnatva Singh Rawat",
     roles: [
       {
-        title: "Designer, developer, writer",
+        title: "Front-end developer & designer",
         description:
-          "I make thoughtful things for the web, from the words and shape of an idea to the details that make it work.",
+          "I build websites in Next.js and TypeScript, and care about the shape of the interface as much as the code behind it.",
       },
       {
-        title: "Web developer",
-        description: "I build useful websites and small tools, and care about how they feel to use.",
+        title: "Technical SEO",
+        description: "I work on the structure, content, and performance that help a site make sense to people and search engines.",
       },
       {
         title: "Writer",
@@ -67,8 +67,8 @@ export const portfolioContent: PortfolioContent = {
   },
   profile: {
     paragraphs: [
-      "I’m Apnatva Singh Rawat. Most people call me AP. I design and build for the web, and write when an idea stays with me long enough.",
-      "I like work that lets me move between the shape of a thing and the details underneath it: a page, a product, a bit of software that makes an ordinary task easier.",
+      "I’m Apnatva Singh Rawat. Most people call me AP. I design and build websites, with front-end development and technical SEO often meeting in the same project.",
+      "I like moving between the shape of an interface and the details underneath it: how a page reads, how it loads, and whether its structure makes sense to a person or a crawler.",
       "I’m based in India. Away from a screen, I’m usually reading, writing, or following a question a little further than I meant to.",
     ],
     education: [
@@ -82,8 +82,8 @@ export const portfolioContent: PortfolioContent = {
       category: "SEO Engineering",
       links: [{ label: "Website", href: "https://brownsmithdynamics.com" }],
       points: [
-        "Built the site across its service, product, guide, and article pages.",
-        "Gave the catalogue and editorial content a clear way to sit together.",
+        "Built the website frontend, with pages for services, products, guides, and articles.",
+        "Organized navigation and internal links so visitors can find related content and search engines can crawl it.",
       ],
     },
     {
@@ -97,9 +97,9 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "Built a responsive site around a restrained palette and the company’s content.",
-        "Kept the pages light and quick to load.",
-        "Used shifts in colour to give long pages a little rhythm.",
+        "Built a responsive, content-first site around a limited brand palette.",
+        "Optimized assets and page structure with performance and SEO in mind.",
+        "Used colour changes between sections to give long pages some rhythm without relying on animation.",
       ],
     },
     {
@@ -109,10 +109,20 @@ export const portfolioContent: PortfolioContent = {
         { label: "Code", href: "https://github.com/apnatvar/open-workout" },
       ],
       points: [
-        "An open-source workout planner that keeps its data in your browser.",
-        "Put together a session, log it, then share or print the plan. No account needed.",
-        "Import and export your data as JSON.",
-        "There’s also a companion plugin and local MCP server for AI clients that can build sessions from the exercise library.",
+        "Forme is an open-source Next.js and React workout planner built with TypeScript and browser-local IndexedDB storage.",
+        "Build sessions from an exercise library, log workouts, and share or print a plan. No account required.",
+        "Zod-validated JSON import and export make it easy to move or back up your data.",
+        "A companion plugin and local MCP server let compatible AI clients generate workouts from the exercise dataset.",
+      ],
+    },
+    {
+      title: "Web & SEO Skills",
+      category: "Open source",
+      links: [{ label: "Repository", href: "https://github.com/apnatvar/web-development-and-online-marketing-skills" }],
+      points: [
+        "Reusable skills, documentation, and scripts for web-development and online-marketing workflows.",
+        "Includes Next.js marketing-site builds, rendering and performance reviews, technical SEO guardrails, and website analysis.",
+        "A public workflow library: a place to inspect the instructions and checks behind the implementation work.",
       ],
     },
     {
@@ -129,8 +139,9 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "My final-year thesis: a prototype for adaptive traffic control using satellite traffic data.",
-        "The idea was to reduce reliance on roadside hardware and make deployment easier to maintain.",
+        "Final-year thesis exploring adaptive traffic control using satellite traffic data.",
+        "Built a proof of concept aimed at reducing the need for roadside hardware.",
+        "Focused on deployment cost and the work needed to maintain a traffic control system.",
       ],
     },
     {
@@ -143,22 +154,24 @@ export const portfolioContent: PortfolioContent = {
         },
       ],
       points: [
-        "A small Windows app in Python that consolidates financial data into reports for auditors.",
+        "Built a standalone Windows app in Python to consolidate financial data and generate reports for auditors.",
       ],
     },
     {
       title: "Chattybot",
       category: "Automation",
-      links: [{ label: "Code", href: "https://github.com/apnatvar/chattybot" }],
+      links: [{ label: "Profile notes", href: "https://github.com/apnatvar" }],
       points: [
-        "A chatbot that can be hosted on your own infrastructure and added to a website as a widget.",
-        "It uses a site’s pages and product catalogue to answer questions and point visitors to useful links.",
-        "Includes encrypted site credentials, fallback replies, and a Docker setup.",
+        "Built a self-hostable, multi-tenant chatbot with a widget websites can embed.",
+        "It uses each site's pages and product catalogue to answer questions and point people to relevant links.",
+        "Added encrypted site credentials, fallback replies, and a Docker deployment setup.",
       ],
     },
   ],
   capabilities: {
     services: [
+      "front-end development with Next.js, React, and TypeScript",
+      "interface design and implementation",
       "Next.js technical SEO",
       "programmatic SEO",
       "AI-assisted workflow automation",

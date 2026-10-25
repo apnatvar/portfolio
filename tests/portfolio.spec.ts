@@ -7,6 +7,8 @@ const pageErrors = new WeakMap<Page, string[]>();
 
 const routes = [
   "/",
+  "/front-end",
+  "/seo",
   "/about-ap",
   "/hire-ap",
   "/services",
@@ -97,6 +99,7 @@ test.describe("public routes", () => {
       }
 
       if (path !== "/test") await expect(page.getByRole("heading", { level: 1 }).first()).toBeVisible();
+      if (!noindexRoutes.has(path)) await expect(page.getByPlaceholder("send me a message")).toBeVisible();
 
       const internalTargets = await page.locator("main a[href]").evaluateAll((anchors) => {
         const currentOrigin = window.location.origin;
@@ -175,8 +178,8 @@ test("creative native navigation opens and closes with the keyboard at normal mo
   await page.mouse.wheel(0, 500);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
   await page.locator("#studio").scrollIntoViewIfNeeded();
-  const openMenu = page.locator('[data-burger]');
-  await expect(openMenu).toHaveAttribute("aria-hidden", "false");
+  const openMenu = page.getByRole("button", { name: "Open index menu", exact: true });
+  await expect(openMenu).toBeVisible();
   await openMenu.focus();
   await page.keyboard.press("Enter");
   const dialog = page.locator("#creative-navigation");
@@ -202,9 +205,33 @@ test("creative gallery follows the scroll and keeps focused project links in vie
   await page.screenshot({ path: ".qa-results/creative-gallery-motion.png" });
 });
 
+test("GSAP smooth scrolling preserves fixed navigation, form focus, and route cleanup", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const path of ["/about-ap", "/hire-ap"]) {
+    await page.goto(path);
+    await expect.poll(() => page.locator("[data-smooth-content]").evaluate(element => getComputedStyle(element).transform)).not.toBe("none");
+    await page.mouse.wheel(0, 500);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
+    const navigation = page.getByRole("navigation", { name: "Primary navigation" });
+    await expect.poll(() => navigation.evaluate(element => {
+      const bounds = element.getBoundingClientRect();
+      return bounds.top >= 0 && bounds.bottom <= window.innerHeight;
+    })).toBe(true);
+    await expect(page.locator("[data-smooth-content] .folio-nav")).toHaveCount(0);
+    await page.getByLabel("Your message", { exact: true }).fill("A local focus check.");
+    await page.getByRole("button", { name: "Send message", exact: true }).click();
+    await expect(page.getByLabel("Your email address", { exact: true })).toBeFocused();
+  }
+  await page.getByRole("button", { name: "Open index menu", exact: true }).click();
+  await page.getByRole("link", { name: "Technical SEO", exact: false }).click();
+  await expect(page).toHaveURL(/\/seo$/);
+  await expect(page.locator("[data-smooth-wrapper]")).toHaveCount(0);
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).position)).not.toBe("fixed");
+});
+
 test("metadata checker reports valid and invalid markup without a network request", async ({ page }) => {
   let requests = 0;
-  page.on("request", () => { requests++; });
+  page.on("request", request => { if (["fetch", "xhr"].includes(request.resourceType()) && !new URL(request.url()).searchParams.has("_rsc")) requests++; });
   await page.goto("/tools/metadata-checker");
   const textarea = page.getByLabel("HTML source");
   await textarea.fill('<!doctype html><html><head><title>Example</title><meta name="description" content="Useful description"><link rel="canonical" href="https://example.com/page"><script type="application/ld+json">{"@type":"Thing"}</script></head><body><h1>Example</h1></body></html>');
@@ -261,24 +288,40 @@ test("homepage content and metadata are present in server HTML without JavaScrip
   await context.close();
 });
 
-test("hire form handles mocked success and failure without sending a real message", async ({ page }) => {
+test("message composer validates in two steps and handles mocked success and failure", async ({ page }) => {
   let requestCount = 0;
+  let submittedPayload: Record<string, unknown> | undefined;
   await page.route("**/api/hire-ap", async (route) => {
     requestCount++;
+    submittedPayload = route.request().postDataJSON() as Record<string, unknown>;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({ success: true, message: "QA mock accepted." }),
+      body: JSON.stringify({ success: true, message: "Message sent. Thanks for the note." }),
     });
   });
   await page.goto("/hire-ap");
-  await page.getByLabel("Your email address").fill("qa@example.com");
-  await page.getByLabel("Your message").fill("Automated browser QA message.");
-  await page.getByRole("button", { name: "Submit" }).click();
-  await expect(page.getByText("QA mock accepted.")).toBeVisible();
-  await page.getByRole("dialog").getByRole("button", { name: "Close" }).first().click();
-  await expect(page.getByLabel("Your email address")).toHaveValue("");
-  await expect(page.getByLabel("Your message")).toHaveValue("");
+  const message = page.getByLabel("Your message");
+  const email = page.getByLabel("Your email address");
+  const sendButton = page.getByRole("button", { name: "Send message" });
+  await expect(email).toBeHidden();
+  await sendButton.click();
+  await expect(email).toBeHidden();
+  expect(requestCount).toBe(0);
+
+  await message.fill("Automated browser QA message.");
+  await sendButton.click();
+  await expect(email).toBeVisible();
+  await expect(email).toHaveAttribute("placeholder", "your@email.com");
+  await email.fill("qa@example.com");
+  await sendButton.click();
+  await expect(page.getByRole("region", { name: "Send AP a message" }).getByRole("status")).toContainText("Message sent. Thanks for the note.");
+  expect(submittedPayload).toMatchObject({
+    email: "qa@example.com",
+    message: "Automated browser QA message.",
+    website: "",
+  });
+  expect(requestCount).toBe(1);
 
   await page.unrouteAll();
   await page.route("**/api/hire-ap", async (route) => {
@@ -289,13 +332,12 @@ test("hire form handles mocked success and failure without sending a real messag
       body: JSON.stringify({ success: false, message: "QA mock rejection." }),
     });
   });
-  await page.getByLabel("Your email address").fill("qa@example.com");
+  await page.goto("/hire-ap");
   await page.getByLabel("Your message").fill("Automated browser QA retry.");
-  await page.locator("form").evaluate((form) => {
-    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-  });
-  await expect(page.getByText("QA mock rejection.")).toBeVisible();
+  await page.getByRole("button", { name: "Send message" }).click();
+  await page.getByLabel("Your email address").fill("qa@example.com");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect(page.getByRole("region", { name: "Send AP a message" }).getByRole("alert")).toContainText("Your message couldn’t be sent.");
   await expect(page.getByLabel("Your email address")).toHaveValue("qa@example.com");
   await expect(page.getByLabel("Your message")).toHaveValue("Automated browser QA retry.");
   expect(requestCount).toBe(2);
@@ -310,12 +352,15 @@ test("hire API rejects malformed requests before any external submission", async
     { data: {}, message: "Invalid email address." },
     { data: { email: "not-an-email", message: "Message body" }, message: "Invalid email address." },
     { data: { email: "qa@example.com", message: "   " }, message: "Message is required." },
+    { data: { email: `${"a".repeat(243)}@example.com`, message: "Message body" }, message: undefined },
     { data: { email: "qa@example.com", message: "x".repeat(1201) }, message: "Message is too long." },
   ];
   for (const { data, message } of invalidRequests) {
     const response = await request.post("/api/hire-ap", { data });
     expect(response.status()).toBe(400);
-    expect(await response.json()).toMatchObject({ success: false, message });
+    const body = await response.json();
+    expect(body.success).toBe(false);
+    if (message) expect(body.message).toBe(message);
   }
 });
 
@@ -353,5 +398,5 @@ test("browser tools calculate results and report unavailable clipboard access", 
   await expect(page.getByText("Recommendation", { exact: true })).toBeVisible();
   await expect(page.getByText("For: QA framework migration")).toBeVisible();
   await page.getByRole("button", { name: "Copy text" }).click();
-  await expect(page.locator('p[role="status"]')).toContainText("Clipboard access is unavailable");
+  await expect(page.locator('main p[role="status"]')).toContainText("Clipboard access is unavailable");
 });
